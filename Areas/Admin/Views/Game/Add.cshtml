@@ -1,0 +1,246 @@
+﻿@using System.Runtime.InteropServices.JavaScript
+@{
+    Layout = "_DashboardLayout";
+}
+
+<div class="contents">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="shop-breadcrumb">
+
+                <div class="breadcrumb-main">
+                    <h4 class="text-capitalize breadcrumb-title">add Game</h4>
+                    <div class="breadcrumb-action justify-content-center flex-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="#"><i class="uil uil-estate"></i>Game</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">add game</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12">
+<!-- Start: product page -->
+<div class="product-add global-shadow px-sm-30 py-sm-50 px-0 py-20 bg-white radius-xl w-100 mb-40">
+<div class="row justify-content-center">
+<div class="col-xxl-7 col-lg-10">
+    <div class="mx-sm-30 mx-20 ">
+        <!-- Start: card -->
+        <div class="card add-product p-sm-30 p-20 mb-30">
+            <div class="card-body p-0">
+                <div class="card-header">
+                    <h6 class="fw-500">About Game</h6>
+                </div>
+                <!-- Start: card body -->
+                <div class="add-product__body px-sm-40 px-20">
+                    <!-- Start: form -->
+                    <form>
+                        <!-- form group -->
+                        <div class="form-group">
+                            <label for="name1">Title</label>
+                            <input type="text" class="form-control" id="name1">
+                        </div>
+
+                        <!-- form group 1 -->
+                        <div class="form-group">
+                            <label for="name2">Release</label>
+                            <div class="dm-date-picker">
+                                <div class="form-group mb-0 form-group-calender">
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control form-control-lg" id="datepicker3" placeholder="YYYY-MM-DD">
+                                        <a href="#">
+                                            <img class="svg" src="~/admin/img/svg/calendar.svg" alt="calendar">
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- form group 2 -->
+                        <div class="form-group">
+                            <div class="">
+                                <label for="">
+                                    category
+                                </label>
+
+                                <div class="dm-tag-mode">
+
+                                    <div class="dm-select">
+
+                                        <select name="select-tag" id="select-tag" class="form-control " multiple="multiple">
+                                            <option value="01">Option 1</option>
+                                            <option value="02">Option 2</option>
+                                            <option value="03">Option 3</option>
+                                            <option value="04">Option 4</option>
+                                            <option value="05">Option 5</option>
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- form group 3 -->
+                        <div class="form-group quantity-appearance">
+                            <label>price</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <img class="svg" src="~/admin/img/svg/vietnamese-dong.svg" alt="">
+                                    </span>
+                                </div>
+                                <div class="pt_Quantity">
+                                    <input type="number" class="form-control" min="0" max="100" step="1" value="0" data-inc="1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- form group 6 -->
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Description</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name8">Publisher</label>
+
+                            <div class="dm-select-list d-flex align-center">
+                                <div class="dm-select">
+                                    <select name="select-search" id="select-search" class="form-control ">
+                                        <option value="01">Option 1</option>
+                                        <option value="02">Option 2</option>
+                                        <option value="03">Option 3</option>
+                                    </select>
+                                </div>
+                                <div class="ms-1">
+                                    <button type="button" class="transparent uil uil uil-plus-circle border-0" style="font-size: 22px"
+                                            onclick="window.open('https://localhost:7047/admin/games/list', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- form group 7 -->
+                        <div class="form-group">
+                            <label for="name9">Developer</label>
+
+                            <div class="dm-select-list d-flex align-center">
+
+                                <div class="dm-select ">
+
+                                    <select name="select-search2" id="select-search2" class="form-control ">
+                                        <option value="01">Option 1</option>
+                                        <option value="02">Option 2</option>
+                                        <option value="03">Option 3</option>
+                                    </select>
+
+                                </div>
+                                <div class="ms-1">
+                                    <button type="button" class="transparent uil uil uil-plus-circle border-0" style="font-size: 22px"
+                                            onclick="window.open('https://localhost:7047/admin/games/list', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- form group 8 -->
+                        <div class="form-group mb-0">
+                            <label for="name10">Download link</label>
+                            <input type="text" class="form-control" id="name10">
+                        </div>
+                    </form>
+                    <!-- End: form -->
+                </div>
+                <!-- End: card body -->
+            </div>
+        </div>
+        <!-- End: card -->
+        <!-- Start: card -->
+        <div class="card add-product p-sm-30 p-20 ">
+            <div class="card-body p-0">
+                <div class="card-header">
+                    <h6 class="fw-500">Product image</h6>
+                </div>
+                <!-- Start: product body -->
+                <div class="add-product__body-img px-sm-40 px-20">
+                    <label for="upload" class="file-upload__label">
+                        <span class="upload-product-img px-10 d-block">
+                            <span class="file-upload">
+                                <img class="svg" src="~/admin/img/svg/upload.svg" alt="">
+                                <input id="upload" class="file-upload__input" type="file" name="file-upload">
+                            </span>
+                            <span class="pera">Drag and drop an image</span>
+                            <span>
+                                or <a href="#" class="color-secondary">Browse</a> to choose a
+                                file
+                            </span>
+                        </span>
+                    </label>
+                    <div class="upload-product-media d-flex justify-content-between align-items-center mt-25">
+                        <div class="upload-media-area d-flex">
+                            <img src="~/admin/img/food-restaurant-media.png" alt="img">
+                            <div class=" upload-media-area__title  d-flex flex-wrap align-items-center ms-10">
+                                <div>
+                                    <p>Product_image.jpg</p>
+                                    <span>68.8 KB</span>
+                                </div>
+                                <div class="upload-media-area__btn">
+                                    <button type="button" class="transparent rounded-circle wh-30 border-0 color-danger">
+                                        <img class="svg" src="~/admin/img/svg/trash-2.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End: product body -->
+            </div>
+        </div>
+        <!-- End: card -->
+
+        <!-- Start: button group -->
+        <div class="button-group add-product-btn d-flex justify-content-sm-end justify-content-center mt-40">
+
+
+            <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize">
+                cancel
+            </button>
+
+
+            <button class="btn btn-primary btn-default btn-squared text-capitalize">
+                save product
+            </button>
+
+
+        </div>
+        <!-- End: button group -->
+    </div>
+</div>
+<!-- ends: col-lg-8 -->
+</div>
+</div>
+<!-- End: Product page -->
+</div>
+<!-- ends: col-lg-12 -->
+</div>
+</div>
+
+</div>

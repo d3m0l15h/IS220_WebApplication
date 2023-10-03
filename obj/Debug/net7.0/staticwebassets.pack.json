@@ -1,0 +1,3529 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\datdao2003\\.nuget\\packages\\ntoastnotify\\8.0.0\\contentFiles\\any\\net6.0\\wwwroot\\noty.js",
+      "PackagePath": "staticwebassets\\noty.js"
+    },
+    {
+      "Id": "C:\\Users\\datdao2003\\.nuget\\packages\\ntoastnotify\\8.0.0\\contentFiles\\any\\net6.0\\wwwroot\\toastr.js",
+      "PackagePath": "staticwebassets\\toastr.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\IS220_WebApplication.bundle.scp.css",
+      "PackagePath": "staticwebassets\\IS220_WebApplication.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\js\\apexmain.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\js\\apexmain.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\js\\charts.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\js\\charts.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\js\\drag-drop.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\js\\drag-drop.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\js\\footable.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\js\\footable.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\js\\full-calendar.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\js\\full-calendar.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\js\\googlemap-init.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\js\\googlemap-init.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\js\\icon-loader.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\js\\icon-loader.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\js\\jvectormap-init.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\js\\jvectormap-init.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\js\\leaflet-init.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\js\\leaflet-init.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\js\\main.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\js\\main.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\_css-variables.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\_css-variables.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\_table-of-contents.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\_table-of-contents.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_404.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_404.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_add-product.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_add-product.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_admin-page.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_admin-page.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_alert.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_alert.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_app-ui.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_app-ui.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_avatar.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_avatar.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_badges.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_badges.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_banner.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_banner.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_blog.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_blog.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_bookmark.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_bookmark.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_breadcrumb.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_breadcrumb.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_buttons.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_buttons.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_calendar.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_calendar.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_card-charts.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_card-charts.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_card-social.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_card-social.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_cards.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_cards.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_carousel.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_carousel.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_cart.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_cart.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_change-log.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_change-log.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_chat.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_chat.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_checkbox.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_checkbox.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_checkout.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_checkout.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_circle-progress.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_circle-progress.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_collapses.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_collapses.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_coming-soon.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_coming-soon.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_comments.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_comments.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_course.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_course.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_dark-mode.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_dark-mode.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_dashboard-base.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_dashboard-base.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_data-table.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_data-table.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_date-picker.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_date-picker.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_drag-drop.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_drag-drop.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_drawer.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_drawer.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_dropdown.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_dropdown.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_empty.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_empty.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_faq.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_faq.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_fileM.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_fileM.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_footer.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_footer.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_form-layouts.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_form-layouts.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_form.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_form.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_gallery.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_gallery.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_grid.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_grid.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_icons.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_icons.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_import.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_import.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_input.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_input.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_job.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_job.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_kanban-board.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_kanban-board.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_knowledgeable.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_knowledgeable.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_list.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_list.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_menu.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_menu.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_message.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_message.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_modal.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_modal.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_navbar.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_navbar.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_note.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_note.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_notification.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_notification.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_order.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_order.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_pageHeader.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_pageHeader.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_pagination.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_pagination.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_preloader.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_preloader.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_pricing.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_pricing.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_profile-feature.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_profile-feature.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_profile.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_profile.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_progress-bar.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_progress-bar.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_projects.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_projects.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_radio.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_radio.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_rate.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_rate.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_result.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_result.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_search.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_search.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_select.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_select.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_shop.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_shop.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_sidebar.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_sidebar.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_skeleton.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_skeleton.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_slider.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_slider.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_spins.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_spins.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_statistics.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_statistics.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_steps.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_steps.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_support-ticket.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_support-ticket.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_switch.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_switch.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_tab.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_tab.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_table.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_table.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_tables.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_tables.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_tag.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_tag.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_task-app.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_task-app.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_team.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_team.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_terms.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_terms.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_testimonial.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_testimonial.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_time-picker.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_time-picker.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_timeline.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_timeline.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_todo.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_todo.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_tooltip.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_tooltip.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_upload.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_upload.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\_users.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\_users.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\component\\components.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\component\\components.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\element\\_date-ranger.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\element\\_date-ranger.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\element\\_social.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\element\\_social.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\element\\elements.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\element\\elements.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\general\\_general.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\general\\_general.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\general\\_keyframes.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\general\\_keyframes.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\general\\_utility-classes.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\general\\_utility-classes.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\_btn-shadow.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\_btn-shadow.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\_btn-transparent.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\_btn-transparent.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\_buttons.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\_buttons.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\_colors-classes.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\_colors-classes.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\_custom-scrollbar.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\_custom-scrollbar.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\_forms.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\_forms.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\_functions.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\_functions.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\_gradient.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\_gradient.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\_helpers.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\_helpers.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\_hover.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\_hover.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\_media-queries.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\_media-queries.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\_overlay.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\_overlay.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\_utility-classes.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\_utility-classes.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\mixins\\mixins.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\mixins\\mixins.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\page\\_avatar.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\page\\_avatar.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\page\\_badge.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\page\\_badge.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\page\\_buttons.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\page\\_buttons.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\page\\_card.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\page\\_card.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\page\\_contact.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\page\\_contact.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\page\\_email.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\page\\_email.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\page\\_map.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\page\\_map.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\page\\_social-dashboard.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\page\\_social-dashboard.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\page\\maintenance.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\page\\maintenance.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\page\\pages.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\page\\pages.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\responsive.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\responsive.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\theme_assets\\sass\\style.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\theme_assets\\sass\\style.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\MarkerCluster.Default.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\MarkerCluster.Default.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\MarkerCluster.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\MarkerCluster.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\bootstrap.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\bootstrap.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\bootstrap.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\config.bs.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\config.bs.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\maps\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\maps\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_accordion.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_accordion.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_alert.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_alert.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_badge.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_badge.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_breadcrumb.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_breadcrumb.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_button-group.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_button-group.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_buttons.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_buttons.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_card.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_card.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_carousel.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_carousel.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_close.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_close.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_containers.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_containers.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_dropdown.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_dropdown.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_forms.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_forms.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_functions.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_functions.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_grid.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_grid.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_helpers.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_helpers.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_images.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_images.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_list-group.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_list-group.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_media.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_media.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_mixins.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_mixins.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_modal.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_modal.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_nav.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_nav.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_navbar.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_navbar.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_offcanvas.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_offcanvas.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_pagination.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_pagination.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_popover.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_popover.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_progress.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_progress.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_reboot.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_reboot.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_root.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_root.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_spinners.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_spinners.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_tables.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_tables.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_toasts.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_toasts.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_tooltip.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_tooltip.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_transitions.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_transitions.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_type.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_type.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_utilities.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_utilities.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_variables.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\_variables.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\bootstrap-grid.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\bootstrap-grid.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\bootstrap-reboot.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\bootstrap-reboot.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\bootstrap-utilities.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\bootstrap-utilities.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\bootstrap.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\bootstrap.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_floating-labels.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_floating-labels.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_form-check.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_form-check.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_form-control.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_form-control.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_form-range.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_form-range.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_form-select.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_form-select.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_form-text.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_form-text.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_input-group.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_input-group.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_labels.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_labels.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_validation.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\forms\\_validation.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_clearfix.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_clearfix.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_colored-links.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_colored-links.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_position.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_position.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_ratio.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_ratio.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_stretched-link.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_stretched-link.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_text-truncation.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_text-truncation.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_visually-hidden.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\helpers\\_visually-hidden.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_alert.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_alert.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_border-radius.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_border-radius.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_box-shadow.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_box-shadow.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_breakpoints.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_breakpoints.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_buttons.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_buttons.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_caret.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_caret.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_clearfix.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_clearfix.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_color-scheme.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_color-scheme.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_container.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_container.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_deprecate.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_deprecate.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_forms.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_forms.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_gradients.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_gradients.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_grid.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_grid.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_image.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_image.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_list-group.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_list-group.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_lists.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_lists.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_pagination.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_pagination.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_reset-text.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_reset-text.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_resize.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_resize.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_table-variants.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_table-variants.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_text-truncate.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_text-truncate.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_transition.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_transition.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_utilities.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_utilities.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_visually-hidden.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\mixins\\_visually-hidden.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\utilities\\_api.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\utilities\\_api.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\vendor\\_rfs.scss",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\bootstrap\\scss\\vendor\\_rfs.scss"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\daterangepicker.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\daterangepicker.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\fontawesome.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\fontawesome.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\footable.standalone.min.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\footable.standalone.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\fullcalendar@5.2.0.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\fullcalendar@5.2.0.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\images\\layers.png",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\images\\layers.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\images\\marker-icon-2x.png",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\images\\marker-icon-2x.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\images\\marker-icon.png",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\images\\marker-icon.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\images\\marker-shadow.png",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\images\\marker-shadow.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\jquery-jvectormap-2.0.5.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\jquery-jvectormap-2.0.5.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\jquery.mCustomScrollbar.min.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\jquery.mCustomScrollbar.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\leaflet.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\leaflet.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\line-awesome.min.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\line-awesome.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\magnific-popup.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\magnific-popup.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\select2.min.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\select2.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\slick.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\slick.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\star-rating-svg.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\star-rating-svg.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\trumbowyg.min.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\trumbowyg.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\css\\wickedpicker.min.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\css\\wickedpicker.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\Jost-Bold.ttf",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\Jost-Bold.ttf"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\Jost-Medium.ttf",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\Jost-Medium.ttf"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\Jost-Regular.ttf",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\Jost-Regular.ttf"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\Jost-SemiBold.ttf",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\Jost-SemiBold.ttf"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-brands-400.eot"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-brands-400.woff"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-regular-400.eot"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-regular-400.woff"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-solid-900.eot"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-solid-900.woff"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\fontawesome\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-brands-400.eot",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-brands-400.eot"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-brands-400.svg",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-brands-400.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-brands-400.ttf",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-brands-400.woff",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-brands-400.woff"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-brands-400.woff2",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-brands-400.woff2"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-regular-400.eot",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-regular-400.eot"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-regular-400.svg",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-regular-400.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-regular-400.ttf",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-regular-400.woff",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-regular-400.woff"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-regular-400.woff2",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-regular-400.woff2"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-solid-900.eot",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-solid-900.eot"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-solid-900.svg",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-solid-900.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-solid-900.ttf",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-solid-900.woff",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-solid-900.woff"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\fonts\\la-solid-900.woff2",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\fonts\\la-solid-900.woff2"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\Chart.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\Chart.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\accordion.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\accordion.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\apexcharts.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\apexcharts.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\autoComplete.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\autoComplete.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\bootstrap\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\bootstrap\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\bootstrap\\popper.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\bootstrap\\popper.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\daterangepicker.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\daterangepicker.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\drawer.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\drawer.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\dynamicBadge.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\dynamicBadge.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\dynamicCheckbox.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\dynamicCheckbox.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\footable.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\footable.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\fullcalendar@5.2.0.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\fullcalendar@5.2.0.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\google-chart.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\google-chart.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\jquery-jvectormap-2.0.5.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\jquery-jvectormap-2.0.5.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\jquery-jvectormap-world-mill-en.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\jquery-jvectormap-world-mill-en.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\jquery.countdown.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\jquery.countdown.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\jquery.filterizr.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\jquery.filterizr.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\jquery.magnific-popup.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\jquery.magnific-popup.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\jquery.peity.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\jquery.peity.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\jquery.star-rating-svg.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\jquery.star-rating-svg.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\jquery\\jquery-3.5.1.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\jquery\\jquery-3.5.1.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\jquery\\jquery-ui.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\jquery\\jquery-ui.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\leaflet.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\leaflet.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\leaflet.markercluster.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\leaflet.markercluster.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\loader.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\loader.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\message.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\message.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\moment.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\moment.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\moment\\moment.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\moment\\moment.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\muuri.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\muuri.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\notification.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\notification.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\popover.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\popover.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\select2.full.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\select2.full.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\slick.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\slick.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\trumbowyg.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\trumbowyg.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\assets\\vendor_assets\\js\\wickedpicker.min.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\vendor_assets\\js\\wickedpicker.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\165.png",
+      "PackagePath": "staticwebassets\\admin\\img\\165.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\166.png",
+      "PackagePath": "staticwebassets\\admin\\img\\166.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\287.png",
+      "PackagePath": "staticwebassets\\admin\\img\\287.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\315.png",
+      "PackagePath": "staticwebassets\\admin\\img\\315.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\325.png",
+      "PackagePath": "staticwebassets\\admin\\img\\325.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\3d-message.png",
+      "PackagePath": "staticwebassets\\admin\\img\\3d-message.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\506.png",
+      "PackagePath": "staticwebassets\\admin\\img\\506.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\7.11ddef61.png",
+      "PackagePath": "staticwebassets\\admin\\img\\7.11ddef61.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\907.png",
+      "PackagePath": "staticwebassets\\admin\\img\\907.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\99.png",
+      "PackagePath": "staticwebassets\\admin\\img\\99.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\admin-bg-dark.png",
+      "PackagePath": "staticwebassets\\admin\\img\\admin-bg-dark.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\admin-bg-light.png",
+      "PackagePath": "staticwebassets\\admin\\img\\admin-bg-light.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\alex-suprun.png",
+      "PackagePath": "staticwebassets\\admin\\img\\alex-suprun.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\american-express.png",
+      "PackagePath": "staticwebassets\\admin\\img\\american-express.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ap-author.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ap-author.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ap-header.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ap-header.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author-more.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author-more.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author-nav.jpg",
+      "PackagePath": "staticwebassets\\admin\\img\\author-nav.jpg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author-nav1.jpg",
+      "PackagePath": "staticwebassets\\admin\\img\\author-nav1.jpg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\1.jpg",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\1.jpg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\2.jpg",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\2.jpg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\3.jpg",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\3.jpg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\4.jpg",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\4.jpg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\e1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\e1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\e2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\e2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\e3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\e3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\e4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\e4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\e5.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\e5.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\e6.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\e6.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\e7.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\e7.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\profile.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\profile.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\robert-1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\robert-1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\robert-2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\robert-2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\robert-3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\robert-3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\robert-4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\robert-4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\author\\robert-5.png",
+      "PackagePath": "staticwebassets\\admin\\img\\author\\robert-5.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\bg-16.png",
+      "PackagePath": "staticwebassets\\admin\\img\\bg-16.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\bg2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\bg2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\bg3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\bg3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\bg4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\bg4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog-author.jpg",
+      "PackagePath": "staticwebassets\\admin\\img\\blog-author.jpg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog-details.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog-details.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog-single1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog-single1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog-single2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog-single2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog-single3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog-single3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog-single4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog-single4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog10.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog10.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog11.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog11.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog5.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog5.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog6.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog6.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog7.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog7.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog8.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog8.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\blog9.png",
+      "PackagePath": "staticwebassets\\admin\\img\\blog9.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\book-open.png",
+      "PackagePath": "staticwebassets\\admin\\img\\book-open.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\bookmark.png",
+      "PackagePath": "staticwebassets\\admin\\img\\bookmark.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\bookmark2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\bookmark2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\bookmark3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\bookmark3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\bookmark4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\bookmark4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\boss-chair.png",
+      "PackagePath": "staticwebassets\\admin\\img\\boss-chair.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\bottles.png",
+      "PackagePath": "staticwebassets\\admin\\img\\bottles.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\brightland_3744.png",
+      "PackagePath": "staticwebassets\\admin\\img\\brightland_3744.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\adidas.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\adidas.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\adobe.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\adobe.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\chrome.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\chrome.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\facebook.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\facebook.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\firefox.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\firefox.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\google.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\google.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\instagram.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\instagram.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\internet-explorer.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\internet-explorer.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\linkedin.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\linkedin.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\microsoft.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\microsoft.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\opera.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\opera.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\safari.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\safari.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\slack.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\slack.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\twitter.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\twitter.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\browser\\wordpress.png",
+      "PackagePath": "staticwebassets\\admin\\img\\browser\\wordpress.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\cart1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\cart1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\cart2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\cart2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\cart3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\cart3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\cart4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\cart4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\chair.png",
+      "PackagePath": "staticwebassets\\admin\\img\\chair.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\chair2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\chair2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\chair3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\chair3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\chrome.png",
+      "PackagePath": "staticwebassets\\admin\\img\\chrome.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\coffe-glass.png",
+      "PackagePath": "staticwebassets\\admin\\img\\coffe-glass.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\color-palette.png",
+      "PackagePath": "staticwebassets\\admin\\img\\color-palette.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\cover.png",
+      "PackagePath": "staticwebassets\\admin\\img\\cover.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\cover2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\cover2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\cover3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\cover3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\cover5.png",
+      "PackagePath": "staticwebassets\\admin\\img\\cover5.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\cover6.png",
+      "PackagePath": "staticwebassets\\admin\\img\\cover6.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\creativ-bag.png",
+      "PackagePath": "staticwebassets\\admin\\img\\creativ-bag.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\cup-card.png",
+      "PackagePath": "staticwebassets\\admin\\img\\cup-card.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\cup-glass.png",
+      "PackagePath": "staticwebassets\\admin\\img\\cup-glass.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\danial.png",
+      "PackagePath": "staticwebassets\\admin\\img\\danial.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\dark.png",
+      "PackagePath": "staticwebassets\\admin\\img\\dark.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\demo5-banner.png",
+      "PackagePath": "staticwebassets\\admin\\img\\demo5-banner.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\design.png",
+      "PackagePath": "staticwebassets\\admin\\img\\design.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\designcurse.png",
+      "PackagePath": "staticwebassets\\admin\\img\\designcurse.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\digital-chair.png",
+      "PackagePath": "staticwebassets\\admin\\img\\digital-chair.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\document.png",
+      "PackagePath": "staticwebassets\\admin\\img\\document.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\dribbble.png",
+      "PackagePath": "staticwebassets\\admin\\img\\dribbble.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse10.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse10.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse11.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse11.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse12.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse12.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse13.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse13.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse15.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse15.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse5.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse5.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse6.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse6.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse7.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse7.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse8.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse8.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ellipse9.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ellipse9.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\eng.png",
+      "PackagePath": "staticwebassets\\admin\\img\\eng.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\favicon.png",
+      "PackagePath": "staticwebassets\\admin\\img\\favicon.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\fc1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\fc1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\fc2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\fc2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\fc3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\fc3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\fc4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\fc4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\feature-card-image7.png",
+      "PackagePath": "staticwebassets\\admin\\img\\feature-card-image7.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\firefox.png",
+      "PackagePath": "staticwebassets\\admin\\img\\firefox.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\flag.png",
+      "PackagePath": "staticwebassets\\admin\\img\\flag.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\flip-chair.png",
+      "PackagePath": "staticwebassets\\admin\\img\\flip-chair.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\food-restaurant-media.png",
+      "PackagePath": "staticwebassets\\admin\\img\\food-restaurant-media.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\furniture.jpg",
+      "PackagePath": "staticwebassets\\admin\\img\\furniture.jpg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\furniture2.jpg",
+      "PackagePath": "staticwebassets\\admin\\img\\furniture2.jpg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\furniture3.jpg",
+      "PackagePath": "staticwebassets\\admin\\img\\furniture3.jpg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\furniture4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\furniture4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\furniture5.png",
+      "PackagePath": "staticwebassets\\admin\\img\\furniture5.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\gallery.png",
+      "PackagePath": "staticwebassets\\admin\\img\\gallery.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\gallery10.png",
+      "PackagePath": "staticwebassets\\admin\\img\\gallery10.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\gallery11.png",
+      "PackagePath": "staticwebassets\\admin\\img\\gallery11.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\gallery2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\gallery2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\gallery3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\gallery3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\gallery4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\gallery4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\gallery5.png",
+      "PackagePath": "staticwebassets\\admin\\img\\gallery5.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\gallery6.png",
+      "PackagePath": "staticwebassets\\admin\\img\\gallery6.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\gallery7.png",
+      "PackagePath": "staticwebassets\\admin\\img\\gallery7.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\gallery8.png",
+      "PackagePath": "staticwebassets\\admin\\img\\gallery8.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\gallery9.png",
+      "PackagePath": "staticwebassets\\admin\\img\\gallery9.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ger.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ger.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\giorgio.png",
+      "PackagePath": "staticwebassets\\admin\\img\\giorgio.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\glass-cup.png",
+      "PackagePath": "staticwebassets\\admin\\img\\glass-cup.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\glass-trophy.png",
+      "PackagePath": "staticwebassets\\admin\\img\\glass-trophy.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\glass.png",
+      "PackagePath": "staticwebassets\\admin\\img\\glass.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\google-Icon.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\google-Icon.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\group3488.png",
+      "PackagePath": "staticwebassets\\admin\\img\\group3488.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\headphone.png",
+      "PackagePath": "staticwebassets\\admin\\img\\headphone.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\home.png",
+      "PackagePath": "staticwebassets\\admin\\img\\home.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\inbox-1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\inbox-1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\inbox-2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\inbox-2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\inbox-3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\inbox-3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\iraq.png",
+      "PackagePath": "staticwebassets\\admin\\img\\iraq.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\it1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\it1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\it2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\it2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\it3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\it3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\it4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\it4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\it5.png",
+      "PackagePath": "staticwebassets\\admin\\img\\it5.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\it6.png",
+      "PackagePath": "staticwebassets\\admin\\img\\it6.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\it7.png",
+      "PackagePath": "staticwebassets\\admin\\img\\it7.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\jpg@2x.png",
+      "PackagePath": "staticwebassets\\admin\\img\\jpg@2x.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\juice-2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\juice-2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\juse.png",
+      "PackagePath": "staticwebassets\\admin\\img\\juse.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\light.png",
+      "PackagePath": "staticwebassets\\admin\\img\\light.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\logo-dark.png",
+      "PackagePath": "staticwebassets\\admin\\img\\logo-dark.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\logo-dark.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\logo-dark.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\logo-white.png",
+      "PackagePath": "staticwebassets\\admin\\img\\logo-white.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\logo-white.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\logo-white.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ltr.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ltr.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\mac-pro.png",
+      "PackagePath": "staticwebassets\\admin\\img\\mac-pro.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\mail.png",
+      "PackagePath": "staticwebassets\\admin\\img\\mail.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\mail\\1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\mail\\1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\mail\\2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\mail\\2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\mail\\3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\mail\\3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\mail\\4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\mail\\4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\markar-icon.png",
+      "PackagePath": "staticwebassets\\admin\\img\\markar-icon.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\microphone.png",
+      "PackagePath": "staticwebassets\\admin\\img\\microphone.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\move.png",
+      "PackagePath": "staticwebassets\\admin\\img\\move.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ms.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ms.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\nike.png",
+      "PackagePath": "staticwebassets\\admin\\img\\nike.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\nopath.png",
+      "PackagePath": "staticwebassets\\admin\\img\\nopath.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\only-juss.png",
+      "PackagePath": "staticwebassets\\admin\\img\\only-juss.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\paypal.png",
+      "PackagePath": "staticwebassets\\admin\\img\\paypal.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\pdf.png",
+      "PackagePath": "staticwebassets\\admin\\img\\pdf.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\pdf@2x.png",
+      "PackagePath": "staticwebassets\\admin\\img\\pdf@2x.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\plate.png",
+      "PackagePath": "staticwebassets\\admin\\img\\plate.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\play.png",
+      "PackagePath": "staticwebassets\\admin\\img\\play.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\png@2x.png",
+      "PackagePath": "staticwebassets\\admin\\img\\png@2x.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\post-image.png",
+      "PackagePath": "staticwebassets\\admin\\img\\post-image.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\premium-clock.png",
+      "PackagePath": "staticwebassets\\admin\\img\\premium-clock.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\profile_bg.png",
+      "PackagePath": "staticwebassets\\admin\\img\\profile_bg.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\profile_bg_2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\profile_bg_2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\psd.png",
+      "PackagePath": "staticwebassets\\admin\\img\\psd.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\psd@2x.png",
+      "PackagePath": "staticwebassets\\admin\\img\\psd@2x.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\qr.png",
+      "PackagePath": "staticwebassets\\admin\\img\\qr.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\rectangle381.png",
+      "PackagePath": "staticwebassets\\admin\\img\\rectangle381.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\reply-1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\reply-1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\review1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\review1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\review2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\review2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\room.png",
+      "PackagePath": "staticwebassets\\admin\\img\\room.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\round-box.png",
+      "PackagePath": "staticwebassets\\admin\\img\\round-box.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\rtl.png",
+      "PackagePath": "staticwebassets\\admin\\img\\rtl.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\sale.png",
+      "PackagePath": "staticwebassets\\admin\\img\\sale.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\setting.png",
+      "PackagePath": "staticwebassets\\admin\\img\\setting.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\shoes.png",
+      "PackagePath": "staticwebassets\\admin\\img\\shoes.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\side.png",
+      "PackagePath": "staticwebassets\\admin\\img\\side.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\sidebar-feature.png",
+      "PackagePath": "staticwebassets\\admin\\img\\sidebar-feature.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\slack.png",
+      "PackagePath": "staticwebassets\\admin\\img\\slack.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\slide-deatils2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\slide-deatils2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\slide-deatils3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\slide-deatils3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\slider-details.png",
+      "PackagePath": "staticwebassets\\admin\\img\\slider-details.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\spa.png",
+      "PackagePath": "staticwebassets\\admin\\img\\spa.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\stats.png",
+      "PackagePath": "staticwebassets\\admin\\img\\stats.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\024-like-active.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\024-like-active.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\024-like-success.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\024-like-success.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\024-like.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\024-like.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\155-credit-card-active.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\155-credit-card-active.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\155-credit-card-success.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\155-credit-card-success.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\155-credit-card.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\155-credit-card.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\3.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\3.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\404.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\404.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\activity.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\activity.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\address-success.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\address-success.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\address.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\address.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\adobe.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\adobe.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\adress-active.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\adress-active.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\alarm.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\alarm.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\alert-circle.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\alert-circle.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\alert-octagon.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\alert-octagon.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\align-center-alt.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\align-center-alt.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\align-left.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\align-left.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\archive.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\archive.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\arrow-danger-down.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\arrow-danger-down.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\arrow-down.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\arrow-down.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\arrow-growth.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\arrow-growth.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\arrow-left.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\arrow-left.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\arrow-success-up.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\arrow-success-up.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\arrow-up.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\arrow-up.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\at-sign.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\at-sign.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\at.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\at.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\at2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\at2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\at3.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\at3.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\at4.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\at4.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\author-more.png",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\author-more.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\award.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\award.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\banne-group21.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\banne-group21.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\bar-chart-2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\bar-chart-2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\bars.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\bars.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\bell.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\bell.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\bitcoin.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\bitcoin.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\book-alt.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\book-alt.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\book-open.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\book-open.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\book.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\book.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\bookmark.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\bookmark.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\bottomSemicolon.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\bottomSemicolon.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\briefcase.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\briefcase.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\calendar.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\calendar.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\camera.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\camera.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\cart.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\cart.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\chat.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\chat.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\check-circle.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\check-circle.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\check-circle1.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\check-circle1.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\check-square.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\check-square.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\check.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\check.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\checkout.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\checkout.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\checkoutin.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\checkoutin.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\chevron-down.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\chevron-down.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\chevron-left.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\chevron-left.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\chevron-right.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\chevron-right.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\chevron-up.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\chevron-up.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\clipboard.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\clipboard.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\clock-ticket.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\clock-ticket.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\clock-ticket1.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\clock-ticket1.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\clock.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\clock.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\clock2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\clock2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\close.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\close.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\code.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\code.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\columns.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\columns.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\contact.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\contact.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\cool.png",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\cool.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\corner-up-left.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\corner-up-left.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\corner-up-right.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\corner-up-right.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\coupon.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\coupon.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\customer.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\customer.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\dashboard.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\dashboard.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\disc.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\disc.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\documents.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\documents.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\dollar-sign.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\dollar-sign.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\download.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\download.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\edit-2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\edit-2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\edit-3.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\edit-3.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\edit-alt.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\edit-alt.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\edit.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\edit.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\eye-off.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\eye-off.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\eye.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\eye.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\facebook.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\facebook.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\faq-support.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\faq-support.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature-cards10.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature-cards10.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature-cards11.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature-cards11.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature-cards12.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature-cards12.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature-cards5.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature-cards5.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature-cards6.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature-cards6.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature-cards7.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature-cards7.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature-cards8.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature-cards8.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature-cards9.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature-cards9.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature-img.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature-img.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature-lock.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature-lock.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature-upload.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature-upload.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature1.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature1.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature3.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature3.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\feature4.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\feature4.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\file-text.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\file-text.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\file.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\file.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\folder.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\folder.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\frown.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\frown.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\globe.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\globe.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\google.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\google.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\graphic.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\graphic.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\green.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\green.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\grid.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\grid.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\group3320.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\group3320.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\group3396.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\group3396.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\group3474.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\group3474.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\group3488.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\group3488.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\group3503.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\group3503.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\group9010.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\group9010.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\group9060.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\group9060.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\group9102.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\group9102.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\group93352.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\group93352.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\happy.png",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\happy.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\happy2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\happy2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\hard-drive.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\hard-drive.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\heart.png",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\heart.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\heart.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\heart.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\idea.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\idea.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\image.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\image.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\inbox.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\inbox.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\info.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\info.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\instagram.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\instagram.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\key.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\key.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\layers-basic.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\layers-basic.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\layers.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\layers.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\like.png",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\like.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\link-2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\link-2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\link.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\link.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\list.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\list.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\locate.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\locate.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\log-in.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\log-in.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\log-out.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\log-out.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\logo_white.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\logo_white.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\mail.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\mail.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\maintenance.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\maintenance.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\man.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\man.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\map-pin.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\map-pin.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\map.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\map.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\maximize-2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\maximize-2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\meh.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\meh.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\message-square.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\message-square.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\message.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\message.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\message2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\message2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\minus.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\minus.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\more-horizontal.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\more-horizontal.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\more-vertical.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\more-vertical.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\move.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\move.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\not-open.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\not-open.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\notification-basic.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\notification-basic.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\objects.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\objects.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\opened.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\opened.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\paper-plane.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\paper-plane.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\paperclip.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\paperclip.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\pen.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\pen.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\percent.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\percent.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\phone.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\phone.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\picture.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\picture.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\play.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\play.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\plus.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\plus.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\printer.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\printer.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\profit.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\profit.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\profit2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\profit2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\progress1.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\progress1.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\progress2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\progress2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\progress3.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\progress3.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\progress4.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\progress4.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\progress5.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\progress5.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\quote2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\quote2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\repeat.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\repeat.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\revenue.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\revenue.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\search.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\search.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\send.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\send.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\sent.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\sent.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\server.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\server.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\settings-nav.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\settings-nav.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\settings.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\settings.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\share-2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\share-2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\shocked.png",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\shocked.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\shopping-bag.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\shopping-bag.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\shopping-cart.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\shopping-cart.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\signupBottom.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\signupBottom.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\signupIllustration.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\signupIllustration.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\signupTop.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\signupTop.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\slack.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\slack.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\sliders.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\sliders.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\smile.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\smile.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\square.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\square.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\star.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\star.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\suitcase.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\suitcase.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\surface1.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\surface1.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\sync.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\sync.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\tachometer-fast-alt.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\tachometer-fast-alt.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\tag.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\tag.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\thumbs-down.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\thumbs-down.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\thumbs-up.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\thumbs-up.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\ticket-green.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\ticket-green.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\ticket-green1.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\ticket-green1.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\ticket.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\ticket.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\topSemicolon.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\topSemicolon.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\trash-2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\trash-2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\trello.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\trello.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\trending-down.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\trending-down.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\trending-up.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\trending-up.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\twitter.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\twitter.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\upload.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\upload.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\user-basic.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\user-basic.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\user-check.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\user-check.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\user-plus.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\user-plus.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\user-success.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\user-success.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\user.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\user.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\userExtra.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\userExtra.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\users.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\users.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\vietnamese-dong.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\vietnamese-dong.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\whatsapp.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\whatsapp.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\world.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\world.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\x-circle.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\x-circle.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\x-octagon.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\x-octagon.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\x.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\x.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\x2.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\x2.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\svg\\youtube.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\svg\\youtube.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\t-shirt.png",
+      "PackagePath": "staticwebassets\\admin\\img\\t-shirt.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tags.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tags.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tdi.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tdi.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\team-1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\team-1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\team-2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\team-2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\team-3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\team-3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\team-center.png",
+      "PackagePath": "staticwebassets\\admin\\img\\team-center.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\team01.png",
+      "PackagePath": "staticwebassets\\admin\\img\\team01.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\team02.png",
+      "PackagePath": "staticwebassets\\admin\\img\\team02.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\team03.png",
+      "PackagePath": "staticwebassets\\admin\\img\\team03.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\team04.png",
+      "PackagePath": "staticwebassets\\admin\\img\\team04.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\team1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\team1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\team2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\team2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\team3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\team3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm10.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm10.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm11.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm11.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm12.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm12.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm13.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm13.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm14.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm14.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm5.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm5.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm6.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm6.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm7.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm7.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm8.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm8.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tm9.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tm9.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\top.png",
+      "PackagePath": "staticwebassets\\admin\\img\\top.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\tur.png",
+      "PackagePath": "staticwebassets\\admin\\img\\tur.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ug.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ug.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ug1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ug1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ug3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ug3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ug4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ug4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ug5.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ug5.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ug6.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ug6.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ugl1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ugl1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ugl2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ugl2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ugl3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ugl3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ugl4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ugl4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ugl5.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ugl5.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ugl6.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ugl6.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ui\\icons.svg",
+      "PackagePath": "staticwebassets\\admin\\img\\ui\\icons.svg"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ul.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ul.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ul1.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ul1.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ul2.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ul2.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ul3.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ul3.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\ul4.png",
+      "PackagePath": "staticwebassets\\admin\\img\\ul4.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\upload.png",
+      "PackagePath": "staticwebassets\\admin\\img\\upload.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\video-camera.png",
+      "PackagePath": "staticwebassets\\admin\\img\\video-camera.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\visa.png",
+      "PackagePath": "staticwebassets\\admin\\img\\visa.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\web-logo.png",
+      "PackagePath": "staticwebassets\\admin\\img\\web-logo.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\women-bag.png",
+      "PackagePath": "staticwebassets\\admin\\img\\women-bag.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\youtube.png",
+      "PackagePath": "staticwebassets\\admin\\img\\youtube.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\zip.png",
+      "PackagePath": "staticwebassets\\admin\\img\\zip.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\img\\zip@2x.png",
+      "PackagePath": "staticwebassets\\admin\\img\\zip@2x.png"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\json\\icons.json",
+      "PackagePath": "staticwebassets\\admin\\json\\icons.json"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\maps\\style.css.map",
+      "PackagePath": "staticwebassets\\admin\\maps\\style.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\admin\\style.css",
+      "PackagePath": "staticwebassets\\admin\\style.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\JetBrains\\Rider\\IS220_WebApplication\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.IS220_WebApplication.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.IS220_WebApplication.props",
+      "PackagePath": "build\\IS220_WebApplication.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.IS220_WebApplication.props",
+      "PackagePath": "buildMultiTargeting\\IS220_WebApplication.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.IS220_WebApplication.props",
+      "PackagePath": "buildTransitive\\IS220_WebApplication.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

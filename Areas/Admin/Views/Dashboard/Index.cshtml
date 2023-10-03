@@ -1,0 +1,1342 @@
+﻿@{
+    Layout = "_DashboardLayout";
+}
+
+<div class="contents">
+
+<div class="demo3 mb-25 t-thead-bg">
+<div class="container-fluid">
+<div class="row ">
+<div class="col-lg-12">
+
+    <div class="breadcrumb-main">
+        <h4 class="text-capitalize breadcrumb-title">Demo 8</h4>
+        <div class="breadcrumb-action justify-content-center flex-wrap">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#"><i class="uil uil-estate"></i>Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Demo 8</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+</div>
+<div class="col-xxl-3 col-sm-6  col-ssm-12 mb-25">
+    <!-- Card 1  -->
+    <div class="ap-po-details ap-po-details--luodcy  overview-card-shape radius-xl d-flex justify-content-between">
+
+
+        <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
+            <div class="ap-po-details__titlebar">
+                <p>Total Products</p>
+                <h1>100+</h1>
+                <div class="ap-po-details-time">
+                    <span class="color-success">
+                        <i class="las la-arrow-up"></i>
+                        <strong>25.36%</strong>
+                    </span>
+                    <small>Since last month</small>
+                </div>
+            </div>
+            <div class="ap-po-details__icon-area color-primary">
+                <i class="uil uil-arrow-growth"></i>
+            </div>
+        </div>
+
+    </div>
+    <!-- Card 1 End  -->
+</div>
+
+<div class="col-xxl-3 col-sm-6  col-ssm-12 mb-25">
+    <!-- Card 2 -->
+    <div class="ap-po-details ap-po-details--luodcy  overview-card-shape radius-xl d-flex justify-content-between">
+
+
+        <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
+            <div class="ap-po-details__titlebar">
+                <p>Total Orders</p>
+                <h1>30,825</h1>
+                <div class="ap-po-details-time">
+                    <span class="color-success">
+                        <i class="las la-arrow-up"></i>
+                        <strong>25.36%</strong>
+                    </span>
+                    <small>Since last month</small>
+                </div>
+            </div>
+            <div class="ap-po-details__icon-area color-secondary">
+                <i class="uil uil-users-alt"></i>
+            </div>
+        </div>
+
+    </div>
+    <!-- Card 2 End  -->
+</div>
+
+<div class="col-xxl-3 col-sm-6  col-ssm-12 mb-25">
+    <!-- Card 3 -->
+    <div class="ap-po-details ap-po-details--luodcy  overview-card-shape radius-xl d-flex justify-content-between">
+
+
+        <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
+            <div class="ap-po-details__titlebar">
+                <p>Total Sales</p>
+                <h1>$30,825</h1>
+                <div class="ap-po-details-time">
+                    <span class="color-danger">
+                        <i class="las la-arrow-down"></i>
+                        <strong>25.36%</strong>
+                    </span>
+                    <small>Since last month</small>
+                </div>
+            </div>
+            <div class="ap-po-details__icon-area color-success">
+                <i class="uil uil-usd-circle"></i>
+            </div>
+        </div>
+
+    </div>
+    <!-- Card 3 End  -->
+</div>
+
+<div class="col-xxl-3 col-sm-6  col-ssm-12 mb-25">
+    <!-- Card 4  -->
+    <div class="ap-po-details ap-po-details--luodcy  overview-card-shape radius-xl d-flex justify-content-between">
+
+        <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
+            <div class="ap-po-details__titlebar">
+                <p>New Customers</p>
+                <h1>30,825</h1>
+                <div class="ap-po-details-time">
+                    <span class="color-success">
+                        <i class="las la-arrow-up"></i>
+                        <strong>25.36%</strong>
+                    </span>
+                    <small>Since last month</small>
+                </div>
+            </div>
+            <div class="ap-po-details__icon-area color-info">
+                <i class="uil uil-tachometer-fast"></i>
+            </div>
+        </div>
+
+    </div>
+    <!-- Card 4 End  -->
+</div>
+<div class="col-xxl-7 mb-25">
+
+    <div class="card revenueChartTwo border-0">
+        <div class="card-header border-0">
+            <h6>Monthly Earning</h6>
+            <div class="card-extra">
+                <ul class="card-tab-links nav-tabs nav" role="tablist">
+                    <li>
+                        <a class="active" href="#tl_revenue-today" data-bs-toggle="tab" id="tl_revenue-today-tab" role="tab" aria-selected="false">Today</a>
+                    </li>
+                    <li>
+                        <a href="#tl_revenue-week" data-bs-toggle="tab" id="tl_revenue-week-tab" role="tab" aria-selected="false">Week</a>
+                    </li>
+                    <li>
+                        <a href="#tl_revenue-month" data-bs-toggle="tab" id="tl_revenue-month-tab" role="tab" aria-selected="false">Month</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- ends: .card-header -->
+        <div class="card-body pt-0 px-20">
+            <div class="tab-content">
+                <div class="tab-pane fade active show" id="tl_revenue-today" role="tabpanel" aria-labelledby="tl_revenue-today-tab">
+                    <div class="cashflow-display cashflow-display2 d-flex">
+
+                    </div>
+                    <!-- ends: .performance-stats -->
+
+                    <div class="wp-chart">
+                        <div class="parentContainer">
+
+
+                            <div>
+                                <canvas id="earningRevenueToday"></canvas>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <!-- ends: .performance-stats -->
+                </div>
+                <div class="tab-pane fade" id="tl_revenue-week" role="tabpanel" aria-labelledby="tl_revenue-week-tab">
+                    <div class="cashflow-display cashflow-display2 d-flex">
+
+                    </div>
+                    <!-- ends: .performance-stats -->
+
+                    <div class="wp-chart">
+                        <div class="parentContainer">
+
+
+                            <div>
+                                <canvas id="earningRevenueWeek"></canvas>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <!-- ends: .performance-stats -->
+                </div>
+                <div class="tab-pane fade" id="tl_revenue-month" role="tabpanel" aria-labelledby="tl_revenue-month-tab">
+                    <div class="cashflow-display cashflow-display2 d-flex">
+
+                    </div>
+                    <!-- ends: .performance-stats -->
+
+                    <div class="wp-chart">
+                        <div class="parentContainer">
+
+
+                            <div>
+                                <canvas id="earningRevenueMonth"></canvas>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <!-- ends: .performance-stats -->
+                </div>
+            </div>
+        </div>
+        <!-- ends: .card-body -->
+    </div>
+
+</div>
+<div class="col-xxl-5 mb-25">
+
+    <div class="card border-0 cashflowChart2">
+        <div class="card-header border-0 px-25 pt-25 pb-15">
+
+
+            <div class="chartLine-po-details__overview-content w-100">
+                <div class=" chartLine-po-details__content d-flex flex-wrap justify-content-between">
+                    <div class="chartLine-po-details__titlebar">
+                        <h1>Profit Growth</h1>
+                    </div>
+                </div>
+                <div class="chartLine-po-details__time">
+                    <h5>$8,550</h5>
+                    <span class="color-success">
+                        <i class="fas fa-arrow-up"></i>
+                        <strong>25.36%</strong>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <!-- ends: .card-header -->
+        <div class="card-body pt-0 ">
+            <div class="cashflow-chart">
+                <ul class="legend-static mb-30 mt-1 d-flex justify-content-center">
+                    <li class="custom-label">
+                        <span class="bg-primary"></span>Order
+                    </li>
+                    <li class="custom-label">
+                        <span class="bg-secondary"></span>Sale
+                    </li>
+                </ul>
+                <div class="parentContainer">
+
+
+                    <div>
+                        <canvas id="profitGrowthToday"></canvas>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- ends: .card-body -->
+    </div>
+
+</div>
+<div class="col-xxl-4 mb-25">
+
+    <div class="card border-0 chartLine-po-details h-100">
+        <div class="card-header border-0 px-25 pt-25 pb-45">
+
+
+            <div class="chartLine-po-details__overview-content w-100">
+                <div class=" chartLine-po-details__content d-flex flex-wrap justify-content-between">
+                    <div class="chartLine-po-details__titlebar">
+                        <h1>Total Sales</h1>
+                        <p>(Last 10 months)</p>
+                    </div>
+                </div>
+                <div class="chartLine-po-details__time">
+                    <h5>$8,550</h5>
+                    <span class="color-success">
+                        <i class="fas fa-arrow-up"></i>
+                        <strong>25.36%</strong>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <!-- ends: .card-header -->
+        <div class="card-body pb-25">
+            <div class="wp-chart">
+                <div class="parentContainer">
+
+
+                    <div>
+                        <canvas id="totalSaleMonth"></canvas>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- ends: .card-body -->
+    </div>
+
+</div>
+<div class="col-xxl-8 mb-25">
+
+<div class="card border-0 px-25 pb-10 h-100">
+<div class="card-header px-0 border-0">
+    <h6>Active Users</h6>
+    <div class="card-extra">
+        <ul class="card-tab-links nav-tabs nav" role="tablist">
+            <li>
+                <a class="active" href="#t_selling-today222" data-bs-toggle="tab" id="t_selling-today222-tab" role="tab" aria-selected="true">Today</a>
+            </li>
+            <li>
+                <a href="#t_selling-week222" data-bs-toggle="tab" id="t_selling-week222-tab" role="tab" aria-selected="true">Week</a>
+            </li>
+            <li>
+                <a href="#t_selling-month333" data-bs-toggle="tab" id="t_selling-month333-tab" role="tab" aria-selected="true">Month</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="card-body p-0">
+<div class="tab-content">
+<div class="tab-pane fade active show" id="t_selling-today222" role="tabpanel" aria-labelledby="t_selling-today222-tab">
+    <div class="selling-table-wrap selling-table-wrap--source">
+        <div class="table-responsive">
+            <table class="table table--default table-borderless">
+                <thead>
+                <tr>
+                    <th>Seller name</th>
+                    <th>Company</th>
+                    <th>Product</th>
+                    <th>Revenue</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-primary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-1.png" alt="img">
+                            </div>
+                            <span>Robert Clinton</span>
+                        </div>
+                    </td>
+                    <td>Samsung</td>
+                    <td>Smart Phone</td>
+                    <td>
+                        $38,536
+                    </td>
+                    <td>Done</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-primary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-2.png" alt="img">
+                            </div>
+                            <span>Michael Johnson </span>
+                        </div>
+                    </td>
+                    <td>Asus</td>
+                    <td>Laptop</td>
+                    <td>
+                        $20,573
+                    </td>
+                    <td>Done</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-secondary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-3.png" alt="img">
+                            </div>
+                            <span>Daniel White</span>
+                        </div>
+                    </td>
+                    <td>Google</td>
+                    <td>Watch</td>
+                    <td>
+                        $17,457
+                    </td>
+                    <td>Pending</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-success align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-4.png" alt="img">
+                            </div>
+                            <span>Chris Barin </span>
+                        </div>
+                    </td>
+                    <td>Apple</td>
+                    <td>Computer</td>
+                    <td>
+                        $15,354
+                    </td>
+                    <td>Done</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-info align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-5.png" alt="img">
+                            </div>
+                            <span>Daniel Pink</span>
+                        </div>
+                    </td>
+                    <td>Panasonic</td>
+                    <td>Sunglass</td>
+                    <td>
+                        $12,354
+                    </td>
+                    <td>Done</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="tab-pane fade" id="t_selling-week222" role="tabpanel" aria-labelledby="t_selling-week222-tab">
+    <div class="selling-table-wrap selling-table-wrap--source">
+        <div class="table-responsive">
+            <table class="table table--default table-borderless">
+                <thead>
+                <tr>
+                    <th>Seller name</th>
+                    <th>Company</th>
+                    <th>Product</th>
+                    <th>Revenue</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-primary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-1.png" alt="img">
+                            </div>
+                            <span>Robert Clinton</span>
+                        </div>
+                    </td>
+                    <td>Samsung</td>
+                    <td>Smart Phone</td>
+                    <td>
+                        $38,536
+                    </td>
+                    <td>Done</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-primary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-2.png" alt="img">
+                            </div>
+                            <span>Michael Johnson </span>
+                        </div>
+                    </td>
+                    <td>Asus</td>
+                    <td>Laptop</td>
+                    <td>
+                        $20,573
+                    </td>
+                    <td>Done</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-secondary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-3.png" alt="img">
+                            </div>
+                            <span>Daniel White</span>
+                        </div>
+                    </td>
+                    <td>Google</td>
+                    <td>Watch</td>
+                    <td>
+                        $17,457
+                    </td>
+                    <td>Pending</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-success align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-4.png" alt="img">
+                            </div>
+                            <span>Chris Barin </span>
+                        </div>
+                    </td>
+                    <td>Apple</td>
+                    <td>Computer</td>
+                    <td>
+                        $15,354
+                    </td>
+                    <td>Done</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-info align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-5.png" alt="img">
+                            </div>
+                            <span>Daniel Pink</span>
+                        </div>
+                    </td>
+                    <td>Panasonic</td>
+                    <td>Sunglass</td>
+                    <td>
+                        $12,354
+                    </td>
+                    <td>Done</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="tab-pane fade" id="t_selling-month333" role="tabpanel" aria-labelledby="t_selling-month333-tab">
+    <div class="selling-table-wrap selling-table-wrap--source">
+        <div class="table-responsive">
+            <table class="table table--default table-borderless">
+                <thead>
+                <tr>
+                    <th>Seller name</th>
+                    <th>Company</th>
+                    <th>Product</th>
+                    <th>Revenue</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-primary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-1.png" alt="img">
+                            </div>
+                            <span>Robert Clinton</span>
+                        </div>
+                    </td>
+                    <td>Samsung</td>
+                    <td>Smart Phone</td>
+                    <td>
+                        $38,536
+                    </td>
+                    <td>Done</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-primary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-2.png" alt="img">
+                            </div>
+                            <span>Michael Johnson </span>
+                        </div>
+                    </td>
+                    <td>Asus</td>
+                    <td>Laptop</td>
+                    <td>
+                        $20,573
+                    </td>
+                    <td>Done</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-secondary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-3.png" alt="img">
+                            </div>
+                            <span>Daniel White</span>
+                        </div>
+                    </td>
+                    <td>Google</td>
+                    <td>Watch</td>
+                    <td>
+                        $17,457
+                    </td>
+                    <td>Pending</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-success align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-4.png" alt="img">
+                            </div>
+                            <span>Chris Barin </span>
+                        </div>
+                    </td>
+                    <td>Apple</td>
+                    <td>Computer</td>
+                    <td>
+                        $15,354
+                    </td>
+                    <td>Done</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-info align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-5.png" alt="img">
+                            </div>
+                            <span>Daniel Pink</span>
+                        </div>
+                    </td>
+                    <td>Panasonic</td>
+                    <td>Sunglass</td>
+                    <td>
+                        $12,354
+                    </td>
+                    <td>Done</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="col-xxl-4 mb-25">
+    <div class="device-chart-box">
+
+        <div class="card border-0">
+            <div class="card-header">
+                <h6>Sales Overview</h6>
+                <div class="card-extra">
+                    <ul class="card-tab-links nav-tabs nav" role="tablist">
+                        <li>
+                            <a class="active" href="#se_device-today" data-bs-toggle="tab" id="se_device-today-tab" role="tab" aria-selected="true">Today</a>
+                        </li>
+                        <li>
+                            <a href="#se_device-week" data-bs-toggle="tab" id="se_device-week-tab" role="tab" aria-selected="false">Week</a>
+                        </li>
+                        <li>
+                            <a href="#se_device-month" data-bs-toggle="tab" id="se_device-month-tab" role="tab" aria-selected="false">Month</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- ends: .card-header -->
+            <div class="card-body pt-20 pb-30">
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="se_device-today" role="tabpanel" aria-labelledby="se_device-today-tab">
+                        <div class="device-pieChart-wrap position-relative">
+
+                            <div class="">
+                                <div class="salesDonutToday"></div>
+                            </div>
+
+                        </div>
+                        <div class="session-wrap session-wrap--top--4">
+                            <div class="session-single">
+                                <div class="chart-label">
+                                    <span class="label-dot dot-primary"></span>
+                                    30%
+                                </div>
+                            </div>
+                            <div class="session-single">
+                                <div class="chart-label">
+                                    <span class="label-dot dot-info"></span>
+                                    30%
+                                </div>
+                            </div>
+                            <div class="session-single">
+                                <div class="chart-label">
+                                    <span class="label-dot dot-warning"></span>
+                                    40%
+                                </div>
+                            </div>
+                        </div>
+                        <div class="session-wrap session-wrap--2">
+                            <div class="session-single">
+                                <strong>$7.9k</strong>
+                                <div class="chart-label">
+                                    Revenue
+                                </div>
+                            </div>
+                            <div class="session-single">
+                                <strong>50</strong>
+                                <div class="chart-label">
+                                    Sales
+                                </div>
+                            </div>
+                            <div class="session-single">
+                                <strong>15</strong>
+                                <div class="chart-label">
+                                    Products
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="se_device-week" role="tabpanel" aria-labelledby="se_device-week-tab">
+                        <div class="device-pieChart-wrap position-relative">
+
+                            <div class="">
+                                <div class="salesDonutWeek"></div>
+                            </div>
+
+                        </div>
+                        <div class="session-wrap session-wrap--top--4">
+                            <div class="session-single">
+                                <div class="chart-label">
+                                    <span class="label-dot dot-primary"></span>
+                                    30%
+                                </div>
+                            </div>
+                            <div class="session-single">
+                                <div class="chart-label">
+                                    <span class="label-dot dot-secondary"></span>
+                                    30%
+                                </div>
+                            </div>
+                            <div class="session-single">
+                                <div class="chart-label">
+                                    <span class="label-dot dot-warning"></span>
+                                    40%
+                                </div>
+                            </div>
+                        </div>
+                        <div class="session-wrap session-wrap--2">
+                            <div class="session-single">
+                                <strong>$7.9k</strong>
+                                <div class="chart-label">
+                                    Revenue
+                                </div>
+                            </div>
+                            <div class="session-single">
+                                <strong>50</strong>
+                                <div class="chart-label">
+                                    Sales
+                                </div>
+                            </div>
+                            <div class="session-single">
+                                <strong>15</strong>
+                                <div class="chart-label">
+                                    Products
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade " id="se_device-month" role="tabpanel" aria-labelledby="se_device-month-tab">
+                        <div class="device-pieChart-wrap position-relative">
+
+                            <div class="">
+                                <div class="salesDonutMonth"></div>
+                            </div>
+
+                        </div>
+                        <div class="session-wrap session-wrap--top--4">
+                            <div class="session-single">
+                                <div class="chart-label">
+                                    <span class="label-dot dot-primary"></span>
+                                    30%
+                                </div>
+                            </div>
+                            <div class="session-single">
+                                <div class="chart-label">
+                                    <span class="label-dot dot-secondary"></span>
+                                    30%
+                                </div>
+                            </div>
+                            <div class="session-single">
+                                <div class="chart-label">
+                                    <span class="label-dot dot-warning"></span>
+                                    40%
+                                </div>
+                            </div>
+                        </div>
+                        <div class="session-wrap session-wrap--2">
+                            <div class="session-single">
+                                <strong>$7.9k</strong>
+                                <div class="chart-label">
+                                    Revenue
+                                </div>
+                            </div>
+                            <div class="session-single">
+                                <strong>50</strong>
+                                <div class="chart-label">
+                                    Sales
+                                </div>
+                            </div>
+                            <div class="session-single">
+                                <strong>15</strong>
+                                <div class="chart-label">
+                                    Products
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ends: .session-wrap -->
+            </div>
+            <!-- ends: .card-body -->
+        </div>
+
+    </div>
+</div>
+<div class="col-xxl-4 mb-25">
+
+<div class="card border-0 px-25 pb-15 h-100">
+<div class="card-header px-0 border-0">
+    <h6>Top Product</h6>
+    <div class="card-extra">
+        <ul class="card-tab-links nav-tabs nav" role="tablist">
+            <li>
+                <a class="active" href="#t_selling-today" data-bs-toggle="tab" id="t_selling-today-tab" role="tab" aria-selected="true">Today</a>
+            </li>
+            <li>
+                <a href="#t_selling-week" data-bs-toggle="tab" id="t_selling-week-tab" role="tab" aria-selected="true">Week</a>
+            </li>
+            <li>
+                <a href="#t_selling-month" data-bs-toggle="tab" id="t_selling-month-tab" role="tab" aria-selected="true">Month</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="card-body p-0">
+<div class="tab-content">
+<div class="tab-pane fade active show" id="t_selling-today" role="tabpanel" aria-labelledby="t_selling-today-tab">
+    <div class="selling-table-wrap selling-table-wrap__top-product">
+        <div class="table-responsive">
+            <table class="table table-borderless">
+                <thead>
+                <tr>
+                    <th>Prducts Name</th>
+                    <th>Deals</th>
+                    <th>Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/giorgio.png" alt="img">
+                            <span>UV Protected Sunglass</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$38,536</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/headphone.png" alt="img">
+                            <span>Black Headphone</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$20,573</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/shoes.png" alt="img">
+                            <span>Nike Shoes</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$17,457</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/mac-pro.png" alt="img">
+                            <span>15" Mackbook Pro</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$15,354</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/creativ-bag.png" alt="img">
+                            <span>Women Bag</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$12,354</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/shoes.png" alt="img">
+                            <span>Nike Shoes</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$17,457</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="tab-pane fade" id="t_selling-week" role="tabpanel" aria-labelledby="t_selling-week-tab">
+    <div class="selling-table-wrap selling-table-wrap__top-product">
+        <div class="table-responsive">
+            <table class="table table-borderless">
+                <thead>
+                <tr>
+                    <th>Prducts Name</th>
+                    <th>Deals</th>
+                    <th>Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/giorgio.png" alt="img">
+                            <span>UV Protected Sunglass</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$38,536</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/headphone.png" alt="img">
+                            <span>Black Headphone</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$20,573</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/shoes.png" alt="img">
+                            <span>Nike Shoes</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$17,457</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/mac-pro.png" alt="img">
+                            <span>15" Mackbook Pro</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$15,354</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/creativ-bag.png" alt="img">
+                            <span>Women Bag</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$12,354</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/shoes.png" alt="img">
+                            <span>Nike Shoes</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$17,457</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="tab-pane fade" id="t_selling-month" role="tabpanel" aria-labelledby="t_selling-month-tab">
+    <div class="selling-table-wrap selling-table-wrap__top-product">
+        <div class="table-responsive">
+            <table class="table table-borderless">
+                <thead>
+                <tr>
+                    <th>Prducts Name</th>
+                    <th>Deals</th>
+                    <th>Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/giorgio.png" alt="img">
+                            <span>UV Protected Sunglass</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$38,536</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/headphone.png" alt="img">
+                            <span>Black Headphone</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$20,573</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/shoes.png" alt="img">
+                            <span>Nike Shoes</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$17,457</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/mac-pro.png" alt="img">
+                            <span>15" Mackbook Pro</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$15,354</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/creativ-bag.png" alt="img">
+                            <span>Women Bag</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$12,354</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <img class="radius-xs img-fluid order-bg-opacity-primary" src="~/admin/img/shoes.png" alt="img">
+                            <span>Nike Shoes</span>
+                        </div>
+                    </td>
+                    <td>1561</td>
+                    <td>$17,457</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="col-xxl-4 mb-25">
+
+<div class="card border-0 px-25 pb-15 h-100">
+<div class="card-header px-0 border-0">
+    <h6>Recent Deals</h6>
+    <div class="card-extra">
+        <ul class="card-tab-links nav-tabs nav" role="tablist">
+            <li>
+                <a class="active" href="#t_selling-today8" data-bs-toggle="tab" id="t_selling-today8-tab" role="tab" aria-selected="true">Today</a>
+            </li>
+            <li>
+                <a href="#t_selling-week8" data-bs-toggle="tab" id="t_selling-week8-tab" role="tab" aria-selected="true">Week</a>
+            </li>
+            <li>
+                <a href="#t_selling-month8" data-bs-toggle="tab" id="t_selling-month8-tab" role="tab" aria-selected="true">Month</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="card-body p-0">
+<div class="tab-content">
+<div class="tab-pane fade active show" id="t_selling-today8" role="tabpanel" aria-labelledby="t_selling-today-tab">
+    <div class="selling-table-wrap selling-table-wrap--source">
+        <div class="table-responsive">
+            <table class="table table--default table-borderless">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-primary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-4.png" alt="img">
+                            </div>
+                            <span>Robert Clinton</span>
+                        </div>
+                    </td>
+                    <td>$38,536</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-secondary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-2.png" alt="img">
+                            </div>
+                            <span>Michael Johnson</span>
+                        </div>
+                    </td>
+                    <td>$20,573</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-info align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-3.png" alt="img">
+                            </div>
+                            <span>Daniel White</span>
+                        </div>
+                    </td>
+                    <td>$27,457</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-success align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-4.png" alt="img">
+                            </div>
+                            <span>Chris Barin </span>
+                        </div>
+                    </td>
+                    <td>$35,354</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-primary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-5.png" alt="img">
+                            </div>
+                            <span>Michael Johnson </span>
+                        </div>
+                    </td>
+                    <td>$12,354</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-warning align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-2.png" alt="img">
+                            </div>
+                            <span>Daniel Pink</span>
+                        </div>
+                    </td>
+                    <td>$12,354</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="tab-pane fade" id="t_selling-week8" role="tabpanel" aria-labelledby="t_selling-week8-tab">
+    <div class="selling-table-wrap selling-table-wrap--source">
+        <div class="table-responsive">
+            <table class="table table--default table-borderless">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-primary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-4.png" alt="img">
+                            </div>
+                            <span>Robert Clinton</span>
+                        </div>
+                    </td>
+                    <td>$38,536</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-secondary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-2.png" alt="img">
+                            </div>
+                            <span>Michael Johnson</span>
+                        </div>
+                    </td>
+                    <td>$20,573</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-info align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-3.png" alt="img">
+                            </div>
+                            <span>Daniel White</span>
+                        </div>
+                    </td>
+                    <td>$27,457</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-success align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-4.png" alt="img">
+                            </div>
+                            <span>Chris Barin </span>
+                        </div>
+                    </td>
+                    <td>$35,354</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-primary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-5.png" alt="img">
+                            </div>
+                            <span>Michael Johnson </span>
+                        </div>
+                    </td>
+                    <td>$12,354</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-warning align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-2.png" alt="img">
+                            </div>
+                            <span>Daniel Pink</span>
+                        </div>
+                    </td>
+                    <td>$12,354</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="tab-pane fade" id="t_selling-month8" role="tabpanel" aria-labelledby="t_selling-month8-tab">
+    <div class="selling-table-wrap selling-table-wrap--source">
+        <div class="table-responsive">
+            <table class="table table--default table-borderless">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-primary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-4.png" alt="img">
+                            </div>
+                            <span>Robert Clinton</span>
+                        </div>
+                    </td>
+                    <td>$38,536</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-secondary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-2.png" alt="img">
+                            </div>
+                            <span>Michael Johnson</span>
+                        </div>
+                    </td>
+                    <td>$20,573</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-info align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-3.png" alt="img">
+                            </div>
+                            <span>Daniel White</span>
+                        </div>
+                    </td>
+                    <td>$27,457</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-success align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-4.png" alt="img">
+                            </div>
+                            <span>Chris Barin </span>
+                        </div>
+                    </td>
+                    <td>$35,354</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-primary align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-5.png" alt="img">
+                            </div>
+                            <span>Michael Johnson </span>
+                        </div>
+                    </td>
+                    <td>$12,354</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="selling-product-img d-flex align-items-center">
+                            <div class="selling-product-img-wrapper order-bg-opacity-warning align-items-end">
+                                <img class=" img-fluid" src="~/admin/img/author/robert-2.png" alt="img">
+                            </div>
+                            <span>Daniel Pink</span>
+                        </div>
+                    </td>
+                    <td>$12,354</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<!-- ends: .row -->
+</div>
+</div>
+
+</div>
