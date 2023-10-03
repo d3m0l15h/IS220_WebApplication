@@ -1,6 +1,7 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using AspNetCoreHero.ToastNotification.Notyf;
 using IS220_WebApplication.Context;
+using IS220_WebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IS220_WebApplication.Areas.Admin.Controllers
@@ -28,12 +29,12 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string username, string password, string button)
+        public IActionResult Index(User user)
         {
             if (HttpContext.Session.GetString("email") == null)
             {
-                var u = _db.Users.FirstOrDefault(x => x.Username.Equals(username) &&
-                                                      x.Password.Equals(password) &&
+                var u = _db.Users.FirstOrDefault(x => x.Username.Equals(user.Username) &&
+                                                      x.Password.Equals(user.Password) &&
                                                       x.Role == 1);
                 if (u != null)
                 {
