@@ -1,16 +1,21 @@
-### University of Information Technology (UIT) - Vietnam National University Ho Chi Minh City
+### 🏫 University of Information Technology (UIT) - Vietnam National University Ho Chi Minh City
 # Final Project for IS220 - Building information system on frameworks
 
-Develope the website using ASP.NET Core MVC. Version .NET 7.0
+## Develope the Game Store website using ASP.NET Core MVC .NET 7.0
 
-| Student ID | Full name |
+## 👨‍💻 Developers
+- Dao Tien Dat
+- Dao Minh Huy
+- Phan Chi Cuong
+- Truong Duc Quoc
+
+## ⚒️ Techs
+| Front end | Bootstrap, SwiperJS |
 |---|---|
-| 21521930 | Dao Tien Dat |
-| 21520912 | Dao Minh Huy |
-| 21520673 | Phan Chi Cuong |
-| 21522527 | Truong Duc Quoc |
+| Back end | ASP.NET Core MVC |
+| Database | MySQL |
 
-Nuget Installed Packages:
+### Nuget Installed Packages:
 - Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
 - Microsoft.EntityFrameworkCore
 - Microsoft.EntityFrameworkCore.Tools
