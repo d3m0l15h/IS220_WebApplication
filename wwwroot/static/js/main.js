@@ -9,6 +9,10 @@ const $$ = document.querySelectorAll.bind(document)
 const menuIcon = $('.menu-icon') // $ để select element đó (ở trong jquery)
 const navBar = $('.menu')
 const bellIcon = $('.noti') // for notification
+// for authecation form
+const userIcon = $('.user-icon')
+const loginForm = $('.login-form-container')
+const registerForm = $('.register-form-container')
 
 // --------------- Custom Scroll Bar --------------
 window.onscroll = () => {
@@ -34,6 +38,27 @@ menuIcon.onclick = () => {
 // -------------- NOTIFICATION --------------
 $('#bell-icon').onclick = () => {
     bellIcon.classList.toggle('active')
+}
+
+// -------------- AUTHENTICATION FORM --------------
+const authContainer = $('#container');
+const registerBtn = $('#register');
+const loginBtn = $('#login');
+
+registerBtn.onclick = () => {
+    authContainer.classList.add("active");
+}
+
+loginBtn.onclick = () => {
+    authContainer.classList.remove("active");
+};
+
+$('.close-form').onclick = () => {
+    authContainer.classList.remove('isDisplay')
+}
+
+$('.user-icon').onclick = () => {
+    authContainer.classList.add('isDisplay')
 }
 
 // -------------- SWIPER (library for display game in trending section) --------------
