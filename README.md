@@ -1,5 +1,9 @@
-### 🏫 University of Information Technology (UIT) - Vietnam National University Ho Chi Minh City
-# Final Project for IS220 - Building information system on frameworks
+<!-- Banner -->
+<p align="center">
+  <a href="https://www.uit.edu.vn/" title="Trường Đại học Công nghệ Thông tin" style="border: none;">
+    <img src="https://i.imgur.com/WmMnSRt.png" alt="Trường Đại học Công nghệ Thông tin | University of Information Technology">
+  </a>
+</p>
 
 ## Develope the Game Store website using ASP.NET Core MVC .NET 7.0
 
