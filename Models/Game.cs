@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore;
 namespace IS220_WebApplication.Models;
 
 [Table("game")]
-[Index("DeveloperId", Name = "FK_Game_Developer")]
-[Index("PublisherId", Name = "FK_Game_Publisher")]
+[Index("Developer", Name = "FK_Game_Developer")]
+[Index("Publisher", Name = "FK_Game_Publisher")]
 public partial class Game
 {
     [Key]
@@ -32,20 +32,20 @@ public partial class Game
     [Column("imgPath", TypeName = "tinytext")]
     public string? ImgPath { get; set; }
 
-    [Column("publisherID", TypeName = "int(10) unsigned")]
-    public uint PublisherId { get; set; }
+    [Column("publisher", TypeName = "int(10) unsigned")]
+    public uint Publisher { get; set; }
 
-    [Column("developerID", TypeName = "int(10) unsigned")]
-    public uint DeveloperId { get; set; }
+    [Column("developer", TypeName = "int(10) unsigned")]
+    public uint Developer { get; set; }
 
     [Column("downloadLink", TypeName = "tinytext")]
     public string DownloadLink { get; set; } = null!;
 
-    [ForeignKey("DeveloperId")]
+    [ForeignKey("Developer")]
     [InverseProperty("Games")]
-    public virtual Developer Developer { get; set; } = null!;
+    public virtual Developer? DeveloperNavigation { get; set; }
 
-    [ForeignKey("PublisherId")]
+    [ForeignKey("Publisher")]
     [InverseProperty("Games")]
-    public virtual Publisher Publisher { get; set; } = null!;
+    public virtual Publisher? PublisherNavigation { get; set; }
 }

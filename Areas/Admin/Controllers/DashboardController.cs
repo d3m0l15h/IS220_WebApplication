@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace IS220_WebApplication.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authentication]
     public class DashboardController : Controller
     {
-        [Authentication]
         public IActionResult Index()
         {
             return View();

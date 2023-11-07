@@ -8,19 +8,19 @@ namespace IS220_WebApplication.Models;
 
 [Keyless]
 [Table("game_category")]
-[Index("CategoryId", Name = "FK_GameCategory_Category")]
-[Index("GameId", Name = "FK_GameCategory_Game")]
+[Index("Category", Name = "FK_GC_Category")]
+[Index("Game", Name = "FK_GC_Game")]
 public partial class GameCategory
 {
-    [Column("categoryID", TypeName = "int(10) unsigned")]
-    public uint CategoryId { get; set; }
+    [Column("game", TypeName = "int(10) unsigned")]
+    public uint Game { get; set; }
 
-    [Column("gameID", TypeName = "int(10) unsigned")]
-    public uint GameId { get; set; }
+    [Column("category", TypeName = "int(10) unsigned")]
+    public uint Category { get; set; }
 
-    [ForeignKey("CategoryId")]
-    public virtual Category Category { get; set; } = null!;
+    [ForeignKey("Category")]
+    public virtual Category CategoryNavigation { get; set; } = null!;
 
-    [ForeignKey("GameId")]
-    public virtual Game Game { get; set; } = null!;
+    [ForeignKey("Game")]
+    public virtual Game GameNavigation { get; set; } = null!;
 }

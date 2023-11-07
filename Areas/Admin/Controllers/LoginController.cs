@@ -1,5 +1,6 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using AspNetCoreHero.ToastNotification.Notyf;
+using IS220_WebApplication.Areas.Admin.Models.Authentication;
 using IS220_WebApplication.Context;
 using IS220_WebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -22,14 +23,13 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("email") == null)
-                return View();
+            if (HttpContext.Session.GetString("email") != null) return RedirectToAction("index", "dashboard");
+            return View();
 
-            return RedirectToAction("Index", "Dashboard");
         }
 
         [HttpPost]
-        public IActionResult Index(User user)
+        public IActionResult Index(User user, string? returnUrl = null)
         {
             if (HttpContext.Session.GetString("email") == null)
             {
@@ -39,15 +39,19 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 if (u != null)
                 {
                     HttpContext.Session.SetString("email", u.Email);
+                    var originalUrl = HttpContext.Request.Cookies["OriginalUrl"];
+                    HttpContext.Response.Cookies.Delete("OriginalUrl");
+
+                    if (!string.IsNullOrEmpty(originalUrl))
+                    {
+                        return LocalRedirect(originalUrl);
+                    }
                     _notyf?.Success("Login success");
                     return RedirectToAction("index", "dashboard");
                 }
             }
-
             _notyf?.Error("Login failed");
             return View();
         }
     }
-    
 }
-

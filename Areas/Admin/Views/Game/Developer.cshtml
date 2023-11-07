@@ -1,0 +1,86 @@
+@model IS220_WebApplication.Areas.Admin.Models.DeveloperViewModel
+
+@{
+    Layout = "_BlankLayout";
+    ViewData["Title"] = "Developer";
+}
+<div class="card card-horizontal card-default card-md mb-4">
+    <div class="card-header">
+        <h6>Publisher</h6>
+    </div>
+    <div class="card-body py-md-30">
+        <div class="horizontal-form">
+            <form method="post" asp-action="Developer">
+                @Html.AntiForgeryToken()
+                <div class="form-group row mb-25">
+                    <div class="col-sm-1 d-flex aling-items-center">
+                        <label for="inputName" class=" col-form-label color-dark fs-14 fw-500 align-center">Name</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" asp-for="Developer.Name" class="form-control ih-medium ip-gray radius-xs b-light px-15" id="inputName" style="width: 300px;">
+                    </div>
+                </div>
+                <div class="form-group row mb-0">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3">
+                        <div class="layout-button mt-3">
+                            <button type="submit" class="btn btn-primary btn-default btn-squared px-30">save</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+
+        <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
+            <div class="table-responsive">
+                <table class="table mb-0 table-borderless">
+                    <thead>
+                    <tr class="userDatatable-header">
+                        <th>
+                            <span class="userDatatable-title">ID</span>
+                        </th>
+                        <th>
+                            <span class="userDatatable-title">Name</span>
+                        </th>
+                        <th class="actions">
+                            <span class="userDatatable-title">Actions</span>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var pub in Model.Developers!)
+                    {
+                        <tr>
+                            <td>@pub.Id</td>
+                            <td>
+                                <div class="userDatatable-content--priority">
+                                    @pub.Name
+                                </div>
+                            </td>
+                            <td>
+                                <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                    <li>
+                                        <a href="#" class="edit">
+                                            <i class="uil uil-edit"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="remove">
+                                            <i class="uil uil-trash-alt"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

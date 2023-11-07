@@ -39,9 +39,10 @@ public partial class MyDbContext : DbContext
         var cfg = new ConfigurationBuilder()
             .AddUserSecrets<Program>()
             .Build();
+
         optionsBuilder.UseMySQL(cfg["dbGameStore"] ?? string.Empty);
     }
-
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Category>(entity =>
@@ -66,20 +67,25 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.Description).HasDefaultValueSql("'NULL'");
             entity.Property(e => e.ImgPath).HasDefaultValueSql("'NULL'");
 
-            entity.HasOne(d => d.Developer).WithMany(p => p.Games)
+            entity.HasOne(d => d.DeveloperNavigation).WithMany(p => p.Games)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_Game_Developer");
 
-            entity.HasOne(d => d.Publisher).WithMany(p => p.Games)
+            entity.HasOne(d => d.PublisherNavigation).WithMany(p => p.Games)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_Game_Publisher");
         });
 
         modelBuilder.Entity<GameCategory>(entity =>
         {
-            entity.HasOne(d => d.Category).WithMany().HasConstraintName("FK_GameCategory_Category");
+            entity.HasKey(e => new { e.Game, e.Category }).HasName("PRIMARY");
+            entity.HasOne(d => d.CategoryNavigation).WithMany()
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_GC_Category");
 
-            entity.HasOne(d => d.Game).WithMany().HasConstraintName("FK_GameCategory_Game");
+            entity.HasOne(d => d.GameNavigation).WithMany()
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_GC_Game");
         });
 
         modelBuilder.Entity<GameOwned>(entity =>
