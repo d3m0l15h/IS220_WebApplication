@@ -6,14 +6,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Models;
 
-[Table("category")]
-public partial class Category
+[Table("transaction_type")]
+public partial class TransactionType
 {
     [Key]
     [Column("id", TypeName = "int(10) unsigned")]
     public uint Id { get; set; }
 
     [Column("name")]
-    [StringLength(30)]
+    [StringLength(20)]
     public string Name { get; set; } = null!;
+
+    [InverseProperty("Type")]
+    public virtual ICollection<TransactionInfomation> TransactionInfomations { get; set; } = new List<TransactionInfomation>();
 }

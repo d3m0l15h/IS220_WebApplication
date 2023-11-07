@@ -71,38 +71,40 @@
     </tr>
     </thead>
     <tbody>
-
-    <tr>
-        <td>#01</td>
+    
+    @foreach (var item in Model) 
+     { 
+         <tr>
+        <td>@item.Id</td>
         <td>
             <div class="userDatatable-content--priority">
-                            Elden Ring
-                        </div>
-        </td>
-        <td>
-            <div class="userDatatable-content--priority">
-                0
+                @item.Title
             </div>
         </td>
         <td>
             <div class="userDatatable-content--priority">
-                2023-01-01
+                @item.Price
             </div>
         </td>
         <td>
             <div class="userDatatable-content--priority">
-                FromSoftware
+                @item.ReleaseDate.ToString("yyyy-MM-dd")
             </div>
         </td>
         <td>
             <div class="userDatatable-content--priority">
-                FromSoftware
+                @item.Publisher
             </div>
         </td>
         <td>
             <div class="userDatatable-content--priority">
-                <a href="https://divineshop.vn/elden-ring" target="_blank">
-                    Link
+                @item.Developer
+            </div>
+        </td>
+        <td>
+            <div class="userDatatable-content--priority">
+                <a href="@item.DownloadLink" target="_blank">
+                    Download
                 </a>
             </div>
         </td>
@@ -126,6 +128,7 @@
             </ul>
         </td>
     </tr>
+     } 
 
     </tbody>
 </table>
