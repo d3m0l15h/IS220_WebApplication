@@ -1,49 +1,191 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="vi en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - IS220_WebApplication</title>
+
+    @* ------------------------- FAVICON ------------------------- *@
+    <link rel="shortcut icon" href="~/favicon.png" type="image/x-icon"/>
+
+    @* ------------------------- TITLE ------------------------- *@
+    <title>@ViewData["Title"] - NETGame</title>
+
+    @* ------------------------- CSS LINK ------------------------- *@
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="~/static/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="~/IS220_WebApplication.styles.css" asp-append-version="true"/>
+    @* <link rel="stylesheet" href="~/IS220_WebApplication.styles.css" asp-append-version="true"/> *@
+    <link rel="stylesheet" href="~/static/css/reset.css" asp-append-version="true">
+    @* MAIN *@
+    <link rel="stylesheet" href="~/static/css/main.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/static/css/responsive.css" asp-append-version="true">
 </head>
+
 <body>
-<header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">IS220_WebApplication</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+@* PROGRESS BAR (custom scroll-bar) *@
+<div class="progress">
+    <div class="progress-bar" id="scroll-bar">
+
+    </div>
+</div>
+
+@* ------------------------ start HEADER ------------------------ asp-area="admin" asp-controller="login"/Home asp-action="Index/index" *@
+<header class="header" >
+    <nav class="nav container">
+        <!-- LOGO -->
+        <a asp-controller="Home" asp-action="Index" class="logo">NET<span>Game</span></a>
+
+        <!-- NAV ICON -->
+        <div class="nav-content">
+            <!-- MENU -->
+            <div class="menu">
+                <ul class="navbarr">
+                    <li>
+                        <a href="#home">TRANG CHỦ</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="admin" asp-controller="login" asp-action="index">Admin</a>
+                    <li>
+                        <a href="#trending">GAMES HOT</a>
+                    </li>
+                    <li>
+                        <a href="#new">GAMES MỚI</a>
+                    </li>
+                    <li>
+                        <a href="#viethoa">GAMES VIỆT HÓA</a>
+                    </li>
+                    <li>
+                        <a href="#contact">LIÊN HỆ</a>
                     </li>
                 </ul>
+            </div>
+
+            <i class="bx bx-bell bx-tada" id="bell-icon">
+                <span></span>
+            </i>
+            <i class='bx bx-user'></i>
+
+
+            @* DEVICE: MOBILE *@
+            <div class="menu-icon">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+
+        <div class="noti">
+            <div class="noti_box">
+                <i class="bx bxs-check-circle"></i>
+                <p>Chuc mung, ban da tai game thanh cong</p>
+            </div>
+            <div class="noti_box noti_box--color">
+                <i class="bx bxs-x-circle"></i>
+                <p>Khong the thay doi</p>
             </div>
         </div>
     </nav>
 </header>
+
+@* ------------------------- start MAIN (change in Views/Home/Index.cshtml) ------------------------- *@
 <div class="container">
-    <main role="main" class="pb-3">
+    <main role="main">
         @RenderBody()
     </main>
 </div>
+@* ------------------------- end MAIN ------------------------- *@
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2023 - IS220_WebApplication - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+@* ------------------------- start FOOTER ------------------------- *@
+<footer class="footer container" id="contact">
+    <div class="footer_box">
+        <div class="footer_box_item">
+            <h3 class="item_title">NET<span>Game</span></h3>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, libero ab dolore, doloribus ipsa nihil
+                quaerat unde et accusantium ullam adipisci beatae sequi tempore cupiditate!
+            </p>
+
+            <div class="contact">
+                <div class="contact-box">
+                    <i class='bx bx-map'></i>
+                    <a href="https://maps.app.goo.gl/zVpeZQRVPwacvRF58">
+                        Đường Hàn Thuyên, khu phố 6 P, Thủ Đức, Thành phố Hồ Chí
+                        Minh, Việt Nam
+                    </a>
+                </div>
+
+                <div class="contact-box">
+                    <i class='bx bx-phone'></i>
+                    <a href="tel:+0123456789">0123456789</a>
+                </div>
+
+                <div class="contact-box">
+                    <i class='bx bx-envelope'></i>
+                    <a href="mailto:netgame@mail.com">netgame@mail.com</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer_box_item">
+            <h3>về chúng tôi</h3>
+            <ul>
+                <li>
+                    <a href="#!">trang chủ</a>
+                </li>
+                <li>
+                    <a href="#!">giới thiệu</a>
+                </li>
+                <li>
+                    <a href="#!">danh mục game đã mua</a>
+                </li>
+                <li>
+                    <a href="#!">liên hệ</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer_box_item">
+            <h3>chăm sóc khách hàng</h3>
+            <ul>
+                <li>
+                    <a href="#!">trang chủ</a>
+                </li>
+                <li>
+                    <a href="#!">giới thiệu</a>
+                </li>
+                <li>
+                    <a href="#!">danh mục game đã mua</a>
+                </li>
+                <li>
+                    <a href="#!">liên hệ</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer_box_item">
+            <h3>theo dõi chúng tôi trên</h3>
+            <div class="contact-icon">
+                <i class='bx bxl-facebook-circle'></i>
+                <i class='bx bxl-instagram'></i>
+                <i class='bx bxl-youtube'></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="footer_copyright">
+        <p>&#169; 2023 NETGame. Tất cả các quyền được bảo lưu. <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> </p>
     </div>
 </footer>
+@* ------------------------- end FOOTER ------------------------- *@
+
+@* ------------------------- SCRIPT ------------------------- *@
+@* jquery *@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
+@* bootstrap *@
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
+@* swiperJS (slide animation) *@
+<script src="~/lib/swiperJS/swiper-bundle.min.js"></script>
+@* MAIN *@
+<script src="~/static/js/main.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

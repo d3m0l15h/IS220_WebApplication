@@ -1,0 +1,580 @@
+/*------------------------- FONT -------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&display=swap');
+
+
+/*------------------------- VARIBLES -------------------------*/
+:root {
+    --main-color: #0d81ec;
+    --dark-color: #1b182b;
+    --light-color: #322f40;
+    --text-color: hsl(0, 0%, 91%);
+    --border-primary: 1px solid var(--main-color)
+}
+
+/*------------------------- ALL ELEMENTS -------------------------*/
+* {
+    font-family: 'AR One Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
+}
+
+/* SELECTION (when user select text) */
+::selection {
+    color: var(--text-color);
+    background: var(--main-color);
+}
+
+/* IMAGE */
+img {
+    width: 100%;
+}
+
+body {
+    color: var(--text-color);
+    background: var(--dark-color);
+}
+
+/* SECTION */
+section {
+    padding: 4rem 0 3rem;
+}
+
+/*------------------------- Custom Scroll Bar -------------------------*/
+/* Display Block for default scroll bar */
+html::-webkit-scrollbar {
+    display: none;
+}
+
+/* Custom */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    z-index: 300;
+    width: 100%;
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--main-color);
+    width: 0%;
+}
+
+/*------------------------- CONTAINER -------------------------*/
+.container {
+    max-width: 66.75rem;
+    margin: auto;
+    width: 100%;
+}
+
+/*------------------------- HEADER -------------------------*/
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: var(--dark-color);
+    z-index: 100;
+}
+
+/* --- NAV --- */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 0;
+}
+
+/* --- LOGO --- */
+.logo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+    margin: 0 auto 0 0;
+}
+
+.logo span {
+    color: var(--main-color);
+    font-size: 2rem;
+}
+
+/* --- NAV CONTENT --- */
+.nav-content {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    flex: 1;
+}
+
+.nav-content .bx {
+    font-size: 20px;
+    height: 44px;
+    width: 44px;
+    display: grid;
+    place-items: center;
+    color: var(--text-color);
+    background-color: var(--light-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#bell-icon {
+    position: relative;
+}
+
+/* The dot icon when user have notification */
+#bell-icon span {
+    content: "";
+    position: absolute;
+    background: var(--main-color);
+
+    width: 5px;
+    height: 5px;
+    top: 10px;
+    right: 14px;
+
+    border-radius: 50%;
+}
+
+/* MENU ICON */
+.menu-icon {
+    /*display: flex;*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5px;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    background: var(--light-color);
+    cursor: pointer;
+    z-index: 200;
+    transition: 0.3s;
+
+    display: none;
+}
+
+.menu-icon div {
+    display: block;
+    background: var(--text-color);
+    height: 2px;
+    width: 25px;
+    transition: 0.3s;
+}
+
+/* X translate when user click menu icon */
+.move .line1 {
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.move .line2 {
+    opacity: 0;
+}
+
+.move .line3 {
+    transform: rotate(45deg) translate(-5px, -5px);
+}
+
+/* MENU */
+.menu {
+    flex: 1;
+}
+
+.menu .navbarr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*margin: 0 44px;*/
+    font-size: 1rem;
+}
+
+.menu .navbarr li a {
+    color: var(--text-color);
+}
+
+.menu .navbarr li {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 14px 10px;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+.menu .navbarr li:hover {
+    background: var(--main-color);
+    transform: scale(1.2);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+/* NOTIFICATION */
+.noti {
+    position: absolute;
+    top: 90%;
+    right: 16rem;
+    background: var(--light-color);
+    width: 300px;
+    height: 350px;
+    border-radius: 0.5rem;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+
+    clip-path: circle(0% at 100% 0%);
+}
+
+.noti.active {
+    clip-path: circle(144% at 100% 0%);
+    transition: 0.3s;
+}
+
+.noti_box {
+    display: flex;
+    align-items: baseline;
+    column-gap: 1rem;
+    border-radius: 0.5rem;
+    background: var(--dark-color);
+    padding: 10px;
+}
+
+.noti_box .bx {
+    color: #faf102;
+}
+
+.noti_box--color {
+    background: hsl(0, 0%, 100%, 0.4);
+}
+
+.noti_box--color .bx {
+    color: var(--main-color);
+}
+
+/*------------------------- HOME SECTION -------------------------*/
+.home {
+    position: relative;
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 5rem;
+}
+
+.home img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.4rem;
+    z-index: -1;
+}
+
+.home_text {
+    padding-right: 4rem;
+    text-align: right;
+}
+
+.home_text h1 {
+    font-size: 2.4rem;
+    text-transform: uppercase;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.btn {
+    background: var(--main-color);
+    padding: 15px 20px;
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 10% 100%, 0% 68%);
+}
+
+.btn:hover {
+    background: var(--light-color);
+    transition: 0.3s all linear;
+}
+
+/*------------------------- TRENDING SECTION -------------------------*/
+/* HEADING */
+.heading {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.heading .bx {
+    font-size: 1.313rem;
+    color: var(--text-color);
+    background: var(--main-color);
+    padding: 10px;
+    border-radius: 5rem;
+}
+
+.heading h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-bottom: 4px;
+    border-bottom: 4px solid var(--main-color);
+}
+
+/* CONTENT */
+.box {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border-radius: 0.5rem;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.box_text {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    background: hsl(227, 14%, 20%, 0.8);
+    backdrop-filter: blur(4px);
+    border-radius: 0.5rem;
+}
+
+.box_text h2 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.box_text h3 {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+}
+
+.rating-download {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+    background: hsl(0, 0%, 100%, 0.4);
+    padding: 4px 10px;
+    border-radius: 0.5rem;
+}
+
+.rating .bx,
+span {
+    color: #faf102;
+    font-size: 0.9rem;
+}
+
+.box-btn .bx {
+    padding: 8px;
+    background-color: var(--text-color);
+    border-radius: 5rem;
+    color: var(--main-color);
+    font-weight: 400;
+    font-size: 1.25rem;
+}
+
+.box-btn .bx:hover {
+    background-color: var(--dark-color);
+}
+
+/*------------------------- CATEGORY GAME SECTION -------------------------*/
+.category {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+    gap: 1.2rem;
+}
+
+.button,
+.links,
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    column-gap: 12px;
+}
+
+.button i {
+    pointer-events: none;
+}
+
+.button:disabled {
+    color: #b3b3b3;
+    pointer-events: none;
+}
+
+.button,
+.link {
+    height: 45px;
+    width: 45px;
+    font-size: 20px;
+    color: #666666;
+    background-color: #f2f2f2;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.links {
+    column-gap: 12px;
+}
+
+.link {
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.button:hover,
+.link:hover {
+    color: #fff;
+    background: var(--main-color);
+}
+
+.link.active {
+    color: #fff;
+    background: var(--main-color);
+}
+
+
+/*------------------------- FOOTER -------------------------*/
+/*------------------------- FOOTER -------------------------*/
+/*------------------------- FOOTER -------------------------*/
+/*------------------------- FOOTER -------------------------*/
+
+
+/*------------------------- FOOTER -------------------------*/
+.footer {
+    border-top: 5px solid var(--main-color);
+    padding-top: 1.2rem;
+}
+
+.footer_box {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer_box .item_title {
+    font-size: 2rem;
+}
+
+.footer_box .item_title span {
+    color: var(--main-color);
+    font-size: 2rem;
+}
+
+.footer_box_item {
+    width: 25%;
+}
+
+.footer_box_item h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    /* word-wrap    : break-word; */
+}
+
+.footer_box_item p {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.footer_box_item li {
+    margin-top: 16px;
+}
+
+.footer_box_item a {
+    color: #fff;
+    transition: all .3s ease;
+}
+
+.footer_box_item a:hover {
+    color: var(--main-color);
+    padding-left: 8px;
+
+    border-left: 1px solid var(--main-color);
+}
+
+.footer_copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.footer_copyright p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.contact {
+    margin-top: 1rem;
+}
+
+.contact-box {
+    display: flex;
+    margin-top: 10px;
+}
+
+.contact-box a {
+    margin-left: 4px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.contact-box a:hover {
+    color: var(--main-color);
+}
+
+.contact-icon {
+    display: flex;
+    font-size: 2.4rem;
+}
+
+.contact-icon .bx {
+    margin-left: 6px;
+}
+
+.contact-icon .bx:hover {
+    color: var(--main-color);
+    cursor: pointer;
+}
+
