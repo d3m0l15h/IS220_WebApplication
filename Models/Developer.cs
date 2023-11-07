@@ -17,6 +17,6 @@ public partial class Developer
     [StringLength(50)]
     public string Name { get; set; } = null!;
 
-    [InverseProperty("Developer")]
+    [InverseProperty("DeveloperNavigation")]
     public virtual ICollection<Game> Games { get; set; } = new List<Game>();
 }

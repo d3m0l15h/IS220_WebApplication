@@ -20,7 +20,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             _db = db;
             _notyf = notyf;
         }
-        
+        // Index
         [HttpGet]
         public IActionResult Index()
         {
@@ -28,6 +28,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             return View(games);
         }
         
+        // Add
         [HttpGet]
         public IActionResult Add()
         {
@@ -39,7 +40,6 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             };
             return View(viewModel);
         }
-        // Add
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(GameViewModel viewModel)
@@ -147,7 +147,4 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             }
         }
     }
-    
 }
-
-

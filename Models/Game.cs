@@ -41,11 +41,18 @@ public partial class Game
     [Column("downloadLink", TypeName = "tinytext")]
     public string DownloadLink { get; set; } = null!;
 
+    [Column("status")]
+    [StringLength(10)]
+    public string? Status { get; set; }
+
     [ForeignKey("Developer")]
     [InverseProperty("Games")]
-    public virtual Developer? DeveloperNavigation { get; set; }
+    public virtual Developer DeveloperNavigation { get; set; } = null!;
 
     [ForeignKey("Publisher")]
     [InverseProperty("Games")]
-    public virtual Publisher? PublisherNavigation { get; set; }
+    public virtual Publisher PublisherNavigation { get; set; } = null!;
+
+    [InverseProperty("Game")]
+    public virtual ICollection<TransactionInfomation> TransactionInfomations { get; set; } = new List<TransactionInfomation>();
 }

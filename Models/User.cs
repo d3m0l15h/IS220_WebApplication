@@ -7,9 +7,14 @@ using Microsoft.EntityFrameworkCore;
 namespace IS220_WebApplication.Models;
 
 [Table("user")]
+[Index("Email", Name = "email", IsUnique = true)]
 [Index("Username", Name = "username", IsUnique = true)]
 public partial class User
 {
+    [Key]
+    [Column("id", TypeName = "int(10) unsigned")]
+    public uint Id { get; set; }
+
     [Column("username")]
     [StringLength(50)]
     public string Username { get; set; } = null!;
@@ -17,7 +22,6 @@ public partial class User
     [Column("password", TypeName = "text")]
     public string Password { get; set; } = null!;
 
-    [Key]
     [Column("email")]
     [StringLength(100)]
     public string Email { get; set; } = null!;
@@ -49,6 +53,6 @@ public partial class User
     [Column("cash", TypeName = "int(11)")]
     public int Cash { get; set; }
 
-    [InverseProperty("EmailNavigation")]
+    [InverseProperty("User")]
     public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 }
