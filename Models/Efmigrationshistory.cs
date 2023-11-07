@@ -6,14 +6,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Models;
 
-[Table("category")]
-public partial class Category
+[Table("__efmigrationshistory")]
+public partial class Efmigrationshistory
 {
     [Key]
-    [Column("id", TypeName = "int(10) unsigned")]
-    public uint Id { get; set; }
+    [StringLength(150)]
+    public string MigrationId { get; set; } = null!;
 
-    [Column("name")]
-    [StringLength(30)]
-    public string Name { get; set; } = null!;
+    [StringLength(32)]
+    public string ProductVersion { get; set; } = null!;
 }
