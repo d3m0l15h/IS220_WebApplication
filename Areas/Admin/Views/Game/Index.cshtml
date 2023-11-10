@@ -83,7 +83,7 @@
         </td>
         <td>
             <div class="userDatatable-content--priority">
-                @item.Price
+                @item.Price.ToString("C")
             </div>
         </td>
         <td>
@@ -93,12 +93,12 @@
         </td>
         <td>
             <div class="userDatatable-content--priority">
-                @item.Publisher
+                @item.PublisherNavigation.Name
             </div>
         </td>
         <td>
             <div class="userDatatable-content--priority">
-                @item.Developer
+                @item.DeveloperNavigation.Name
             </div>
         </td>
         <td>

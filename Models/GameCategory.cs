@@ -10,7 +10,7 @@ namespace IS220_WebApplication.Models;
 [Table("game_category")]
 [Index("Category", Name = "FK_GC_Category")]
 [Index("Game", Name = "FK_GC_Game")]
-public partial class GameCategory
+public sealed partial class GameCategory
 {
     [Column("game", TypeName = "int(10) unsigned")]
     public uint Game { get; set; }
@@ -19,8 +19,8 @@ public partial class GameCategory
     public uint Category { get; set; }
 
     [ForeignKey("Category")]
-    public virtual Category CategoryNavigation { get; set; } = null!;
+    public Category CategoryNavigation { get; set; } = null!;
 
     [ForeignKey("Game")]
-    public virtual Game GameNavigation { get; set; } = null!;
+    public Game GameNavigation { get; set; } = null!;
 }

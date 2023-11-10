@@ -55,4 +55,8 @@ public partial class Game
 
     [InverseProperty("Game")]
     public virtual ICollection<TransactionInfomation> TransactionInfomations { get; set; } = new List<TransactionInfomation>();
+
+    [ForeignKey("Game")]
+    [InverseProperty("Games")]
+    public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
 }

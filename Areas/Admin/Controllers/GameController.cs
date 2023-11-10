@@ -4,6 +4,7 @@ using IS220_WebApplication.Areas.Admin.Models.Authentication;
 using IS220_WebApplication.Context;
 using IS220_WebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Areas.Admin.Controllers
 {
@@ -24,7 +25,10 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var games = _db.Games.ToList();
+            var games = _db.Games
+                                    .Include(g=> g.DeveloperNavigation)
+                                    .Include(g => g.PublisherNavigation)
+                                    .ToList();
             return View(games);
         }
         
@@ -47,25 +51,30 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             viewModel.Categories = _db.Categories.ToList();
             viewModel.Publishers = _db.Publishers.ToList();
             viewModel.Developers = _db.Developers.ToList();
+
+            ModelState.Remove("Game.DeveloperNavigation");
+            ModelState.Remove("Game.PublisherNavigation");
             if (ModelState.IsValid)
             {
                 viewModel.Game.ImgPath = SaveImage(viewModel.ImageFile);
                 await _db.Games.AddAsync(viewModel.Game);
                 await _db.SaveChangesAsync();
 
-                foreach (var gameCategory in from uint categoryId in viewModel.SelectedCategoryIds
-                         select new GameCategory
-                         {
-                             Game = viewModel.Game.Id,
-                             Category = categoryId
-                         })
+                foreach (var categoryId in viewModel.SelectedCategoryIds)
                 {
-                    _db.GameCategories.Add(gameCategory);
+                    // This assumes you have a method to find or create a category instance by its ID
+                    var category = await _db.Categories.FindAsync(categoryId);
+                    if (category != null)
+                    {
+                        viewModel.Game.Categories.Add(category); // Add categories to the game
+                    }
                 }
+                await _db.SaveChangesAsync();
                 _notyf?.Success("Add game successfully!");
                 await _db.SaveChangesAsync();
                 return RedirectToAction("Add");
             }
+            CheckModelState();
             _notyf?.Error("Add game failed!");
             return View(viewModel);
         }
