@@ -12,7 +12,7 @@ namespace IS220_WebApplication.Models;
 public partial class Game
 {
     [Key]
-    [Column("id", TypeName = "int(10) unsigned")]
+    [Column("id")]
     public uint Id { get; set; }
 
     [Column("title")]
@@ -32,10 +32,10 @@ public partial class Game
     [Column("imgPath", TypeName = "tinytext")]
     public string? ImgPath { get; set; }
 
-    [Column("publisher", TypeName = "int(10) unsigned")]
+    [Column("publisher")]
     public uint Publisher { get; set; }
 
-    [Column("developer", TypeName = "int(10) unsigned")]
+    [Column("developer")]
     public uint Developer { get; set; }
 
     [Column("downloadLink", TypeName = "tinytext")]

@@ -12,16 +12,16 @@ namespace IS220_WebApplication.Models;
 public partial class TransactionInfomation
 {
     [Key]
-    [Column("id", TypeName = "int(11) unsigned")]
+    [Column("id")]
     public uint Id { get; set; }
 
-    [Column("typeID", TypeName = "int(11) unsigned")]
+    [Column("typeID")]
     public uint TypeId { get; set; }
 
-    [Column("amount", TypeName = "int(11)")]
+    [Column("amount")]
     public int Amount { get; set; }
 
-    [Column("gameID", TypeName = "int(11) unsigned")]
+    [Column("gameID")]
     public uint? GameId { get; set; }
 
     [ForeignKey("GameId")]

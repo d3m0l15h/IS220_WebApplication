@@ -39,13 +39,9 @@ public partial class MyDbContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        var cfg = new ConfigurationBuilder()
-            .AddUserSecrets<Program>()
-            .Build();
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseMySQL("Server=localhost;User ID=root;Password=123456;Database=game_store");
 
-        optionsBuilder.UseMySQL(cfg["dbGameStore"] ?? string.Empty);
-    }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Category>(entity =>
@@ -67,27 +63,25 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.Property(e => e.Description).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.ImgPath).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.Status).HasDefaultValueSql("'NULL'");
+            entity.Property(e => e.Status).HasDefaultValueSql("'active'");
 
             entity.HasOne(d => d.DeveloperNavigation).WithMany(p => p.Games)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Game_Developer");
 
             entity.HasOne(d => d.PublisherNavigation).WithMany(p => p.Games)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Game_Publisher");
         });
 
         modelBuilder.Entity<GameCategory>(entity =>
         {
             entity.HasOne(d => d.CategoryNavigation).WithMany()
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_GC_Category");
 
             entity.HasOne(d => d.GameNavigation).WithMany()
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_GC_Game");
         });
 
@@ -96,7 +90,7 @@ public partial class MyDbContext : DbContext
             entity.HasOne(d => d.Game).WithMany().HasConstraintName("FK_GameOwner_Game");
 
             entity.HasOne(d => d.User).WithMany()
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_GameOwner_User");
         });
 
@@ -109,14 +103,14 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.Property(e => e.Date).HasDefaultValueSql("'current_timestamp()'");
+            entity.Property(e => e.Date).HasDefaultValueSql("CURRENT_TIMESTAMP");
 
             entity.HasOne(d => d.TransInfo).WithMany(p => p.Transactions)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Info_Trans");
 
             entity.HasOne(d => d.User).WithMany(p => p.Transactions)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_User_Trans");
         });
 
@@ -124,14 +118,10 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.Property(e => e.GameId).HasDefaultValueSql("'NULL'");
-
-            entity.HasOne(d => d.Game).WithMany(p => p.TransactionInfomations)
-                .OnDelete(DeleteBehavior.Restrict)
-                .HasConstraintName("FK_Game_Trans");
+            entity.HasOne(d => d.Game).WithMany(p => p.TransactionInfomations).HasConstraintName("FK_Game_Trans");
 
             entity.HasOne(d => d.Type).WithMany(p => p.TransactionInfomations)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Fk_Type_Trans");
         });
 
@@ -157,5 +147,13 @@ public partial class MyDbContext : DbContext
         OnModelCreatingPartial(modelBuilder);
     }
 
-    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+    private static void OnModelCreatingPartial(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<User>()
+            .Property(u => u.Phone)
+            .HasMaxLength(20); 
+    }
+
 }
+
+
