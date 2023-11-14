@@ -1,4 +1,5 @@
 using IS220_WebApplication.Context;
+using IS220_WebApplication.Models;
 using IS220_WebApplication.Utils;
 using Microsoft.EntityFrameworkCore;
 

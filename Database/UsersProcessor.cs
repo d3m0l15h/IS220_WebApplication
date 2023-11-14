@@ -1,4 +1,5 @@
 using IS220_WebApplication.Context;
+using IS220_WebApplication.Models;
 using IS220_WebApplication.Utils;
 using Microsoft.EntityFrameworkCore;
 
@@ -30,14 +31,7 @@ public class UsersProcessor : Processor
 
     public override Response GetData(int from, int quantity, string queryCondition, string sortQuery)
     {
-        // if (queryCondition.Length == 0) {
-        //     queryCondition = "USERS.USER_CATEGORY_ID = USER_CATEGORY.ID";
-        // } else {
-        //     queryCondition = queryCondition + " AND USERS.USER_CATEGORY_ID = USER_CATEGORY.ID";
-        // }
         return Select("*", from, quantity, queryCondition, sortQuery, GetDefaultDatabaseTable(), GetDefaultDatabaseContext());
-        
-        
     }
 
     public override int CountData(string queryCondition)

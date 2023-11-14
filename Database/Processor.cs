@@ -9,14 +9,13 @@ namespace IS220_WebApplication.Database;
 public abstract class Processor
 {
     private readonly MyDbContext _db;
-    private string DefaultDtabaseTable { get; set; }
+    private string DefaultDatabaseTable { get; set; }
     private dynamic DefaultDatabaseContext { get; set; }
 
 
     protected Processor(MyDbContext db)
     {
         _db = db;
-        DefaultDatabaseContext = "";
     }
     
     protected dynamic GetDefaultDatabaseContext()
@@ -30,11 +29,11 @@ public abstract class Processor
     }
     protected void SetDefaultDatabaseTable(string value)
     {
-        DefaultDatabaseContext = value;
+        DefaultDatabaseTable = value;
     }
     protected string GetDefaultDatabaseTable()
     {
-        return DefaultDatabaseContext;
+        return DefaultDatabaseTable;
     }
 
     public abstract Response InsertData(Dictionary<string, string> columnValueMap, bool isCommit);
@@ -102,7 +101,8 @@ public abstract class Processor
             return new Response(e.ToString(), StatusCode.BadRequest);
         }
     }
-    public Response Select<T> (string values, int from, int quantity, string queryCondition, string sortQuery, string table, DbSet<T> context) where T : class {
+    public Response Select<T>(string values, int from, int quantity, string queryCondition, string sortQuery, string table, DbSet<T> context) where T : class
+    {
         var query = $"SELECT {values} FROM {table}";
         if (!string.IsNullOrEmpty(queryCondition)) {
             query = query + " WHERE " + queryCondition;
