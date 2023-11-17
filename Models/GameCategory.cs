@@ -12,10 +12,10 @@ namespace IS220_WebApplication.Models;
 [Index("Game", Name = "FK_GC_Game")]
 public sealed partial class GameCategory
 {
-    [Column("game", TypeName = "int(10) unsigned")]
+    [Column("game")]
     public uint Game { get; set; }
 
-    [Column("category", TypeName = "int(10) unsigned")]
+    [Column("category")]
     public uint Category { get; set; }
 
     [ForeignKey("Category")]

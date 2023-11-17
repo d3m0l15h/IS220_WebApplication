@@ -2,8 +2,12 @@
 using AspNetCoreHero.ToastNotification.Notyf;
 using IS220_WebApplication.Areas.Admin.Models.Authentication;
 using IS220_WebApplication.Context;
+using IS220_WebApplication.Database;
 using IS220_WebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using static IS220_WebApplication.Database.UsersProcessor;
 
 namespace IS220_WebApplication.Areas.Admin.Controllers
 {
@@ -14,10 +18,13 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
 
         private readonly INotyfService? _notyf;
 
+        private UsersProcessor _usersProcessor;
+
         public LoginController(MyDbContext db, INotyfService notyf)
         {
             _db = db;
             _notyf = notyf;
+            _usersProcessor = new UsersProcessor(db);
         }
 
         [HttpGet]
@@ -33,21 +40,28 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         {
             if (HttpContext.Session.GetString("email") == null)
             {
-                var u = _db.Users.FirstOrDefault(x => x.Username.Equals(user.Username) &&
-                                                      x.Password.Equals(user.Password) &&
-                                                      x.Role == 1);
-                if (u != null)
-                {
-                    HttpContext.Session.SetString("email", u.Email);
-                    var originalUrl = HttpContext.Request.Cookies["OriginalUrl"];
-                    HttpContext.Response.Cookies.Delete("OriginalUrl");
+                var query = $"Username = '{user.Username}' AND Password = '{user.Password}' AND Role = 1";
+                var data = _usersProcessor.GetData(0, -1, query,"").GetData();
 
-                    if (!string.IsNullOrEmpty(originalUrl))
+                if (!data.IsNullOrEmpty())
+                {
+
+                    var email = Utils.Utils.GetDataValuesByColumnName(data, "Email")[0];
+
+                    if (email != null)
                     {
-                        return LocalRedirect(originalUrl);
+                        HttpContext.Session.SetString("email", email);
+                        var originalUrl = HttpContext.Request.Cookies["OriginalUrl"];
+                        HttpContext.Response.Cookies.Delete("OriginalUrl");
+
+                        if (!string.IsNullOrEmpty(originalUrl))
+                        {
+                            return LocalRedirect(originalUrl);
+                        }
+
+                        _notyf?.Success("Login success");
+                        return RedirectToAction("index", "dashboard");
                     }
-                    _notyf?.Success("Login success");
-                    return RedirectToAction("index", "dashboard");
                 }
             }
             _notyf?.Error("Login failed");

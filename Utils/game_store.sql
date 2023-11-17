@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `category`
 --
-
+USE game_store;
 CREATE TABLE `category` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(30) NOT NULL
@@ -362,7 +362,7 @@ ALTER TABLE `game`
   ADD CONSTRAINT `FK_Game_Publisher` FOREIGN KEY (`publisher`) REFERENCES `publisher` (`id`);
 
 --
--- Constraints for table `game_category`
+-- Constraints for table `game_category
 --
 ALTER TABLE `game_category`
   ADD CONSTRAINT `FK_GC_Category` FOREIGN KEY (`category`) REFERENCES `category` (`id`),
