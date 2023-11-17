@@ -1,0 +1,111 @@
+/* Form Popup */
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
+function previewImage() {
+    const preview = document.querySelector('#imagePreview');
+    const file = document.querySelector('#upload').files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = function (e) {
+        preview.src = reader.result;
+        preview.style.display = 'block';
+        document.getElementById('imgSize').textContent = 'Size: ' + (file.size / 1024).toFixed(2) + ' KB';
+        document.getElementById('imgName').textContent = 'Name: ' + file.name;
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = "";
+        preview.style.display = 'none';
+    }
+}
+
+let popupWindow = null;
+function openPopupWindow(url) {
+    if (!popupWindow || popupWindow.closed) {
+        popupWindow = window.open(url, '_blank', 'location=yes,height=280,width=500,scrollbars=yes,status=yes');
+    } else {
+        popupWindow.focus();
+    }
+}
+function addWindow(entity){
+    // Construct the URL for the add action
+    var url = 'http://localhost:5249/admin/' + entity + '/add';
+
+    // Open a new window with the constructed URL
+    openPopupWindow(url);
+}
+function deleteWindow(entity, element){
+    // Get the selected value from the select option
+    var selectedValue = document.getElementsByName(element)[0].value;
+
+    // Construct the URL for the delete action
+    var url = 'http://localhost:5249/admin/' + entity + '/delete/' + selectedValue;
+    
+    // Open a new window with the constructed URL
+    openPopupWindow(url);
+}
+function editWindow(entity, element) {
+    // Get the selected value from the select option
+    var selectedValue = document.getElementsByName(element)[0].value;
+
+    // Construct the URL for the delete action
+    var url = 'http://localhost:5249/admin/' + entity + '/edit/' + selectedValue;
+
+    // Open a new window with the constructed URL
+    openPopupWindow(url);
+}
+function entityAdded(id, name, element) {
+    // Close the popup window
+    if (window.popupWindow) {
+        window.popupWindow.close();
+    }
+
+    // Update the select in the parent window
+    var select = document.getElementsByName(element)[0];
+    var option = new Option(name, id);
+    select.appendChild(option);
+    select.value = id; // Select the new option
+    $('select[name="'+element+'"]').select2();
+}
+function entityDeleted(id, element) {
+    // Close the popup window
+    if (window.popupWindow) {
+        window.popupWindow.close();
+    }
+    
+    // Remove the option from the select in the parent window
+    var select = document.getElementsByName(element)[0];
+    var options = select.options;
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].value === id.toString()) {
+            select.removeChild(options[i]);
+            $('select[name="'+element+'"]').select2();
+            break;
+        }
+    }
+}
+
+function entityEdited(id, name, element) {
+    // Close the popup window
+    if (window.popupWindow) {
+        window.popupWindow.close();
+    }
+
+    // Update the select in the parent window
+    var select = document.getElementsByName(element)[0];
+    var options = select.options;
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].value === id.toString()) {
+            options[i].text = name;
+            $('select[name="'+element+'"]').select2();
+            break;
+        }
+    }
+}

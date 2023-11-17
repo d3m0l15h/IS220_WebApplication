@@ -65,9 +65,10 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
+            entity.Property(e => e.Active).HasDefaultValueSql("'1'");
             entity.Property(e => e.Description).HasDefaultValueSql("'NULL'");
             entity.Property(e => e.ImgPath).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.Status).HasDefaultValueSql("'NULL'");
+            entity.Property(e => e.Type).HasDefaultValueSql("'1'");
 
             entity.HasOne(d => d.DeveloperNavigation).WithMany(p => p.Games)
                 .OnDelete(DeleteBehavior.Restrict)
