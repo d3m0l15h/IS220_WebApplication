@@ -12,14 +12,14 @@
             <div class="shop-breadcrumb">
 
                 <div class="breadcrumb-main">
-                    <h4 class="text-capitalize breadcrumb-title">add Game</h4>
+                    <h4 class="text-capitalize breadcrumb-title">Edit Game</h4>
                     <div class="breadcrumb-action justify-content-center flex-wrap">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="#"><i class="uil uil-estate"></i>Game</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">add game</li>
+                                <li class="breadcrumb-item active" aria-current="page">edit game</li>
                             </ol>
                         </nav>
                     </div>
@@ -37,8 +37,9 @@
 <div class="row justify-content-center">
 <div class="col-xxl-7 col-lg-10">
 <div class="mx-sm-30 mx-20 ">
-<form method="post" enctype="multipart/form-data" asp-area="admin" asp-controller="game" asp-action="add">
+<form method="post" enctype="multipart/form-data" asp-area="admin" asp-controller="game" asp-action="edit">
 @Html.AntiForgeryToken()
+@Html.HiddenFor(model => model.Game.Id)
 <!-- Start: card -->
 <div class="card add-product p-sm-30 p-20 mb-30">
     <div class="card-body p-0">
@@ -52,7 +53,7 @@
             <!-- form group -->
             <div class="form-group">
                 <label for="name1">Title</label>
-                <input type="text" class="form-control" id="name1" asp-for="Game.Title">
+                <input type="text" class="form-control" id="name1" asp-for="Game.Title" value="@Model.Game.Title">
             </div>
 
             <!-- form group 1 -->
@@ -61,7 +62,7 @@
                 <div class="dm-date-picker">
                     <div class="form-group mb-0 form-group-calender">
                         <div class="position-relative">
-                            <input type="text" class="form-control form-control-lg" id="datepicker3" placeholder="YYYY-MM-DD" asp-for="Game.ReleaseDate">
+                            <input type="text" class="form-control form-control-lg" id="datepicker3" placeholder="YYYY-MM-DD" asp-for="Game.ReleaseDate" value="@Model.Game.ReleaseDate.ToString("yyyy-MM-dd")">
                             <a href="#">
                                 <img class="svg" src="~/admin/img/svg/calendar.svg" alt="calendar">
                             </a>
@@ -81,11 +82,10 @@
                     <div class="dm-tag-mode">
 
                         <div class="dm-select">
-
                             <select id="select-tag" class="form-control " multiple="multiple" asp-for="SelectedCategoryIds">
                                 @foreach (var category in Model.Categories)
                                 {
-                                    <option value="@category.Id">@category.Name</option>
+                                    <option value="@category.Id" selected="@Model.Game.Categories.Any(c => c.Id == category.Id)">@category.Name</option>
                                 }
                             </select>
                         </div>
@@ -106,7 +106,7 @@
                         </span>
                     </div>
                     <div class="pt_Quantity">
-                        <input type="number" class="form-control" min="0" step="1" value="0" data-inc="1" asp-for="Game.Price">
+                        <input type="number" class="form-control" min="0" step="1" value="@Model.Game.Price" data-inc="1" asp-for="Game.Price">
                     </div>
                 </div>
             </div>
@@ -183,19 +183,28 @@
                 </div>
             </div>
             
-            <!-- form group -->
             <div class="form-group">
-                <label for="name9">Type</label>
-                <div class="dm-select-list d-flex align-center">
-                    <div class="dm-select ">
-                        <select asp-for="Game.Type" class="form-control ">
-                            <option value="1">Game</option>
-                            <option value="2">Disk</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+                            <label for="name9">Type</label>
+                            <div class="dm-select-list d-flex align-center">
+                                <div class="dm-select ">
+                                    <select asp-for="Game.Type" class="form-control ">
+                                        <option value="1">Game</option>
+                                        <option value="2">Disk</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
+            <div class="form-group">
+                <label for="switch-s5">Active</label>
+            <div class="form-check form-switch form-switch-warning form-switch-lg">
+                <input type="checkbox" class="form-check-input" id="switch-s5" asp-for="GameActive">
+                <label class="form-check-label" for="switch-s5"></label>
+            </div>
+            </div>
+            
+            
+            
             <!-- form group 8 -->
             <div class="form-group mb-0">
                 <label for="name10">Download link</label>
@@ -231,11 +240,12 @@
             </label>
             <div class="upload-product-media d-flex justify-content-between align-items-center mt-25">
                 <div class="upload-media-area d-flex">
-                    <img id="imagePreview" src="~/admin/img/food-restaurant-media.png" alt="Image Preview"/>
+                    <img id="imagePreview" src="~/images/@Model.Game.ImgPath" alt="Image Preview"/>
+
                     <div class=" upload-media-area__title  d-flex flex-wrap align-items-center ms-10">
                         <div>
-                            <p id="imgName">Product_image.jpg</p>
-                            <span id="imgSize">68.8 KB</span>
+                            <p id="imgName"></p>
+                            <span id="imgSize"></span>
                         </div>
                         <div class="upload-media-area__btn">
                             <button type="button" class="transparent rounded-circle wh-30 border-0 color-danger">

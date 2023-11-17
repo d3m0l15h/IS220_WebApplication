@@ -24,8 +24,6 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<Game> Games { get; set; }
 
-    public virtual DbSet<GameCategory> GameCategories { get; set; }
-
     public virtual DbSet<GameOwned> GameOwneds { get; set; }
 
     public virtual DbSet<Publisher> Publishers { get; set; }
@@ -67,9 +65,10 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
+            entity.Property(e => e.Active).HasDefaultValueSql("'1'");
             entity.Property(e => e.Description).HasDefaultValueSql("'NULL'");
             entity.Property(e => e.ImgPath).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.Status).HasDefaultValueSql("'NULL'");
+            entity.Property(e => e.Type).HasDefaultValueSql("'1'");
 
             entity.HasOne(d => d.DeveloperNavigation).WithMany(p => p.Games)
                 .OnDelete(DeleteBehavior.Restrict)
@@ -78,17 +77,30 @@ public partial class MyDbContext : DbContext
             entity.HasOne(d => d.PublisherNavigation).WithMany(p => p.Games)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_Game_Publisher");
-        });
 
-        modelBuilder.Entity<GameCategory>(entity =>
-        {
-            entity.HasOne(d => d.CategoryNavigation).WithMany()
-                .OnDelete(DeleteBehavior.Restrict)
-                .HasConstraintName("FK_GC_Category");
-
-            entity.HasOne(d => d.GameNavigation).WithMany()
-                .OnDelete(DeleteBehavior.Restrict)
-                .HasConstraintName("FK_GC_Game");
+            entity.HasMany(d => d.Categories).WithMany(p => p.Games)
+                .UsingEntity<Dictionary<string, object>>(
+                    "GameCategory",
+                    r => r.HasOne<Category>().WithMany()
+                        .HasForeignKey("Category")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("FK_GC_Category"),
+                    l => l.HasOne<Game>().WithMany()
+                        .HasForeignKey("Game")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("FK_GC_Game"),
+                    j =>
+                    {
+                        j.HasKey("Game", "Category").HasName("PRIMARY");
+                        j.ToTable("game_category");
+                        j.HasIndex(new[] { "Category" }, "FK_GC_Category");
+                        j.IndexerProperty<uint>("Game")
+                            .HasColumnType("int(10) unsigned")
+                            .HasColumnName("game");
+                        j.IndexerProperty<uint>("Category")
+                            .HasColumnType("int(10) unsigned")
+                            .HasColumnName("category");
+                    });
         });
 
         modelBuilder.Entity<GameOwned>(entity =>

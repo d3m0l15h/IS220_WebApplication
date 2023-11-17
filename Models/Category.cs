@@ -16,4 +16,8 @@ public partial class Category
     [Column("name")]
     [StringLength(30)]
     public string Name { get; set; } = null!;
+
+    [ForeignKey("Category")]
+    [InverseProperty("Categories")]
+    public virtual ICollection<Game> Games { get; set; } = new List<Game>();
 }

@@ -19,9 +19,6 @@ public partial class Game
     [StringLength(100)]
     public string Title { get; set; } = null!;
 
-    [Column("description", TypeName = "text")]
-    public string? Description { get; set; }
-
     [Column("price")]
     [Precision(10, 0)]
     public decimal Price { get; set; }
@@ -29,8 +26,8 @@ public partial class Game
     [Column("releaseDate", TypeName = "date")]
     public DateTime ReleaseDate { get; set; }
 
-    [Column("imgPath", TypeName = "tinytext")]
-    public string? ImgPath { get; set; }
+    [Column("description", TypeName = "text")]
+    public string? Description { get; set; }
 
     [Column("publisher", TypeName = "int(10) unsigned")]
     public uint Publisher { get; set; }
@@ -38,12 +35,18 @@ public partial class Game
     [Column("developer", TypeName = "int(10) unsigned")]
     public uint Developer { get; set; }
 
+    [Column("imgPath", TypeName = "tinytext")]
+    public string? ImgPath { get; set; }
+
     [Column("downloadLink", TypeName = "tinytext")]
     public string DownloadLink { get; set; } = null!;
 
-    [Column("status")]
-    [StringLength(10)]
-    public string? Status { get; set; }
+    [Required]
+    [Column("active")]
+    public bool? Active { get; set; }
+
+    [Column("type", TypeName = "int(1)")]
+    public int Type { get; set; }
 
     [ForeignKey("Developer")]
     [InverseProperty("Games")]
@@ -55,4 +58,8 @@ public partial class Game
 
     [InverseProperty("Game")]
     public virtual ICollection<TransactionInfomation> TransactionInfomations { get; set; } = new List<TransactionInfomation>();
+
+    [ForeignKey("Game")]
+    [InverseProperty("Games")]
+    public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
 }
