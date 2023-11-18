@@ -349,6 +349,10 @@ html::-webkit-scrollbar {
     border-radius: 0.5rem;
 }
 
+.box:hover {
+    cursor: pointer;
+}
+
 .box img {
     width: 100%;
     height: 100%;
@@ -398,16 +402,16 @@ span {
     font-size: 0.9rem;
 }
 
-.box-btn .bx {
+.box-btn p {
     padding: 8px;
     background-color: var(--text-color);
-    border-radius: 5rem;
+    border-radius: 2rem;
     color: var(--main-color);
     font-weight: 400;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
 }
 
-.box-btn .bx:hover {
+.box-btn p:hover {
     background-color: var(--dark-color);
 }
 

@@ -3,10 +3,9 @@
 }
 
 <head>
-    <link rel="stylesheet" href="vietHoaPage.css" >
+    <link rel="stylesheet" href="~/static/css/vietHoaGamePage.css">
 </head>
 
-<!-------------start GAMES VIET HOA SECTION --------------->
 <section class="category" id="viethoa">
     <div class="heading">
         <i class="bx bx-game"></i>
@@ -26,9 +25,9 @@
                         <i class="bx bxs-star"></i>
                         <span>4.7</span>
                     </div>
-                    @* ------- FIX ------- *@
+
                     <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
-                        <i class="bx bx-down-arrow-alt"></i>
+                        <p>100.000đ</p>
                     </a>
                 </div>
             </div>
@@ -45,8 +44,9 @@
                         <i class="bx bxs-star"></i>
                         <span>4.7</span>
                     </div>
-                    <a href="#" class="box-btn">
-                        <i class="bx bx-down-arrow-alt"></i>
+
+                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                        <p>100.000đ</p>
                     </a>
                 </div>
             </div>
@@ -63,8 +63,9 @@
                         <i class="bx bxs-star"></i>
                         <span>4.7</span>
                     </div>
-                    <a href="#" class="box-btn">
-                        <i class="bx bx-down-arrow-alt"></i>
+
+                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                        <p>100.000đ</p>
                     </a>
                 </div>
             </div>
@@ -81,8 +82,9 @@
                         <i class="bx bxs-star"></i>
                         <span>4.7</span>
                     </div>
-                    <a href="#" class="box-btn">
-                        <i class="bx bx-down-arrow-alt"></i>
+
+                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                        <p>100.000đ</p>
                     </a>
                 </div>
             </div>
@@ -99,8 +101,9 @@
                         <i class="bx bxs-star"></i>
                         <span>4.7</span>
                     </div>
-                    <a href="#" class="box-btn">
-                        <i class="bx bx-down-arrow-alt"></i>
+
+                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                        <p>100.000đ</p>
                     </a>
                 </div>
             </div>
@@ -117,8 +120,9 @@
                         <i class="bx bxs-star"></i>
                         <span>4.7</span>
                     </div>
-                    <a href="#" class="box-btn">
-                        <i class="bx bx-down-arrow-alt"></i>
+
+                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                        <p>100.000đ</p>
                     </a>
                 </div>
             </div>
@@ -135,8 +139,9 @@
                         <i class="bx bxs-star"></i>
                         <span>4.7</span>
                     </div>
-                    <a href="#" class="box-btn">
-                        <i class="bx bx-down-arrow-alt"></i>
+
+                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                        <p>100.000đ</p>
                     </a>
                 </div>
             </div>
@@ -153,17 +158,37 @@
                         <i class="bx bxs-star"></i>
                         <span>4.7</span>
                     </div>
-                    <a href="#" class="box-btn">
-                        <i class="bx bx-down-arrow-alt"></i>
+
+                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                        <p>100.000đ</p>
                     </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="more-btn">
-        <button>
-            <a asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">Xem thêm</a>
+    <!-- PAGINATION -->
+    <div class="pagination">
+        <button class="button" id="startBtn" disabled>
+            <i class='bx bxs-chevrons-left'></i>
+        </button>
+        <button class="button prevNext" id="prev" disabled>
+            <i class='bx bxs-chevron-left'></i>
+        </button>
+
+        <div class="links">
+            <button href="#" class="link active">1</button>
+            <button href="#" class="link">2</button>
+            <button href="#" class="link">3</button>
+            <button href="#" class="link">4</button>
+            <button href="#" class="link">5</button>
+        </div>
+
+        <button class="button prevNext" id="next">
+            <i class='bx bxs-chevron-right'></i>
+        </button>
+        <button class="button" id="endBtn">
+            <i class='bx bxs-chevrons-right'></i>
         </button>
     </div>
 </section>
