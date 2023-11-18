@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2023 at 08:11 AM
+-- Generation Time: Nov 18, 2023 at 11:44 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `category`
 --
-USE game_store;
+
 CREATE TABLE `category` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(30) NOT NULL
@@ -39,7 +39,9 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `name`) VALUES
 (1, 'Indie'),
 (2, 'Fantasy'),
-(3, 'Soul');
+(3, 'Soul'),
+(4, 'RPG'),
+(5, 'Action');
 
 -- --------------------------------------------------------
 
@@ -58,7 +60,8 @@ CREATE TABLE `developer` (
 
 INSERT INTO `developer` (`id`, `name`) VALUES
 (1, 'FromSoftWare'),
-(2, 'Bethesda');
+(2, 'Bethesda'),
+(3, ' CD PROJEKT RED');
 
 -- --------------------------------------------------------
 
@@ -69,22 +72,24 @@ INSERT INTO `developer` (`id`, `name`) VALUES
 CREATE TABLE `game` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL,
-  `description` text DEFAULT NULL,
   `price` decimal(10,0) NOT NULL DEFAULT 0,
   `releaseDate` date NOT NULL,
-  `imgPath` tinytext DEFAULT NULL,
+  `description` text DEFAULT NULL,
   `publisher` int(10) UNSIGNED NOT NULL,
   `developer` int(10) UNSIGNED NOT NULL,
+  `imgPath` tinytext DEFAULT NULL,
   `downloadLink` tinytext NOT NULL,
-  `status` varchar(10) DEFAULT NULL
+  `active` tinyint(1) NOT NULL DEFAULT 1,
+  `type` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `game`
 --
 
-INSERT INTO `game` (`id`, `title`, `description`, `price`, `releaseDate`, `imgPath`, `publisher`, `developer`, `downloadLink`, `status`) VALUES
-(1, 'Elden Ring', 'THE NEW FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.', 1000000, '2022-02-25', '01b2a9b2-d503-4238-85ea-5df323194943_elden-ring-button-03-1623460560664.jpg', 1, 1, 'https://store.steampowered.com/app/1245620/ELDEN_RING/', NULL);
+INSERT INTO `game` (`id`, `title`, `price`, `releaseDate`, `description`, `publisher`, `developer`, `imgPath`, `downloadLink`, `active`, `type`) VALUES
+(1, 'Elden Ring', 1000000, '2022-02-25', 'THE NEW FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.', 1, 1, '01b2a9b2-d503-4238-85ea-5df323194943_elden-ring-button-03-1623460560664.jpg', 'https://store.steampowered.com/app/1245620/ELDEN_RING/', 1, 1),
+(2, 'Cyberpunk 2077', 495000, '2020-12-10', 'Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City — a dangerous megalopolis obsessed with power, glamor, and ceaseless body modification.\r\n', 3, 3, '87df9925-d5d8-4a5d-b17c-c63f28e0291f_74032c8c2fe1ddaaa85fc8acfe6425b4edcd1241a546ff7d.jpg', 'https://store.steampowered.com/app/1091500/Cyberpunk_2077', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -103,7 +108,9 @@ CREATE TABLE `game_category` (
 
 INSERT INTO `game_category` (`game`, `category`) VALUES
 (1, 2),
-(1, 3);
+(1, 3),
+(2, 4),
+(2, 5);
 
 -- --------------------------------------------------------
 
@@ -123,7 +130,7 @@ CREATE TABLE `game_owned` (
 --
 
 CREATE TABLE `publisher` (
-  ` id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -131,9 +138,11 @@ CREATE TABLE `publisher` (
 -- Dumping data for table `publisher`
 --
 
-INSERT INTO `publisher` (` id`, `name`) VALUES
+INSERT INTO `publisher` (`id`, `name`) VALUES
 (1, 'FromSoftware'),
-(2, 'Bethesda');
+(2, 'Bethesda'),
+(3, 'CD PROJEKT RED'),
+(4, 'test2');
 
 -- --------------------------------------------------------
 
@@ -190,15 +199,16 @@ CREATE TABLE `user` (
   `role` tinyint(4) NOT NULL DEFAULT 0,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL ON UPDATE current_timestamp(),
-  `cash` int(11) NOT NULL DEFAULT 0
+  `cash` int(11) NOT NULL DEFAULT 0,
+  `status` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `firstName`, `lastName`, `phone`, `birth`, `role`, `created`, `modified`, `cash`) VALUES
-(1, 'admin', 'admin', 'davicmax123@gmail.com', NULL, NULL, NULL, NULL, 1, '2023-09-26 10:50:34', '2023-09-26 10:51:01', 0);
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `firstName`, `lastName`, `phone`, `birth`, `role`, `created`, `modified`, `cash`, `status`) VALUES
+(1, 'admin', 'admin', 'davicmax123@gmail.com', NULL, NULL, NULL, NULL, 1, '2023-09-26 10:50:34', '2023-11-18 10:37:19', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -246,7 +256,7 @@ ALTER TABLE `game`
 -- Indexes for table `game_category`
 --
 ALTER TABLE `game_category`
-  ADD KEY `FK_GC_Game` (`game`),
+  ADD PRIMARY KEY (`game`,`category`),
   ADD KEY `FK_GC_Category` (`category`);
 
 --
@@ -260,7 +270,7 @@ ALTER TABLE `game_owned`
 -- Indexes for table `publisher`
 --
 ALTER TABLE `publisher`
-  ADD PRIMARY KEY (` id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `transaction`
@@ -306,25 +316,25 @@ ALTER TABLE `__efmigrationshistory`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `developer`
 --
 ALTER TABLE `developer`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `publisher`
 --
 ALTER TABLE `publisher`
-  MODIFY ` id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `transaction`
@@ -362,7 +372,7 @@ ALTER TABLE `game`
   ADD CONSTRAINT `FK_Game_Publisher` FOREIGN KEY (`publisher`) REFERENCES `publisher` (`id`);
 
 --
--- Constraints for table `game_category
+-- Constraints for table `game_category`
 --
 ALTER TABLE `game_category`
   ADD CONSTRAINT `FK_GC_Category` FOREIGN KEY (`category`) REFERENCES `category` (`id`),
