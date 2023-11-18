@@ -9,9 +9,8 @@ namespace IS220_WebApplication.Database;
 public abstract class Processor
 {
     private readonly MyDbContext _db;
-    private string DefaultDatabaseTable { get; set; }
-    private dynamic DefaultDatabaseContext { get; set; }
-
+    private string DefaultDatabaseTable { get; set; } = null!;
+    private dynamic DefaultDatabaseContext { get; set; } = null!;
 
     protected Processor(MyDbContext db)
     {
@@ -37,7 +36,8 @@ public abstract class Processor
     }
 
     public abstract Response InsertData(Dictionary<string, string> columnValueMap, bool isCommit);
-    public Response Insert(Dictionary<string, string> columnValueMap, string table, bool isCommit) {
+
+    protected Response Insert(Dictionary<string, string> columnValueMap, string table, bool isCommit) {
         var columnsValuesList = Utils.Utils.GetKeysValuesFromDictionary(columnValueMap);
 
         var columns = columnsValuesList[0];
@@ -57,7 +57,8 @@ public abstract class Processor
             return new Response(e.ToString(), StatusCode.BadRequest);
         }
     }
-    public string ConstructUpdateSqlSetStatement(List<string> columns, List<string> values) {
+
+    private static string ConstructUpdateSqlSetStatement(List<string> columns, List<string> values) {
         var setStatement = "";
         for (var i = 0 ; i < columns.Count; ++i) {
             setStatement += $"{columns[i]} = '{values[i]}'";
@@ -68,7 +69,8 @@ public abstract class Processor
         return setStatement;
     }
     public abstract Response UpdateData(Dictionary<string, string> columnValueDictionary, string queryCondition, bool isCommit);
-    public Response Update (Dictionary<string, string> columnValueMap, string queryCondition, string table,  bool isCommit) {
+
+    protected Response Update (Dictionary<string, string> columnValueMap, string queryCondition, string table,  bool isCommit) {
         var columnsValuesList = Utils.Utils.GetKeysValuesFromDictionary(columnValueMap);
 
         var columns = columnsValuesList[0];
@@ -88,7 +90,8 @@ public abstract class Processor
 
     }
     public abstract Response DeleteData(string queryCondition, bool isCommit);
-    public Response Delete(string queryCondition, string table, bool isCommit) {
+
+    protected Response Delete(string queryCondition, string table, bool isCommit) {
         var query = $"DELETE FROM {table} WHERE {queryCondition}";
         
         try {
@@ -101,7 +104,8 @@ public abstract class Processor
             return new Response(e.ToString(), StatusCode.BadRequest);
         }
     }
-    public Response Select<T>(string values, int from, int quantity, string queryCondition, string sortQuery, string table, DbSet<T> context) where T : class
+
+    protected static Response Select<T>(string values, int from, int quantity, string queryCondition, string sortQuery, string table, DbSet<T> context) where T : class
     {
         var query = $"SELECT {values} FROM {table}";
         if (!string.IsNullOrEmpty(queryCondition)) {
@@ -139,17 +143,10 @@ public abstract class Processor
                         if (property != null)
                         {
                             var value = row.GetType().GetProperty(columnName)?.GetValue(row);
-                            
-                            if (value != null)
-                            {
-                                // Console.WriteLine("Column " + columnName + "value " + value);
-                                val.Add(value.ToString());
-                            }
-                            else
-                            {
-                                // Console.WriteLine($"Value for column '{columnName}' is null.");
-                                val.Add(string.Empty);
-                            }
+
+                            // Console.WriteLine($"Value for column '{columnName}' is null.");
+                            // Console.WriteLine("Column " + columnName + "value " + value);
+                            val.Add(value != null ? value.ToString() : string.Empty);
                         }
                         else
                         {
@@ -158,7 +155,7 @@ public abstract class Processor
                         }
 
                     }
-                    result.Add(val);
+                    result.Add(val!);
                 }
             }
         } catch (Exception e) {
@@ -169,9 +166,9 @@ public abstract class Processor
         return new Response("Ok", StatusCode.Ok, result);
     }
     public abstract Response GetData(int from, int quantity, string queryCondition, string sortQuery);
-    public int Count(string queryCondition, string table) {
+
+    protected int Count(string queryCondition, string table) {
         var query = $"SELECT COUNT(*) FROM {table}";
-        
         
         try {
            

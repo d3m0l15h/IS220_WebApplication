@@ -53,9 +53,8 @@ public partial class User
     [Column("cash", TypeName = "int(11)")]
     public int Cash { get; set; }
 
-    [Column("status")]
-    [StringLength(10)]
-    public string Status { get; set; } = null!;
+    [Column("status", TypeName = "int(1)")]
+    public int Status { get; set; }
 
     [InverseProperty("User")]
     public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();

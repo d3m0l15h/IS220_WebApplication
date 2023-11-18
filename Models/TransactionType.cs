@@ -10,7 +10,7 @@ namespace IS220_WebApplication.Models;
 public partial class TransactionType
 {
     [Key]
-    [Column("id")]
+    [Column("id", TypeName = "int(10) unsigned")]
     public uint Id { get; set; }
 
     [Column("name")]

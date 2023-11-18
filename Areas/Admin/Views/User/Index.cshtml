@@ -84,7 +84,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a href="#" class="profile-image rounded-circle d-block m-0 wh-38" style="background-image:url('img/tm6.png'); background-size: cover;"></a>
+                                            <a href="#" class="profile-image rounded-circle d-block m-0 wh-38" style="background-image:url('@Url.Content("~/admin/img/tm6.png")'); background-size: cover;"></a>
                                         </div>
                                         <div class="userDatatable-inline-title">
                                             <a href="#" class="text-dark fw-500">
@@ -115,17 +115,17 @@
                                 <td>
                                     @switch (@obj.Status)
                                     {
-                                        case "deactivete":
-                                            <div class="userDatatable-content d-inline-block">
-                                                <span class="bg-opacity-warning  color-warning rounded-pill userDatatable-content-status active">@obj.Status</span>
-                                            </div>
-                                            break;
-                                        case "active":
+                                        case 1:
                                             <div class="userDatatable-content d-inline-block">
                                                 <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
                                             </div>
                                             break;
-                                        case "blocked":
+                                        case 2:
+                                            <div class="userDatatable-content d-inline-block">
+                                                <span class="bg-opacity-warning  color-warning rounded-pill userDatatable-content-status active">deactivete</span>
+                                            </div>
+                                            break;
+                                        case 3:
                                             <div class="userDatatable-content d-inline-block">
                                                 <span class="bg-opacity-danger  color-danger rounded-pill userDatatable-content-status active">blocked</span>
                                             </div>

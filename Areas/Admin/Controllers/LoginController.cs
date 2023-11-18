@@ -45,10 +45,8 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
 
                 if (!data.IsNullOrEmpty())
                 {
-
                     var email = Utils.Utils.GetDataValuesByColumnName(data, "Email")[0];
 
-                    if (email != null)
                     {
                         HttpContext.Session.SetString("email", email);
                         var originalUrl = HttpContext.Request.Cookies["OriginalUrl"];
