@@ -349,6 +349,10 @@ html::-webkit-scrollbar {
     border-radius: 0.5rem;
 }
 
+.box:hover {
+    cursor: pointer;
+}
+
 .box img {
     width: 100%;
     height: 100%;
@@ -398,16 +402,16 @@ span {
     font-size: 0.9rem;
 }
 
-.box-btn .bx {
+.box-btn p {
     padding: 8px;
     background-color: var(--text-color);
-    border-radius: 5rem;
+    border-radius: 2rem;
     color: var(--main-color);
     font-weight: 400;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
 }
 
-.box-btn .bx:hover {
+.box-btn p:hover {
     background-color: var(--dark-color);
 }
 
@@ -422,6 +426,29 @@ span {
     grid-template-columns: repeat(auto-fit, minmax(240px, auto));
     gap: 1.2rem;
 }
+
+.more-btn {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.more-btn button {
+    padding: .8rem 1.6rem;
+    background-color: var(--main-color);
+    border-radius: 10px;
+}
+
+.more-btn button:hover {
+    background: var(--light-color);
+    transition: 0.3s all linear;
+}
+
+.more-btn a {
+    font-size: 1.5rem;
+    color: white;
+}
+
+
 
 /*------------------------- FOOTER -------------------------*/
 .footer {
@@ -547,7 +574,7 @@ span {
 .auth-container p {
     font-size: 14px;
     line-height: 20px;
-    letter-spacing: 0.3px;
+    letter-spacing: .3px;
     margin: 20px 0;
 }
 
