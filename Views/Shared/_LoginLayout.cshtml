@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi en">
 <head>
     <meta charset="utf-8"/>
@@ -24,14 +24,12 @@
 <body>
 @* PROGRESS BAR (custom scroll-bar) *@
 <div class="progress">
-    <div class="progress-bar" id="scroll-bar">
-
-    </div>
+    <div class="progress-bar" id="scroll-bar"></div>
 </div>
 
-@* ------------------------ start HEADER ------------------------ asp-area="admin" asp-controller="login"/Home asp-action="Index/index" *@
+@* ------------------------ start HEADER ------------------------ *@
 <header class="header">
-    <nav class="nav container max-w-[66.75rem]">
+    <nav class="nav container">
         <!-- LOGO -->
         <a asp-controller="Home" asp-action="Index" class="logo">NET<span>Game</span></a>
 
@@ -80,15 +78,6 @@
             <div class="noti_box noti_box--color">
                 <i class="bx bxs-x-circle"></i>
                 <p>Khong the thay doi</p>
-            </div>
-        </div>
-        
-        <div class="user-setting">
-            <div class="profile">
-                <a asp-controller="UserProfile" asp-action="UserProfile" >Tài khoản</a>
-            </div>
-            <div class="cart">
-                <a asp-controller="" asp-action="">Giỏ hàng</a>
             </div>
         </div>
     </nav>  
@@ -164,7 +153,7 @@
 
 
 @* ------------------------- start MAIN (change in Views/Home/Index.cshtml) ------------------------- *@
-<div class="container max-w-[66.75rem]">
+<div class="container">
     <main role="main">
         @RenderBody()
     </main>
@@ -172,7 +161,7 @@
 @* ------------------------- end MAIN ------------------------- *@
 
 @* ------------------------- start FOOTER ------------------------- *@
-<footer class="footer container max-w-[66.75rem]" id="contact">
+<footer class="footer container" id="contact">
     <div class="footer_box">
         <div class="footer_box_item">
             <h3 class="item_title">NET<span>Game</span></h3>
@@ -264,8 +253,7 @@
 <script src="~/lib/swiperJS/swiper-bundle.min.js"></script>
 @* MAIN *@
 <script src="~/static/js/main.js" asp-append-version="true"></script>
-@* <script src="~/static/js/layout.js"></script> *@
-<script src="~/static/js/loginLayout.js" ></script>
+<script src="static/js/loginLayout.js"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
