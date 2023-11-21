@@ -1,3 +1,4 @@
+using System.Collections;
 using IS220_WebApplication.Context;
 using IS220_WebApplication.Models;
 using IS220_WebApplication.Utils;
@@ -6,11 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Database;
 
-public abstract class Processor
+public abstract class Processor<TEntity> where TEntity : class
 {
     private readonly MyDbContext _db;
     private string DefaultDatabaseTable { get; set; } = null!;
-    private dynamic DefaultDatabaseContext { get; set; } = null!;
+    private dynamic DefaultDatabaseContext { get; set; } = null;
 
     protected Processor(MyDbContext db)
     {
@@ -105,8 +106,9 @@ public abstract class Processor
         }
     }
 
-    protected static Response Select<T>(string values, int from, int quantity, string queryCondition, string sortQuery, string table, DbSet<T> context) where T : class
+    protected static Response Select<T> (string values, int from, int quantity, string queryCondition, string sortQuery, string table,DbSet<T> context) where T : class
     {
+        
         var query = $"SELECT {values} FROM {table}";
         if (!string.IsNullOrEmpty(queryCondition)) {
             query = query + " WHERE " + queryCondition;
@@ -117,24 +119,29 @@ public abstract class Processor
         if (quantity > -1) {
             query = query + $" LIMIT {from}, {quantity}";
         }
-
+       
         var result = new List<List<string>>();
-
+        
         try {
             Console.WriteLine(query);
-            
             var data = context.FromSqlRaw(query + ";").ToList();
+            foreach (var res in data)
+            {
+                Console.WriteLine($"{res}");
+            }
             
             if (data.Count > 0)
             {
+               
                 var columnNames = data[0].GetType().GetProperties().Select(p => p.Name).ToList();
                 var columnTypes = data[0].GetType().GetProperties().Select(p => p.PropertyType.Name).ToList();
-
+                
                 result.Add(columnNames);
                 result.Add(columnTypes);
                 
                 foreach (var row in data)
                 {
+                    
                     var val = new List<string?>();
                     foreach (var columnName in columnNames)
                     {
@@ -143,18 +150,21 @@ public abstract class Processor
                         if (property != null)
                         {
                             var value = row.GetType().GetProperty(columnName)?.GetValue(row);
-
-                            // Console.WriteLine($"Value for column '{columnName}' is null.");
-                            // Console.WriteLine("Column " + columnName + "value " + value);
-                            val.Add(value != null ? value.ToString() : string.Empty);
+                            
+                                Console.WriteLine( columnName + "  " + value);
+                                val.Add(value != null ? value.ToString() : string.Empty);
+                            
+                           
+                            
                         }
                         else
                         {
                             // Console.WriteLine($"Column '{columnName}' not found.");
                             val.Add(string.Empty); 
                         }
-
+                
                     }
+                    
                     result.Add(val!);
                 }
             }

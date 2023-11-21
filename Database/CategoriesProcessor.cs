@@ -1,10 +1,11 @@
 using IS220_WebApplication.Context;
+using IS220_WebApplication.Models;
 using IS220_WebApplication.Utils;
 using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Database;
 
-public class CategoriesProcessor : Processor
+public class CategoriesProcessor : Processor<Category>
 {
     public CategoriesProcessor(MyDbContext db) : base(db)
     {
@@ -30,8 +31,14 @@ public class CategoriesProcessor : Processor
 
     public override Response GetData(int from, int quantity, string queryCondition, string sortQuery)
     {
-        
-        return Select("*", from, quantity, queryCondition, sortQuery, GetDefaultDatabaseTable(), GetDefaultDatabaseContext());
+        if (queryCondition.Length == 0) {
+            queryCondition = " GAME_CATEGORY.USERID = CATEGORY.ID";
+        }
+        else
+        {
+            queryCondition = queryCondition + " AND GAME_CATEGORY.USERID = CATEGORY.ID";
+        }
+        return Select("CATEGORY.*", from, quantity, queryCondition, sortQuery, "CATEGORY, GAME_CATEGORY", GetDefaultDatabaseContext());
         
         
     }

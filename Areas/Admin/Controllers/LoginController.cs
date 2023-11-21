@@ -17,14 +17,15 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         private readonly MyDbContext _db;
 
         private readonly INotyfService? _notyf;
-
-        private UsersProcessor _usersProcessor;
+        private ProcessorManager _processorManager;
+       
 
         public LoginController(MyDbContext db, INotyfService notyf)
         {
             _db = db;
             _notyf = notyf;
-            _usersProcessor = new UsersProcessor(db);
+            _processorManager = new ProcessorManager(db);
+            
         }
 
         [HttpGet]
@@ -40,27 +41,30 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         {
             if (HttpContext.Session.GetString("email") == null)
             {
-                var query = $"Username = '{user.Username}' AND Password = '{user.Password}' AND Role = 1";
-                var data = _usersProcessor.GetData(0, -1, query,"").GetData();
-
+               
+                var query = $"Username = '{user.Username}' AND Password = '{user.Password}' AND Role = 1 AND Status = 'active'";
+                 var data = _processorManager.GetUsersProcessor().GetData(0, -1, query,"").GetData();
+                 
                 if (!data.IsNullOrEmpty())
                 {
                     var email = Utils.Utils.GetDataValuesByColumnName(data, "Email")[0];
-
+                
                     {
                         HttpContext.Session.SetString("email", email);
                         var originalUrl = HttpContext.Request.Cookies["OriginalUrl"];
                         HttpContext.Response.Cookies.Delete("OriginalUrl");
-
+                
                         if (!string.IsNullOrEmpty(originalUrl))
                         {
                             return LocalRedirect(originalUrl);
                         }
-
+                
                         _notyf?.Success("Login success");
                         return RedirectToAction("index", "dashboard");
                     }
                 }
+                
+                
             }
             _notyf?.Error("Login failed");
             return View();

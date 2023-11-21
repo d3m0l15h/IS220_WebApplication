@@ -2,10 +2,11 @@ using System.Transactions;
 using IS220_WebApplication.Context;
 using IS220_WebApplication.Utils;
 using Microsoft.EntityFrameworkCore;
+using Transaction = IS220_WebApplication.Models.Transaction;
 
 namespace IS220_WebApplication.Database;
 
-public class TransactionProcessor : Processor
+public class TransactionProcessor : Processor<Transaction>
 {
     public TransactionProcessor(MyDbContext db) : base(db)
     {
@@ -31,8 +32,14 @@ public class TransactionProcessor : Processor
 
     public override Response GetData(int from, int quantity, string queryCondition, string sortQuery)
     {
-        
-        return Select("*", from, quantity, queryCondition, sortQuery, GetDefaultDatabaseTable(), GetDefaultDatabaseContext());
+        if (queryCondition.Length == 0) {
+            queryCondition = "TRANSACTION.USERID = USER.ID AND TRANSACTION.TRANSINFOID = TRANSACTION_INFORMATION.ID";
+        }
+        else
+        {
+            queryCondition = queryCondition + " AND TRANSACTION.USERID = USER.ID AND TRANSACTION.TRANSINFOID = TRANSACTION_INFORMATION.ID";
+        }
+        return Select("TRANSACTION.*", from, quantity, queryCondition, sortQuery, "TRANSACTION, USER, TRANSACTION_INFORMATION", GetDefaultDatabaseContext());
         
         
     }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Database;
 
-public class TransactionTypeProcessor : Processor
+public class TransactionTypeProcessor : Processor<TransactionType>
 {
     public TransactionTypeProcessor(MyDbContext db) : base(db)
     {
@@ -31,9 +31,14 @@ public class TransactionTypeProcessor : Processor
 
     public override Response GetData(int from, int quantity, string queryCondition, string sortQuery)
     {
-        
-        return Select("*", from, quantity, queryCondition, sortQuery, GetDefaultDatabaseTable(), GetDefaultDatabaseContext());
-        
+        if (queryCondition.Length == 0) {
+            queryCondition = "TRANSACTION_TYPE.ID = TRANSACTION_INFORMATION.TYPEID";
+        }
+        else
+        {
+            queryCondition = queryCondition + " AND TRANSACTION_TYPE.ID = TRANSACTION_INFORMATION.TYPEID";
+        }
+        return Select("TRANSACTION_TYPE.*", from, quantity, queryCondition, sortQuery, "TRANSACTION_TYPE, TRANSACTION_INFORMATION", GetDefaultDatabaseContext());
         
     }
 

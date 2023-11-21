@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Database;
 
-public class GameProcessor : Processor
+public class GameProcessor : Processor<Game>
 {
     public GameProcessor(MyDbContext db) : base(db)
     {
-        SetDefaultDatabaseContext(db.Games);
+       SetDefaultDatabaseContext(db.Games);
         SetDefaultDatabaseTable("Game");
         
     }
@@ -31,8 +31,15 @@ public class GameProcessor : Processor
 
     public override Response GetData(int from, int quantity, string queryCondition, string sortQuery)
     {
-        
-        return Select("*", from, quantity, queryCondition, sortQuery, GetDefaultDatabaseTable(), GetDefaultDatabaseContext());
+        if (queryCondition.Length == 0) {
+            queryCondition = "GAME.ID = GAME_CATEGORY.GAME AND GAME_CATEGORY.CATEGORY = CATEGORY.ID";
+        }
+        else
+        {
+            queryCondition = queryCondition + " AND GAME.ID = GAME_CATEGORY.GAME AND GAME_CATEGORY.CATEGORY = CATEGORY.ID";
+        }
+
+        return Select("GAME.*", from, quantity, queryCondition, sortQuery, "GAME, GAME_CATEGORY, CATEGORY", GetDefaultDatabaseContext());
         
         
     }
