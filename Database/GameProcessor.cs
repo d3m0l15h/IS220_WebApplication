@@ -32,11 +32,11 @@ public class GameProcessor : Processor<Game>
     public override Response GetData(int from, int quantity, string queryCondition, string sortQuery)
     {
         if (queryCondition.Length == 0) {
-            queryCondition = "GAME.ID = GAME_CATEGORY.GAME AND GAME_CATEGORY.CATEGORY = CATEGORY.ID";
+            queryCondition = "GAME.ID = GAME_CATEGORY.GAMEID AND GAME_CATEGORY.CATEGORYID = CATEGORY.ID";
         }
         else
         {
-            queryCondition = queryCondition + " AND GAME.ID = GAME_CATEGORY.GAME AND GAME_CATEGORY.CATEGORY = CATEGORY.ID";
+            queryCondition = queryCondition + " AND GAME.ID = GAME_CATEGORY.GAMEID AND GAME_CATEGORY.CATEGORYID = CATEGORY.ID";
         }
 
         return Select("GAME.*", from, quantity, queryCondition, sortQuery, "GAME, GAME_CATEGORY, CATEGORY", GetDefaultDatabaseContext());

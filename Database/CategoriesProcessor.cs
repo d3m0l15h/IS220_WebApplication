@@ -32,11 +32,11 @@ public class CategoriesProcessor : Processor<Category>
     public override Response GetData(int from, int quantity, string queryCondition, string sortQuery)
     {
         if (queryCondition.Length == 0) {
-            queryCondition = " GAME_CATEGORY.USERID = CATEGORY.ID";
+            queryCondition = " GAME_CATEGORY.CATEGORYID = CATEGORY.ID";
         }
         else
         {
-            queryCondition = queryCondition + " AND GAME_CATEGORY.USERID = CATEGORY.ID";
+            queryCondition = queryCondition + " AND GAME_CATEGORY.CATEGORYID = CATEGORY.ID";
         }
         return Select("CATEGORY.*", from, quantity, queryCondition, sortQuery, "CATEGORY, GAME_CATEGORY", GetDefaultDatabaseContext());
         

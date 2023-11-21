@@ -23,7 +23,7 @@ public partial class MyDbContext : DbContext
     public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; }
 
     public virtual DbSet<Game> Games { get; set; }
-    
+
     public virtual DbSet<GameOwned> GameOwneds { get; set; }
     
     public virtual DbSet<GameCategory> GameCategories { get; set; }
@@ -57,7 +57,6 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
         });
-        
         modelBuilder.Entity<GameCategory>(entity =>
         {
             entity.HasKey(e => new { e.GameId, e.CategoryId }).HasName("PRIMARY");
@@ -67,7 +66,7 @@ public partial class MyDbContext : DbContext
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_GC_Category");
         });
-        
+
         modelBuilder.Entity<Efmigrationshistory>(entity =>
         {
             entity.HasKey(e => e.MigrationId).HasName("PRIMARY");
@@ -77,9 +76,9 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
+            entity.Property(e => e.Status).HasDefaultValueSql("'active'");
             entity.Property(e => e.Description).HasDefaultValueSql("'NULL'");
             entity.Property(e => e.ImgPath).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.Status).HasDefaultValueSql("'''active'''");
             entity.Property(e => e.Type).HasDefaultValueSql("'1'");
 
             entity.HasOne(d => d.DeveloperNavigation).WithMany(p => p.Games)
@@ -90,56 +89,56 @@ public partial class MyDbContext : DbContext
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_Game_Publisher");
 
-            entity.HasMany(d => d.Categories).WithMany(p => p.Games)
-                .UsingEntity<Dictionary<string, object>>(
-                    "GameCategory",
-                    r => r.HasOne<Category>().WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .HasConstraintName("FK_GC_Category"),
-                    l => l.HasOne<Game>().WithMany()
-                        .HasForeignKey("GameId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .HasConstraintName("FK_GC_Game"),
-                    j =>
-                    {
-                        j.HasKey("GameId", "CategoryId").HasName("PRIMARY");
-                        j.ToTable("game_category");
-                        j.HasIndex(new[] { "CategoryId" }, "FK_GC_Category");
-                        j.HasIndex(new[] { "GameId" }, "FK_GC_Game");
-                        j.IndexerProperty<uint>("GameId")
-                            .HasColumnType("int(10) unsigned")
-                            .HasColumnName("gameID");
-                        j.IndexerProperty<uint>("CategoryId")
-                            .HasColumnType("int(10) unsigned")
-                            .HasColumnName("categoryID");
-                    });
+            // entity.HasMany(d => d.Categories).WithMany(p => p.Games)
+            //     .UsingEntity<Dictionary<string, object>>(
+            //         "GameCategory",
+            //         r => r.HasOne<Category>().WithMany()
+            //             .HasForeignKey("CategoryId")
+            //             .OnDelete(DeleteBehavior.Restrict)
+            //             .HasConstraintName("FK_GC_Category"),
+            //         l => l.HasOne<Game>().WithMany()
+            //             .HasForeignKey("GameId")
+            //             .OnDelete(DeleteBehavior.Restrict)
+            //             .HasConstraintName("FK_GC_Game"),
+            //         j =>
+            //         {
+            //             j.HasKey("GameId", "CategoryId").HasName("PRIMARY");
+            //             j.ToTable("game_category");
+            //             j.HasIndex(new[] { "CategoryId" }, "FK_GC_Category");
+            //             j.HasIndex(new[] { "GameId" }, "FK_GC_Game");
+            //             j.IndexerProperty<uint>("GameId")
+            //                 .HasColumnType("int(10) unsigned")
+            //                 .HasColumnName("gameID");
+            //             j.IndexerProperty<uint>("CategoryId")
+            //                 .HasColumnType("int(10) unsigned")
+            //                 .HasColumnName("categoryID");
+            //         });
 
-            entity.HasMany(d => d.Users).WithMany(p => p.Games)
-                .UsingEntity<Dictionary<string, object>>(
-                    "GameOwned",
-                    r => r.HasOne<User>().WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .HasConstraintName("FK_GameOwner_User"),
-                    l => l.HasOne<Game>().WithMany()
-                        .HasForeignKey("GameId")
-                        .HasConstraintName("FK_GameOwner_Game"),
-                    j =>
-                    {
-                        j.HasKey("GameId", "UserId").HasName("PRIMARY");
-                        j.ToTable("game_owned");
-                        j.HasIndex(new[] { "GameId" }, "FK_GameOwner_Game");
-                        j.HasIndex(new[] { "UserId" }, "FK_GameOwner_User");
-                        j.IndexerProperty<uint>("GameId")
-                            .HasColumnType("int(10) unsigned")
-                            .HasColumnName("gameID");
-                        j.IndexerProperty<uint>("UserId")
-                            .HasColumnType("int(10) unsigned")
-                            .HasColumnName("userID");
-                    });
+            // entity.HasMany(d => d.Users).WithMany(p => p.Games)
+            //     .UsingEntity<Dictionary<string, object>>(
+            //         "GameOwned",
+            //         r => r.HasOne<User>().WithMany()
+            //             .HasForeignKey("UserId")
+            //             .OnDelete(DeleteBehavior.Restrict)
+            //             .HasConstraintName("FK_GameOwner_User"),
+            //         l => l.HasOne<Game>().WithMany()
+            //             .HasForeignKey("GameId")
+            //             .HasConstraintName("FK_GameOwner_Game"),
+            //         j =>
+            //         {
+            //             j.HasKey("GameId", "UserId").HasName("PRIMARY");
+            //             j.ToTable("game_owned");
+            //             j.HasIndex(new[] { "GameId" }, "FK_GameOwner_Game");
+            //             j.HasIndex(new[] { "UserId" }, "FK_GameOwner_User");
+            //             j.IndexerProperty<uint>("GameId")
+            //                 .HasColumnType("int(10) unsigned")
+            //                 .HasColumnName("gameID");
+            //             j.IndexerProperty<uint>("UserId")
+            //                 .HasColumnType("int(10) unsigned")
+            //                 .HasColumnName("userID");
+            //         });
         });
-        
+
         modelBuilder.Entity<GameOwned>(entity =>
         {
             entity.HasKey(e => new { e.GameId, e.UserId }).HasName("PRIMARY");
@@ -149,7 +148,8 @@ public partial class MyDbContext : DbContext
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_GameOwner_User");
         });
-        
+       
+
         modelBuilder.Entity<Publisher>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
@@ -202,7 +202,7 @@ public partial class MyDbContext : DbContext
                 .ValueGeneratedOnAddOrUpdate()
                 .HasDefaultValueSql("'NULL'");
             entity.Property(e => e.Phone).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.Status).HasDefaultValueSql("'''active'''");
+            entity.Property(e => e.Status).HasDefaultValueSql("'active'");
         });
 
         OnModelCreatingPartial(modelBuilder);
