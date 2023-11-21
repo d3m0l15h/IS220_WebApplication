@@ -25,7 +25,8 @@ public partial class MyDbContext : DbContext
     public virtual DbSet<Game> Games { get; set; }
 
     public virtual DbSet<GameOwned> GameOwneds { get; set; }
-
+    
+    public virtual DbSet<GameCategory> GameCategories { get; set; }
     public virtual DbSet<Publisher> Publishers { get; set; }
 
     public virtual DbSet<Transaction> Transactions { get; set; }
@@ -38,7 +39,7 @@ public partial class MyDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySQL("Server=localhost;User ID=root;Password=admin1234;Database=game_store");
+        => optionsBuilder.UseMySQL("Server=localhost;User ID=root;Password=123456;Database=game_store");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -51,6 +52,15 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
         });
+        modelBuilder.Entity<GameCategory>(entity =>
+        {
+            entity.HasKey(e => new { e.GameId, e.CategoryId }).HasName("PRIMARY");
+            entity.HasOne(d => d.GameNavigation).WithMany().HasConstraintName("FK_GC_Game");
+
+            entity.HasOne(d => d.CategoryNavigation).WithMany()
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_GC_Category");
+        });
 
         modelBuilder.Entity<Efmigrationshistory>(entity =>
         {
@@ -61,7 +71,7 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.Property(e => e.Active).HasDefaultValueSql("'1'");
+            entity.Property(e => e.Status).HasDefaultValueSql("'active'");
             entity.Property(e => e.Description).HasDefaultValueSql("'NULL'");
             entity.Property(e => e.ImgPath).HasDefaultValueSql("'NULL'");
             entity.Property(e => e.Type).HasDefaultValueSql("'1'");
@@ -74,39 +84,19 @@ public partial class MyDbContext : DbContext
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_Game_Publisher");
 
-            entity.HasMany(d => d.Categories).WithMany(p => p.Games)
-                .UsingEntity<Dictionary<string, object>>(
-                    "GameCategory",
-                    r => r.HasOne<Category>().WithMany()
-                        .HasForeignKey("Category")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .HasConstraintName("FK_GC_Category"),
-                    l => l.HasOne<Game>().WithMany()
-                        .HasForeignKey("Game")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .HasConstraintName("FK_GC_Game"),
-                    j =>
-                    {
-                        j.HasKey("Game", "Category").HasName("PRIMARY");
-                        j.ToTable("game_category");
-                        j.HasIndex(new[] { "Category" }, "FK_GC_Category");
-                        j.IndexerProperty<uint>("Game")
-                            .HasColumnType("int(10) unsigned")
-                            .HasColumnName("game");
-                        j.IndexerProperty<uint>("Category")
-                            .HasColumnType("int(10) unsigned")
-                            .HasColumnName("category");
-                    });
+            
         });
 
         modelBuilder.Entity<GameOwned>(entity =>
         {
+            entity.HasKey(e => new { e.GameId, e.UserId }).HasName("PRIMARY");
             entity.HasOne(d => d.Game).WithMany().HasConstraintName("FK_GameOwner_Game");
 
             entity.HasOne(d => d.User).WithMany()
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_GameOwner_User");
         });
+       
 
         modelBuilder.Entity<Publisher>(entity =>
         {
@@ -160,7 +150,7 @@ public partial class MyDbContext : DbContext
                 .ValueGeneratedOnAddOrUpdate()
                 .HasDefaultValueSql("'NULL'");
             entity.Property(e => e.Phone).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.Status).HasDefaultValueSql("'1'");
+            entity.Property(e => e.Status).HasDefaultValueSql("'active'");
         });
 
         OnModelCreatingPartial(modelBuilder);

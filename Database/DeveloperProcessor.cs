@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Database;
 
-public class DeveloperProcessor : Processor
+public class DeveloperProcessor : Processor<Developer>
 {
     public DeveloperProcessor(MyDbContext db) : base(db)
     {
@@ -31,8 +31,14 @@ public class DeveloperProcessor : Processor
 
     public override Response GetData(int from, int quantity, string queryCondition, string sortQuery)
     {
-        
-        return Select("*", from, quantity, queryCondition, sortQuery, GetDefaultDatabaseTable(), GetDefaultDatabaseContext());
+        if (queryCondition.Length == 0) {
+            queryCondition = " DEVELOPER.ID = GAME.DEVELOPER";
+        }
+        else
+        {
+            queryCondition = queryCondition + " AND DEVELOPER.ID = GAME.DEVELOPER";
+        }
+        return Select("DEVELOPER.*", from, quantity, queryCondition, sortQuery, "DEVELOPER, GAME", GetDefaultDatabaseContext());
         
         
     }

@@ -5,13 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Database;
 
-public class TransactionInformationProcessor : Processor
+public class TransactionInformationProcessor : Processor<TransactionInfomation>
 {
     public TransactionInformationProcessor(MyDbContext db) : base(db)
     {
         SetDefaultDatabaseContext(db.TransactionInfomations);
         SetDefaultDatabaseTable("Transaction_information");
-        
     }
 
     public override Response InsertData(Dictionary<string, string> columnValueMap, bool isCommit)
@@ -31,10 +30,14 @@ public class TransactionInformationProcessor : Processor
 
     public override Response GetData(int from, int quantity, string queryCondition, string sortQuery)
     {
-        
-        return Select("*", from, quantity, queryCondition, sortQuery, GetDefaultDatabaseTable(), GetDefaultDatabaseContext());
-        
-        
+        if (queryCondition.Length == 0) {
+            queryCondition = "TRANSACTION_TYPE.ID = TRANSACTION_INFORMATION.TYPEID AND TRANSACTION_INFORMATION.ID = TRANSACTION.TRANSACTIONINFOID";
+        }
+        else
+        {
+            queryCondition = queryCondition + " AND TRANSACTION_TYPE.ID = TRANSACTION_INFORMATION.TYPEID AND TRANSACTION_INFORMATION.ID = TRANSACTION.TRANSACTIONINFOID";
+        }
+        return Select("TRANSACTION_INFORMATION.*", from, quantity, queryCondition, sortQuery, "TRANSACTION_INFORMATION, TRANSACTION_TYPE, TRANSACTION", GetDefaultDatabaseContext());
     }
 
     public override int CountData(string queryCondition)

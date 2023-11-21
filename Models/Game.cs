@@ -42,8 +42,8 @@ public partial class Game
     public string DownloadLink { get; set; } = null!;
 
     [Required]
-    [Column("active")]
-    public bool? Active { get; set; }
+    [Column("status")]
+    public string? Status { get; set; }
 
     [Column("type", TypeName = "int(1)")]
     public int Type { get; set; }
