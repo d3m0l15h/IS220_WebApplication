@@ -23,7 +23,6 @@
     outline: none;
     border: none;
     text-decoration: none;
-    text-transform: capitalize;
     transition: all 0.2s linear;
 }
 
@@ -332,7 +331,7 @@ html::-webkit-scrollbar {
     margin-bottom: 1rem;
 }
 
-.btn {
+.home-btn {
     background: var(--main-color);
     padding: 15px 20px;
     color: var(--text-color);
@@ -344,7 +343,7 @@ html::-webkit-scrollbar {
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 10% 100%, 0% 68%);
 }
 
-.btn:hover {
+.home-btn:hover {
     background: var(--light-color);
     transition: 0.3s all linear;
 }

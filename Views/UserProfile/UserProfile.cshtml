@@ -3,9 +3,99 @@
 }
 
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="~/static/css/userProfile.css">
 </head>
-
-<div class="test">
-    this is user profile
+<div class="container flex-grow-1 my-4">
+    <div class="opt card overflow-hidden">
+        <div class="row no-gutters">
+            <div class="col-md-3">
+                <div class="list-group list-group-flush account-settings-links rounded">
+                    <a class="list-group-item list-group-item-action active fs-5 py-3" data-toggle="list"
+                       href="#account-general">
+                        Thông tin cơ bản
+                    </a>
+                    <a class="list-group-item list-group-item-action fs-5 py-3" data-toggle="list"
+                       href="#account-change-password">
+                        Đổi mật khẩu
+                    </a>
+                    <a class="list-group-item list-group-item-action fs-5 py-3" data-toggle="list"
+                       href="#account-info">
+                        Thông tin thêm
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="account-general">
+                        <div class="card-body media align-items-center">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
+                                 class="d-block ui-w-80">
+                            <div class="media-body ml-4 mt-3">
+                                <label class="btn btn-outline-primary">
+                                    Tải lên ảnh mới
+                                    <input type="file" class="account-settings-fileinput">
+                                </label> &nbsp;
+                                <button type="button" class="btn btn-default md-btn-flat">Reset</button>
+                                <div class="text-light small mt-3">Chỉ nhận JPG, GIF hoặc PNG, tối đa 800KB</div>
+                            </div>
+                        </div>
+                        <hr class="border-light m-0">
+                        <div class="card-body">
+                            <div class="form-group mt-2">
+                                <label class="form-label">Username</label>
+                                <input type="text" class="form-control mb-1" value="nmaxwell">
+                            </div>
+                            <div class="form-group mt-4">
+                                <label class="form-label">Tên đầy đủ</label>
+                                <input type="text" class="form-control" value="Nelle Maxwell">
+                            </div>
+                            <div class="form-group mt-4">
+                                <label class="form-label">E-mail</label>
+                                <input type="email" class="form-control mb-1" value="nmaxwell@mail.com">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="account-change-password">
+                        <div class="card-body pb-2">
+                            <div class="form-group">
+                                <label class="form-label">Mật khẩu hiện tại</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="form-group mt-4">
+                                <label class="form-label">Mật khẩu mới</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="form-group mt-4">
+                                <label class="form-label">Nhập lại mật khẩu mới</label>
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="account-info">
+                        <div class="card-body pb-2">
+                            <div class="form-group">
+                                <label class="form-label">Bio</label>
+                                <textarea class="form-control"
+                                        rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
+                            </div>
+                            <div class="form-group mt-4">
+                                <label class="form-label">Sinh nhật</label>
+                                <input type="date" class="form-control">
+                            </div>
+                            <div class="form-group mt-4">
+                                <label class="form-label">Số điện thoại</label>
+                                <input type="text" class="form-control" value="+841234567891">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-end mt-3">
+        <button type="button" class="btn btn-primary">Lưu</button>&nbsp;
+        <button type="button" class="btn btn-secondary">Hủy</button>
+    </div>
 </div>
+
+<script src="~/static/js/userProfile.js"></script>
