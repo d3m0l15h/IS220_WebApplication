@@ -52,6 +52,12 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
         });
+        
+
+        modelBuilder.Entity<Efmigrationshistory>(entity =>
+        {
+            entity.HasKey(e => e.MigrationId).HasName("PRIMARY");
+        });
         modelBuilder.Entity<GameCategory>(entity =>
         {
             entity.HasKey(e => new { e.GameId, e.CategoryId }).HasName("PRIMARY");
@@ -60,11 +66,6 @@ public partial class MyDbContext : DbContext
             entity.HasOne(d => d.CategoryNavigation).WithMany()
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_GC_Category");
-        });
-
-        modelBuilder.Entity<Efmigrationshistory>(entity =>
-        {
-            entity.HasKey(e => e.MigrationId).HasName("PRIMARY");
         });
 
         modelBuilder.Entity<Game>(entity =>
