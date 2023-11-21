@@ -1,15 +1,16 @@
 @{
-    ViewData["Title"] = "VietHoaGamePage";
+    ViewData["Title"] = "New Game";
 }
 
 <head>
-    <link rel="stylesheet" href="~/static/css/vietHoaGamePage.css">
+    <link rel="stylesheet" href="~/static/css/newGamePage.css">
 </head>
 
-<section class="category" id="viethoa">
+<!-------------start GAMES MOI SECTION --------------->
+<section class="category" id="new">
     <div class="heading">
         <i class="bx bx-game"></i>
-        <h2>GAMES VIỆT HÓA</h2>
+        <h2>GAMES MỚI</h2>
     </div>
 
     <!-- Content -->
@@ -26,7 +27,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -45,7 +46,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -63,8 +64,7 @@
                         <i class="bx bxs-star"></i>
                         <span>4.7</span>
                     </div>
-
-                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -82,8 +82,7 @@
                         <i class="bx bxs-star"></i>
                         <span>4.7</span>
                     </div>
-
-                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -102,7 +101,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -121,7 +120,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -140,7 +139,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -159,13 +158,14 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="DownloadPage" asp-action="DownloadGame">
+                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- PAGINATION -->
     <div class="pagination">
@@ -192,3 +192,4 @@
         </button>
     </div>
 </section>
+<!-------------end GAMES MOI SECTION --------------->

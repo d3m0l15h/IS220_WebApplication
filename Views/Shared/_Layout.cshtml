@@ -102,9 +102,9 @@
                 </a>
             </div>
             <span>hoặc có thể đăng ký nhanh ở dưới đây</span>
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
+            <input type="text" placeholder="Name" style="text-transform: none">
+            <input type="email" placeholder="Email" style="text-transform: none">
+            <input type="password" placeholder="Password" style="text-transform: none">
             <button>Đăng ký</button>
         </form>
     </div>
@@ -124,8 +124,8 @@
                 </a>
             </div>
             <span>hoặc đăng nhập bằng Email và passwork</span>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
+            <input type="email" placeholder="Email" style="text-transform: none;">
+            <input type="password" placeholder="Password" style="text-transform: none;">
             <a href="#">Quên mật khẩu ? ?</a>
             <button>Đăng nhập</button>
         </form>
@@ -255,6 +255,7 @@
 <script src="~/lib/swiperJS/swiper-bundle.min.js"></script>
 @* MAIN *@
 <script src="~/static/js/main.js" asp-append-version="true"></script>
+@await Component.InvokeAsync("Notyf")
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

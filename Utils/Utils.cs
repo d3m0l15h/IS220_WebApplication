@@ -34,14 +34,12 @@ public abstract class Utils {
 
     public static string GetRowValueByColumnName(int index, string columnName, List<List<string>> data) {
         var ret = "";
-        try {
-            foreach (string dataColumnName in data[0])
+        try
+        {
+            foreach (var dataColumnName in data[0].Where(columnName.Equals))
             {
-                if (columnName.Equals(dataColumnName))
-                {
-                    ret = data[index][data[0].IndexOf(dataColumnName)];
-                    break;
-                }
+                ret = data[index][data[0].IndexOf(dataColumnName)];
+                break;
             }
         } catch (Exception e) {
             Console.WriteLine(e);
@@ -57,24 +55,24 @@ public abstract class Utils {
 
         if (!data.IsNullOrEmpty())
         {
-            foreach (var dataColumnName in data[0])
+            foreach (var dataColumnName in data?[0]!.Where(dataColumnName => dataColumnName.Equals(columnName))!)
             {
-                if (dataColumnName.Equals(columnName))
-                {
-                    index = data[0].IndexOf(dataColumnName);
-                    break;
-                }
+                index = data[0].IndexOf(dataColumnName);
+                break;
             }
         }
         
         if (index < 0) {
             Console.WriteLine("Error: Column not found");
-        } else if (data.Count < 3) {
+        } else if (data is { Count: < 3 }) {
             Console.WriteLine("Warning: Empty data");
-        } else {
-            for (int i = 2; i < data.Count; ++i) {
-                values.Add(data[i][index]);
-            }
+        } else
+        {
+            if (data != null)
+                for (var i = 2; i < data.Count; ++i)
+                {
+                    values.Add(data[i][index]);
+                }
         }
 
         foreach (var val in values)
@@ -84,8 +82,4 @@ public abstract class Utils {
 
         return values;
     }
-
-
-    
-
 }

@@ -29,13 +29,24 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
 
         // Index
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string searchQuery, int pageNumber = 1, int pageSize = 10)
         {
-            var games = _db.Games
+            IQueryable<Game> games = _db.Games
                 .Include(g => g.DeveloperNavigation)
-                .Include(g => g.PublisherNavigation)
-                .ToList();
-            return View(games);
+                .Include(g => g.PublisherNavigation);
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                games = games.Where(g => g.Title.Contains(searchQuery));
+            }
+
+            var count = games.Count();
+
+            games = games.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+
+            ViewBag.TotalPages = (count + pageSize - 1) / pageSize;
+
+            return View(games.ToList());
         }
 
         // Add
@@ -135,6 +146,15 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
 
                 if (model.ImageFile != null)
                 {
+                    if (game.ImgPath != null)
+                    {
+                        var oldImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/game", game.ImgPath);
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
+                    }
+
                     game.ImgPath = SaveImage(model.ImageFile);
                 }
 
@@ -165,7 +185,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         {
             string fileName = null!;
             if (imageFile is not { Length: > 0 }) return fileName;
-            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/game");
             fileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;
             var filePath = Path.Combine(uploadsFolder, fileName);
             using var fileStream = new FileStream(filePath, FileMode.Create);

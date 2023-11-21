@@ -12,14 +12,14 @@
                 <div class="breadcrumb-main add-contact justify-content-sm-between ">
                     <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
                         <div class="action-btn mt-sm-0 mt-15">
-                            <a asp-area="admin" asp-controller="game" asp-action="add" class="btn px-20 btn-primary ">
+                            <a onclick="addWindow('category');" class="btn px-20 btn-primary ">
                                 <i class="las la-plus fs-16"></i>Add New
                             </a>
                         </div>
                     </div>
                     <div class="breadcrumb-main__wrapper">
 
-                        <form asp-area="admin" asp-controller="game" asp-action="index" method="get" class="d-flex align-items-center add-contact__form my-sm-0 my-2">
+                        <form asp-area="admin" asp-controller="category" asp-action="index" method="get" class="d-flex align-items-center add-contact__form my-sm-0 my-2">
                             <img src="~/admin/img/svg/search.svg" alt="search" class="svg">
                             <input name="searchQuery" class="form-control me-sm-2 border-0 box-shadow-none" type="search" placeholder="Search by Name" aria-label="Search">
                         </form>
@@ -50,108 +50,33 @@
                                     <th>
                                         <span class="userDatatable-title">Title</span>
                                     </th>
-                                    <th>
-                                        <span class="userDatatable-title">Price</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Release</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Publisher</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Developer</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Link</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Type</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Status</span>
-                                    </th>
                                     <th class="actions">
                                         <span class="userDatatable-title">Actions</span>
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <form method="post" asp-area="admin" asp-controller="game">
+                                <form method="post" asp-area="admin" asp-controller="category">
                                     @foreach (var item in Model)
                                     {
                                         <tr>
                                             <td>@item.Id</td>
                                             <td>
                                                 <div class="userDatatable-content--priority">
-                                                    @item.Title
+                                                    @item.Name
                                                 </div>
                                             </td>
-                                            <td>
-                                                <div class="userDatatable-content--priority">
-                                                    @string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", @item.Price)
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="userDatatable-content--priority">
-                                                    @item.ReleaseDate.ToString("yyyy-MM-dd")
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="userDatatable-content--priority">
-                                                    @item.PublisherNavigation.Name
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="userDatatable-content--priority">
-                                                    @item.DeveloperNavigation.Name
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="userDatatable-content--priority">
-                                                    <a href="@item.DownloadLink" target="_blank">
-                                                        Download
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="userDatatable-content--priority">
-                                                    @if(item.Type == 1)
-                                                    {
-                                                    <span class="badge badge-success">Game</span>
-                                                    }
-                                                    else
-                                                    {
-                                                    <span class="badge badge-primary">Disk</span>
-                                                    }
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="userDatatable-content--priority">
-                                                    @if(item.Active)
-                                                    {
-                                                    <div class="userDatatable-content d-inline-block">
-                                                        <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
-                                                    </div>
-                                                    }
-                                                    else
-                                                    {
-                                                    <div class="userDatatable-content d-inline-block">
-                                                        <span class="bg-opacity-warning  color-warning rounded-pill userDatatable-content-status active">deactivete</span>
-                                                    </div>
-                                                    }
-                                                </div>
-                                            </td>
+                                           
                                             <td>
                                                 <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                                                    @* <li> *@
-                                                    @*     <a href="#" class="view"> *@
-                                                    @*         <i class="uil uil-eye"></i> *@
-                                                    @*     </a> *@
-                                                    @* </li> *@
                                                     <li>
-                                                        <a asp-action="edit" asp-route-id="@item.Id">
+                                                        <a href="javascript:void(0);" onclick="editWindow('category',@item.Id);">
                                                             <i class="uil uil-edit"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-route-id="@item.Id">
+                                                            <i class="uil uil-trash"></i>
                                                         </a>
                                                     </li>
                                                 </ul>

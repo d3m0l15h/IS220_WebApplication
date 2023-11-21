@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IS220_WebApplication.Controllers;
 
-public class NewGamePageController : Controller
+public class DownloadController : Controller
 {
     // GET
-    public IActionResult NewGamePage()
+    public IActionResult Index()
     {
         return View();
     }
