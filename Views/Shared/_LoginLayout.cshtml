@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi en">
 <head>
     <meta charset="utf-8"/>
@@ -24,14 +24,12 @@
 <body>
 @* PROGRESS BAR (custom scroll-bar) *@
 <div class="progress">
-    <div class="progress-bar" id="scroll-bar">
-
-    </div>
+    <div class="progress-bar" id="scroll-bar"></div>
 </div>
 
-@* ------------------------ start HEADER ------------------------ asp-area="admin" asp-controller="login"/Home asp-action="Index/index" *@
+@* ------------------------ start HEADER ------------------------ *@
 <header class="header">
-    <nav class="nav container max-w-[66.75rem]">
+    <nav class="nav container">
         <!-- LOGO -->
         <a asp-controller="Home" asp-action="Index" class="logo">NET<span>Game</span></a>
 
@@ -82,15 +80,6 @@
                 <p>Khong the thay doi</p>
             </div>
         </div>
-        
-        <div class="user-setting">
-            <div class="profile">
-                <a asp-controller="UserProfile" asp-action="UserProfile" >Tài khoản</a>
-            </div>
-            <div class="cart">
-                <a asp-controller="" asp-action="">Giỏ hàng</a>
-            </div>
-        </div>
     </nav>  
 </header>
 
@@ -111,9 +100,9 @@
                 </a>
             </div>
             <span>hoặc có thể đăng ký nhanh ở dưới đây</span>
-            <input type="text" placeholder="Name" style="text-transform: none">
-            <input type="email" placeholder="Email" style="text-transform: none">
-            <input type="password" placeholder="Password" style="text-transform: none">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
             <button>Đăng ký</button>
         </form>
     </div>
@@ -133,8 +122,8 @@
                 </a>
             </div>
             <span>hoặc đăng nhập bằng Email và passwork</span>
-            <input type="email" placeholder="Email" style="text-transform: none;">
-            <input type="password" placeholder="Password" style="text-transform: none;">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
             <a href="#">Quên mật khẩu ? ?</a>
             <button>Đăng nhập</button>
         </form>
@@ -203,43 +192,43 @@
         </div>
 
         <div class="footer_box_item">
-            <h3 class="text-capitalize">về chúng tôi</h3>
+            <h3>về chúng tôi</h3>
             <ul>
                 <li>
-                    <a class="text-capitalize" href="#!">trang chủ</a>
+                    <a href="#!">trang chủ</a>
                 </li>
                 <li>
-                    <a class="text-capitalize" href="#!">giới thiệu</a>
+                    <a href="#!">giới thiệu</a>
                 </li>
                 <li>
-                    <a class="text-capitalize" href="#!">danh mục game đã mua</a>
+                    <a href="#!">danh mục game đã mua</a>
                 </li>
                 <li>
-                    <a class="text-capitalize" href="#!">liên hệ</a>
+                    <a href="#!">liên hệ</a>
                 </li>
             </ul>
         </div>
 
         <div class="footer_box_item">
-            <h3 class="text-capitalize">chăm sóc khách hàng</h3>
+            <h3>chăm sóc khách hàng</h3>
             <ul>
                 <li>
-                    <a class="text-capitalize" href="#!">trang chủ</a>
+                    <a href="#!">trang chủ</a>
                 </li>
                 <li>
-                    <a class="text-capitalize" href="#!">giới thiệu</a>
+                    <a href="#!">giới thiệu</a>
                 </li>
                 <li>
-                    <a class="text-capitalize" href="#!">danh mục game đã mua</a>
+                    <a href="#!">danh mục game đã mua</a>
                 </li>
                 <li>
-                    <a class="text-capitalize" href="#!">liên hệ</a>
+                    <a href="#!">liên hệ</a>
                 </li>
             </ul>
         </div>
 
         <div class="footer_box_item">
-            <h3 class="text-capitalize" >theo dõi chúng tôi trên</h3>
+            <h3>theo dõi chúng tôi trên</h3>
             <div class="contact-icon">
                 <i class='bx bxl-facebook-circle'></i>
                 <i class='bx bxl-instagram'></i>
@@ -264,9 +253,7 @@
 <script src="~/lib/swiperJS/swiper-bundle.min.js"></script>
 @* MAIN *@
 <script src="~/static/js/main.js" asp-append-version="true"></script>
-@* <script src="~/static/js/layout.js"></script> *@
-<script src="~/static/js/loginLayout.js" ></script>
-@await Component.InvokeAsync("Notyf")
+<script src="static/js/loginLayout.js"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
