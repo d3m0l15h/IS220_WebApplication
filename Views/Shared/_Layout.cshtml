@@ -24,14 +24,12 @@
 <body>
 @* PROGRESS BAR (custom scroll-bar) *@
 <div class="progress">
-    <div class="progress-bar" id="scroll-bar">
-
-    </div>
+    <div class="progress-bar" id="scroll-bar"></div>
 </div>
 
-@* ------------------------ start HEADER ------------------------ asp-area="admin" asp-controller="login"/Home asp-action="Index/index" *@
+@* ------------------------ start HEADER ------------------------ *@
 <header class="header">
-    <nav class="nav container max-w-[66.75rem]">
+    <nav class="nav container">
         <!-- LOGO -->
         <a asp-controller="Home" asp-action="Index" class="logo">NET<span>Game</span></a>
 
@@ -58,11 +56,7 @@
                 </ul>
             </div>
 
-            <i class="bx bx-bell bx-tada" id="bell-icon">
-                <span></span>
-            </i>
             <i class='bx bx-user user-icon'></i>
-
 
             @* DEVICE: MOBILE *@
             <div class="menu-icon">
@@ -72,28 +66,17 @@
             </div>
         </div>
 
-        <div class="noti">
-            <div class="noti_box">
-                <i class="bx bxs-check-circle"></i>
-                <p>Chuc mung, ban da tai game thanh cong</p>
-            </div>
-            <div class="noti_box noti_box--color">
-                <i class="bx bxs-x-circle"></i>
-                <p>Khong the thay doi</p>
-            </div>
-        </div>
-        
+        @* ben user - xong UI thi xoa *@
         <div class="user-setting">
             <div class="profile">
-                <a asp-controller="UserProfile" asp-action="UserProfile" >Tài khoản</a>
+                <a asp-controller="UserProfile" asp-action="UserProfile">Tài khoản</a>
             </div>
             <div class="cart">
                 <a asp-controller="" asp-action="">Giỏ hàng</a>
             </div>
         </div>
-    </nav>  
+    </nav>
 </header>
-
 @* ------------------------- start AUTHENCATION FORM ------------------------- *@
 <div class="auth-container" id="container">
     <div class="form-container sign-up">
@@ -104,10 +87,10 @@
                     <i class='bx bxl-google'></i>
                 </a>
                 <a href="#" class="icon">
-                    <i class='bx bxl-facebook' ></i>
+                    <i class='bx bxl-facebook'></i>
                 </a>
                 <a href="#" class="icon">
-                    <i class='bx bxl-github' ></i>
+                    <i class='bx bxl-github'></i>
                 </a>
             </div>
             <span>hoặc có thể đăng ký nhanh ở dưới đây</span>
@@ -126,10 +109,10 @@
                     <i class='bx bxl-google'></i>
                 </a>
                 <a href="#" class="icon">
-                    <i class='bx bxl-facebook' ></i>
+                    <i class='bx bxl-facebook'></i>
                 </a>
                 <a href="#" class="icon">
-                    <i class='bx bxl-github' ></i>
+                    <i class='bx bxl-github'></i>
                 </a>
             </div>
             <span>hoặc đăng nhập bằng Email và passwork</span>
@@ -159,9 +142,7 @@
         <i class="bx bx-x"></i>
     </div>
 </div>
-
 @* ------------------------- end AUTHENCATION FORM ------------------------- *@
-
 
 @* ------------------------- start MAIN (change in Views/Home/Index.cshtml) ------------------------- *@
 <div class="container">
@@ -239,7 +220,7 @@
         </div>
 
         <div class="footer_box_item">
-            <h3 class="text-capitalize" >theo dõi chúng tôi trên</h3>
+            <h3 class="text-capitalize">theo dõi chúng tôi trên</h3>
             <div class="contact-icon">
                 <i class='bx bxl-facebook-circle'></i>
                 <i class='bx bxl-instagram'></i>
@@ -265,7 +246,7 @@
 @* MAIN *@
 <script src="~/static/js/main.js" asp-append-version="true"></script>
 @* <script src="~/static/js/layout.js"></script> *@
-<script src="~/static/js/loginLayout.js" ></script>
+<script src="~/static/js/loginLayout.js"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

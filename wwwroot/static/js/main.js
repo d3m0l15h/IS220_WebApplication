@@ -5,8 +5,7 @@
 
 // -------------- VARIBLES --------------
 const menuIcon = document.querySelector('.menu-icon') // $ để select element đó (ở trong jquery)
-const navBar = document.querySelector('.menu')
-const bellIcon = document.querySelector('.noti') // for notification
+const navBar = document.querySelector('.menu') 
 
 // for authecation form
 const userIcon = document.querySelector('.user-icon')
@@ -31,12 +30,6 @@ const myfunction = () => {
 menuIcon.onclick = () => {
     navBar.classList.toggle('active')
     menuIcon.classList.toggle('move')
-    bellIcon.classList.remove('active')
-}
-
-// -------------- NOTIFICATION --------------
-document.querySelector('#bell-icon').onclick = () => {
-    bellIcon.classList.toggle('active')
 }
 
 // -------------- SWIPER (library for display game in trending section) --------------
@@ -66,5 +59,4 @@ const swiper = new Swiper('.trending_content', {
         }
     }
 })
-
 

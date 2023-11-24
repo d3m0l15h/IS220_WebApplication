@@ -8,10 +8,10 @@ listGroupItem.forEach((ele, idx) => {
         listGroupItem.forEach(item => {
             item.classList.remove('active')
         })
-        
+
         if (!ele.classList.contains('active'))
             ele.classList.add('active')
-        
+
         listOption.forEach(el => {
             el.classList.remove('active')
             el.classList.remove('show')

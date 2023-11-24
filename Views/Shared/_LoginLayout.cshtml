@@ -56,11 +56,8 @@
                 </ul>
             </div>
 
-            <i class="bx bx-bell bx-tada" id="bell-icon">
-                <span></span>
-            </i>
+            <a class="bx bx-shopping-bag" id="storage-icon" asp-controller="UserStorage" asp-action="UserStorage"></a>
             <i class='bx bx-user user-icon'></i>
-
 
             @* DEVICE: MOBILE *@
             <div class="menu-icon">
@@ -70,17 +67,15 @@
             </div>
         </div>
 
-        <div class="noti">
-            <div class="noti_box">
-                <i class="bx bxs-check-circle"></i>
-                <p>Chuc mung, ban da tai game thanh cong</p>
+        <div class="user-setting">
+            <div class="profile">
+                <a asp-controller="UserProfile" asp-action="UserProfile">Tài khoản</a>
             </div>
-            <div class="noti_box noti_box--color">
-                <i class="bx bxs-x-circle"></i>
-                <p>Khong the thay doi</p>
+            <div class="cart">
+                <a asp-controller="" asp-action="">Giỏ hàng</a>
             </div>
         </div>
-    </nav>  
+    </nav>
 </header>
 
 @* ------------------------- start AUTHENCATION FORM ------------------------- *@
@@ -93,10 +88,10 @@
                     <i class='bx bxl-google'></i>
                 </a>
                 <a href="#" class="icon">
-                    <i class='bx bxl-facebook' ></i>
+                    <i class='bx bxl-facebook'></i>
                 </a>
                 <a href="#" class="icon">
-                    <i class='bx bxl-github' ></i>
+                    <i class='bx bxl-github'></i>
                 </a>
             </div>
             <span>hoặc có thể đăng ký nhanh ở dưới đây</span>
@@ -115,10 +110,10 @@
                     <i class='bx bxl-google'></i>
                 </a>
                 <a href="#" class="icon">
-                    <i class='bx bxl-facebook' ></i>
+                    <i class='bx bxl-facebook'></i>
                 </a>
                 <a href="#" class="icon">
-                    <i class='bx bxl-github' ></i>
+                    <i class='bx bxl-github'></i>
                 </a>
             </div>
             <span>hoặc đăng nhập bằng Email và passwork</span>
@@ -148,9 +143,7 @@
         <i class="bx bx-x"></i>
     </div>
 </div>
-
 @* ------------------------- end AUTHENCATION FORM ------------------------- *@
-
 
 @* ------------------------- start MAIN (change in Views/Home/Index.cshtml) ------------------------- *@
 <div class="container">
@@ -192,43 +185,43 @@
         </div>
 
         <div class="footer_box_item">
-            <h3>về chúng tôi</h3>
+            <h3 class="text-capitalize">về chúng tôi</h3>
             <ul>
                 <li>
-                    <a href="#!">trang chủ</a>
+                    <a class="text-capitalize" href="#!">trang chủ</a>
                 </li>
                 <li>
-                    <a href="#!">giới thiệu</a>
+                    <a class="text-capitalize" href="#!">giới thiệu</a>
                 </li>
                 <li>
-                    <a href="#!">danh mục game đã mua</a>
+                    <a class="text-capitalize" href="#!">danh mục game đã mua</a>
                 </li>
                 <li>
-                    <a href="#!">liên hệ</a>
+                    <a class="text-capitalize" href="#!">liên hệ</a>
                 </li>
             </ul>
         </div>
 
         <div class="footer_box_item">
-            <h3>chăm sóc khách hàng</h3>
+            <h3 class="text-capitalize">chăm sóc khách hàng</h3>
             <ul>
                 <li>
-                    <a href="#!">trang chủ</a>
+                    <a class="text-capitalize" href="#!">trang chủ</a>
                 </li>
                 <li>
-                    <a href="#!">giới thiệu</a>
+                    <a class="text-capitalize" href="#!">giới thiệu</a>
                 </li>
                 <li>
-                    <a href="#!">danh mục game đã mua</a>
+                    <a class="text-capitalize" href="#!">danh mục game đã mua</a>
                 </li>
                 <li>
-                    <a href="#!">liên hệ</a>
+                    <a class="text-capitalize" href="#!">liên hệ</a>
                 </li>
             </ul>
         </div>
 
         <div class="footer_box_item">
-            <h3>theo dõi chúng tôi trên</h3>
+            <h3 class="text-capitalize">theo dõi chúng tôi trên</h3>
             <div class="contact-icon">
                 <i class='bx bxl-facebook-circle'></i>
                 <i class='bx bxl-instagram'></i>
