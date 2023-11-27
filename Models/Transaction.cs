@@ -30,5 +30,5 @@ public partial class Transaction
 
     [ForeignKey("UserId")]
     [InverseProperty("Transactions")]
-    public virtual User User { get; set; } = null!;
+    public virtual Aspnetuser User { get; set; } = null!;
 }

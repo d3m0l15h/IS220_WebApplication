@@ -65,5 +65,5 @@ public partial class Game
 
     [ForeignKey("GameId")]
     [InverseProperty("Games")]
-    public virtual ICollection<User> Users { get; set; } = new List<User>();
+    public virtual ICollection<Aspnetuser> Users { get; set; } = new List<Aspnetuser>();
 }
