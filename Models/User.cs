@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Models;
@@ -9,11 +10,11 @@ namespace IS220_WebApplication.Models;
 [Table("user")]
 [Index("Email", Name = "email", IsUnique = true)]
 [Index("Username", Name = "username", IsUnique = true)]
-public partial class User
+public partial class User : IdentityUser<uint>
 {
     [Key]
     [Column("id", TypeName = "int(10) unsigned")]
-    public uint Id { get; set; }
+    public override uint Id { get; set; }
 
     [Column("username")]
     [StringLength(50)]
@@ -24,7 +25,7 @@ public partial class User
 
     [Column("email")]
     [StringLength(100)]
-    public string Email { get; set; } = null!;
+    public override string? Email { get; set; } = null!;
 
     [Column("firstName")]
     [StringLength(50)]
@@ -53,9 +54,14 @@ public partial class User
     [Column("cash", TypeName = "int(11)")]
     public int Cash { get; set; }
 
-    [Column("status", TypeName = "text")]
-    public string Status { get; set; }
+    [Column("status")]
+    [StringLength(10)]
+    public string Status { get; set; } = null!;
 
     [InverseProperty("User")]
-    public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
+    public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
+
+    [ForeignKey("UserId")]
+    [InverseProperty("Users")]
+    public ICollection<Game> Games { get; set; } = new List<Game>();
 }

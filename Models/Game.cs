@@ -41,9 +41,9 @@ public partial class Game
     [Column("downloadLink", TypeName = "tinytext")]
     public string DownloadLink { get; set; } = null!;
 
-    [Required]
     [Column("status")]
-    public string? Status { get; set; }
+    [StringLength(10)]
+    public string Status { get; set; } = null!;
 
     [Column("type", TypeName = "int(1)")]
     public int Type { get; set; }
@@ -59,7 +59,11 @@ public partial class Game
     [InverseProperty("Game")]
     public virtual ICollection<TransactionInfomation> TransactionInfomations { get; set; } = new List<TransactionInfomation>();
 
-    [ForeignKey("Game")]
+    [ForeignKey("GameId")]
     [InverseProperty("Games")]
     public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
+
+    [ForeignKey("GameId")]
+    [InverseProperty("Games")]
+    public virtual ICollection<User> Users { get; set; } = new List<User>();
 }
