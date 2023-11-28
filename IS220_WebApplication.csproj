@@ -39,7 +39,6 @@
     <ItemGroup>
       <Folder Include="Areas\Admin\Data\" />
       <Folder Include="Initial\" />
-      <Folder Include="wwwroot\static\download-file\" />
       <Folder Include="wwwroot\static\img\" />
     </ItemGroup>
 
@@ -47,5 +46,6 @@
       <AdditionalFiles Include="Areas\Admin\Views\Shared\Error.cshtml" />
       <AdditionalFiles Include="Areas\Admin\Views\Shared\_ValidationScriptsPartial.cshtml" />
     </ItemGroup>
+
 
 </Project>

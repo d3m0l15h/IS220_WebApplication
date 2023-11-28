@@ -1,5 +1,4 @@
-﻿@model Aspnetuser
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi en">
 <head>
     <meta charset="utf-8"/>
@@ -25,14 +24,12 @@
 <body>
 @* PROGRESS BAR (custom scroll-bar) *@
 <div class="progress">
-    <div class="progress-bar" id="scroll-bar">
-
-    </div>
+    <div class="progress-bar" id="scroll-bar"></div>
 </div>
 
-@* ------------------------ start HEADER ------------------------ asp-area="admin" asp-controller="login"/Home asp-action="Index/index" *@
+@* ------------------------ start HEADER ------------------------ *@
 <header class="header">
-    <nav class="nav container max-w-[66.75rem]">
+    <nav class="nav container">
         <!-- LOGO -->
         <a asp-controller="Home" asp-action="Index" class="logo">NET<span>Game</span></a>
 
@@ -73,19 +70,17 @@
             </div>
         </div>
 
-        <div class="noti">
-            <div class="noti_box">
-                <i class="bx bxs-check-circle"></i>
-                <p>Chuc mung, ban da tai game thanh cong</p>
+        @* ben user - xong UI thi xoa *@
+        <div class="user-setting">
+            <div class="profile">
+                <a asp-controller="UserProfile" asp-action="UserProfile">Tài khoản</a>
             </div>
-            <div class="noti_box noti_box--color">
-                <i class="bx bxs-x-circle"></i>
-                <p>Khong the thay doi</p>
+            <div class="cart">
+                <a asp-controller="" asp-action="">Giỏ hàng</a>
             </div>
         </div>
-    </nav>  
+    </nav>
 </header>
-
 @* ------------------------- start AUTHENCATION FORM ------------------------- *@
 <div class="auth-container" id="container">
     <div class="form-container sign-up">
@@ -103,13 +98,18 @@
                     <i class='bx bxl-github'></i>
                 </a>
             </div>
-            <span>hoặc có thể đăng ký nhanh ở dưới đây</span>
-            <input type="text" placeholder="Username" style="text-transform: none" asp-for="UserName">
+            <span>hoặc có thể đăng ký nhanh ở dưới đây:</span>
+            <input type="text" placeholder="Tên đăng nhập">
             <span asp-validation-for="UserName"></span>
-            <input type="email" placeholder="Email" style="text-transform: none" asp-for="Email">
+            <div class="d-flex">
+                <input class="me-2 w-50" type="text" placeholder="Họ">
+                <input class="w-50" type="text" placeholder="Tên">
+            </div>
+            <input type="email" placeholder="Email">
             <span asp-validation-for="UserName"></span>
-            <input type="password" placeholder="Password" style="text-transform: none" asp-for="PasswordHash">
+            <input type="password" placeholder="Nhập mật khẩu">
             <span asp-validation-for="PasswordHash"></span>
+            <input type="password" placeholder="Nhập lại mật khẩu">
             <button type="submit">Đăng ký</button>
         </form>
     </div>
@@ -142,12 +142,12 @@
             <div class="toggle-panel toggle-left">
                 <h1>Welcome back!</h1>
                 <p>Nhập thông tin của bạn để sử dụng dịch vụ của chúng tôi.</p>
-                <button class="hidden" id="login">Sign In</button>
+                <button class="hidden" id="login">Đăng nhập</button>
             </div>
             <div class="toggle-panel toggle-right">
                 <h1>Hello, Friend!</h1>
                 <p>Đăng ký để sử dụng đầy đủ chức năng của chúng tôi.</p>
-                <button class="hidden" id="register">Sign Up</button>
+                <button class="hidden" id="register">Đăng ký</button>
             </div>
         </div>
     </div>
@@ -156,9 +156,7 @@
         <i class="bx bx-x"></i>
     </div>
 </div>
-
 @* ------------------------- end AUTHENCATION FORM ------------------------- *@
-
 
 @* ------------------------- start MAIN (change in Views/Home/Index.cshtml) ------------------------- *@
 <div class="container">
@@ -236,7 +234,7 @@
         </div>
 
         <div class="footer_box_item">
-            <h3 class="text-capitalize" >theo dõi chúng tôi trên</h3>
+            <h3 class="text-capitalize">theo dõi chúng tôi trên</h3>
             <div class="contact-icon">
                 <i class='bx bxl-facebook-circle'></i>
                 <i class='bx bxl-instagram'></i>
@@ -262,7 +260,6 @@
 @* MAIN *@
 <script src="~/static/js/main.js" asp-append-version="true"></script>
 <script src="~/static/js/layout.js"></script>
-@* <script src="~/static/js/loginLayout.js" ></script> *@
 @await Component.InvokeAsync("Notyf")
 @await RenderSectionAsync("Scripts", required: false)
 </body>

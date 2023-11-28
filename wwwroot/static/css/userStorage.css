@@ -1,0 +1,29 @@
+* {
+    transition: all .2s linear;
+}
+
+th, td {
+    font-size: 14px;
+}
+
+th {
+    color: var(--main-color);
+    font-size: 15px;
+}
+
+td a {
+    color: white;
+}
+
+td a:hover {
+    color: var(--main-color);
+}
+
+.card {
+    background-color: transparent;
+}
+
+.list-group-item {
+    font-size: .9rem;
+}
+

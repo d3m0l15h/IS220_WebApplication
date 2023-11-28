@@ -1,34 +1,62 @@
 @{
-    ViewData["Title"] = "DownloadPage";
+    ViewData["Title"] = "Download Page";
 }
 
 <head>
     <link rel="stylesheet" href="~/static/css/downloadPage.css">
 </head>
 
-<!-------------start VIDEO TRAILER --------------->
-<div class="video-container container">
-    <video src="~/static/download-file/Subway Surfers Official.mp4" muted autoplay></video>
-</div>
-<!-------------end VIDEO TRAILER --------------->
-
 <!-------------start ABOUT --------------->
 <div class="about container">
     <h2>Thông tin về game</h2>
-    <p>
-        Incididunt reprehenderit ad nisi nostrud fugiat excepteur aute mollit.
-        Reprehenderit sunt veniam cillum magna cillum sunt. Proident minim
-        aliqua cillum nostrud consequat irure consequat nulla aute qui
-        incididunt nulla reprehenderit sint proident. Aliquip quis eu et nisi
-        tempor Lorem ipsum voluptate irure exercitation aute velit adipisicing
-        excepteur. Consequat tempor culpa cillum et.
-    </p>
+    <div class="d-flex">
+        <div class="about-info">
+            <p>
+                Incididunt reprehenderit ad nisi nostrud fugiat excepteur aute mollit.
+                Reprehenderit sunt veniam cillum magna cillum sunt. Proident minim
+                aliqua cillum nostrud consequat irure consequat nulla aute qui
+                incididunt nulla reprehenderit sint proident. Aliquip quis eu et nisi
+                tempor Lorem ipsum voluptate irure exercitation aute velit adipisicing
+                excepteur. Consequat tempor culpa cillum et.
+            </p>
+        </div>
+
+        <table class="about-table table text-light table-dark table-striped align-middle">
+            <tbody>
+            <tr>
+                <td class="py-3">Tên:</td>
+                <td class="py-3">God of War</td>
+            </tr>
+            <tr>
+                <td class="py-3">Giá:</td>
+                <td class="py-3">100.000đ</td>
+            </tr>
+            <tr>
+                <td>Ngày ra mắt</td>
+                <td>12/01/2003</td>
+            </tr>
+            <tr>
+                <td>Tên:</td>
+                <td>God of War</td>
+            </tr>
+            <tr>
+                <td>Tên:</td>
+                <td>God of War</td>
+            </tr>
+            <tr>
+                <td>Tên:</td>
+                <td>God of War</td>
+            </tr>
+</tbody>
+        </table>
+    </div>
+
 </div>
 <!-------------end ABOUT --------------->
 
 <!-------------start SCREENSHOT --------------->
 <div class="screenshots container">
-    <h2>Ảnh chụp trong game</h2>
+    <h2>Ảnh trong game</h2>
     <div class="screenshots-content">
         <img src="~/static/img/screenshots1.jpg" alt="">
         <img src="~/static/img/screenshots2.jpg" alt="">
@@ -39,6 +67,6 @@
 
 <!-------------start DOWNLOAD LINK --------------->
 <div class="download">
-    <a download="deTenGameVaoDay" href="deLinkDownloadGameVao" class="download-links">Download Link (Windows ONLY)</a>
+    <a download="deTenGameVaoDay" href="deLinkDownloadGameVao" class="download-links"></a>
 </div>
 <!-------------end DOWNLOAD LINK --------------->
