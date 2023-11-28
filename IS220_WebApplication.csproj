@@ -38,6 +38,7 @@
 
     <ItemGroup>
       <Folder Include="Areas\Admin\Data\" />
+      <Folder Include="Initial\" />
       <Folder Include="wwwroot\static\download-file\" />
       <Folder Include="wwwroot\static\img\" />
     </ItemGroup>

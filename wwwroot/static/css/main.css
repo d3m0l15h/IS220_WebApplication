@@ -274,7 +274,7 @@ html::-webkit-scrollbar {
     right: 9rem;
     background: var(--light-color);
     width: 130px;
-    height: 100px;
+    height: 130px;
     border-radius: 0.5rem;
     padding: 10px;
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi en">
 <head>
     <meta charset="utf-8"/>
@@ -80,74 +80,24 @@
                 <p>Khong the thay doi</p>
             </div>
         </div>
-    </nav>  
-</header>
 
-@* ------------------------- start AUTHENCATION FORM ------------------------- *@
-<div class="auth-container" id="container">
-    <div class="form-container sign-up">
-        <form>
-            <h1>Tạo tài khoản</h1>
-            <div class="social-icons">
-                <a href="#" class="icon">
-                    <i class='bx bxl-google'></i>
-                </a>
-                <a href="#" class="icon">
-                    <i class='bx bxl-facebook' ></i>
-                </a>
-                <a href="#" class="icon">
-                    <i class='bx bxl-github' ></i>
-                </a>
+        <div class="user-setting">
+            <div class="profile">
+                <a asp-controller="UserProfile" asp-action="UserProfile">Tài khoản</a>
             </div>
-            <span>hoặc có thể đăng ký nhanh ở dưới đây</span>
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <button>Đăng ký</button>
-        </form>
-    </div>
-
-    <div class="form-container sign-in">
-        <form>
-            <h1>Đăng nhập</h1>
-            <div class="social-icons">
-                <a href="#" class="icon">
-                    <i class='bx bxl-google'></i>
-                </a>
-                <a href="#" class="icon">
-                    <i class='bx bxl-facebook' ></i>
-                </a>
-                <a href="#" class="icon">
-                    <i class='bx bxl-github' ></i>
-                </a>
+            <div class="cart">
+                <a asp-controller="" asp-action="">Giỏ hàng</a>
             </div>
-            <span>hoặc đăng nhập bằng Email và passwork</span>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <a href="#">Quên mật khẩu ? ?</a>
-            <button>Đăng nhập</button>
-        </form>
-    </div>
-
-    <div class="toggle-container">
-        <div class="toggle">
-            <div class="toggle-panel toggle-left">
-                <h1>Welcome back!</h1>
-                <p>Nhập thông tin của bạn để sử dụng dịch vụ của chúng tôi.</p>
-                <button class="hidden" id="login">Sign In</button>
-            </div>
-            <div class="toggle-panel toggle-right">
-                <h1>Hello, Friend!</h1>
-                <p>Đăng ký để sử dụng đầy đủ chức năng của chúng tôi.</p>
-                <button class="hidden" id="register">Sign Up</button>
+            <div class="logout">
+                <form asp-controller="account" asp-action="logout" method="post">
+                    <a href="#" class="nav-author__signout" onclick="event.preventDefault(); this.closest('form').submit();">
+                        Sign Out
+                    </a>
+                </form>
             </div>
         </div>
-    </div>
-
-    <div class="close-form">
-        <i class="bx bx-x"></i>
-    </div>
-</div>
+    </nav>
+</header>
 
 @* ------------------------- end AUTHENCATION FORM ------------------------- *@
 
@@ -254,6 +204,7 @@
 @* MAIN *@
 <script src="~/static/js/main.js" asp-append-version="true"></script>
 <script src="static/js/loginLayout.js"></script>
+@await Component.InvokeAsync("Notyf")
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

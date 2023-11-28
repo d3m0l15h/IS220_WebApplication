@@ -19,12 +19,14 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
 
         private readonly INotyfService? _notyf;
         private readonly ILogger<GameController> _logger;
+        private ProcessorManager _processorManager;
 
         public GameController(MyDbContext db, INotyfService notyf, ILogger<GameController> logger)
         {
             _db = db;
             _notyf = notyf;
             _logger = logger;
+            _processorManager = new ProcessorManager(db);
         }
 
         // Index
@@ -34,16 +36,16 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             IQueryable<Game> games = _db.Games
                 .Include(g => g.DeveloperNavigation)
                 .Include(g => g.PublisherNavigation);
-
+            
             if (!string.IsNullOrEmpty(searchQuery))
             {
                 games = games.Where(g => g.Title.Contains(searchQuery));
             }
-
+            
             var count = games.Count();
-
+            
             games = games.Skip((pageNumber - 1) * pageSize).Take(pageSize);
-
+            
             ViewBag.TotalPages = (count + pageSize - 1) / pageSize;
 
             return View(games.ToList());
@@ -205,5 +207,6 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 }
             }
         }
+        
     }
 }

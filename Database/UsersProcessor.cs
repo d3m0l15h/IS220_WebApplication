@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Database;
 
-public class UsersProcessor : Processor<User>
+public class UsersProcessor : Processor<Aspnetuser>
 {
     
     public UsersProcessor(MyDbContext db) : base(db)
     {
-        SetDefaultDatabaseContext(db.Users);
+        SetDefaultDatabaseContext(db.Aspnetusers);
         SetDefaultDatabaseTable("User");
         
     }

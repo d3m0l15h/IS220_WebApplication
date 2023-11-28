@@ -10,10 +10,5 @@ namespace IS220_WebApplication.Areas.Admin.Models
         public IEnumerable<Publisher> Publishers { get; set; } = new List<Publisher>();
         public IEnumerable<Developer> Developers { get; set; } = new List<Developer>();
         public IFormFile ImageFile { get; set; } = null!;
-        public string GameStatus
-        {
-            get => Game.Status ?? "active";
-            set => Game.Status = value;
-        }
     }
 }

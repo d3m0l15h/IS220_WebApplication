@@ -10,7 +10,7 @@ public class GameCategoryProcessor : Processor<GameCategory>
     public GameCategoryProcessor(MyDbContext db) : base(db)
     {
         SetDefaultDatabaseTable("Game_category");
-        SetDefaultDatabaseContext(db.GameCategories);
+        //SetDefaultDatabaseContext(db.GameCategories);
     }
 
     public override Response InsertData(Dictionary<string, string> columnValueMap, bool isCommit)

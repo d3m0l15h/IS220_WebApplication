@@ -186,7 +186,7 @@ public abstract class Processor<TEntity> where TEntity : class
             {
                 query = query + " WHERE " + queryCondition;
             }
-            var data = _db.Users.FromSqlRaw(query).ToList();
+            var data = _db.Aspnetusers.FromSqlRaw(query).ToList();
 
             return data.Count;
            

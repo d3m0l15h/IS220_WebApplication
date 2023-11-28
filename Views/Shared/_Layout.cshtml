@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model Aspnetuser
+<!DOCTYPE html>
 <html lang="vi en">
 <head>
     <meta charset="utf-8"/>
@@ -82,61 +83,57 @@
                 <p>Khong the thay doi</p>
             </div>
         </div>
-        
-        <div class="user-setting">
-            <div class="profile">
-                <a asp-controller="UserProfile" asp-action="UserProfile" >Tài khoản</a>
-            </div>
-            <div class="cart">
-                <a asp-controller="" asp-action="">Giỏ hàng</a>
-            </div>
-        </div>
     </nav>  
 </header>
 
 @* ------------------------- start AUTHENCATION FORM ------------------------- *@
 <div class="auth-container" id="container">
     <div class="form-container sign-up">
-        <form>
+        <form asp-controller="account" asp-action="register" method="post">
+            @Html.AntiForgeryToken()
             <h1>Tạo tài khoản</h1>
             <div class="social-icons">
                 <a href="#" class="icon">
                     <i class='bx bxl-google'></i>
                 </a>
                 <a href="#" class="icon">
-                    <i class='bx bxl-facebook' ></i>
+                    <i class='bx bxl-facebook'></i>
                 </a>
                 <a href="#" class="icon">
-                    <i class='bx bxl-github' ></i>
+                    <i class='bx bxl-github'></i>
                 </a>
             </div>
             <span>hoặc có thể đăng ký nhanh ở dưới đây</span>
-            <input type="text" placeholder="Name" style="text-transform: none">
-            <input type="email" placeholder="Email" style="text-transform: none">
-            <input type="password" placeholder="Password" style="text-transform: none">
-            <button>Đăng ký</button>
+            <input type="text" placeholder="Username" style="text-transform: none" asp-for="UserName">
+            <span asp-validation-for="UserName"></span>
+            <input type="email" placeholder="Email" style="text-transform: none" asp-for="Email">
+            <span asp-validation-for="UserName"></span>
+            <input type="password" placeholder="Password" style="text-transform: none" asp-for="PasswordHash">
+            <span asp-validation-for="PasswordHash"></span>
+            <button type="submit">Đăng ký</button>
         </form>
     </div>
 
     <div class="form-container sign-in">
-        <form>
+        <form method="post" asp-controller="account" asp-action="login">
+            @Html.AntiForgeryToken()
             <h1>Đăng nhập</h1>
             <div class="social-icons">
                 <a href="#" class="icon">
                     <i class='bx bxl-google'></i>
                 </a>
                 <a href="#" class="icon">
-                    <i class='bx bxl-facebook' ></i>
+                    <i class='bx bxl-facebook'></i>
                 </a>
                 <a href="#" class="icon">
-                    <i class='bx bxl-github' ></i>
+                    <i class='bx bxl-github'></i>
                 </a>
             </div>
-            <span>hoặc đăng nhập bằng Email và passwork</span>
-            <input type="email" placeholder="Email" style="text-transform: none;">
-            <input type="password" placeholder="Password" style="text-transform: none;">
+            <span>hoặc đăng nhập bằng Username/Email và passwork</span>
+            <input type="text" placeholder="Username or Email" style="text-transform: none;" name="ue">
+            <input type="password" placeholder="Password" style="text-transform: none;" name="password">
             <a href="#">Quên mật khẩu ? ?</a>
-            <button>Đăng nhập</button>
+            <button type="submit">Đăng nhập</button>
         </form>
     </div>
 
@@ -264,8 +261,8 @@
 <script src="~/lib/swiperJS/swiper-bundle.min.js"></script>
 @* MAIN *@
 <script src="~/static/js/main.js" asp-append-version="true"></script>
-@* <script src="~/static/js/layout.js"></script> *@
-<script src="~/static/js/loginLayout.js" ></script>
+<script src="~/static/js/layout.js"></script>
+@* <script src="~/static/js/loginLayout.js" ></script> *@
 @await Component.InvokeAsync("Notyf")
 @await RenderSectionAsync("Scripts", required: false)
 </body>

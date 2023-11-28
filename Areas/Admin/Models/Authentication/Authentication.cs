@@ -8,11 +8,11 @@ namespace IS220_WebApplication.Areas.Admin.Models.Authentication
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            if (context.HttpContext.Session.GetString("email") != null) return;
-            
+            if (context.HttpContext.User.Identity is { IsAuthenticated: true }) return;
+
             var originalUrl = context.HttpContext.Request.Path.ToString();
             context.HttpContext.Response.Cookies.Append("OriginalUrl", originalUrl);
-            
+
             context.Result = new RedirectToRouteResult(
                 new RouteValueDictionary
                 {

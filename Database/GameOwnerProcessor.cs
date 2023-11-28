@@ -9,7 +9,7 @@ public class GameOwnerProcessor : Processor<GameOwned>
 {
     public GameOwnerProcessor(MyDbContext db) : base(db)
     {
-        SetDefaultDatabaseContext(db.GameOwneds);
+        //SetDefaultDatabaseContext(db.GameOwneds);
         SetDefaultDatabaseTable("Game_owned");
     }
 
