@@ -1,5 +1,6 @@
 /*------------------------- DOWNLOAD PAGE -------------------------*/
 .about {
+  /*display: flex;*/
   margin-top: 2rem;
 }
 
@@ -9,6 +10,19 @@
   font-size     : 1.4rem;
   font-weight   : 500;
   border-bottom : 4px solid var(--main-color);
+}
+
+.about-info {
+  width: 60%;
+}
+
+.about-table {
+  width: 40%;
+}
+
+.about-table tr td:first-child {
+  color: var(--main-color);
+  font-weight: bold;
 }
 
 .about p {

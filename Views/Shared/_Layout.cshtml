@@ -93,10 +93,15 @@
                     <i class='bx bxl-github'></i>
                 </a>
             </div>
-            <span>hoặc có thể đăng ký nhanh ở dưới đây</span>
-            <input type="text" placeholder="Name">
+            <span>hoặc có thể đăng ký nhanh ở dưới đây:</span>
+            <input type="text" placeholder="Tên đăng nhập">
+            <div class="d-flex">
+                <input class="me-2 w-50" type="text" placeholder="Họ">
+                <input class="w-50" type="text" placeholder="Tên">
+            </div>
             <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Nhập mật khẩu">
+            <input type="password" placeholder="Nhập lại mật khẩu">
             <button>Đăng ký</button>
         </form>
     </div>
@@ -128,12 +133,12 @@
             <div class="toggle-panel toggle-left">
                 <h1>Welcome back!</h1>
                 <p>Nhập thông tin của bạn để sử dụng dịch vụ của chúng tôi.</p>
-                <button class="hidden" id="login">Sign In</button>
+                <button class="hidden" id="login">Đăng nhập</button>
             </div>
             <div class="toggle-panel toggle-right">
                 <h1>Hello, Friend!</h1>
                 <p>Đăng ký để sử dụng đầy đủ chức năng của chúng tôi.</p>
-                <button class="hidden" id="register">Sign Up</button>
+                <button class="hidden" id="register">Đăng ký</button>
             </div>
         </div>
     </div>
@@ -245,8 +250,7 @@
 <script src="~/lib/swiperJS/swiper-bundle.min.js"></script>
 @* MAIN *@
 <script src="~/static/js/main.js" asp-append-version="true"></script>
-@* <script src="~/static/js/layout.js"></script> *@
-<script src="~/static/js/loginLayout.js"></script>
+<script src="~/static/js/layout.js"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
