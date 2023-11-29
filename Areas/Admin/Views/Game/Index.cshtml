@@ -19,9 +19,9 @@
                     </div>
                     <div class="breadcrumb-main__wrapper">
 
-                        <form action="/" class="d-flex align-items-center add-contact__form my-sm-0 my-2">
+                        <form asp-area="admin" asp-controller="game" asp-action="index" method="get" class="d-flex align-items-center add-contact__form my-sm-0 my-2">
                             <img src="~/admin/img/svg/search.svg" alt="search" class="svg">
-                            <input class="form-control me-sm-2 border-0 box-shadow-none" type="search" placeholder="Search by Name" aria-label="Search">
+                            <input name="searchQuery" class="form-control me-sm-2 border-0 box-shadow-none" type="search" placeholder="Search by Name" aria-label="Search">
                         </form>
 
                     </div>
@@ -128,7 +128,7 @@
                                             </td>
                                             <td>
                                                 <div class="userDatatable-content--priority">
-                                                    @if(item.Active)
+                                                    @if(item.Status.Equals("active"))
                                                     {
                                                     <div class="userDatatable-content d-inline-block">
                                                         <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
@@ -167,39 +167,59 @@
                             <nav class="dm-page ">
                                 <ul class="dm-pagination d-flex">
                                     <li class="dm-pagination__item">
-                                        <a href="#" class="dm-pagination__link pagination-control">
-                                            <span class="la la-angle-left"></span>
-                                        </a>
-                                        <a href="#" class="dm-pagination__link">
-                                            <span class="page-number">1</span>
-                                        </a>
-                                        <a href="#" class="dm-pagination__link active">
-                                            <span class="page-number">2</span>
-                                        </a>
-                                        <a href="#" class="dm-pagination__link">
-                                            <span class="page-number">3</span>
-                                        </a>
-                                        <a href="#" class="dm-pagination__link pagination-control">
-                                            <span class="page-number">...</span>
-                                        </a>
-                                        <a href="#" class="dm-pagination__link">
-                                            <span class="page-number">12</span>
-                                        </a>
-                                        <a href="#" class="dm-pagination__link pagination-control">
-                                            <span class="la la-angle-right"></span>
-                                        </a>
-                                        <a href="#" class="dm-pagination__option">
-                                        </a>
-                                    </li>
-                                    <li class="dm-pagination__item">
-                                        <div class="paging-option">
-                                            <select name="page-number" class="page-selection">
-                                                <option value="20">20/page</option>
-                                                <option value="40">40/page</option>
-                                                <option value="60">60/page</option>
-                                            </select>
-                                        </div>
-                                    </li>
+                                                @* @if (ViewBag.PageNumber > 1) *@
+                                                @* { *@
+                                                @*     <a asp-action="Index" asp-route-pageNumber="@(ViewBag.PageNumber - 1)" class="dm-pagination__link pagination-control"> *@
+                                                @*         <span class="la la-angle-left"></span> *@
+                                                @*     </a> *@
+                                                @* } *@
+                                                @* @for (var i = 1; i <= ViewBag.TotalPages; i++) *@
+                                                @* { *@
+                                                @*     <a asp-action="Index" asp-route-pageNumber="@i" class="dm-pagination__link @(i == ViewBag.PageNumber ? "active" : "")"> *@
+                                                @*         <span class="page-number">@i</span> *@
+                                                @*     </a> *@
+                                                @* } *@
+                                                @* @if (ViewBag.PageNumber < ViewBag.TotalPages) *@
+                                                @* { *@
+                                                @*     <a asp-action="Index" asp-route-pageNumber="@(ViewBag.PageNumber + 1)" class="dm-pagination__link pagination-control"> *@
+                                                @*         <span class="la la-angle-right"></span> *@
+                                                @*     </a> *@
+                                                @* } *@
+                                            </li>
+                                    @* <li class="dm-pagination__item"> *@
+                                    @*     <a href="#" class="dm-pagination__link pagination-control"> *@
+                                    @*         <span class="la la-angle-left"></span> *@
+                                    @*     </a> *@
+                                    @*     <a href="#" class="dm-pagination__link"> *@
+                                    @*         <span class="page-number">1</span> *@
+                                    @*     </a> *@
+                                    @*     <a href="#" class="dm-pagination__link active"> *@
+                                    @*         <span class="page-number">2</span> *@
+                                    @*     </a> *@
+                                    @*     <a href="#" class="dm-pagination__link"> *@
+                                    @*         <span class="page-number">3</span> *@
+                                    @*     </a> *@
+                                    @*     <a href="#" class="dm-pagination__link pagination-control"> *@
+                                    @*         <span class="page-number">...</span> *@
+                                    @*     </a> *@
+                                    @*     <a href="#" class="dm-pagination__link"> *@
+                                    @*         <span class="page-number">12</span> *@
+                                    @*     </a> *@
+                                    @*     <a href="#" class="dm-pagination__link pagination-control"> *@
+                                    @*         <span class="la la-angle-right"></span> *@
+                                    @*     </a> *@
+                                    @*     <a href="#" class="dm-pagination__option"> *@
+                                    @*     </a> *@
+                                    @* </li> *@
+                                    @* <li class="dm-pagination__item"> *@
+                                    @*     <div class="paging-option"> *@
+                                    @*         <select name="page-number" class="page-selection"> *@
+                                    @*             <option value="20">20/page</option> *@
+                                    @*             <option value="40">40/page</option> *@
+                                    @*             <option value="60">60/page</option> *@
+                                    @*         </select> *@
+                                    @*     </div> *@
+                                    @* </li> *@
                                 </ul>
                             </nav>
 

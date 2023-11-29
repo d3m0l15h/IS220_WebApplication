@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.IdentityModel.Tokens;
 
 namespace IS220_WebApplication.Utils;
@@ -16,8 +17,7 @@ public abstract class Utils {
 
         return keysValuesList;
     }
-
-   
+    
     public static  List<List<string>> Concat2DArray(List<List<string>> firstArray, List<List<string>> secondArray)
     {
         for (var i = 0; i < secondArray.Count; ++i)
@@ -31,17 +31,14 @@ public abstract class Utils {
         return firstArray;
     }
     
-
     public static string GetRowValueByColumnName(int index, string columnName, List<List<string>> data) {
         var ret = "";
-        try {
-            foreach (string dataColumnName in data[0])
+        try
+        {
+            foreach (var dataColumnName in data[0].Where(columnName.Equals))
             {
-                if (columnName.Equals(dataColumnName))
-                {
-                    ret = data[index][data[0].IndexOf(dataColumnName)];
-                    break;
-                }
+                ret = data[index][data[0].IndexOf(dataColumnName)];
+                break;
             }
         } catch (Exception e) {
             Console.WriteLine(e);
@@ -57,24 +54,24 @@ public abstract class Utils {
 
         if (!data.IsNullOrEmpty())
         {
-            foreach (var dataColumnName in data[0])
+            foreach (var dataColumnName in data?[0]!.Where(dataColumnName => dataColumnName.Equals(columnName))!)
             {
-                if (dataColumnName.Equals(columnName))
-                {
-                    index = data[0].IndexOf(dataColumnName);
-                    break;
-                }
+                index = data[0].IndexOf(dataColumnName);
+                break;
             }
         }
         
         if (index < 0) {
             Console.WriteLine("Error: Column not found");
-        } else if (data.Count < 3) {
+        } else if (data is { Count: < 3 }) {
             Console.WriteLine("Warning: Empty data");
-        } else {
-            for (int i = 2; i < data.Count; ++i) {
-                values.Add(data[i][index]);
-            }
+        } else
+        {
+            if (data != null)
+                for (var i = 2; i < data.Count; ++i)
+                {
+                    values.Add(data[i][index]);
+                }
         }
 
         foreach (var val in values)
@@ -84,8 +81,18 @@ public abstract class Utils {
 
         return values;
     }
-
-
     
-
+    public static void CheckModelState(ModelStateDictionary modelState)
+    {
+        foreach (var modelStateKey in modelState.Keys)
+        {
+            var modelStateVal = modelState[modelStateKey];
+            if (modelStateVal == null) continue;
+            foreach (var error in modelStateVal.Errors)
+            {
+                // Log or print the error message
+                Console.WriteLine($"-------|{modelStateKey}: {error.ErrorMessage}");
+            }
+        }
+    }
 }

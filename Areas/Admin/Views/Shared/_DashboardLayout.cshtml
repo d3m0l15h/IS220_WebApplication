@@ -436,9 +436,11 @@
                             </a>
                         </li>
                     </ul>
-                    <a href="" class="nav-author__signout">
-                        <i class="uil uil-sign-out-alt"></i> Sign Out
-                    </a>
+                    <form asp-area="admin" asp-controller="Login" asp-action="Logout" method="post">
+                        <a href="#" class="nav-author__signout" onclick="event.preventDefault(); this.closest('form').submit();">
+                            <i class="uil uil-sign-out-alt"></i> Sign Out
+                        </a>
+                    </form>
                 </div>
             </div>
             <!-- ends: .dropdown-wrapper -->

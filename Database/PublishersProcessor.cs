@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Database;
 
-public class PublishersProcessor : Processor
+public class PublishersProcessor : Processor<Publisher>
 {
     public PublishersProcessor(MyDbContext db) : base(db)
     {
@@ -31,10 +31,14 @@ public class PublishersProcessor : Processor
 
     public override Response GetData(int from, int quantity, string queryCondition, string sortQuery)
     {
-        
-        return Select("*", from, quantity, queryCondition, sortQuery, GetDefaultDatabaseTable(), GetDefaultDatabaseContext());
-        
-        
+        if (queryCondition.Length == 0) {
+            queryCondition = "PUBLISHER.ID = GAME.PUBLISHER";
+        }
+        else
+        {
+            queryCondition = queryCondition + " AND PUBLISHER.ID = GAME.PUBLISHER";
+        }
+        return Select("PUBLISHER.*", from, quantity, queryCondition, sortQuery, "PUBLISHER, GAME", GetDefaultDatabaseContext());
     }
 
     public override int CountData(string queryCondition)

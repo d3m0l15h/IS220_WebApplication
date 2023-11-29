@@ -5,11 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Database;
 
-public class UsersProcessor : Processor
+public class UsersProcessor : Processor<Aspnetuser>
 {
+    
     public UsersProcessor(MyDbContext db) : base(db)
     {
-        SetDefaultDatabaseContext(db.Users);
+        SetDefaultDatabaseContext(db.Aspnetusers);
         SetDefaultDatabaseTable("User");
         
     }
@@ -31,7 +32,7 @@ public class UsersProcessor : Processor
 
     public override Response GetData(int from, int quantity, string queryCondition, string sortQuery)
     {
-        return Select("*", from, quantity, queryCondition, sortQuery, GetDefaultDatabaseTable(), GetDefaultDatabaseContext());
+        return Select("USER.*", from, quantity, queryCondition, sortQuery, "User", GetDefaultDatabaseContext());
     }
 
     public override int CountData(string queryCondition)

@@ -5,6 +5,7 @@ using IS220_WebApplication.Areas.Admin.Models.Authentication;
 using IS220_WebApplication.Context;
 using IS220_WebApplication.Database;
 using IS220_WebApplication.Models;
+using IS220_WebApplication.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
@@ -19,23 +20,36 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
 
         private readonly INotyfService? _notyf;
         private readonly ILogger<GameController> _logger;
+        private ProcessorManager _processorManager;
 
         public GameController(MyDbContext db, INotyfService notyf, ILogger<GameController> logger)
         {
             _db = db;
             _notyf = notyf;
             _logger = logger;
+            _processorManager = new ProcessorManager(db);
         }
 
         // Index
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string searchQuery, int pageNumber = 1, int pageSize = 10)
         {
-            var games = _db.Games
+            IQueryable<Game> games = _db.Games
                 .Include(g => g.DeveloperNavigation)
-                .Include(g => g.PublisherNavigation)
-                .ToList();
-            return View(games);
+                .Include(g => g.PublisherNavigation);
+            
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                games = games.Where(g => g.Title.Contains(searchQuery));
+            }
+            
+            var count = games.Count();
+            
+            games = games.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+            
+            ViewBag.TotalPages = (count + pageSize - 1) / pageSize;
+
+            return View(games.ToList());
         }
 
         // Add
@@ -83,7 +97,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 return RedirectToAction("Add");
             }
 
-            CheckModelState();
+            Utils.Utils.CheckModelState(ModelState);
             _notyf?.Error("Add game failed!");
             return View(viewModel);
         }
@@ -131,10 +145,19 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 game.Developer = model.Game.Developer;
                 game.DownloadLink = model.Game.DownloadLink;
                 game.Type = model.Game.Type;
-                game.Active = model.Game.Active;
+                game.Status = model.Game.Status;
 
                 if (model.ImageFile != null)
                 {
+                    if (game.ImgPath != null)
+                    {
+                        var oldImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/game", game.ImgPath);
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
+                    }
+
                     game.ImgPath = SaveImage(model.ImageFile);
                 }
 
@@ -156,7 +179,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            CheckModelState();
+            Utils.Utils.CheckModelState(ModelState);
             _notyf?.Error("Update game failed!");
             return View(model);
         }
@@ -165,25 +188,12 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         {
             string fileName = null!;
             if (imageFile is not { Length: > 0 }) return fileName;
-            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/game");
             fileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;
             var filePath = Path.Combine(uploadsFolder, fileName);
             using var fileStream = new FileStream(filePath, FileMode.Create);
             imageFile.CopyTo(fileStream);
             return fileName;
-        }
-        
-        public void CheckModelState()
-        {
-            foreach (var modelStateKey in ModelState.Keys)
-            {
-                var modelStateVal = ModelState[modelStateKey];
-                foreach (var error in modelStateVal?.Errors!)
-                {
-                    // Log or print the error message
-                    Console.WriteLine($"{modelStateKey}: {error.ErrorMessage}");
-                }
-            }
         }
     }
 }

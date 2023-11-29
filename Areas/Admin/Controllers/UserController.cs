@@ -23,7 +23,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         [Authentication]
         public IActionResult Index()
         {
-            IEnumerable<User> objUsers = _db.Users.ToList();
+            IEnumerable<Aspnetuser> objUsers = _db.Users.ToList();
             return View(objUsers);
         }
 

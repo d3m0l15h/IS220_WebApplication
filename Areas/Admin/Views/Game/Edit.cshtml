@@ -84,7 +84,8 @@
                             <select id="select-tag" class="form-control " multiple="multiple" asp-for="SelectedCategoryIds">
                                 @foreach (var category in Model.Categories)
                                 {
-                                    <option value="@category.Id" selected="@Model.Game.Categories.Any(c => c.Id == category.Id)">@category.Name</option>
+                                    
+                                    <option value="@category.Id" selected="@Model.Game.Categories.Any(c => c.Id == category.Id)" >@category.Name</option>
                                 }
                             </select>
                         </div>
@@ -105,7 +106,14 @@
                         </span>
                     </div>
                     <div class="pt_Quantity">
-                        <input type="number" class="form-control" min="0" step="1" value="@Model.Game.Price" data-inc="1" asp-for="Game.Price">
+                        <input type="text" class="form-control" min="0" step="1" value="@FormatNumber(Model.Game.Price)" data-inc="1" asp-for="Game.Price">
+                        @{
+                            string FormatNumber(decimal gamePrice)
+                            {
+                                return $"{gamePrice:n0}";
+                            }
+                        }
+
                     </div>
                 </div>
             </div>
@@ -183,24 +191,29 @@
             </div>
             
             <div class="form-group">
-                            <label for="name9">Type</label>
-                            <div class="dm-select-list d-flex align-center">
-                                <div class="dm-select ">
-                                    <select asp-for="Game.Type" class="form-control ">
-                                        <option value="1">Game</option>
-                                        <option value="2">Disk</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
+                <label for="name9">Type</label>
+                <div class="dm-select-list d-flex align-center">
+                    <div class="dm-select ">
+                        <select asp-for="Game.Type" class="form-control ">
+                            <option value="1">Game</option>
+                            <option value="2">Disk</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+                
             <div class="form-group">
-                <label for="switch-s5">Active</label>
-            <div class="form-check form-switch form-switch-warning form-switch-lg">
-                <input type="checkbox" class="form-check-input" id="switch-s5" asp-for="GameActive">
-                <label class="form-check-label" for="switch-s5"></label>
-            </div>
-            </div>
+                                        <label for="name9">Status</label>
+                                        <div class="dm-select-list d-flex align-center">
+                                            <div class="dm-select ">
+                                                <select asp-for="Game.Status" class="form-control ">
+                                                    <option value="active">Active</option>
+                                                    <option value="deactivete">Deactivete</option>
+                                                    <option value="block">Block</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
             
             <!-- form group 8 -->
             <div class="form-group mb-0">
@@ -237,7 +250,7 @@
             </label>
             <div class="upload-product-media d-flex justify-content-between align-items-center mt-25">
                 <div class="upload-media-area d-flex">
-                    <img id="imagePreview" src="~/images/@Model.Game.ImgPath" alt="Image Preview"/>
+                    <img id="imagePreview" src="~/images/game/@Model.Game.ImgPath" alt="Image Preview"/>
 
                     <div class=" upload-media-area__title  d-flex flex-wrap align-items-center ms-10">
                         <div>

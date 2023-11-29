@@ -4,7 +4,9 @@ using IS220_WebApplication.Areas.Admin.Models.Authentication;
 using IS220_WebApplication.Context;
 using IS220_WebApplication.Database;
 using IS220_WebApplication.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using static IS220_WebApplication.Database.UsersProcessor;
@@ -14,56 +16,71 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
     [Area("admin")]
     public class LoginController : Controller
     {
-        private readonly MyDbContext _db;
-
         private readonly INotyfService? _notyf;
+        private readonly UserManager<Aspnetuser> _userManager;
+        private readonly SignInManager<Aspnetuser> _signInManager;
 
-        private UsersProcessor _usersProcessor;
 
-        public LoginController(MyDbContext db, INotyfService notyf)
+        public LoginController(INotyfService notyf, UserManager<Aspnetuser> userManager, SignInManager<Aspnetuser> signInManager)
         {
-            _db = db;
             _notyf = notyf;
-            _usersProcessor = new UsersProcessor(db);
+            _userManager = userManager;
+            _signInManager = signInManager; 
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("email") != null) return RedirectToAction("index", "dashboard");
+            if (User.Identity is { IsAuthenticated: true }) return RedirectToAction("index", "dashboard");
             return View();
-
         }
 
         [HttpPost]
-        public IActionResult Index(User user, string? returnUrl = null)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index(Aspnetuser user)
         {
-            if (HttpContext.Session.GetString("email") == null)
+            ModelState.Remove("Status");
+            if (!ModelState.IsValid) return View();
+
+            // Check if the user exists
+            var existingUser = await _userManager.FindByNameAsync(user.UserName!);
+            if (existingUser == null)
             {
-                var query = $"Username = '{user.Username}' AND Password = '{user.Password}' AND Role = 1";
-                var data = _usersProcessor.GetData(0, -1, query,"").GetData();
-
-                if (!data.IsNullOrEmpty())
-                {
-                    var email = Utils.Utils.GetDataValuesByColumnName(data, "Email")[0];
-
-                    {
-                        HttpContext.Session.SetString("email", email);
-                        var originalUrl = HttpContext.Request.Cookies["OriginalUrl"];
-                        HttpContext.Response.Cookies.Delete("OriginalUrl");
-
-                        if (!string.IsNullOrEmpty(originalUrl))
-                        {
-                            return LocalRedirect(originalUrl);
-                        }
-
-                        _notyf?.Success("Login success");
-                        return RedirectToAction("index", "dashboard");
-                    }
-                }
+                _notyf?.Error("User not exist");
+                return View();
             }
+
+            if (existingUser.Role != 1)
+            {
+                _notyf?.Error("You don't have permission to access this page");
+                return View();
+            }
+            var result = await _signInManager.PasswordSignInAsync(user.UserName!, user.PasswordHash!, false, false);
+
+            if (result.Succeeded)
+            {
+                var originalUrl = HttpContext.Request.Cookies["OriginalUrl"];
+                HttpContext.Response.Cookies.Delete("OriginalUrl");
+                
+                if (!string.IsNullOrEmpty(originalUrl))
+                {
+                    return LocalRedirect(originalUrl);
+                }
+                _notyf?.Success("Login successful");
+                return RedirectToAction("index", "dashboard");
+            }
+            
             _notyf?.Error("Login failed");
             return View();
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            _notyf?.Success("You have been logged out");
+            return RedirectToAction("index", "login", new { area = "admin" });
         }
     }
 }

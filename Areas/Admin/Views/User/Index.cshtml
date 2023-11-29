@@ -3,7 +3,7 @@
 @{
     Layout = "_DashboardLayout";
 }
-@model IEnumerable<User>
+@model IEnumerable<Aspnetuser>
 
 <div class="contents">
     <div class="container-fluid">
@@ -88,7 +88,7 @@
                                         </div>
                                         <div class="userDatatable-inline-title">
                                             <a href="#" class="text-dark fw-500">
-                                                <h6>@obj.Username</h6>
+                                                <h6>@obj.UserName</h6>
                                             </a>
                                             <p class="d-block mb-0">
                                                 San Francisco, CA
@@ -115,17 +115,17 @@
                                 <td>
                                     @switch (@obj.Status)
                                     {
-                                        case 1:
+                                        case "active":
                                             <div class="userDatatable-content d-inline-block">
                                                 <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
                                             </div>
                                             break;
-                                        case 2:
+                                        case "deactivete":
                                             <div class="userDatatable-content d-inline-block">
                                                 <span class="bg-opacity-warning  color-warning rounded-pill userDatatable-content-status active">deactivete</span>
                                             </div>
                                             break;
-                                        case 3:
+                                        case "blocked":
                                             <div class="userDatatable-content d-inline-block">
                                                 <span class="bg-opacity-danger  color-danger rounded-pill userDatatable-content-status active">blocked</span>
                                             </div>

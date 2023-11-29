@@ -1,6 +1,8 @@
 using System.Configuration;
 using AspNetCoreHero.ToastNotification;
 using IS220_WebApplication.Context;
+using IS220_WebApplication.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MySqlConnector;
 
@@ -28,6 +30,21 @@ builder.Services.AddNotyf(config =>
 });
 
 builder.Services.AddDbContext<MyDbContext>(options => options.UseMySQL(cfg["dbGameStore"] ?? string.Empty));
+
+builder.Services.AddDefaultIdentity<Aspnetuser>(options =>
+    {
+        options.SignIn.RequireConfirmedAccount = false;
+        options.User.RequireUniqueEmail = true;
+        options.Password.RequireDigit = false;  
+        options.Password.RequiredLength = 0; 
+        options.Password.RequireLowercase = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequireNonAlphanumeric = false;  
+        options.Password.RequiredUniqueChars = 0;
+    })
+    .AddEntityFrameworkStores<MyDbContext>()
+    .AddDefaultTokenProviders();
+
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 var app = builder.Build();
@@ -54,11 +71,12 @@ app.UseSession();
 
 app.MapControllerRoute(
     name: "areas",
-    pattern: "{area:exists}/{controller=Login}/{action=Index}/{id?}"
+    pattern: "{area:exists}/{controller=Account}/{action=Index}/{id?}"
 );
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 
 app.Run();

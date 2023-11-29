@@ -8,7 +8,10 @@
     --dark-color: #1b182b;
     --light-color: #322f40;
     --text-color: hsl(0, 0%, 91%);
-    --border-primary: 1px solid var(--main-color)
+    --black-color: #444;
+    --border: .1rem solid rgba(0, 0, 0, .1);
+    --border-hover: .1rem solid var(--black-color);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
 }
 
 /*------------------------- ALL ELEMENTS -------------------------*/
@@ -20,7 +23,6 @@
     outline: none;
     border: none;
     text-decoration: none;
-    text-transform: capitalize;
     transition: all 0.2s linear;
 }
 
@@ -131,24 +133,6 @@ html::-webkit-scrollbar {
     cursor: pointer;
 }
 
-#bell-icon {
-    position: relative;
-}
-
-/* The dot icon when user have notification */
-#bell-icon span {
-    content: "";
-    position: absolute;
-    background: var(--main-color);
-
-    width: 5px;
-    height: 5px;
-    top: 10px;
-    right: 14px;
-
-    border-radius: 50%;
-}
-
 /* MENU ICON */
 .menu-icon {
     /*display: flex;*/
@@ -221,49 +205,37 @@ html::-webkit-scrollbar {
     cursor: pointer;
 }
 
-
-/* NOTIFICATION */
-.noti {
+/*USER ICON*/
+.user-setting {
     position: absolute;
     top: 90%;
-    right: 16rem;
+    right: 9rem;
     background: var(--light-color);
-    width: 300px;
-    height: 350px;
+    width: 130px;
+    height: 130px;
     border-radius: 0.5rem;
     padding: 10px;
 
+    text-align: center;
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: .5rem;
 
     clip-path: circle(0% at 100% 0%);
 }
 
-.noti.active {
+.user-setting.active {
     clip-path: circle(144% at 100% 0%);
     transition: 0.3s;
 }
 
-.noti_box {
-    display: flex;
-    align-items: baseline;
-    column-gap: 1rem;
-    border-radius: 0.5rem;
-    background: var(--dark-color);
-    padding: 10px;
+.user-setting div {
+    padding: 8px 16px;
+    border-radius: 5px;
 }
 
-.noti_box .bx {
-    color: #faf102;
-}
-
-.noti_box--color {
+.user-setting div:hover {
     background: hsl(0, 0%, 100%, 0.4);
-}
-
-.noti_box--color .bx {
-    color: var(--main-color);
 }
 
 /*------------------------- HOME SECTION -------------------------*/
@@ -297,7 +269,7 @@ html::-webkit-scrollbar {
     margin-bottom: 1rem;
 }
 
-.btn {
+.home-btn {
     background: var(--main-color);
     padding: 15px 20px;
     color: var(--text-color);
@@ -309,7 +281,7 @@ html::-webkit-scrollbar {
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 10% 100%, 0% 68%);
 }
 
-.btn:hover {
+.home-btn:hover {
     background: var(--light-color);
     transition: 0.3s all linear;
 }
@@ -346,6 +318,10 @@ html::-webkit-scrollbar {
     border-radius: 0.5rem;
 }
 
+.box:hover {
+    cursor: pointer;
+}
+
 .box img {
     width: 100%;
     height: 100%;
@@ -364,9 +340,14 @@ html::-webkit-scrollbar {
     border-radius: 0.5rem;
 }
 
-.box_text h2 {
+.box_text a {
+    color: white;
     font-size: 1rem;
     font-weight: 500;
+}
+
+.box_text a:hover {
+    color: var(--main-color);
 }
 
 .box_text h3 {
@@ -395,16 +376,16 @@ span {
     font-size: 0.9rem;
 }
 
-.box-btn .bx {
+.box-btn p {
     padding: 8px;
     background-color: var(--text-color);
-    border-radius: 5rem;
+    border-radius: 2rem;
     color: var(--main-color);
     font-weight: 400;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
 }
 
-.box-btn .bx:hover {
+.box-btn p:hover {
     background-color: var(--dark-color);
 }
 
@@ -420,66 +401,27 @@ span {
     gap: 1.2rem;
 }
 
-.button,
-.links,
-.link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.more-btn {
+    margin-top: 1rem;
+    text-align: center;
 }
 
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    column-gap: 12px;
+.more-btn button {
+    padding: .8rem 1.6rem;
+    background-color: var(--main-color);
+    border-radius: 10px;
 }
 
-.button i {
-    pointer-events: none;
+.more-btn button:hover {
+    background: var(--light-color);
+    transition: 0.3s all linear;
 }
 
-.button:disabled {
-    color: #b3b3b3;
-    pointer-events: none;
+.more-btn a {
+    font-size: 1.5rem;
+    color: white;
 }
 
-.button,
-.link {
-    height: 45px;
-    width: 45px;
-    font-size: 20px;
-    color: #666666;
-    background-color: #f2f2f2;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.links {
-    column-gap: 12px;
-}
-
-.link {
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.button:hover,
-.link:hover {
-    color: #fff;
-    background: var(--main-color);
-}
-
-.link.active {
-    color: #fff;
-    background: var(--main-color);
-}
-
-
-/*------------------------- FOOTER -------------------------*/
-/*------------------------- FOOTER -------------------------*/
-/*------------------------- FOOTER -------------------------*/
-/*------------------------- FOOTER -------------------------*/
 
 
 /*------------------------- FOOTER -------------------------*/
@@ -578,3 +520,259 @@ span {
     cursor: pointer;
 }
 
+/*------------------------- REGISTER FORM -------------------------*/
+.auth-container {
+    position: fixed;
+    width: 768px;
+    top: 15%;
+    left: 25%;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    border-radius: 30px;
+    overflow: hidden;
+    max-width: 100%;
+    min-height: 480px;
+    
+    z-index: 100;
+    
+    display: none;
+}
+
+.auth-container.isDisplay {
+    display: block;
+}
+
+.auth-container p {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: .3px;
+    margin: 20px 0;
+}
+
+.auth-container span {
+    font-size: 12px;
+}
+
+.auth-container a {
+    color: #333;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+}
+
+.auth-container button {
+    background-color: #512da8;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.auth-container button.hidden {
+    background-color: transparent;
+    border-color: #fff;
+}
+
+.auth-container form {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+
+.auth-container input {
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.form-container h1 {
+    font-size: 2rem;
+    color: #000000;
+}
+
+.form-container span {
+    color: #000000;
+}
+
+.sign-in {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.auth-container.active .sign-in {
+    transform: translateX(100%);
+}
+
+.sign-up {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.auth-container.active .sign-up {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+
+@keyframes move {
+    0%,
+    49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+    50%,
+    100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.social-icons {
+    margin: 20px 0;
+}
+
+.social-icons a {
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+}
+
+.toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+}
+
+.auth-container.active .toggle-container {
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+    background-color: #512da8;
+    height: 100%;
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.toggle h1 {
+    font-size: 2rem;
+}
+
+.auth-container.active .toggle {
+    transform: translateX(50%);
+}
+
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.toggle-left {
+    transform: translateX(-200%);
+}
+
+.auth-container.active .toggle-left {
+    transform: translateX(0);
+}
+
+.toggle-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.auth-container.active .toggle-right {
+    transform: translateX(200%);
+}
+
+.close-form {
+    position: absolute;
+    z-index: 1001;
+    left: 94%;
+    top: 1%;
+
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.close-form:hover {
+    cursor: pointer;
+    background-color: var(--main-color);
+}
+
+.close-form i {
+    font-size: 1.5rem;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field input {
+    width: 100% !important;  /* Adjust this value as needed */
+}
+
+.input-error {
+    color: red;
+}

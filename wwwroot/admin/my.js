@@ -26,7 +26,27 @@ function previewImage() {
     }
 }
 
-let popupWindow = null;
+function formatNumber(n) {
+    if (!n) return '';
+    // Convert to string
+    var asString = n.toString();
+
+    // Split the string into whole and fractional parts (if any)
+    var parts = asString.split(".");
+
+    // Add commas to the whole part
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    // Return the formatted number
+    return parts.join(".");
+}
+
+// Call the function when the input value changes
+document.querySelector('input[name="Game.Price"]').addEventListener('input', function (e) {
+    e.target.value = formatNumber(e.target.value.replace(/,/g, ''));
+});
+
+var popupWindow = null;
 function openPopupWindow(url) {
     if (!popupWindow || popupWindow.closed) {
         popupWindow = window.open(url, '_blank', 'location=yes,height=280,width=500,scrollbars=yes,status=yes');
@@ -43,7 +63,7 @@ function addWindow(entity){
 }
 function deleteWindow(entity, element){
     // Get the selected value from the select option
-    var selectedValue = document.getElementsByName(element)[0].value;
+    var selectedValue = Number.isInteger(element) ? element : document.getElementsByName(element)[0].value;
 
     // Construct the URL for the delete action
     var url = 'http://localhost:5249/admin/' + entity + '/delete/' + selectedValue;
@@ -53,7 +73,7 @@ function deleteWindow(entity, element){
 }
 function editWindow(entity, element) {
     // Get the selected value from the select option
-    var selectedValue = document.getElementsByName(element)[0].value;
+    var selectedValue = Number.isInteger(element) ? element : document.getElementsByName(element)[0].value;
 
     // Construct the URL for the delete action
     var url = 'http://localhost:5249/admin/' + entity + '/edit/' + selectedValue;
