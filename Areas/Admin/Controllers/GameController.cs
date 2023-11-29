@@ -5,6 +5,7 @@ using IS220_WebApplication.Areas.Admin.Models.Authentication;
 using IS220_WebApplication.Context;
 using IS220_WebApplication.Database;
 using IS220_WebApplication.Models;
+using IS220_WebApplication.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
@@ -96,7 +97,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 return RedirectToAction("Add");
             }
 
-            CheckModelState();
+            Utils.Utils.CheckModelState(ModelState);
             _notyf?.Error("Add game failed!");
             return View(viewModel);
         }
@@ -178,7 +179,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            CheckModelState();
+            Utils.Utils.CheckModelState(ModelState);
             _notyf?.Error("Update game failed!");
             return View(model);
         }
@@ -194,19 +195,5 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             imageFile.CopyTo(fileStream);
             return fileName;
         }
-        
-        public void CheckModelState()
-        {
-            foreach (var modelStateKey in ModelState.Keys)
-            {
-                var modelStateVal = ModelState[modelStateKey];
-                foreach (var error in modelStateVal?.Errors!)
-                {
-                    // Log or print the error message
-                    Console.WriteLine($"{modelStateKey}: {error.ErrorMessage}");
-                }
-            }
-        }
-        
     }
 }

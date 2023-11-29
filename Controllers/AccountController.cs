@@ -3,6 +3,7 @@ using AspNetCoreHero.ToastNotification.Abstractions;
 using IS220_WebApplication.Context;
 using IS220_WebApplication.Models;
 using IS220_WebApplication.Models.ViewModel;
+using IS220_WebApplication.Utils;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
@@ -64,7 +65,7 @@ public class AccountController : Controller
     public async Task<IActionResult> Register(UserRegisterViewModel model)
     {
         var originalUrl = HttpContext.Request.Headers["Referer"].ToString();
-        CheckModelState();
+        Utils.Utils.CheckModelState(ModelState);
         ModelState.Remove("Status");
         switch (ModelState.IsValid)
         {
@@ -117,18 +118,5 @@ public class AccountController : Controller
         await _signInManager.SignOutAsync();
         _notyf?.Success("You have been logged out");
         return Redirect(originalUrl);
-    }
-
-    public void CheckModelState()
-    {
-        foreach (var modelStateKey in ModelState.Keys)
-        {
-            var modelStateVal = ModelState[modelStateKey];
-            foreach (var error in modelStateVal?.Errors!)
-            {
-                // Log or print the error message
-                Console.WriteLine($"-------{modelStateKey}: {error.ErrorMessage}");
-            }
-        }
     }
 }

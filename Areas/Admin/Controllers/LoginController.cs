@@ -82,18 +82,5 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             _notyf?.Success("You have been logged out");
             return RedirectToAction("index", "login", new { area = "admin" });
         }
-
-        public void CheckModelState()
-        {
-            foreach (var modelStateKey in ModelState.Keys)
-            {
-                var modelStateVal = ModelState[modelStateKey];
-                foreach (var error in modelStateVal?.Errors!)
-                {
-                    // Log or print the error message
-                    Console.WriteLine($"{modelStateKey}: {error.ErrorMessage}");
-                }
-            }
-        }
     }
 }

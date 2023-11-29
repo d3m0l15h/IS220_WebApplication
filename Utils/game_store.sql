@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2023 at 02:38 PM
+-- Generation Time: Nov 29, 2023 at 08:50 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -93,7 +93,6 @@ CREATE TABLE `aspnetuserroles` (
 CREATE TABLE `aspnetusers` (
   `id` int(10) UNSIGNED NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` text NOT NULL,
   `email` varchar(256) DEFAULT NULL,
   `firstName` varchar(50) DEFAULT 'NULL',
   `lastName` varchar(50) DEFAULT 'NULL',
@@ -122,8 +121,9 @@ CREATE TABLE `aspnetusers` (
 -- Dumping data for table `aspnetusers`
 --
 
-INSERT INTO `aspnetusers` (`id`, `username`, `password`, `email`, `firstName`, `lastName`, `phone`, `birth`, `role`, `created`, `modified`, `cash`, `status`, `NormalizedUserName`, `NormalizedEmail`, `EmailConfirmed`, `PasswordHash`, `SecurityStamp`, `ConcurrencyStamp`, `PhoneNumber`, `PhoneNumberConfirmed`, `TwoFactorEnabled`, `LockoutEnd`, `LockoutEnabled`, `AccessFailedCount`) VALUES
-(1, 'admin', 'admin', 'davicmax123@gmail.com', 'NULL', 'NULL', 'NULL', NULL, 0, '2023-11-27 20:29:37', NULL, 0.00, 'active', NULL, NULL, 1, NULL, NULL, NULL, NULL, 1, 0, NULL, 0, 0);
+INSERT INTO `aspnetusers` (`id`, `username`, `email`, `firstName`, `lastName`, `phone`, `birth`, `role`, `created`, `modified`, `cash`, `status`, `NormalizedUserName`, `NormalizedEmail`, `EmailConfirmed`, `PasswordHash`, `SecurityStamp`, `ConcurrencyStamp`, `PhoneNumber`, `PhoneNumberConfirmed`, `TwoFactorEnabled`, `LockoutEnd`, `LockoutEnabled`, `AccessFailedCount`) VALUES
+(1, 'admin', 'davicmax123@gmail.com', 'NULL', 'NULL', 'NULL', NULL, 1, '2023-11-28 00:22:17', '2023-11-28 08:57:48', 0.00, 'active', 'ADMIN', 'DAVICMAX123@GMAIL.COM', 0, 'AQAAAAIAAYagAAAAEGHYA0mmFwEVvL0QUNRTL+fOMlzMFVaaaI8CZTfk1Zv1MI+jB6iY+BCHw+x27zWQVw==', 'UZURDN3OXFSJGR4Y27HUMNJ53VUAOOG7', NULL, NULL, 0, 0, NULL, 0, 0),
+(2, 'user', 'user@gmail.com', 'Dat', 'Dao', 'NULL', NULL, 0, '2023-11-29 14:48:10', '2023-11-29 14:48:46', 0.00, 'active', 'USER', 'USER@GMAIL.COM', 0, 'AQAAAAIAAYagAAAAENq+AwLsoljMa9CuJQ400kq4G1rROCj1rVd4VvVIcF6JGo44gjqL33yC58JCRc0ebA==', 'RAQFF6MQH6G7KLA4BH7QQAEQ5U6OYXLR', NULL, NULL, 0, 0, NULL, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -483,7 +483,7 @@ ALTER TABLE `aspnetuserclaims`
 -- AUTO_INCREMENT for table `aspnetusers`
 --
 ALTER TABLE `aspnetusers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `category`

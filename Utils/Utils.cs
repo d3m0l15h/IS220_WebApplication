@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.IdentityModel.Tokens;
 
 namespace IS220_WebApplication.Utils;
@@ -16,8 +17,7 @@ public abstract class Utils {
 
         return keysValuesList;
     }
-
-   
+    
     public static  List<List<string>> Concat2DArray(List<List<string>> firstArray, List<List<string>> secondArray)
     {
         for (var i = 0; i < secondArray.Count; ++i)
@@ -31,7 +31,6 @@ public abstract class Utils {
         return firstArray;
     }
     
-
     public static string GetRowValueByColumnName(int index, string columnName, List<List<string>> data) {
         var ret = "";
         try
@@ -81,5 +80,19 @@ public abstract class Utils {
         }
 
         return values;
+    }
+    
+    public static void CheckModelState(ModelStateDictionary modelState)
+    {
+        foreach (var modelStateKey in modelState.Keys)
+        {
+            var modelStateVal = modelState[modelStateKey];
+            if (modelStateVal == null) continue;
+            foreach (var error in modelStateVal.Errors)
+            {
+                // Log or print the error message
+                Console.WriteLine($"-------|{modelStateKey}: {error.ErrorMessage}");
+            }
+        }
     }
 }
