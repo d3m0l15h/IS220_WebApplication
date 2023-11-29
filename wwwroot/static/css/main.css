@@ -758,3 +758,21 @@ span {
 .close-form i {
     font-size: 1.5rem;
 }
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field input {
+    width: 100% !important;  /* Adjust this value as needed */
+}
+
+.input-error {
+    color: red;
+}

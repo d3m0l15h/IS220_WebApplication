@@ -16,7 +16,7 @@ public partial class Aspnetuser : IdentityUser<uint>
     [Key]
     [Column("id", TypeName = "int(10) unsigned")]
     public override uint Id { get; set; }
-
+    
     [Column("email")]
     [StringLength(256)]
     public override string? Email { get; set; }
@@ -59,7 +59,8 @@ public partial class Aspnetuser : IdentityUser<uint>
     public override string? NormalizedEmail { get; set; }
 
     public override bool EmailConfirmed { get; set; }
-
+    
+    [Required(ErrorMessage = "Password is required.")]
     public override string? PasswordHash { get; set; }
 
     public override string? SecurityStamp { get; set; }

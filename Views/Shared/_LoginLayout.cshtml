@@ -187,6 +187,7 @@
 @* MAIN *@
 <script src="~/static/js/main.js" asp-append-version="true"></script>
 <script src="static/js/loginLayout.js"></script>
+@await Component.InvokeAsync("Notyf")
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

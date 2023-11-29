@@ -2,6 +2,7 @@ using System.Security.Claims;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using IS220_WebApplication.Context;
 using IS220_WebApplication.Models;
+using IS220_WebApplication.Models.ViewModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
@@ -60,26 +61,51 @@ public class AccountController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Register(Aspnetuser model)
+    public async Task<IActionResult> Register(UserRegisterViewModel model)
     {
         var originalUrl = HttpContext.Request.Headers["Referer"].ToString();
         CheckModelState();
+        ModelState.Remove("Status");
         switch (ModelState.IsValid)
         {
             case true:
             {
+                var existingUserWithUsername = await _userManager.FindByNameAsync(model.Username);
+                if (existingUserWithUsername != null)
+                {
+                    ModelState.AddModelError("Username", "Username already exists.");
+                    return Json(new { isValid = false, errors = new List<string> { "Username already exists." } });
+                }
+
+                var existingUserWithEmail = await _userManager.FindByEmailAsync(model.Email);
+                if (existingUserWithEmail != null)
+                {
+                    ModelState.AddModelError("Email", "Email already exists.");
+                    return Json(new { isValid = false, errors = new List<string> { "Email already exists." } });
+                }
                 var user = new Aspnetuser
                 {
-                    UserName = model.UserName,
+                    UserName = model.Username,
                     Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    LockoutEnabled = false,
                 };
-                var result = await _userManager.CreateAsync(user, model.PasswordHash!);
-                if (!result.Succeeded) return Redirect(originalUrl);
-                _notyf?.Success("Your account has been created.");
-                return Redirect(originalUrl);
+                var result = await _userManager.CreateAsync(user, model.Password!);
+                if (!result.Succeeded)
+                {
+                    return Json(new { isValid = false, errors = result.Errors.Select(e => e.Description).ToList() });
+                }
+                _notyf?.Success("Register successfully.");
+                return Json(new { isValid = true, message = "Register successfully."});
             }
             default:
-                return Redirect(originalUrl);
+                var errors = ModelState
+                    .Where(x => x.Value is { Errors.Count: > 0 })
+                    .Select(x => new { key = x.Key, errorMessage = x.Value?.Errors.Select(e => e.ErrorMessage).FirstOrDefault() })
+                    .OrderBy(x => x.key) 
+                    .ToList();
+                return Json(new { isValid = false, errors });
         }
     }
 
