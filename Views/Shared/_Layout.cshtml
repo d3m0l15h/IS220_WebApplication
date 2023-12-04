@@ -1,5 +1,4 @@
-﻿@model IS220_WebApplication.Models.ViewModel.CombinedViewModel
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi en">
 <head>
     <meta charset="utf-8"/>
@@ -58,11 +57,7 @@
                 </ul>
             </div>
 
-            <i class="bx bx-bell bx-tada" id="bell-icon">
-                <span></span>
-            </i>
             <i class='bx bx-user user-icon'></i>
-
 
             @* DEVICE: MOBILE *@
             <div class="menu-icon">
@@ -75,7 +70,7 @@
         @* ben user - xong UI thi xoa *@
         <div class="user-setting">
             <div class="profile">
-                <a asp-controller="UserProfile" asp-action="UserProfile">Tài khoản</a>
+                <a asp-controller="profile" asp-action="index">Tài khoản</a>
             </div>
             <div class="cart">
                 <a asp-controller="" asp-action="">Giỏ hàng</a>
@@ -86,8 +81,7 @@
 @* ------------------------- start AUTHENCATION FORM ------------------------- *@
 <div class="auth-container" id="container">
     <div class="form-container sign-up">
-        <form asp-controller="account" asp-action="register" method="post" id="registerForm">
-            @Html.AntiForgeryToken()
+        <form>
             <h1>Tạo tài khoản</h1>
             <div class="social-icons">
                 <a href="#" class="icon">
