@@ -1,4 +1,4 @@
-﻿@model IS220_WebApplication.Models.ViewModel.UserRegisterViewModel
+﻿@model IS220_WebApplication.Models.ViewModel.CombinedViewModel
 <!DOCTYPE html>
 <html lang="vi en">
 <head>
@@ -16,11 +16,11 @@
     <link rel="stylesheet" href="~/static/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     @* <link rel="stylesheet" href="~/IS220_WebApplication.styles.css" asp-append-version="true"/> *@
-    <link rel="stylesheet" href="~/static/css/reset.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/static/css/reset.css">
     @* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3.9.0/notyf.min.css"> *@
     @* MAIN *@
-    <link rel="stylesheet" href="~/static/css/main.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="~/static/css/responsive.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/static/css/main.css" />
+    <link rel="stylesheet" href="~/static/css/responsive.css">
 </head>
 
 <body>
@@ -101,18 +101,18 @@
                 </a>
             </div>
             <span>hoặc có thể đăng ký nhanh ở dưới đây:</span>
-            <input type="text" placeholder="Tên đăng nhập" asp-for="Username">
+            <input type="text" placeholder="Tên đăng nhập" asp-for="UserRegister!.Username">
             <div class="input-row">
                 <div class="input-field">
-                    <input class="w-50" type="text" placeholder="Họ" asp-for="LastName">
+                    <input class="w-50" type="text" placeholder="Họ" asp-for="UserRegister!.LastName">
                 </div>
                 <div class="ms-2 input-field">
-                    <input class="w-50" type="text" placeholder="Tên" asp-for="FirstName">
+                    <input class="w-50" type="text" placeholder="Tên" asp-for="UserRegister!.FirstName">
                 </div>
             </div>
-            <input type="email" placeholder="Email" asp-for="Email">
-            <input type="password" placeholder="Nhập mật khẩu" asp-for="Password">
-            <input type="password" placeholder="Nhập lại mật khẩu" asp-for="PasswordConfirm">
+            <input type="email" placeholder="Email" asp-for="UserRegister!.Email">
+            <input type="password" placeholder="Nhập mật khẩu" asp-for="UserRegister!.Password">
+            <input type="password" placeholder="Nhập lại mật khẩu" asp-for="UserRegister!.PasswordConfirm">
             <button type="submit">Đăng ký</button>
         </form>
     </div>
@@ -262,8 +262,9 @@
 @* swiperJS (slide animation) *@
 <script src="~/lib/swiperJS/swiper-bundle.min.js"></script>
 @* MAIN *@
-<script src="~/static/js/main.js" asp-append-version="true"></script>
+<script src="~/static/js/main.js"></script>
 <script src="~/static/js/layout.js"></script>
+<script asp-append-version="true"></script>
 @await Component.InvokeAsync("Notyf")
 @await RenderSectionAsync("Scripts", required: false)
 </body>

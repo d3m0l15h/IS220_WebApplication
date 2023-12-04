@@ -19,15 +19,11 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         private readonly MyDbContext _db;
 
         private readonly INotyfService? _notyf;
-        private readonly ILogger<GameController> _logger;
-        private ProcessorManager _processorManager;
 
-        public GameController(MyDbContext db, INotyfService notyf, ILogger<GameController> logger)
+        public GameController(MyDbContext db, INotyfService notyf)
         {
             _db = db;
             _notyf = notyf;
-            _logger = logger;
-            _processorManager = new ProcessorManager(db);
         }
 
         // Index
@@ -126,15 +122,12 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         {
             ModelState.Remove("Game.DeveloperNavigation");
             ModelState.Remove("Game.PublisherNavigation");
-            ModelState.Remove("ImageFile");
+            if (model.ImageFile == null) ModelState.Remove("ImageFile");
+            
             var game = await _db.Games
                 .Include(g => g.Categories)
                 .FirstOrDefaultAsync(g => g.Id == model.Game.Id);
-            if (game == null)
-            {
-                return NotFound();
-            }
-
+            if (game == null){ return NotFound(); }
             if (ModelState.IsValid)
             {
                 game.Title = model.Game.Title;

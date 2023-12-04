@@ -43,7 +43,7 @@ $('#registerForm').submit(function (event) {
                         errorElement.text(error.errorMessage);
                         inputElement.after(errorElement);
                 }
-                console.log($('.auth-container').height());
+                
                 $('.auth-container').height(550);
             }
         }
