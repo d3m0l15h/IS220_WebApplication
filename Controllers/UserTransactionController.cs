@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IS220_WebApplication.Controllers;
 
-public class UserStorageController : Controller
+public class UserTransactionController : Controller
 {
     // GET
-    public IActionResult UserStorage()
+    public IActionResult Index()
     {
         return View();
     }

@@ -18,7 +18,7 @@ public class CategoryController : Controller
     }
 
     [HttpGet]
-    public IActionResult Index(string searchQuery, int pageNumber = 1, int pageSize = 10)
+    public IActionResult Index(string searchQuery, int page = 1, int pageSize = 10)
     {
         IQueryable<Category> categories = _db.Categories.OrderBy(category => category.Id);
         if (!string.IsNullOrEmpty(searchQuery))
@@ -27,7 +27,7 @@ public class CategoryController : Controller
         }
 
         var count = categories.Count();
-        categories = categories.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+        categories = categories.Skip((page - 1) * pageSize).Take(pageSize);
         ViewBag.TotalPages = (count + pageSize - 1) / pageSize;
 
         return View(categories.ToList());
