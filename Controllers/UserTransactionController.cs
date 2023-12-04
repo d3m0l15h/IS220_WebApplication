@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IS220_WebApplication.Controllers;
 
-public class UserProfileController : Controller
+public class UserTransactionController : Controller
 {
     // GET
-    public IActionResult UserProfile()
+    public IActionResult Index()
     {
         return View();
     }

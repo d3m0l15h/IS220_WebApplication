@@ -78,9 +78,9 @@
                         category
                     </label>
 
-                    <div class="dm-tag-mode">
+                    <div class="dm-tag-mode d-flex align-items-center">
 
-                        <div class="dm-select">
+                        <div class="dm-select" style="width: 95%">
 
                             <select id="select-tag" class="form-control " multiple="multiple" asp-for="SelectedCategoryIds">
                                 @foreach (var category in Model.Categories)
@@ -88,6 +88,11 @@
                                     <option value="@category.Id">@category.Name</option>
                                 }
                             </select>
+                        </div>
+                        <div class="ms-2">
+                            <button type="button" class="transparent uil uil-plus border-0" style="font-size: 20px"
+                                    onclick="addWindow('category');">
+                            </button>
                         </div>
                     </div>
 
@@ -180,7 +185,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- form group -->
             <div class="form-group">
                 <label for="name9">Type</label>

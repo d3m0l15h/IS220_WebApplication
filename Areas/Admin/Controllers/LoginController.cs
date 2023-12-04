@@ -46,19 +46,20 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             var existingUser = await _userManager.FindByNameAsync(user.UserName!);
             if (existingUser == null)
             {
-                _notyf?.Error("User not exist");
+                _notyf?.Error("Login failed");
                 return View();
             }
-
-            if (existingUser.Role != 1)
-            {
-                _notyf?.Error("You don't have permission to access this page");
-                return View();
-            }
+            
             var result = await _signInManager.PasswordSignInAsync(user.UserName!, user.PasswordHash!, false, false);
-
             if (result.Succeeded)
             {
+                if (existingUser.Role != 1)
+                {
+                    _notyf?.Error("Permission Invalid");
+                    await _signInManager.SignOutAsync();
+                    return View();
+                }
+                
                 var originalUrl = HttpContext.Request.Cookies["OriginalUrl"];
                 HttpContext.Response.Cookies.Delete("OriginalUrl");
                 
@@ -70,7 +71,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 return RedirectToAction("index", "dashboard");
             }
             
-            _notyf?.Error("Login failed");
+            _notyf?.Error("Wrong username or password");
             return View();
         }
         

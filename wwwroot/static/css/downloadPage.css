@@ -31,15 +31,6 @@
   text-align: justify;
 }
 
-.screenshots h2 {
-  display       : inline-flex;
-  padding-bottom: 4px;
-  margin        : 1.6rem 0;
-  border-bottom : 4px solid var(--main-color);
-  font-size     : 1.4rem;
-  font-weight   : 500;
-}
-
 .screenshots-content {
   display              : grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, auto));

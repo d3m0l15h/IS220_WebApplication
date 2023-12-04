@@ -42,8 +42,13 @@ function formatNumber(n) {
 }
 
 // Call the function when the input value changes
-document.querySelector('input[name="Game.Price"]').addEventListener('input', function (e) {
-    e.target.value = formatNumber(e.target.value.replace(/,/g, ''));
+document.addEventListener('DOMContentLoaded', function() {
+    var gamePriceInput = document.querySelector('input[name="Game.Price"]');
+    if(gamePriceInput) {
+        gamePriceInput.addEventListener('input', function (e) {
+            e.target.value = formatNumber(e.target.value.replace(/,/g, ''));
+        });
+    }
 });
 
 var popupWindow = null;

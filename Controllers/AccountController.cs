@@ -62,7 +62,7 @@ public class AccountController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Register(UserRegisterViewModel model)
+    public async Task<IActionResult> Register(CombinedViewModel model)
     {
         var originalUrl = HttpContext.Request.Headers["Referer"].ToString();
         Utils.Utils.CheckModelState(ModelState);
@@ -71,14 +71,14 @@ public class AccountController : Controller
         {
             case true:
             {
-                var existingUserWithUsername = await _userManager.FindByNameAsync(model.Username);
+                var existingUserWithUsername = await _userManager.FindByNameAsync(model.UserRegister!.Username);
                 if (existingUserWithUsername != null)
                 {
                     ModelState.AddModelError("Username", "Username already exists.");
                     return Json(new { isValid = false, errors = new List<string> { "Username already exists." } });
                 }
 
-                var existingUserWithEmail = await _userManager.FindByEmailAsync(model.Email);
+                var existingUserWithEmail = await _userManager.FindByEmailAsync(model.UserRegister!.Email);
                 if (existingUserWithEmail != null)
                 {
                     ModelState.AddModelError("Email", "Email already exists.");
@@ -86,13 +86,13 @@ public class AccountController : Controller
                 }
                 var user = new Aspnetuser
                 {
-                    UserName = model.Username,
-                    Email = model.Email,
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
+                    UserName = model.UserRegister!.Username,
+                    Email = model.UserRegister!.Email,
+                    FirstName = model.UserRegister!.FirstName,
+                    LastName = model.UserRegister!.LastName,
                     LockoutEnabled = false,
                 };
-                var result = await _userManager.CreateAsync(user, model.Password!);
+                var result = await _userManager.CreateAsync(user, model.UserRegister!.Password!);
                 if (!result.Succeeded)
                 {
                     return Json(new { isValid = false, errors = result.Errors.Select(e => e.Description).ToList() });
@@ -110,8 +110,7 @@ public class AccountController : Controller
         }
     }
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
+    [HttpGet]
     public async Task<IActionResult> Logout()
     {
         var originalUrl = HttpContext.Request.Headers["Referer"].ToString();

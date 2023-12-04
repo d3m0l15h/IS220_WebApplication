@@ -1,13 +1,30 @@
+using IS220_WebApplication.Context;
+using IS220_WebApplication.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace IS220_WebApplication.Controllers
+namespace IS220_WebApplication.Controllers;
+
+public class NewGameController : Controller
 {
-    public class NewGameController : Controller
+    private readonly MyDbContext _db;
+
+    public NewGameController(MyDbContext db)
     {
-        // GET
-        public IActionResult Index()
+        _db = db;
+    }
+    [HttpGet]
+    public IActionResult Index(int pageNumber = 1, int pageSize = 10)
+    {
+        var newGame = new CombinedViewModel
         {
-            return View();
-        }
+            NewGame = _db.Games.OrderByDescending(game => game.ReleaseDate)
+                .Include(game => game.Categories)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList(),
+            TotalCount = _db.Games.Count()
+        };
+        return View(newGame);
     }
 }

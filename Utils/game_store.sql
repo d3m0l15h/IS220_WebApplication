@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2023 at 08:50 AM
+-- Generation Time: Dec 04, 2023 at 01:35 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -123,7 +123,8 @@ CREATE TABLE `aspnetusers` (
 
 INSERT INTO `aspnetusers` (`id`, `username`, `email`, `firstName`, `lastName`, `phone`, `birth`, `role`, `created`, `modified`, `cash`, `status`, `NormalizedUserName`, `NormalizedEmail`, `EmailConfirmed`, `PasswordHash`, `SecurityStamp`, `ConcurrencyStamp`, `PhoneNumber`, `PhoneNumberConfirmed`, `TwoFactorEnabled`, `LockoutEnd`, `LockoutEnabled`, `AccessFailedCount`) VALUES
 (1, 'admin', 'davicmax123@gmail.com', 'NULL', 'NULL', 'NULL', NULL, 1, '2023-11-28 00:22:17', '2023-11-28 08:57:48', 0.00, 'active', 'ADMIN', 'DAVICMAX123@GMAIL.COM', 0, 'AQAAAAIAAYagAAAAEGHYA0mmFwEVvL0QUNRTL+fOMlzMFVaaaI8CZTfk1Zv1MI+jB6iY+BCHw+x27zWQVw==', 'UZURDN3OXFSJGR4Y27HUMNJ53VUAOOG7', NULL, NULL, 0, 0, NULL, 0, 0),
-(2, 'user', 'user@gmail.com', 'Dat', 'Dao', 'NULL', NULL, 0, '2023-11-29 14:48:10', '2023-11-29 14:48:46', 0.00, 'active', 'USER', 'USER@GMAIL.COM', 0, 'AQAAAAIAAYagAAAAENq+AwLsoljMa9CuJQ400kq4G1rROCj1rVd4VvVIcF6JGo44gjqL33yC58JCRc0ebA==', 'RAQFF6MQH6G7KLA4BH7QQAEQ5U6OYXLR', NULL, NULL, 0, 0, NULL, 1, 0);
+(2, 'user', 'user@gmail.com', 'Dat', 'Dao', 'NULL', NULL, 0, '2023-11-29 14:48:10', '2023-11-29 14:48:46', 0.00, 'active', 'USER', 'USER@GMAIL.COM', 0, 'AQAAAAIAAYagAAAAENq+AwLsoljMa9CuJQ400kq4G1rROCj1rVd4VvVIcF6JGo44gjqL33yC58JCRc0ebA==', 'RAQFF6MQH6G7KLA4BH7QQAEQ5U6OYXLR', NULL, NULL, 0, 0, NULL, 1, 0),
+(8, 'user1', 'user1@gmail.com', 'Dat', 'Dao', 'NULL', NULL, 0, '2023-12-03 14:39:26', NULL, 0.00, 'active', 'USER1', 'USER1@GMAIL.COM', 0, 'AQAAAAIAAYagAAAAENrF0ClRa3xoggurKv2imfeyGUaJ7zYC/jvj5YCpfiqNeMB9XeitFYS0GD8/fbrEdw==', 'H3DXKNYW5M7GKMLBQL3CAB2QN2KR7KTG', NULL, NULL, 0, 0, NULL, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -154,11 +155,32 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
-(1, 'Indie'),
+(9, '2D'),
+(12, '3D'),
+(5, 'Action'),
+(16, 'Arcade'),
+(22, 'Co-op\n'),
 (2, 'Fantasy'),
-(3, 'Soul'),
+(24, 'FPS'),
+(15, 'Free to Play\n'),
+(19, 'Funny'),
+(17, 'Horror'),
+(1, 'Indie'),
+(14, 'Multiplayer'),
+(7, 'Open World'),
+(13, 'Puzzle'),
+(25, 'PvE'),
+(20, 'PvP'),
 (4, 'RPG'),
-(5, 'Action');
+(26, 'Sandbox'),
+(18, 'Sci-fi\n'),
+(10, 'Simulation'),
+(8, 'Singleplayer'),
+(3, 'Soul'),
+(23, 'Sports'),
+(11, 'Strategy'),
+(21, 'Survival'),
+(6, 'Viet Hoa');
 
 -- --------------------------------------------------------
 
@@ -216,8 +238,8 @@ CREATE TABLE `game` (
 --
 
 INSERT INTO `game` (`id`, `title`, `price`, `releaseDate`, `description`, `publisher`, `developer`, `imgPath`, `downloadLink`, `status`, `type`) VALUES
-(1, 'Elden Ring', 1000000, '2022-02-25', 'THE NEW FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.', 1, 1, '01b2a9b2-d503-4238-85ea-5df323194943_elden-ring-button-03-1623460560664.jpg', 'https://store.steampowered.com/app/1245620/ELDEN_RING/', 'active', 1),
-(2, 'Cyberpunk 2077', 495000, '2020-12-10', 'Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City — a dangerous megalopolis obsessed with power, glamor, and ceaseless body modification.\r\n', 3, 3, '87df9925-d5d8-4a5d-b17c-c63f28e0291f_74032c8c2fe1ddaaa85fc8acfe6425b4edcd1241a546ff7d.jpg', 'https://store.steampowered.com/app/1091500/Cyberpunk_2077', 'active', 1);
+(1, 'Elden Ring', 1000000, '2022-02-25', 'THE NEW FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.', 1, 1, '059911b1-c114-4cf3-b1ad-91e90287bc58_6110RSDn3PL.jpg', 'https://store.steampowered.com/app/1245620/ELDEN_RING/', 'active', 1),
+(2, 'Cyberpunk 2077', 495000, '2020-12-10', 'Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City — a dangerous megalopolis obsessed with power, glamor, and ceaseless body modification.\r\n', 3, 3, 'bd85fbc6-d484-49c3-809e-094bd2467964_cyberpunk-2077-ready-player-v-i102945.jpg', 'https://store.steampowered.com/app/1091500/Cyberpunk_2077', 'active', 1);
 
 -- --------------------------------------------------------
 
@@ -385,7 +407,8 @@ ALTER TABLE `aspnetusertokens`
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
 
 --
 -- Indexes for table `categorygame`
@@ -483,13 +506,13 @@ ALTER TABLE `aspnetuserclaims`
 -- AUTO_INCREMENT for table `aspnetusers`
 --
 ALTER TABLE `aspnetusers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `developer`
