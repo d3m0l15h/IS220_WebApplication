@@ -13,11 +13,11 @@
                 <div class="list-group list-group-flush account-settings-links rounded">
                     <a class="list-group-item list-group-item-action active fs-5 py-3" data-toggle="list"
                        href="#account-general">
-                        Thông tin
+                        User information
                     </a>
                     <a class="list-group-item list-group-item-action fs-5 py-3" data-toggle="list"
                        href="#account-change-password">
-                        Đổi mật khẩu
+                        Change password
                     </a>
                 </div>
             </div>
@@ -29,24 +29,28 @@
                                  class="d-block ui-w-80">
                             <div class="media-body ml-4 mt-3">
                                 <label class="btn btn-outline-primary">
-                                    Tải lên ảnh mới
+                                    Upload avatar
                                     <input type="file" class="account-settings-fileinput">
-                                </label> &nbsp;
-                                <button type="button" class="btn btn-default md-btn-flat">Reset</button>
-                                <div class="text-light small mt-3">Chỉ nhận JPG, GIF hoặc PNG, tối đa 800KB</div>
+                                </label>
                             </div>
                         </div>
-
+                        
                         <hr class="border-light m-0">
 
                         <div class="card-body">
                             <div class="form-group mt-2">
-                                <label class="form-label text-info">Username</label>
-                                <input type="text" class="form-control mb-1" value="nmaxwell">
+                                <label class="form-label">Username</label>
+                                <input type="text" class="form-control mb-1" value="test">
                             </div>
-                            <div class="form-group mt-4">
-                                <label class="form-label">Tên đầy đủ</label>
-                                <input type="text" class="form-control" value="Nelle Maxwell">
+                            <div class="d-flex mt-4">
+                                <div class="form-group w-50 me-1">
+                                    <label class="form-label">First name</label>
+                                    <input type="text" class="form-control" value="test">
+                                </div> 
+                                <div class="form-group w-50 ms-1">
+                                    <label class="form-label">Last name</label>
+                                    <input type="text" class="form-control" value="test">
+                                </div>
                             </div>
                             <div class="form-group mt-4">
                                 <label class="form-label">E-mail</label>
@@ -63,11 +67,11 @@
                                                                 rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
                             </div>
                             <div class="form-group mt-4">
-                                <label class="form-label">Sinh nhật</label>
+                                <label class="form-label">Birth</label>
                                 <input type="date" class="form-control">
                             </div>
                             <div class="form-group mt-4">
-                                <label class="form-label">Số điện thoại</label>
+                                <label class="form-label">Phone</label>
                                 <input type="text" class="form-control" value="+841234567891">
                             </div>
                         </div>
@@ -75,15 +79,15 @@
                     <div class="tab-pane fade" id="account-change-password">
                         <div class="card-body pb-2">
                             <div class="form-group">
-                                <label class="form-label">Mật khẩu hiện tại</label>
+                                <label class="form-label">Current password</label>
                                 <input type="password" class="form-control">
                             </div>
                             <div class="form-group mt-4">
-                                <label class="form-label">Mật khẩu mới</label>
+                                <label class="form-label">New password</label>
                                 <input type="password" class="form-control">
                             </div>
                             <div class="form-group mt-4">
-                                <label class="form-label">Nhập lại mật khẩu mới</label>
+                                <label class="form-label">Confirm new password</label>
                                 <input type="password" class="form-control">
                             </div>
                         </div>
@@ -93,8 +97,8 @@
         </div>
     </div>
     <div class="text-end mt-3">
-        <button type="button" class="btn btn-primary">Lưu</button>&nbsp;
-        <button type="button" class="btn btn-secondary">Hủy</button>
+        <button type="button" class="btn btn-primary">SAVE</button>&nbsp;
+        <button type="button" class="btn btn-secondary">CANCEL</button>
     </div>
 </div>
 
