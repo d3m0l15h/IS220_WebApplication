@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IS220_WebApplication.Controllers;
 
-public class VietHoaGamePageController : Controller
+public class ConsoleGamePageController : Controller
 {
     // GET
-    public IActionResult VietHoaGamePage()
+    public IActionResult ConsoleGamePage()
     {
         return View();
     }
