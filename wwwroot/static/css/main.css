@@ -420,10 +420,6 @@ span {
     line-height: 1.4;
 }
 
-.footer_box_item li {
-    margin-top: 16px;
-}
-
 .footer_box_item a {
     color: #fff;
     transition: all .3s ease;
