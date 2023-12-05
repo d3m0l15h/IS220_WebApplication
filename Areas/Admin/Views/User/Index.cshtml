@@ -41,7 +41,7 @@
                             <th>
                                 <div class="d-flex align-items-center">
                                     <div class="custom-checkbox  check-all">
-                                        <input class="checkbox" type="checkbox" id="check-44">
+                                        
                                         <label for="check-44">
                                             <span class="checkbox-text userDatatable-title">user</span>
                                         </label>
@@ -68,7 +68,7 @@
                         </thead>
                         <tbody>
                         @{
-                            var index = 0;
+                            var lenght = Model.LongCount();
                         }
                         @foreach (var obj in Model)
                         {
@@ -76,23 +76,12 @@
                                 <td>
                                     <div class="d-flex">
                                         <div class="userDatatable__imgWrapper d-flex align-items-center">
-                                            <div class="checkbox-group-wrapper">
-                                                <div class="checkbox-group d-flex">
-                                                    <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
-                                                        <input class="checkbox" type="checkbox" id="check-grp-content@(index)">
-                                                        <label for="check-grp-content@(index++)"></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <a href="#" class="profile-image rounded-circle d-block m-0 wh-38" style="background-image:url('@Url.Content("~/admin/img/tm6.png")'); background-size: cover;"></a>
+                                            <img class="profile-image rounded-circle d-block m-0 wh-38" src="@obj.AvatarPath"/>
                                         </div>
-                                        <div class="userDatatable-inline-title">
+                                        <div class="userDatatable-inline-title d-flex align-items-center">
                                             <a href="#" class="text-dark fw-500">
                                                 <h6>@obj.UserName</h6>
                                             </a>
-                                            <p class="d-block mb-0">
-                                                San Francisco, CA
-                                            </p>
                                         </div>
                                     </div>
                                 </td>
@@ -115,14 +104,14 @@
                                 <td>
                                     @switch (@obj.Status)
                                     {
-                                        case "active":
+                                        case "activated":
                                             <div class="userDatatable-content d-inline-block">
-                                                <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                                <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">activated</span>
                                             </div>
                                             break;
-                                        case "deactivete":
+                                        case "deactivated":
                                             <div class="userDatatable-content d-inline-block">
-                                                <span class="bg-opacity-warning  color-warning rounded-pill userDatatable-content-status active">deactivete</span>
+                                                <span class="bg-opacity-warning  color-warning rounded-pill userDatatable-content-status active">deactivated</span>
                                             </div>
                                             break;
                                         case "blocked":
@@ -134,18 +123,14 @@
                                 </td>
                                 <td>
                                     <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                        
                                         <li>
-                                            <a href="#" class="view">
-                                                <i class="uil uil-eye"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="edit">
+                                            <a asp-action="EditUser" asp-route-id="@obj.Id" class="edit">
                                                 <i class="uil uil-edit"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="remove">
+                                            <a  class="remove">
                                                 <i class="uil uil-trash-alt"></i>
                                             </a>
                                         </li>
@@ -192,7 +177,7 @@
                                     <select name="page-number" class="page-selection">
                                         <option value="20">20/page</option>
                                         <option value="40">40/page</option>
-                                        <option value="60">60/page</option>
+                                        <option value="60">@lenght /page</option>
                                     </select>
                                 </div>
                             </li>
