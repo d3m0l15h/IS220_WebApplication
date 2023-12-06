@@ -71,6 +71,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
 
             ModelState.Remove("Game.DeveloperNavigation");
             ModelState.Remove("Game.PublisherNavigation");
+            ModelState.Remove("Game.Status");
             if (ModelState.IsValid)
             {
                 viewModel.Game.ImgPath = SaveImage(viewModel.ImageFile);

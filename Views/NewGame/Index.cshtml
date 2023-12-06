@@ -44,7 +44,7 @@
         @for (var i = 1; i <= Math.Ceiling((double)Model.TotalCount / 10); i++)
         {
             var i1 = i;
-            <a class="link" asp-action="Index" asp-route-pageNumber="@i1">@i1</a>
+            <a class="link" asp-controller="newgame" asp-action="index" asp-route-page="@i1">@i1</a>
         }
     </div>
 </section>

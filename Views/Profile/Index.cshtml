@@ -1,3 +1,4 @@
+@model IS220_WebApplication.Models.ViewModel.CombinedViewModel
 @{
     ViewData["Title"] = "User Profile";
 }
@@ -21,77 +22,87 @@
             <div class="col-md-9">
                 <div class="tab-content">
                     <div class="tab-pane fade active show" id="account-general">
-                        <div class="card-body media align-items-center">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
-                                 class="d-block ui-w-80">
-                            <div class="media-body ml-4 mt-3">
-                                <label class="btn btn-outline-primary">
-                                    Tải lên ảnh mới
-                                    <input type="file" class="account-settings-fileinput">
-                                </label> &nbsp;
-                                <button type="button" class="btn btn-default md-btn-flat">Reset</button>
-                                <div class="text-light small mt-3">Chỉ nhận JPG, GIF hoặc PNG, tối đa 800KB</div>
+                        <form asp-controller="profile" asp-action="update" method="post" enctype="multipart/form-data">
+                            @Html.AntiForgeryToken()
+                            <div class="card-body media align-items-center">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
+                                     class="d-block ui-w-80">
+                                <div class="media-body ml-4 mt-3">
+                                    <label class="btn btn-outline-primary">
+                                        Tải lên ảnh mới
+                                        <input type="file" class="account-settings-fileinput">
+                                    </label>
+                                </div>
                             </div>
-                        </div>
 
-                        <hr class="border-light m-0">
+                            <hr class="border-light m-0">
 
-                        <div class="card-body">
-                            <div class="form-group mt-2">
-                                <label class="form-label text-info">Username</label>
-                                <input type="text" class="form-control mb-1" value="nmaxwell">
+                            <div class="card-body">
+                                <div class="form-group mt-2">
+                                    <label class="form-label text-info">Username</label>
+                                    <h1>@Model.User!.UserName</h1>
+                                </div>
+                                <div class="form-group mt-4 row">
+                                    <div class="col">
+                                        <label class="form-label">E-mail</label>
+                                        <h2>@Model.User!.Email</h2>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-outline-success">Success</button>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-4 row">
+                                    <div class="col">
+                                        <label class="form-label" asp-for="User!.FirstName">First Name</label>
+                                        <input type="text" class="form-control" value="@Model.User.FirstName">
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-label" asp-for="User!.LastName">Last Name</label>
+                                        <input type="text" class="form-control" value="@Model.User.LastName">
+                                    </div>
+                                </div>
+                                <div class="form-group mt-4">
+                                    <label class="form-label" asp-for="User!.Birth">Sinh nhật</label>
+                                    <input type="date" class="form-control" value="@Model.User.Birth">
+                                </div>
+                                <div class="form-group mt-4">
+                                    <label class="form-label" asp-for="User!.Phone">Số điện thoại</label>
+                                    <input type="text" class="form-control" value="@Model.User.Phone">
+                                </div>
                             </div>
-                            <div class="form-group mt-4">
-                                <label class="form-label">Tên đầy đủ</label>
-                                <input type="text" class="form-control" value="Nelle Maxwell">
-                            </div>
-                            <div class="form-group mt-4">
-                                <label class="form-label">E-mail</label>
-                                <input type="email" class="form-control mb-1" value="nmaxwell@mail.com">
-                            </div>
-                        </div>
-
-                        <hr class="border-light m-0">
-
-                        <div class="card-body pb-2">
-                            <div class="form-group">
-                                <label class="form-label">Bio</label>
-                                <textarea class="form-control"
-                                                                rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
-                            </div>
-                            <div class="form-group mt-4">
-                                <label class="form-label">Sinh nhật</label>
-                                <input type="date" class="form-control">
-                            </div>
-                            <div class="form-group mt-4">
-                                <label class="form-label">Số điện thoại</label>
-                                <input type="text" class="form-control" value="+841234567891">
-                            </div>
-                        </div>
+                            <div class="text-end mt-3">
+                                    <button type="submit" class="btn btn-primary">Lưu</button>&nbsp;
+                                    <button type="button" class="btn btn-secondary">Hủy</button>
+                                </div>
+                        </form>
                     </div>
                     <div class="tab-pane fade" id="account-change-password">
-                        <div class="card-body pb-2">
-                            <div class="form-group">
-                                <label class="form-label">Mật khẩu hiện tại</label>
-                                <input type="password" class="form-control">
+                        <form>
+                            <div class="card-body pb-2">
+                                <div class="form-group">
+                                    <label class="form-label">Mật khẩu hiện tại</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                                <div class="form-group mt-4">
+                                    <label class="form-label">Mật khẩu mới</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                                <div class="form-group mt-4">
+                                    <label class="form-label">Nhập lại mật khẩu mới</label>
+                                    <input type="password" class="form-control">
+                                </div>
                             </div>
-                            <div class="form-group mt-4">
-                                <label class="form-label">Mật khẩu mới</label>
-                                <input type="password" class="form-control">
-                            </div>
-                            <div class="form-group mt-4">
-                                <label class="form-label">Nhập lại mật khẩu mới</label>
-                                <input type="password" class="form-control">
-                            </div>
-                        </div>
+                            <div class="text-end mt-3">
+                                    <button type="button" class="btn btn-primary">Lưu</button>&nbsp;
+                                    <button type="button" class="btn btn-secondary">Hủy</button>
+                                </div>
+                        </form>
                     </div>
                 </div>
+
             </div>
+
         </div>
-    </div>
-    <div class="text-end mt-3">
-        <button type="button" class="btn btn-primary">Lưu</button>&nbsp;
-        <button type="button" class="btn btn-secondary">Hủy</button>
     </div>
 </div>
 

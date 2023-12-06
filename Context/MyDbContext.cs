@@ -171,9 +171,9 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.Property(e => e.Description).HasDefaultValueSql("'''NULL'''");
-            entity.Property(e => e.ImgPath).HasDefaultValueSql("'''NULL'''");
-            entity.Property(e => e.Status).HasDefaultValueSql("'''''''active'''''''");
+            entity.Property(e => e.Description).HasDefaultValueSql("'NULL'");
+            entity.Property(e => e.ImgPath).HasDefaultValueSql("'NULL'");
+            entity.Property(e => e.Status).HasDefaultValueSql("'''active'''");
             entity.Property(e => e.Type).HasDefaultValueSql("'1'");
 
             entity.HasOne(d => d.DeveloperNavigation).WithMany(p => p.Games)

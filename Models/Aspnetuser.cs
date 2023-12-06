@@ -60,7 +60,6 @@ public partial class Aspnetuser : IdentityUser<uint>
 
     public override bool EmailConfirmed { get; set; }
     
-    [Required(ErrorMessage = "Password is required.")]
     public override string? PasswordHash { get; set; }
 
     public override string? SecurityStamp { get; set; }

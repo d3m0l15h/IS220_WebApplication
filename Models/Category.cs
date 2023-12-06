@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace IS220_WebApplication.Models;
 
 [Table("category")]
+[Index("Name", Name = "name", IsUnique = true)]
 public partial class Category
 {
     [Key]

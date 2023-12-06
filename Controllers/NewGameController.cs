@@ -14,13 +14,13 @@ public class NewGameController : Controller
         _db = db;
     }
     [HttpGet]
-    public IActionResult Index(int pageNumber = 1, int pageSize = 10)
+    public IActionResult Index(int page = 1, int pageSize = 10)
     {
         var newGame = new CombinedViewModel
         {
             NewGame = _db.Games.OrderByDescending(game => game.ReleaseDate)
                 .Include(game => game.Categories)
-                .Skip((pageNumber - 1) * pageSize)
+                .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToList(),
             TotalCount = _db.Games.Count()
