@@ -39,43 +39,16 @@
         <div class="nav-content">
             <!-- MENU -->
             <div class="menu">
-                <ul class="navbarr">
-                    <li>
-                        <a href="/#home">TRANG CHỦ</a>
-                    </li>
-                    <li>
-                        <a href="/#trending">GAMES HOT</a>
-                    </li>
-                    <li>
-                        <a href="/#new">GAMES MỚI</a>
-                    </li>
-                    <li>
-                        <a href="/#viethoa">GAMES VIỆT HÓA</a>
-                    </li>
-                    <li>
-                        <a href="/#contact">LIÊN HỆ</a>
-                    </li>
-                </ul>
+                <div class="navbarr">
+                    <a href="/#home">HOME</a>
+                    <a href="/#trending">HOT GAMES</a>
+                    <a href="/#new">NEW GAMES</a>
+                    <a href="/#console">CONSOLE GAMES</a>
+                    <a href="/#contact">CONTACT</a>
+                </div>
             </div>
 
             <i class='bx bx-user user-icon'></i>
-
-            @* DEVICE: MOBILE *@
-            <div class="menu-icon">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </div>
-
-        @* ben user - xong UI thi xoa *@
-        <div class="user-setting">
-            <div class="profile">
-                <a asp-controller="" asp-action="">Tài khoản</a>
-            </div>
-            <div class="cart">
-                <a asp-controller="" asp-action="">Giỏ hàng</a>
-            </div>
         </div>
     </nav>
 </header>
@@ -83,7 +56,7 @@
 <div class="auth-container" id="container">
     <div class="form-container sign-up">
         <form>
-            <h1>Tạo tài khoản</h1>
+            <h1>Create Account</h1>
             <div class="social-icons">
                 <a href="#" class="icon">
                     <i class='bx bxl-google'></i>
@@ -95,27 +68,27 @@
                     <i class='bx bxl-github'></i>
                 </a>
             </div>
-            <span>hoặc có thể đăng ký nhanh ở dưới đây:</span>
-            <input type="text" placeholder="Tên đăng nhập" asp-for="UserRegister!.Username">
+            <span>or use your email for registeration: </span>
+            <input type="text" placeholder="Username">
             <div class="input-row">
-                <div class="input-field">
-                    <input class="w-50" type="text" placeholder="Họ" asp-for="UserRegister!.LastName">
-                </div>
-                <div class="ms-2 input-field">
-                    <input class="w-50" type="text" placeholder="Tên" asp-for="UserRegister!.FirstName">
-                </div>
-            </div>
+                            <div class="input-field">
+                                <input class="w-50" type="text" placeholder="Họ" asp-for="UserRegister!.LastName">
+                            </div>
+                            <div class="ms-2 input-field">
+                                <input class="w-50" type="text" placeholder="Tên" asp-for="UserRegister!.FirstName">
+                            </div>
+                        </div>
             <input type="email" placeholder="Email" asp-for="UserRegister!.Email">
-            <input type="password" placeholder="Nhập mật khẩu" asp-for="UserRegister!.Password">
-            <input type="password" placeholder="Nhập lại mật khẩu" asp-for="UserRegister!.PasswordConfirm">
-            <button type="submit">Đăng ký</button>
+            <input type="password" placeholder="Password" asp-for="UserRegister!.Password">
+            <input type="password" placeholder="Confirm password" asp-for="UserRegister!.PasswordConfirm">
+            <button type="submit">Sign Up</button>
         </form>
     </div>
 
     <div class="form-container sign-in">
         <form method="post" asp-controller="account" asp-action="login">
             @Html.AntiForgeryToken()
-            <h1>Đăng nhập</h1>
+            <h1>Sign In</h1>
             <div class="social-icons">
                 <a href="#" class="icon">
                     <i class='bx bxl-google'></i>
@@ -127,11 +100,10 @@
                     <i class='bx bxl-github'></i>
                 </a>
             </div>
-            <span>hoặc đăng nhập bằng Username/Email và passwork</span>
             <input type="text" placeholder="Username or Email" style="text-transform: none;" name="ue">
             <input type="password" placeholder="Password" style="text-transform: none;" name="password">
-            <a href="#">Quên mật khẩu ? ?</a>
-            <button type="submit">Đăng nhập</button>
+            <a href="#">Forget your password ?</a>
+            <button type="submit">Sign In</button>
         </form>
     </div>
 
@@ -139,13 +111,13 @@
         <div class="toggle">
             <div class="toggle-panel toggle-left">
                 <h1>Welcome back!</h1>
-                <p>Nhập thông tin của bạn để sử dụng dịch vụ của chúng tôi.</p>
-                <button class="hidden" id="login">Đăng nhập</button>
+                <p>Enter your personal details to use all of site features.</p>
+                <button class="hidden" id="login">Sign in</button>
             </div>
             <div class="toggle-panel toggle-right">
                 <h1>Hello, Friend!</h1>
-                <p>Đăng ký để sử dụng đầy đủ chức năng của chúng tôi.</p>
-                <button class="hidden" id="register">Đăng ký</button>
+                <p>Register with your personal details to use all of site features !</p>
+                <button class="hidden" id="register">Sign up</button>
             </div>
         </div>
     </div>
@@ -177,10 +149,7 @@
             <div class="contact">
                 <div class="contact-box">
                     <i class='bx bx-map'></i>
-                    <a href="https://maps.app.goo.gl/zVpeZQRVPwacvRF58">
-                        Đường Hàn Thuyên, khu phố 6 P, Thủ Đức, Thành phố Hồ Chí
-                        Minh, Việt Nam
-                    </a>
+                    <a href="https://maps.app.goo.gl/zVpeZQRVPwacvRF58">Han Thuyen Street, Thu Duc City, Ho Chi Minh City, Vietnam</a>
                 </div>
 
                 <div class="contact-box">
@@ -196,43 +165,27 @@
         </div>
 
         <div class="footer_box_item">
-            <h3 class="text-capitalize">về chúng tôi</h3>
-            <ul>
-                <li>
-                    <a class="text-capitalize" href="#!">trang chủ</a>
-                </li>
-                <li>
-                    <a class="text-capitalize" href="#!">giới thiệu</a>
-                </li>
-                <li>
-                    <a class="text-capitalize" href="#!">danh mục game đã mua</a>
-                </li>
-                <li>
-                    <a class="text-capitalize" href="#!">liên hệ</a>
-                </li>
-            </ul>
+            <h3 class="text-capitalize">About Us</h3>
+            <div class="d-flex flex-column">
+                <a class="text-capitalize mt-3" href="#!">Home</a>
+                <a class="text-capitalize mt-3" href="#!">Introduction</a>
+                <a class="text-capitalize mt-3" href="#!">Buy Games</a>
+                <a class="text-capitalize mt-3" href="#!">Contact</a>
+            </div>
         </div>
 
         <div class="footer_box_item">
-            <h3 class="text-capitalize">chăm sóc khách hàng</h3>
-            <ul>
-                <li>
-                    <a class="text-capitalize" href="#!">trang chủ</a>
-                </li>
-                <li>
-                    <a class="text-capitalize" href="#!">giới thiệu</a>
-                </li>
-                <li>
-                    <a class="text-capitalize" href="#!">danh mục game đã mua</a>
-                </li>
-                <li>
-                    <a class="text-capitalize" href="#!">liên hệ</a>
-                </li>
-            </ul>
+            <h3 class="text-capitalize">Customer Care</h3>
+            <div class="d-flex flex-column">
+                <a class="text-capitalize mt-3" href="#!">Home</a>
+                <a class="text-capitalize mt-3" href="#!">Introduction</a>
+                <a class="text-capitalize mt-3" href="#!">Buy Games</a>
+                <a class="text-capitalize mt-3" href="#!">Contact</a>
+            </div>
         </div>
 
         <div class="footer_box_item">
-            <h3 class="text-capitalize">theo dõi chúng tôi trên</h3>
+            <h3 class="text-capitalize">Follow us:</h3>
             <div class="contact-icon">
                 <i class='bx bxl-facebook-circle'></i>
                 <i class='bx bxl-instagram'></i>
@@ -243,7 +196,7 @@
 
     <!-- COPYRIGHT -->
     <div class="footer_copyright">
-        <p>&#169; 2023 NETGame. Tất cả các quyền được bảo lưu. <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> </p>
+        <p>&#169; 2023 NETGame. All right reserved. <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> </p>
     </div>
 </footer>
 @* ------------------------- end FOOTER ------------------------- *@
@@ -257,10 +210,10 @@
 @* swiperJS (slide animation) *@
 <script src="~/lib/swiperJS/swiper-bundle.min.js"></script>
 @* MAIN *@
-<script src="~/static/js/main.js"></script>
-<script src="~/static/js/layout.js"></script>
-<script asp-append-version="true"></script>
-@await Component.InvokeAsync("Notyf")
+<<script src="~/static/js/main.js"></script>
+ <script src="~/static/js/layout.js"></script>
+ <script asp-append-version="true"></script>
+ @await Component.InvokeAsync("Notyf")
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IS220_WebApplication.Controllers;
 
-public class UserTransactionController : Controller
+public class TransactionInfoController : Controller
 {
     // GET
     public IActionResult Index()

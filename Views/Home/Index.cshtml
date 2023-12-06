@@ -12,7 +12,7 @@
             CITY OF THE <br/>
             FUTURE
         </h1>
-        <a href="#!" class="home-btn">Tải ngay</a>
+        <a href="#!" class="home-btn">Download now</a>
     </div>
 </section>
 <!-------------end HOME SECTION --------------->
@@ -32,13 +32,12 @@
             <div class="swiper-slide">
                 <div class="box">
                     <img src="~/static/img/trending1.webp" alt=""/>
-                    <div class="box_text">
+                    <div class="box-text">
                         <a class="" asp-controller="download"
                            asp-action="index">
-                            Cyberpunk
-                            2077
+                            Cyberpunk 2077
                         </a>
-                        <h3>Action</h3>
+                        <h3>Action, Lorem ipsum dolor sit amet</h3>
                         <div class="rating-download">
                             <div class="rating">
                                 <i class="bx bxs-star"></i>
@@ -57,9 +56,9 @@
             <div class="swiper-slide">
                 <div class="box">
                     <img src="~/static/img/trending2.jpg" alt=""/>
-                    <div class="box_text">
+                    <div class="box-text">
                         <a asp-controller="" asp-action="">Battlefield 2042</a>
-                        <h3>Action</h3>
+                        <h3>Action Lorem ipsum dolor sit amet.</h3>
                         <div class="rating-download">
                             <div class="rating">
                                 <i class="bx bxs-star"></i>
@@ -77,9 +76,9 @@
             <div class="swiper-slide">
                 <div class="box">
                     <img src="~/static/img/trending3.jpg" alt=""/>
-                    <div class="box_text">
+                    <div class="box-text">
                         <a asp-controller="" asp-action="">Assassin's Creed</a>
-                        <h3>Action</h3>
+                        <h3>Action Lorem ipsum dolor sit amet.</h3>
                         <div class="rating-download">
                             <div class="rating">
                                 <i class="bx bxs-star"></i>
@@ -97,7 +96,7 @@
             <div class="swiper-slide">
                 <div class="box">
                     <img src="~/static/img/trending4.jpg" alt=""/>
-                    <div class="box_text">
+                    <div class="box-text">
                         <a asp-controller="" asp-action="">Ghost of Tsushima</a>
                         <h3>Action</h3>
                         <div class="rating-download">
@@ -118,7 +117,7 @@
             <div class="swiper-slide">
                 <div class="box">
                     <img src="~/static/img/trending5.png" alt=""/>
-                    <div class="box_text">
+                    <div class="box-text">
                         <a asp-controller="" asp-action="">GTA V</a>
                         <h3>Action</h3>
                         <div class="rating-download">
@@ -138,7 +137,7 @@
             <div class="swiper-slide">
                 <div class="box">
                     <img src="~/static/img/trending6.jpg" alt=""/>
-                    <div class="box_text">
+                    <div class="box-text">
                         <a asp-controller="" asp-action="">Dying Light 2</a>
                         <h3>Action</h3>
                         <div class="rating-download">
@@ -158,9 +157,9 @@
             <div class="swiper-slide">
                 <div class="box">
                     <img src="~/static/img/trending7.png" alt=""/>
-                    <div class="box_text">
+                    <div class="box-text">
                         <a asp-controller="" asp-action="">Halo Infinite</a>
-                        <h3>Action</h3>
+                        <h3>Action, Ldistinctio erum sequi tempora.</h3>
                         <div class="rating-download">
                             <div class="rating">
                                 <i class="bx bxs-star"></i>
@@ -178,7 +177,7 @@
             <div class="swiper-slide">
                 <div class="box">
                     <img src="~/static/img/trending8.png" alt=""/>
-                    <div class="box_text">
+                    <div class="box-text">
                         <a asp-controller="" asp-action="">Resident Evil Village</a>
                         <h3>Action</h3>
                         <div class="rating-download">
@@ -198,11 +197,11 @@
 </section>
 <!-------------end GAMES HOT SECTIOIN --------------->
 
-<!-------------start GAMES MOI SECTION --------------->
+<!-------------start NEW GAMES SECTION --------------->
 <section class="category" id="new">
     <div class="heading">
         <i class="bx bx-game"></i>
-        <h2>GAMES MỚI</h2>
+        <h2>NEW GAMES</h2>
     </div>
 
     <!-- Content -->
@@ -211,21 +210,17 @@
         @foreach (var item in Model.NewGame!)
         {
             <div class="box">
-                <a asp-controller="download" asp-action="index">
-                    <img src="~/images/game/@item.ImgPath" alt=""/>
-                </a>
-                <div class="box_text">
+                <img src="~/images/game/@item.ImgPath" alt=""/>
+                <div class="box-text">
                     <a asp-controller="download" asp-action="index">@item.Title</a>
-                    <h3>
-                        @string.Join(", ", item.Categories.Select(c => c.Name))
-                    </h3>
+                    <h3>@string.Join(", ", item.Categories.Select(c => c.Name))</h3>
                     <div class="rating-download">
                         <div class="rating">
                             <i class="bx bxs-star"></i>
                             <span>4.7</span>
                         </div>
 
-                        <a class="box-btn" asp-controller="download" asp-action="index">
+                        <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
                             <p>@string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", item.Price)</p>
                         </a>
                     </div>
@@ -235,9 +230,9 @@
         <!-- Box 5 -->
         <div class="box">
             <img src="~/static/img/new5.png" alt=""/>
-            <div class="box_text">
+            <div class="box-text">
                 <a asp-controller="" asp-action="">Minecraft</a>
-                <h3>Action</h3>
+                <h3>Action lorem5</h3>
                 <div class="rating-download">
                     <div class="rating">
                         <i class="bx bxs-star"></i>
@@ -254,7 +249,7 @@
         <!-- Box 6 -->
         <div class="box">
             <img src="~/static/img/new6.png" alt=""/>
-            <div class="box_text">
+            <div class="box-text">
                 <a asp-controller="" asp-action="">PUBG</a>
                 <h3>Action</h3>
                 <div class="rating-download">
@@ -273,7 +268,7 @@
         <!-- Box 7 -->
         <div class="box">
             <img src="~/static/img/new7.png" alt=""/>
-            <div class="box_text">
+            <div class="box-text">
                 <a asp-controller="" asp-action="">Fornite</a>
                 <h3>Action</h3>
                 <div class="rating-download">
@@ -292,7 +287,7 @@
         <!-- Box 8 -->
         <div class="box">
             <img src="~/static/img/new8.jpg" alt=""/>
-            <div class="box_text">
+            <div class="box-text">
                 <a asp-controller="" asp-action="">Marvel of Champions</a>
                 <h3>Action</h3>
                 <div class="rating-download">
@@ -312,17 +307,17 @@
 
     <div class="more-btn">
         <button>
-            <a asp-controller="newgame" asp-action="index">Xem thêm</a>
+            <a asp-controller="newgame" asp-action="index">More</a>
         </button>
     </div>
 </section>
 <!-------------end GAMES MOI SECTION --------------->
 
 <!-------------start GAMES VIET HOA SECTION --------------->
-<section class="category" id="viethoa">
+<section class="category" id="console">
     <div class="heading">
         <i class="bx bx-game"></i>
-        <h2>GAMES VIỆT HÓA</h2>
+        <h2>CONSOLE GAMES</h2>
     </div>
 
     <!-- Content -->
@@ -330,17 +325,16 @@
         <!-- Box 1 -->
         <div class="box">
             <img src="~/static/img/new1.jpg" alt=""/>
-            <div class="box_text">
+            <div class="box-text">
                 <a asp-controller="" asp-action="">Subway Surfers</a>
-                <h3>Action</h3>
+                <h3>Action Lorem ipsum dolor sit amet.</h3>
                 <div class="rating-download">
                     <div class="rating">
                         <i class="bx bxs-star"></i>
                         <span>4.7</span>
                     </div>
-                    @* ------- FIX ------- *@
 
-                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -350,16 +344,16 @@
         <!-- Box 2 -->
         <div class="box">
             <img src="~/static/img/new2.jpg" alt=""/>
-            <div class="box_text">
+            <div class="box-text">
                 <a asp-controller="" asp-action="">Call of Duty</a>
-                <h3>Action</h3>
+                <h3>Action Lorem ipsum dolor sit amet.</h3>
                 <div class="rating-download">
                     <div class="rating">
                         <i class="bx bxs-star"></i>
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -369,7 +363,7 @@
         <!-- Box 3 -->
         <div class="box">
             <img src="~/static/img/new3.jpg" alt=""/>
-            <div class="box_text">
+            <div class="box-text">
                 <a asp-controller="" asp-action="">Free Guy</a>
                 <h3>Action</h3>
                 <div class="rating-download">
@@ -378,7 +372,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -388,7 +382,7 @@
         <!-- Box 4 -->
         <div class="box">
             <img src="~/static/img/new4.jpg" alt=""/>
-            <div class="box_text">
+            <div class="box-text">
                 <a asp-controller="" asp-action="">Clash Royale</a>
                 <h3>Action</h3>
                 <div class="rating-download">
@@ -397,7 +391,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -407,7 +401,7 @@
         <!-- Box 5 -->
         <div class="box">
             <img src="~/static/img/new5.png" alt=""/>
-            <div class="box_text">
+            <div class="box-text">
                 <a asp-controller="" asp-action="">Minecraft</a>
                 <h3>Action</h3>
                 <div class="rating-download">
@@ -416,7 +410,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -426,7 +420,7 @@
         <!-- Box 6 -->
         <div class="box">
             <img src="~/static/img/new6.png" alt=""/>
-            <div class="box_text">
+            <div class="box-text">
                 <a asp-controller="" asp-action="">PUBG</a>
                 <h3>Action</h3>
                 <div class="rating-download">
@@ -435,7 +429,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -445,7 +439,7 @@
         <!-- Box 7 -->
         <div class="box">
             <img src="~/static/img/new7.png" alt=""/>
-            <div class="box_text">
+            <div class="box-text">
                 <a asp-controller="" asp-action="">Fornite</a>
                 <h3>Action</h3>
                 <div class="rating-download">
@@ -454,7 +448,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -464,7 +458,7 @@
         <!-- Box 8 -->
         <div class="box">
             <img src="~/static/img/new8.jpg" alt=""/>
-            <div class="box_text">
+            <div class="box-text">
                 <a asp-controller="" asp-action="">Marvel of Champions</a>
                 <h3>Action</h3>
                 <div class="rating-download">
@@ -473,7 +467,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="download" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -483,7 +477,7 @@
 
     <div class="more-btn">
         <button>
-            <a asp-area="" asp-controller="viethoagame" asp-action="index">Xem thêm</a>
+            <a asp-controller="consolegame" asp-action="index">More</a>
         </button>
     </div>
 </section>

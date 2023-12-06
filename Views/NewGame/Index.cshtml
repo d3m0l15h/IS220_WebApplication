@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "NewGamePage";
 }
-<link rel="stylesheet" href="~/static/css/newGamePage.css">
+<link rel="stylesheet" href="~/static/css/gamePage.css">
 
 <!-------------start GAMES MOI SECTION --------------->
 <section class="category" id="new">
@@ -16,21 +16,17 @@
         @foreach (var item in Model.NewGame!)
         {
             <div class="box">
-                <a asp-controller="download" asp-action="index">
-                    <img src="~/images/game/@item.ImgPath" alt=""/>
-                </a>
-                <div class="box_text">
+                <img src="~/images/game/@item.ImgPath" alt=""/>
+                <div class="box-text">
                     <a asp-controller="download" asp-action="index">@item.Title</a>
-                    <h3>
-                        @string.Join(", ", item.Categories.Select(c => c.Name))
-                    </h3>
+                    <h3>@string.Join(", ", item.Categories.Select(c => c.Name))</h3>
                     <div class="rating-download">
                         <div class="rating">
                             <i class="bx bxs-star"></i>
                             <span>4.7</span>
                         </div>
 
-                        <a class="box-btn" asp-controller="download" asp-action="index">
+                        <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
                             <p>@string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", item.Price)</p>
                         </a>
                     </div>
