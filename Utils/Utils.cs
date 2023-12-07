@@ -81,7 +81,17 @@ public abstract class Utils {
 
         return values;
     }
-    
+    public static string SaveImage(IFormFile? imageFile, string location)
+    {
+        string fileName = null!;
+        if (imageFile is not { Length: > 0 }) return fileName;
+        var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), location);
+        fileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;
+        var filePath = Path.Combine(uploadsFolder, fileName);
+        using var fileStream = new FileStream(filePath, FileMode.Create);
+        imageFile.CopyTo(fileStream);
+        return fileName;
+    }
     public static void CheckModelState(ModelStateDictionary modelState)
     {
         foreach (var modelStateKey in modelState.Keys)

@@ -3,10 +3,6 @@
 
 // Write your JavaScript code.
 
-// -------------- VARIBLES --------------
-const menuIcon = document.querySelector('.menu-icon') // $ để select element đó (ở trong jquery)
-const navBar = document.querySelector('.menu') 
-
 // for authecation form
 const userIcon = document.querySelector('.user-icon')
 const loginForm = document.querySelector('.login-form-container')
@@ -24,12 +20,6 @@ const myfunction = () => {
         document.documentElement.clientHeight
     var scrolled = (winScroll / height) * 100
     document.getElementById('scroll-bar').style.width = scrolled + '%'
-}
-
-// -------------- MENU ICON --------------
-menuIcon.onclick = () => {
-    navBar.classList.toggle('active')
-    menuIcon.classList.toggle('move')
 }
 
 // -------------- SWIPER (library for display game in trending section) --------------
@@ -59,4 +49,3 @@ const swiper = new Swiper('.trending_content', {
         }
     }
 })
-

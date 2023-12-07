@@ -133,46 +133,7 @@ html::-webkit-scrollbar {
     cursor: pointer;
 }
 
-/* MENU ICON */
-.menu-icon {
-    /*display: flex;*/
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    row-gap: 5px;
-    height: 44px;
-    width: 44px;
-    border-radius: 50%;
-    background: var(--light-color);
-    cursor: pointer;
-    z-index: 200;
-    transition: 0.3s;
-
-    display: none;
-}
-
-.menu-icon div {
-    display: block;
-    background: var(--text-color);
-    height: 2px;
-    width: 25px;
-    transition: 0.3s;
-}
-
-/* X translate when user click menu icon */
-.move .line1 {
-    transform: rotate(-45deg) translate(-5px, 5px);
-}
-
-.move .line2 {
-    opacity: 0;
-}
-
-.move .line3 {
-    transform: rotate(45deg) translate(-5px, -5px);
-}
-
-/* MENU */
+/* MENU - NAVBAR*/
 .menu {
     flex: 1;
 }
@@ -185,20 +146,21 @@ html::-webkit-scrollbar {
     font-size: 1rem;
 }
 
-.menu .navbarr li a {
-    color: var(--text-color);
-}
-
-.menu .navbarr li {
+.menu .navbarr a {
     width: 100%;
     height: 100%;
     text-align: center;
     padding: 14px 10px;
     margin: 2px;
+    padding: 14px 10px;
     border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: center;
 }
 
-.menu .navbarr li:hover {
+.menu .navbarr a:hover {
     background: var(--main-color);
     transform: scale(1.2);
     transition: 0.3s;
@@ -209,10 +171,10 @@ html::-webkit-scrollbar {
 .user-setting {
     position: absolute;
     top: 90%;
-    right: 9rem;
+    right: 6rem;
     background: var(--light-color);
-    width: 130px;
-    height: 130px;
+    width: 190px;
+    height: 220px;
     border-radius: 0.5rem;
     padding: 10px;
 
@@ -229,12 +191,14 @@ html::-webkit-scrollbar {
     transition: 0.3s;
 }
 
-.user-setting div {
-    padding: 8px 16px;
+.user-setting a {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 14px 20px;
     border-radius: 5px;
 }
 
-.user-setting div:hover {
+.user-setting a:hover {
     background: hsl(0, 0%, 100%, 0.4);
 }
 
@@ -329,7 +293,7 @@ html::-webkit-scrollbar {
     border-radius: 0.5rem;
 }
 
-.box_text {
+.box-text {
     position: absolute;
     right: 0;
     left: 0;
@@ -340,20 +304,23 @@ html::-webkit-scrollbar {
     border-radius: 0.5rem;
 }
 
-.box_text a {
+.box-text a {
     color: white;
     font-size: 1rem;
     font-weight: 500;
 }
 
-.box_text a:hover {
+.box-text a:hover {
     color: var(--main-color);
 }
 
-.box_text h3 {
+.box-text h3 {
     font-size: 0.9rem;
     font-weight: 400;
     margin-bottom: 0.8rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .rating-download {
@@ -458,10 +425,6 @@ span {
     line-height: 1.4;
 }
 
-.footer_box_item li {
-    margin-top: 16px;
-}
-
 .footer_box_item a {
     color: #fff;
     transition: all .3s ease;
@@ -542,6 +505,19 @@ span {
 
 .auth-container.isDisplay {
     display: block;
+    z-index: 20000;
+    position: fixed;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust color and opacity as needed */
+    z-index: 999;
+    /* Ensure the overlay is below the form */
 }
 
 .auth-container p {

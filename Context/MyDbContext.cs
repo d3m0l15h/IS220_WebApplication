@@ -54,26 +54,24 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
             .AddUserSecrets<Program>()
             .Build();
 
-        optionsBuilder.UseMySQL(cfg["dbGameStore"] ?? string.Empty);
+        optionsBuilder.UseMySql(cfg["dbGameStore"] ?? string.Empty,
+            new MySqlServerVersion(new Version(10, 4, 28)));
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        modelBuilder
+            .UseCollation("utf8mb4_general_ci")
+            .HasCharSet("utf8mb4");
+
         modelBuilder.Entity<Aspnetrole>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.Property(e => e.ConcurrencyStamp).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.Name).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.NormalizedName).HasDefaultValueSql("'NULL'");
         });
 
         modelBuilder.Entity<Aspnetroleclaim>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.Property(e => e.ClaimType).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.ClaimValue).HasDefaultValueSql("'NULL'");
 
             entity.HasOne(d => d.Role).WithMany(p => p.Aspnetroleclaims).HasConstraintName("FK_AspNetRoleClaims_AspNetRoles_RoleId");
         });
@@ -82,23 +80,12 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.Property(e => e.Birth).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.ConcurrencyStamp).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.Created).HasDefaultValueSql("'current_timestamp()'");
-            entity.Property(e => e.Email).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.FirstName).HasDefaultValueSql("'''NULL'''");
-            entity.Property(e => e.LastName).HasDefaultValueSql("'''NULL'''");
-            entity.Property(e => e.LockoutEnd).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.Modified)
-                .ValueGeneratedOnAddOrUpdate()
-                .HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.NormalizedEmail).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.NormalizedUserName).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.PasswordHash).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.Phone).HasDefaultValueSql("'''NULL'''");
-            entity.Property(e => e.PhoneNumber).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.SecurityStamp).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.Status).HasDefaultValueSql("'''active'''");
+            entity.Property(e => e.Created).HasDefaultValueSql("current_timestamp()");
+            entity.Property(e => e.FirstName).HasDefaultValueSql("'NULL'");
+            entity.Property(e => e.LastName).HasDefaultValueSql("'NULL'");
+            entity.Property(e => e.Modified).ValueGeneratedOnAddOrUpdate();
+            entity.Property(e => e.Phone).HasDefaultValueSql("'NULL'");
+            entity.Property(e => e.Status).HasDefaultValueSql("'active'");
 
             entity.HasMany(d => d.Roles).WithMany(p => p.Users)
                 .UsingEntity<Dictionary<string, object>>(
@@ -111,7 +98,9 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
                         .HasConstraintName("FK_AspNetUserRoles_AspNetUsers_UserId"),
                     j =>
                     {
-                        j.HasKey("UserId", "RoleId").HasName("PRIMARY");
+                        j.HasKey("UserId", "RoleId")
+                            .HasName("PRIMARY")
+                            .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
                         j.ToTable("aspnetuserroles");
                         j.HasIndex(new[] { "RoleId" }, "IX_AspNetUserRoles_RoleId");
                         j.IndexerProperty<uint>("UserId").HasColumnType("int(10) unsigned");
@@ -123,26 +112,23 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.Property(e => e.ClaimType).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.ClaimValue).HasDefaultValueSql("'NULL'");
-
             entity.HasOne(d => d.User).WithMany(p => p.Aspnetuserclaims).HasConstraintName("FK_AspNetUserClaims_AspNetUsers_UserId");
         });
 
         modelBuilder.Entity<Aspnetuserlogin>(entity =>
         {
-            entity.HasKey(e => new { e.LoginProvider, e.ProviderKey }).HasName("PRIMARY");
-
-            entity.Property(e => e.ProviderDisplayName).HasDefaultValueSql("'NULL'");
+            entity.HasKey(e => new { e.LoginProvider, e.ProviderKey })
+                .HasName("PRIMARY")
+                .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
             entity.HasOne(d => d.User).WithMany(p => p.Aspnetuserlogins).HasConstraintName("FK_AspNetUserLogins_AspNetUsers_UserId");
         });
 
         modelBuilder.Entity<Aspnetusertoken>(entity =>
         {
-            entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name }).HasName("PRIMARY");
-
-            entity.Property(e => e.Value).HasDefaultValueSql("'NULL'");
+            entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name })
+                .HasName("PRIMARY")
+                .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0, 0 });
 
             entity.HasOne(d => d.User).WithMany(p => p.Aspnetusertokens).HasConstraintName("FK_AspNetUserTokens_AspNetUsers_UserId");
         });
@@ -154,7 +140,9 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
 
         modelBuilder.Entity<Categorygame>(entity =>
         {
-            entity.HasKey(e => new { e.CategoryId, e.GameId }).HasName("PRIMARY");
+            entity.HasKey(e => new { e.CategoryId, e.GameId })
+                .HasName("PRIMARY")
+                .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
         });
 
         modelBuilder.Entity<Developer>(entity =>
@@ -171,17 +159,15 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.Property(e => e.Description).HasDefaultValueSql("'''NULL'''");
-            entity.Property(e => e.ImgPath).HasDefaultValueSql("'''NULL'''");
-            entity.Property(e => e.Status).HasDefaultValueSql("'''''''active'''''''");
+            entity.Property(e => e.Status).HasDefaultValueSql("'active'");
             entity.Property(e => e.Type).HasDefaultValueSql("'1'");
 
             entity.HasOne(d => d.DeveloperNavigation).WithMany(p => p.Games)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Game_Developer");
 
             entity.HasOne(d => d.PublisherNavigation).WithMany(p => p.Games)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Game_Publisher");
 
             entity.HasMany(d => d.Categories).WithMany(p => p.Games)
@@ -189,15 +175,17 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
                     "GameCategory",
                     r => r.HasOne<Category>().WithMany()
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_GC_Category"),
                     l => l.HasOne<Game>().WithMany()
                         .HasForeignKey("GameId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_GC_Game"),
                     j =>
                     {
-                        j.HasKey("GameId", "CategoryId").HasName("PRIMARY");
+                        j.HasKey("GameId", "CategoryId")
+                            .HasName("PRIMARY")
+                            .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
                         j.ToTable("game_category");
                         j.HasIndex(new[] { "CategoryId" }, "FK_GC_Category");
                         j.HasIndex(new[] { "GameId" }, "FK_GC_Game");
@@ -214,14 +202,16 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
                     "GameOwned",
                     r => r.HasOne<Aspnetuser>().WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_GameOwner_User"),
                     l => l.HasOne<Game>().WithMany()
                         .HasForeignKey("GameId")
                         .HasConstraintName("FK_GameOwner_Game"),
                     j =>
                     {
-                        j.HasKey("GameId", "UserId").HasName("PRIMARY");
+                        j.HasKey("GameId", "UserId")
+                            .HasName("PRIMARY")
+                            .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
                         j.ToTable("game_owned");
                         j.HasIndex(new[] { "GameId" }, "FK_GameOwner_Game");
                         j.HasIndex(new[] { "UserId" }, "FK_GameOwner_User");
@@ -243,14 +233,14 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.Property(e => e.Date).HasDefaultValueSql("'current_timestamp()'");
+            entity.Property(e => e.Date).HasDefaultValueSql("current_timestamp()");
 
             entity.HasOne(d => d.TransInfo).WithMany(p => p.Transactions)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Info_Trans");
 
             entity.HasOne(d => d.User).WithMany(p => p.Transactions)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_User_Trans");
         });
 
@@ -258,14 +248,10 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.Property(e => e.GameId).HasDefaultValueSql("'NULL'");
-
-            entity.HasOne(d => d.Game).WithMany(p => p.TransactionInfomations)
-                .OnDelete(DeleteBehavior.Restrict)
-                .HasConstraintName("FK_Game_Trans");
+            entity.HasOne(d => d.Game).WithMany(p => p.TransactionInfomations).HasConstraintName("FK_Game_Trans");
 
             entity.HasOne(d => d.Type).WithMany(p => p.TransactionInfomations)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Fk_Type_Trans");
         });
 

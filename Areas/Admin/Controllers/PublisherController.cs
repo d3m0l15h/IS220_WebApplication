@@ -61,7 +61,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         public async Task<IActionResult> Delete(Publisher model)
         {
             var publisher = await _db.Publishers.FindAsync(model.Id);
-            if (publisher == null) return RedirectToAction("Index", "game", new { area = "admin" });
+            if (publisher == null) return RedirectToAction("index", "game", new { area = "admin" });
             _db.Publishers.Remove(publisher);
             await _db.SaveChangesAsync();
 

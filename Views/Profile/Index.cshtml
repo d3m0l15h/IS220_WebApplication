@@ -1,3 +1,4 @@
+@model IS220_WebApplication.Models.ViewModel.CombinedViewModel
 @{
     ViewData["Title"] = "User Profile";
 }
@@ -9,89 +10,120 @@
             <div class="col-md-3">
                 <div class="list-group list-group-flush account-settings-links rounded">
                     <a class="list-group-item list-group-item-action active fs-5 py-3" data-toggle="list"
-                       href="javascript:void(0)">
-                        Thông tin
+                       href="javascript:void(0);">
+                        User information
                     </a>
                     <a class="list-group-item list-group-item-action fs-5 py-3" data-toggle="list"
-                       href="javascript:void(0)">
-                        Đổi mật khẩu
+                       href="javascript:void(0);">
+                        Change password
                     </a>
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="tab-content">
-                    <div class="tab-pane fade active show" id="account-general">
-                        <div class="card-body media align-items-center">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
-                                 class="d-block ui-w-80">
-                            <div class="media-body ml-4 mt-3">
-                                <label class="btn btn-outline-primary">
-                                    Tải lên ảnh mới
-                                    <input type="file" class="account-settings-fileinput">
-                                </label> &nbsp;
-                                <button type="button" class="btn btn-default md-btn-flat">Reset</button>
-                                <div class="text-light small mt-3">Chỉ nhận JPG, GIF hoặc PNG, tối đa 800KB</div>
+                    <div class="tab-pane fade active show tab" id="account-general">
+                        <form asp-controller="profile" asp-action="update" method="post" enctype="multipart/form-data">
+                            @Html.AntiForgeryToken()
+                            <div class="card-body media align-items-center">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
+                                     class="d-block ui-w-80">
+                                <div class="media-body ml-4 mt-3">
+                                    <label class="btn btn-outline-primary">
+                                        Upload avatar
+                                        <input type="file" class="account-settings-fileinput">
+                                    </label>
+                                </div>
                             </div>
-                        </div>
 
-                        <hr class="border-light m-0">
+                            <hr class="border-light m-0">
 
-                        <div class="card-body">
-                            <div class="form-group mt-2">
-                                <label class="form-label text-info">Username</label>
-                                <input type="text" class="form-control mb-1" value="nmaxwell">
-                            </div>
-                            <div class="form-group mt-4">
-                                <label class="form-label">Tên đầy đủ</label>
-                                <input type="text" class="form-control" value="Nelle Maxwell">
-                            </div>
-                            <div class="form-group mt-4">
-                                <label class="form-label">E-mail</label>
-                                <input type="email" class="form-control mb-1" value="nmaxwell@mail.com">
-                            </div>
-                        </div>
 
-                        <hr class="border-light m-0">
+                            <div class="card-body">
 
-                        <div class="card-body pb-2">
-                            <div class="form-group">
-                                <label class="form-label">Bio</label>
-                                <textarea class="form-control"
-                                                                rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
+                                <div class="form-group mt-2">
+                                    <label class="form-label">Username</label>
+                                    <h1>@Model.User!.UserName</h1>
+                                </div>
+                                <div class="form-group mt-4">
+                                    <label class="form-label">E-mail</label>
+                                    <h2>@Model.User!.Email 
+                                        @if(Model.User.EmailConfirmed == false)
+                                        {
+                                            <button id="verifyButton" type="button" class="btn btn-link btn-sm ms-0 pb-2">Verify</button>
+                                        }
+                                        else {
+                                            <label class="badge badge-success" style="color: #0D811D">Verified</label>
+                                        }
+                                    </h2>
+                                </div>
+                                <div class="d-flex mt-4">
+                                    <div class="form-group w-50 me-1">
+                                        <label class="form-label">First name</label>
+                                        <input type="text" class="form-control" asp-for="User!.FirstName" value="@Model.User.FirstName">
+                                    </div>
+                                    <div class="form-group w-50 ms-1">
+                                        <label class="form-label">Last name</label>
+                                        <input type="text" class="form-control" asp-for="User!.LastName" value="@Model.User.LastName">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group mt-4">
-                                <label class="form-label">Sinh nhật</label>
-                                <input type="date" class="form-control">
+
+                            <hr class="border-light m-0">
+
+                            <div class="card-body pb-2">
+                                <div class="form-group mt-4">
+                                    <label class="form-label">Birth</label>
+                                    <input type="date" class="form-control" asp-for="User!.Birth" value="@(Model.User.Birth.HasValue ? Model.User.Birth.Value.ToString("yyyy-MM-dd") : string.Empty)">
+                                </div>
+                                <div class="form-group mt-4">
+                                    <label class="form-label">Phone</label>
+                                    <input type="text" class="form-control" asp-for="User!.Phone" value="@Model.User.Phone">
+                                </div>
                             </div>
-                            <div class="form-group mt-4">
-                                <label class="form-label">Số điện thoại</label>
-                                <input type="text" class="form-control" value="+841234567891">
+
+                            <div class="text-end mt-3">
+                                <button type="submit" class="btn btn-primary">SAVE</button>&nbsp;
+                                <button type="button" class="btn btn-secondary">CANCEL</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                    <div class="tab-pane fade" id="account-change-password">
-                        <div class="card-body pb-2">
-                            <div class="form-group">
-                                <label class="form-label">Mật khẩu hiện tại</label>
-                                <input type="password" class="form-control">
+                    <div class="tab-pane fade tab" id="account-change-password">
+                        <form method="post" asp-controller="profile" asp-action="resetPwd">
+                            @Html.AntiForgeryToken()
+                            <div class="card-body pb-2">
+                                <div class="form-group">
+                                    <label class="form-label">Current password</label>
+                                    <input type="password" class="form-control" asp-for="ChangePassword!.CurrentPassword">
+                                    <span asp-validation-for="ChangePassword!.CurrentPassword" class="text-danger"></span>
+                                </div>
+                                <div class="form-group mt-4">
+                                    <label class="form-label">New password</label>
+                                    <input type="password" class="form-control" asp-for="ChangePassword!.NewPassword">
+                                    <span asp-validation-for="ChangePassword!.NewPassword" class="text-danger"></span>
+                                </div>
+                                <div class="form-group mt-4">
+                                    <label class="form-label">Confirm new password</label>
+                                    <input type="password" class="form-control" asp-for="ChangePassword!.ConfirmPassword">
+                                    <span asp-validation-for="ChangePassword!.ConfirmPassword" class="text-danger"></span>
+                                </div>
                             </div>
-                            <div class="form-group mt-4">
-                                <label class="form-label">Mật khẩu mới</label>
-                                <input type="password" class="form-control">
+                            <div class="text-end mt-3">
+                                <button type="submit" class="btn btn-primary">SAVE</button>&nbsp;
+                                <button type="button" class="btn btn-secondary">CANCEL</button>
                             </div>
-                            <div class="form-group mt-4">
-                                <label class="form-label">Nhập lại mật khẩu mới</label>
-                                <input type="password" class="form-control">
-                            </div>
-                        </div>
+                        </form>
+                        <script>
+                            window.onload = function() {
+                                var passwordChangeAttempted = '@ViewBag.PasswordChangeAttempted';
+                                if (passwordChangeAttempted === 'True') {
+                                    reOpen();
+                                }
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="text-end mt-3">
-        <button type="button" class="btn btn-primary">Lưu</button>&nbsp;
-        <button type="button" class="btn btn-secondary">Hủy</button>
     </div>
 </div>
 

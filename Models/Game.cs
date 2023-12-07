@@ -23,8 +23,8 @@ public partial class Game
     [Precision(10, 0)]
     public decimal Price { get; set; }
 
-    [Column("releaseDate", TypeName = "date")]
-    public DateTime ReleaseDate { get; set; }
+    [Column("releaseDate")]
+    public DateOnly ReleaseDate { get; set; }
 
     [Column("description", TypeName = "text")]
     public string? Description { get; set; }

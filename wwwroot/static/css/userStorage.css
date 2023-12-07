@@ -2,21 +2,22 @@
     transition: all .2s linear;
 }
 
-th, td {
-    font-size: 14px;
+table {
+    border-collapse: collapse;
+}
+
+td {
+    font-size: 16px;
 }
 
 th {
     color: var(--main-color);
-    font-size: 15px;
+    font-size: 20px;
 }
 
-td a {
-    color: white;
-}
-
-td a:hover {
-    color: var(--main-color);
+th, td {
+    border: 2px solid var(--main-color);
+    padding: 20px;
 }
 
 .card {
@@ -27,3 +28,13 @@ td a:hover {
     font-size: .9rem;
 }
 
+img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.col:hover a:hover {
+    transform: scale(1.1);
+    transition: .3s linear;
+}

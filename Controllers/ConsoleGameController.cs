@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IS220_WebApplication.Controllers;
 
-public class VietHoaGameController : Controller
+public class ConsoleGameController : Controller
 {
     // GET
     public IActionResult Index()

@@ -3,7 +3,7 @@ using AspNetCoreHero.ToastNotification.Abstractions;
 using IS220_WebApplication.Areas.Admin.Models;
 using IS220_WebApplication.Areas.Admin.Models.Authentication;
 using IS220_WebApplication.Context;
-using IS220_WebApplication.Database;
+
 using IS220_WebApplication.Models;
 using IS220_WebApplication.Utils;
 using Microsoft.AspNetCore.Mvc;
@@ -71,6 +71,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
 
             ModelState.Remove("Game.DeveloperNavigation");
             ModelState.Remove("Game.PublisherNavigation");
+            ModelState.Remove("Game.Status");
             if (ModelState.IsValid)
             {
                 viewModel.Game.ImgPath = SaveImage(viewModel.ImageFile);
@@ -90,7 +91,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 await _db.SaveChangesAsync();
                 _notyf?.Success("Add game successfully!");
                 await _db.SaveChangesAsync();
-                return RedirectToAction("Add");
+                return RedirectToAction("add", "game");
             }
 
             Utils.Utils.CheckModelState(ModelState);
@@ -169,7 +170,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 await _db.SaveChangesAsync();
 
                 _notyf?.Success("Game updated successfully!");
-                return RedirectToAction("Index");
+                return RedirectToAction("index", "game");
             }
 
             Utils.Utils.CheckModelState(ModelState);

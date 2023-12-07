@@ -139,11 +139,6 @@
                         </button>
                     </div>
                     <div>
-                        <button type="button" class="transparent uil uil-minus border-0 ms-1" style="font-size: 20px"
-                                onclick="deleteWindow('publisher','Game.Publisher');">
-                        </button>
-                    </div>
-                    <div>
                         <button type="button" class="transparent uil uil-pen border-0 ms-1" style="font-size: 15px"
                                 onclick="editWindow('publisher', 'Game.Publisher');">
                         </button>
@@ -172,12 +167,7 @@
                         <button type="button" class="transparent uil uil-plus border-0" style="font-size: 20px"
                                 onclick="addWindow('developer');">
                         </button>
-                    </div>
-                    <div>
-                        <button type="button" class="transparent uil uil-minus border-0 ms-1" style="font-size: 20px"
-                                onclick="deleteWindow('developer','Game.Developer');">
-                        </button>
-                    </div>
+                    </div>      
                     <div>
                         <button type="button" class="transparent uil uil-pen border-0 ms-1" style="font-size: 15px"
                                 onclick="editWindow('developer', 'Game.Developer');">
@@ -215,34 +205,22 @@
 <div class="card add-product p-sm-30 p-20 ">
     <div class="card-body p-0">
         <div class="card-header">
-            <h6 class="fw-500">Product image</h6>
+            <h6 class="fw-500">Game image</h6>
         </div>
         <!-- Start: product body -->
         <div class="add-product__body-img px-sm-40 px-20">
-            <label for="upload" class="file-upload__label">
-                <span class="upload-product-img px-10 d-block">
-                    <span class="file-upload">
-                        <img class="svg" src="~/admin/img/svg/upload.svg" alt="">
-                        <input id="upload" class="file-upload__input" type="file" asp-for="ImageFile" onchange="previewImage()"/>
-                    </span>
-                    <span class="pera">Drag and drop an image</span>
-                    <span>
-                        or <a href="#" class="color-secondary">Browse</a> to choose a
-                        file
-                    </span>
-                </span>
-            </label>
             <div class="upload-product-media d-flex justify-content-between align-items-center mt-25">
                 <div class="upload-media-area d-flex">
                     <img id="imagePreview" src="~/admin/img/food-restaurant-media.png" alt="Image Preview"/>
                     <div class=" upload-media-area__title  d-flex flex-wrap align-items-center ms-10">
                         <div>
-                            <p id="imgName">Product_image.jpg</p>
+                            <p id="imgName">Game_image.jpg</p>
                             <span id="imgSize">68.8 KB</span>
                         </div>
                         <div class="upload-media-area__btn">
-                            <button type="button" class="transparent rounded-circle wh-30 border-0 color-danger">
-                                <img class="svg" src="~/admin/img/svg/trash-2.svg" alt="">
+                            <button type="button" id="upImage" class="transparent rounded-circle wh-30 border-0">
+                                <img class="svg" src="~/admin/img/svg/image-plus.svg" alt="">
+                                <input id="upload" class="file-upload__input" type="file" asp-for="ImageFile" onchange="previewImage()"/>
                             </button>
                         </div>
                     </div>
