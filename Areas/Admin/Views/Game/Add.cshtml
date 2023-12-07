@@ -17,7 +17,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="#"><i class="uil uil-estate"></i>Game</a>
+                                    <a asp-area="admin" asp-controller="game" asp-action="index"><i class="uil uil-estate"></i>Game</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">add game</li>
                             </ol>
@@ -61,7 +61,7 @@
                 <div class="dm-date-picker">
                     <div class="form-group mb-0 form-group-calender">
                         <div class="position-relative">
-                            <input type="text" class="form-control form-control-lg" id="datepicker3" placeholder="YYYY-MM-DD" asp-for="Game.ReleaseDate">
+                            <input type="text" class="form-control form-control-lg" id="datepicker3" placeholder="MM/DD/YYYY" asp-for="Game.ReleaseDate">
                             <a href="#">
                                 <img class="svg" src="~/admin/img/svg/calendar.svg" alt="calendar">
                             </a>
@@ -183,7 +183,7 @@
                     <div class="dm-select ">
                         <select asp-for="Game.Type" class="form-control ">
                             <option value="1">Game</option>
-                            <option value="2">Disk</option>
+                            <option value="2">Console</option>
                         </select>
                     </div>
                 </div>

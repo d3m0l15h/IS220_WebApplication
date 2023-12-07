@@ -62,7 +62,7 @@
                 <div class="dm-date-picker">
                     <div class="form-group mb-0 form-group-calender">
                         <div class="position-relative">
-                            <input type="text" class="form-control form-control-lg" id="datepicker3" placeholder="YYYY-MM-DD" asp-for="Game.ReleaseDate" value="@Model.Game.ReleaseDate.ToString("yyyy-MM-dd")">
+                            <input type="text" class="form-control form-control-lg" id="datepicker3" placeholder="MM/DD/YYYY" asp-for="Game.ReleaseDate" value="@Model.Game.ReleaseDate.ToString("MM/dd/yyyy")">
                             <a href="#">
                                 <img class="svg" src="~/admin/img/svg/calendar.svg" alt="calendar">
                             </a>
@@ -143,11 +143,6 @@
                         </button>
                     </div>
                     <div>
-                        <button type="button" class="transparent uil uil-minus border-0 ms-1" style="font-size: 20px"
-                                onclick="deleteWindow('publisher','Game.Publisher');">
-                        </button>
-                    </div>
-                    <div>
                         <button type="button" class="transparent uil uil-pen border-0 ms-1" style="font-size: 15px"
                                 onclick="editWindow('publisher', 'Game.Publisher');">
                         </button>
@@ -178,11 +173,6 @@
                         </button>
                     </div>
                     <div>
-                        <button type="button" class="transparent uil uil-minus border-0 ms-1" style="font-size: 20px"
-                                onclick="deleteWindow('developer','Game.Developer');">
-                        </button>
-                    </div>
-                    <div>
                         <button type="button" class="transparent uil uil-pen border-0 ms-1" style="font-size: 15px"
                                 onclick="editWindow('developer', 'Game.Developer');">
                         </button>
@@ -196,7 +186,7 @@
                     <div class="dm-select ">
                         <select asp-for="Game.Type" class="form-control ">
                             <option value="1">Game</option>
-                            <option value="2">Disk</option>
+                            <option value="2">Console</option>
                         </select>
                     </div>
                 </div>

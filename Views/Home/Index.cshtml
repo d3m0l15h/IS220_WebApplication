@@ -210,9 +210,11 @@
         @foreach (var item in Model.NewGame!)
         {
             <div class="box">
+                <a asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id" >
                 <img src="~/images/game/@item.ImgPath" alt=""/>
+                </a>
                 <div class="box-text">
-                    <a asp-controller="GameDetail" asp-action="index" asp-route-slug="@($"{item.Title.ToLower().Replace(' ', '-')}-{item.Id}")" >@item.Title</a>
+                    <a asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">@item.Title</a>
                     <h3>@string.Join(", ", item.Categories.Select(c => c.Name))</h3>
                     <div class="rating-download">
                         <div class="rating">
@@ -220,88 +222,13 @@
                             <span>4.7</span>
                         </div>
 
-                        <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
+                        <a class="box-btn"asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">
                             <p>@string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", item.Price)</p>
                         </a>
                     </div>
                 </div>
             </div>
         }
-        <!-- Box 5 -->
-        <div class="box">
-            <img src="~/static/img/new5.png" alt=""/>
-            <div class="box-text">
-                <a asp-controller="" asp-action="">Minecraft</a>
-                <h3>Action lorem5</h3>
-                <div class="rating-download">
-                    <div class="rating">
-                        <i class="bx bxs-star"></i>
-                        <span>4.7</span>
-                    </div>
-
-                    <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
-                        <p>100.000đ</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Box 6 -->
-        <div class="box">
-            <img src="~/static/img/new6.png" alt=""/>
-            <div class="box-text">
-                <a asp-controller="" asp-action="">PUBG</a>
-                <h3>Action</h3>
-                <div class="rating-download">
-                    <div class="rating">
-                        <i class="bx bxs-star"></i>
-                        <span>4.7</span>
-                    </div>
-
-                    <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
-                        <p>100.000đ</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Box 7 -->
-        <div class="box">
-            <img src="~/static/img/new7.png" alt=""/>
-            <div class="box-text">
-                <a asp-controller="" asp-action="">Fornite</a>
-                <h3>Action</h3>
-                <div class="rating-download">
-                    <div class="rating">
-                        <i class="bx bxs-star"></i>
-                        <span>4.7</span>
-                    </div>
-
-                    <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
-                        <p>100.000đ</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Box 8 -->
-        <div class="box">
-            <img src="~/static/img/new8.jpg" alt=""/>
-            <div class="box-text">
-                <a asp-controller="" asp-action="">Marvel of Champions</a>
-                <h3>Action</h3>
-                <div class="rating-download">
-                    <div class="rating">
-                        <i class="bx bxs-star"></i>
-                        <span>4.7</span>
-                    </div>
-
-                    <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
-                        <p>100.000đ</p>
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
 
 

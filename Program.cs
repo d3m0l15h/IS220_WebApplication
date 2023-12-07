@@ -80,12 +80,6 @@ app.MapControllerRoute(
 );
 
 app.MapControllerRoute(
-    name: "game",
-    pattern: "game/{slug}",
-    defaults: new { controller = "GameDetail", action = "Index" }
-);
-
-app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
 );
