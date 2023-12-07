@@ -46,28 +46,3 @@
   height    : 440px;
   object-fit: cover;
 }
-
-.download {
-  display        : grid;
-  justify-content: center;
-  max-width      : 800px;
-  width          : 100%;
-  margin         : auto;
-  margin-top     : 2rem;
-  margin-bottom  : 2rem;
-}
-
-.download a {
-  background    : var(--main-color);
-  padding       : 12px 20px;
-  border-radius : 5px;
-  text-align    : center;
-  color         : var(--text-color);
-  letter-spacing: 1px;
-  font-weight   : 500;
-}
-
-.download a:hover {
-  background: var(--light-color);
-  transition: 0.3s all linear;
-}

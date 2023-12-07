@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IS220_WebApplication.Controllers;
 
-public class ConsoleGamePageController : Controller
+public class ConsoleGamesController : Controller
 {
     // GET
     public IActionResult ConsoleGamePage()

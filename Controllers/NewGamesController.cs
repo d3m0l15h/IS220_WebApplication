@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IS220_WebApplication.Controllers;
 
-public class NewGamePageController : Controller
+public class NewGamesController : Controller
 {
     // GET
     public IActionResult NewGamePage()

@@ -479,7 +479,7 @@ span {
     cursor: pointer;
 }
 
-/*------------------------- REGISTER FORM -------------------------*/
+/*------------------------- AUTHENTICATION FORM -------------------------*/
 .auth-container {
     position: fixed;
     width: 768px;
@@ -578,6 +578,10 @@ span {
     color: #000000;
 }
 
+.form-container input:focus {
+    border: 2px solid #512DA8;
+}
+
 .sign-in {
     left: 0;
     width: 50%;
@@ -645,6 +649,14 @@ span {
 .auth-container.active .toggle-container {
     transform: translateX(-100%);
     border-radius: 0 150px 100px 0;
+}
+
+.auth-container.active .close-form i {
+    color: var(--main-color);
+}
+
+.auth-container.active .close-form:hover i {
+    color: var(--text-color);
 }
 
 .toggle {
