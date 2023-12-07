@@ -1,3 +1,46 @@
+@model IS220_WebApplication.Models.ViewModel.CombinedViewModel
 @{
-    Layout = null;
+    ViewData["Title"] = "Search";
 }
+<link rel="stylesheet" href="~/static/css/gamePage.css">
+<!-- Content -->
+<section class="category" id="new">
+<div class="category-content">
+    @if (Model.SearchGame != null)
+    {
+        @foreach (var item in Model.SearchGame!)
+        {
+            <div class="box">
+                <a asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">
+                    <img src="~/images/game/@item.ImgPath" alt=""/>
+                </a>
+                <div class="box-text">
+                    <h2><a asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">@item.Title</a></h2>
+                    <h3>@string.Join(", ", item.Categories.Select(c => c.Name))</h3>
+                    <div class="rating-download">
+                        <div class="rating">
+                            <i class="bx bxs-star"></i>
+                            <span>4.7</span>
+                        </div>
+
+                        <a class="box-btn" asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">
+                            <p>@string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", item.Price)</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<!-- PAGINATION -->
+<div class="pagination">
+    @for (var i = 1; i <= Math.Ceiling((double)Model.TotalCount / 10); i++)
+    {
+        var i1 = i;
+        <a class="link" asp-controller="search" asp-action="@ViewContext.RouteData.Values["action"]?.ToString()" asp-route-page="@i1">@i1</a>
+    }
+</div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

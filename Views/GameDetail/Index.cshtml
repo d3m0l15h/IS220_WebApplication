@@ -57,7 +57,7 @@
                 <td class="py-3">
                     @foreach (var category in Model.Game.Categories)
                     {
-                        @Html.ActionLink(category.Name, "category", "search", new { query = category.Name.ToUrlFriendly() }, null)
+                        @Html.ActionLink(category.Name, "category", "search", new { category = category.Name.ToUrlFriendly() }, null)
                         if (category.Equals(Model.Game.Categories.Last()))
                         {
                             continue;
