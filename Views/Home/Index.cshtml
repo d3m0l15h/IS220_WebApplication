@@ -33,7 +33,7 @@
                 <div class="box">
                     <img src="~/static/img/trending1.webp" alt=""/>
                     <div class="box-text">
-                        <a class="" asp-controller="download"
+                        <a class="" asp-controller="GameDetail"
                            asp-action="index">
                             Cyberpunk 2077
                         </a>
@@ -44,7 +44,7 @@
                                 <span>4.7</span>
                             </div>
 
-                            <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
                                 <p>100.000đ</p>
                             </a>
                         </div>
@@ -64,7 +64,7 @@
                                 <i class="bx bxs-star"></i>
                                 <span>4.7</span>
                             </div>
-                            <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
                                 <p>100.000đ</p>
                             </a>
                         </div>
@@ -84,7 +84,7 @@
                                 <i class="bx bxs-star"></i>
                                 <span>4.7</span>
                             </div>
-                            <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
                                 <p>100.000đ</p>
                             </a>
                         </div>
@@ -105,7 +105,7 @@
                                 <span>4.7</span>
                             </div>
 
-                            <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
                                 <p>100.000đ</p>
                             </a>
                         </div>
@@ -125,7 +125,7 @@
                                 <i class="bx bxs-star"></i>
                                 <span>4.7</span>
                             </div>
-                            <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
                                 <p>100.000đ</p>
                             </a>
                         </div>
@@ -145,7 +145,7 @@
                                 <i class="bx bxs-star"></i>
                                 <span>4.7</span>
                             </div>
-                            <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
                                 <p>100.000đ</p>
                             </a>
                         </div>
@@ -165,7 +165,7 @@
                                 <i class="bx bxs-star"></i>
                                 <span>4.7</span>
                             </div>
-                            <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
                                 <p>100.000đ</p>
                             </a>
                         </div>
@@ -185,7 +185,7 @@
                                 <i class="bx bxs-star"></i>
                                 <span>4.7</span>
                             </div>
-                            <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
                                 <p>100.000đ</p>
                             </a>
                         </div>
@@ -212,7 +212,7 @@
             <div class="box">
                 <img src="~/images/game/@item.ImgPath" alt=""/>
                 <div class="box-text">
-                    <a asp-controller="download" asp-action="index">@item.Title</a>
+                    <a asp-controller="GameDetail" asp-action="index" asp-route-slug="@($"{item.Title.ToLower().Replace(' ', '-')}-{item.Id}")" >@item.Title</a>
                     <h3>@string.Join(", ", item.Categories.Select(c => c.Name))</h3>
                     <div class="rating-download">
                         <div class="rating">
@@ -220,7 +220,7 @@
                             <span>4.7</span>
                         </div>
 
-                        <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                        <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
                             <p>@string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", item.Price)</p>
                         </a>
                     </div>
@@ -239,7 +239,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -258,7 +258,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -277,7 +277,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -296,7 +296,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-area="" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -334,7 +334,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -353,7 +353,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -372,7 +372,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -391,7 +391,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -410,7 +410,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -429,7 +429,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -448,7 +448,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>
@@ -467,7 +467,7 @@
                         <span>4.7</span>
                     </div>
 
-                    <a class="box-btn" asp-controller="download" asp-action="index">
+                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
                         <p>100.000đ</p>
                     </a>
                 </div>

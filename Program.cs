@@ -2,6 +2,7 @@ using System.Configuration;
 using AspNetCoreHero.ToastNotification;
 using IS220_WebApplication.Context;
 using IS220_WebApplication.Models;
+using IS220_WebApplication.Utils;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MySqlConnector;
@@ -9,6 +10,7 @@ using MySqlConnector;
 var builder = WebApplication.CreateBuilder(args);
 
 var cfg = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
     .AddUserSecrets<Program>()
     .Build();
 
@@ -29,7 +31,7 @@ builder.Services.AddNotyf(config =>
     config.Position = NotyfPosition.BottomRight;
 });
 
-builder.Services.AddDbContext<MyDbContext>(options => options.UseMySQL(cfg["dbGameStore"] ?? string.Empty));
+builder.Services.AddDbContext<MyDbContext>(options => options.UseMySql(cfg["dbGameStore"] ?? string.Empty, new MySqlServerVersion(new Version(8, 0, 21))));
 
 builder.Services.AddDefaultIdentity<Aspnetuser>(options =>
     {
@@ -44,6 +46,9 @@ builder.Services.AddDefaultIdentity<Aspnetuser>(options =>
     })
     .AddEntityFrameworkStores<MyDbContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.Configure<EmailSettings>(cfg.GetSection("EmailSettings"));
+builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
@@ -72,6 +77,12 @@ app.UseSession();
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Account}/{action=Index}/{id?}"
+);
+
+app.MapControllerRoute(
+    name: "game",
+    pattern: "game/{slug}",
+    defaults: new { controller = "GameDetail", action = "Index" }
 );
 
 app.MapControllerRoute(

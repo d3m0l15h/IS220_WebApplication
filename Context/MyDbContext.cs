@@ -4,6 +4,7 @@ using IS220_WebApplication.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace IS220_WebApplication.Context;
 
@@ -54,7 +55,8 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
             .AddUserSecrets<Program>()
             .Build();
 
-        optionsBuilder.UseMySQL(cfg["dbGameStore"] ?? string.Empty);
+        optionsBuilder.UseMySql(cfg["dbGameStore"] ?? string.Empty,
+            new MySqlServerVersion(new Version(10, 4, 28)));
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

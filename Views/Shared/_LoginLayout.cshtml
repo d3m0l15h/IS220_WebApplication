@@ -47,14 +47,14 @@
                 </div>
             </div>
 
-            <a class="bx bx-shopping-bag" id="storage-icon" asp-controller="storage" asp-action="index"></a>
+            <a class="bx bx-shopping-bag" id="storage-icon" asp-controller="" asp-action=""></a>
             <i class="bx bx-user user-icon"></i>
         </div>
 
         <div class="user-setting text-start">
             <a asp-controller="profile" asp-action="index">Account Setting</a>
             <a asp-controller="" asp-action="">Cart</a>
-            <a asp-controller="TransactionInfo" asp-action="Index">Transaction Info</a>
+            <a asp-controller="storage" asp-action="index">Storage</a>
             <a asp-controller="account" asp-action="logout">Log Out</a>
         </div>
     </nav>
@@ -128,7 +128,7 @@
 
     <!-- COPYRIGHT -->
     <div class="footer_copyright">
-        <p>&#169; 2023 NETGame. All right reserved. <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> </p>
+        <p>&#169; 2023 NETGame. All right reserved.</p>
     </div>
 </footer>
 @* ------------------------- end FOOTER ------------------------- *@
@@ -142,7 +142,7 @@
 <script src="~/lib/swiperJS/swiper-bundle.min.js"></script>
 @* MAIN *@
 <script src="~/static/js/main.js"></script>
-<script src="static/js/loginLayout.js"></script>
+<script src="~/static/js/loginLayout.js"></script>
 
 <script asp-append-version="true"></script>
 @await Component.InvokeAsync("Notyf")

@@ -1,7 +1,7 @@
 const listGroupItem = document.querySelectorAll('.list-group-item')
 
 const opt = document.querySelector('.opt')
-const listOption = opt.querySelectorAll('[id]')
+const listOption = opt.querySelectorAll('.tab')
 
 listGroupItem.forEach((ele, idx) => {
     ele.addEventListener('click', (e) => {
@@ -25,3 +25,38 @@ listGroupItem.forEach((ele, idx) => {
         })
     })
 })
+
+function reOpen() {
+    listGroupItem.forEach(item => {
+        item.classList.remove('active');
+    });
+    listOption.forEach(el => {
+        el.classList.remove('active');
+        el.classList.remove('show');
+    });
+
+    listGroupItem[1].classList.add('active'); // Assuming the password change tab is the second item
+    listOption[1].classList.add('active');
+    listOption[1].classList.add('show');
+}
+
+document.getElementById('verifyButton').addEventListener('click', function() {
+    fetch('/Profile/SendVerificationEmail', { method: 'POST' })
+        .then(response => {
+            if (!response.ok) {
+                console.error('Response status was not ok:', response.status);
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                alert("Verification email sent!");
+            } else {
+                // Handle the error
+            }
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+});

@@ -91,7 +91,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 await _db.SaveChangesAsync();
                 _notyf?.Success("Add game successfully!");
                 await _db.SaveChangesAsync();
-                return RedirectToAction("Add");
+                return RedirectToAction("add", "game");
             }
 
             Utils.Utils.CheckModelState(ModelState);
@@ -170,7 +170,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 await _db.SaveChangesAsync();
 
                 _notyf?.Success("Game updated successfully!");
-                return RedirectToAction("Index");
+                return RedirectToAction("index", "game");
             }
 
             Utils.Utils.CheckModelState(ModelState);
