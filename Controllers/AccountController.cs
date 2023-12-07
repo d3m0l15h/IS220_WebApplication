@@ -39,7 +39,7 @@ public class AccountController : Controller
         var user = await _userManager.FindByEmailAsync(ue) ?? await _userManager.FindByNameAsync(ue);
         if (user != null)
         {
-            if (user.Status.Equals("block"))
+            if (user.Status.Equals("blocked"))
             {
                 _notyf?.Error("Your account has been locked.");
                 return Redirect(originalUrl);

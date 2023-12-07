@@ -3,7 +3,7 @@ using AspNetCoreHero.ToastNotification.Abstractions;
 using IS220_WebApplication.Areas.Admin.Models;
 using IS220_WebApplication.Areas.Admin.Models.Authentication;
 using IS220_WebApplication.Context;
-using IS220_WebApplication.Database;
+
 using IS220_WebApplication.Models;
 using IS220_WebApplication.Utils;
 using Microsoft.AspNetCore.Mvc;

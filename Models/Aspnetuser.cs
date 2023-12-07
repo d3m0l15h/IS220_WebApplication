@@ -48,9 +48,11 @@ public partial class Aspnetuser : IdentityUser<uint>
     [Column("cash", TypeName = "double(13,2)")]
     public double Cash { get; set; }
 
-    [Column("status")]
-    [StringLength(10)]
+    [Column("status", TypeName = "text")]
     public string Status { get; set; } = null!;
+
+    [Column("avatarPath", TypeName = "tinytext")]
+    public string AvatarPath { get; set; } = null!;
 
     [StringLength(256)]
     public override string? NormalizedUserName { get; set; }

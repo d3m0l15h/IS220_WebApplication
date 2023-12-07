@@ -38,7 +38,7 @@
 
     <ItemGroup>
       <Folder Include="Areas\Admin\Data\" />
-      <Folder Include="Initial\" />
+      <Folder Include="wwwroot\images\user\" />
       <Folder Include="wwwroot\static\img\" />
     </ItemGroup>
 
