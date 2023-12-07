@@ -1,0 +1,154 @@
+@{
+    Layout = "_DashboardLayout";
+}
+@model IS220_WebApplication.Areas.Admin.Models.UserViewModel
+
+<div class="contents">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="d-flex align-items-center user-member__title mb-30 mt-30">
+                    <h4 class="text-capitalize">edit user</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-50">
+            <div class="row justify-content-center">
+                <div class="col-md-5 col-10">
+                    <div class="mt-40 mb-50">
+                        <div class="account-profile d-flex align-items-center mb-4 ">
+                            <div class="ap-img pro_img_wrapper">
+                                <input id="file-upload" type="file" name="fileUpload" class="d-none" accept="jpg, png">
+                                <!-- Profile picture image-->
+                                <label for="file-upload">
+                                    <img class="ap-img__main rounded-circle wh-120 bg-lighter d-flex" src="@Model.User.Phone" alt="profile">
+                                    <span class="cross" id="remove_pro_pic">
+                                        <img src="~/admin/img/svg/camera.svg" alt="camera" class="svg">
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="account-profile__title">
+                                <h6 class="fs-15 ms-20 fw-500 text-capitalize">profile photo</h6>
+                            </div>
+                        </div>
+                        <div class="edit-profile__body">
+                            <form>
+                                <div class="row">
+                                    <div class="col-lg">
+                                        <div class="form-group">
+                                            <label for="firstName">First name</label>
+                                            <input type="text" class="form-control" id="firstName" value="@Model.User.FirstName">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg">
+                                        <div class="form-group">
+                                            <label for="lastName">Last name</label>
+                                            <input type="text" class="form-control" id="lastName" value="@Model.User.LastName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-25 ">
+                                    <label for="name5">Username</label>
+                                    <input type="text" class="form-control" id="name5" value="@Model.User.UserName">
+                                </div>
+                                <div class="form-group mb-25">
+                                    <label for="name2">Email</label>
+                                    <input type="email" class="form-control" id="name2" value="@Model.User.Email">
+                                </div>
+                                <div class="form-group mb-25">
+                                    <label for="phoneNumber5">phone number</label>
+                                    <input type="tel" class="form-control" id="phoneNumber5" value="@Model.User.Phone">
+                                </div>
+                                <div class="form-group mb-25 form-group-calender">
+                                    <label for="datepicker">Joining Date</label>
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" id="datepicker" value="@Model.User.Created">
+                                        <a href="#">
+                                            <img class="svg" src="~/admin/img/svg/calendar.svg" alt="calendar">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-25 status-radio">
+                                    <label class="mb-15" for="status">status</label>
+                                    <div class="d-flex">
+                                        <div class="radio-horizontal-list d-flex flex-wrap">
+                                            <div class="radio-theme-default custom-radio ">
+                                                @{
+                                                    if (@Model.User.Status == "activated")
+                                                    {
+                                                        <input class="radio" type="radio" name="radio-optional" value="activated" id="radio-status1" checked>
+                                                    }
+                                                    else
+                                                    {
+                                                        <input class="radio" type="radio" name="radio-optional" value="activated" id="radio-status1">
+                                                    }
+                                                    
+                                                }
+                                                
+                                                <label for="radio-status1">
+                                                    <span class="radio-text">activated</span>
+                                                </label>
+                                            </div>
+
+
+                                            <div class="radio-theme-default custom-radio ">
+                                                @{
+                                                    if (@Model.User.Status == "deactivated")
+                                                    {
+                                                        <input class="radio" type="radio" name="radio-optional" value="deactivated" id="radio-status2" checked>
+                                                
+                                                    }
+                                                    else
+                                                    {
+                                                        <input class="radio" type="radio" name="radio-optional" value="deactivated" id="radio-status2">
+                                                
+                                                    }
+                                                }
+                                                <label for="radio-status2">
+                                                    <span class="radio-text">Deactivated</span>
+                                                </label>
+                                            </div>
+
+
+                                            <div class="radio-theme-default custom-radio ">
+                                                @{
+                                                    if (@Model.User.Status == "blocked")
+                                                    {
+                                                        <input class="radio" type="radio" name="radio-optional" value="blocked" id="radio-status3" checked>
+                                                
+                                                    }
+                                                    else
+                                                    {
+                                                        <input class="radio" type="radio" name="radio-optional" value="blocked" id="radio-status3">
+                                                
+                                                    }
+                                                }
+                                                <label for="radio-status3">
+                                                    <span class="radio-text">blocked</span>
+                                                </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="button-group d-flex pt-25 justify-content-md-end justify-content-start">
+
+
+                                    <button class="btn btn-primary btn-default btn-squared text-capitalize radius-md shadow2" type="submit">
+                                        Submit
+                                    </button>
+
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

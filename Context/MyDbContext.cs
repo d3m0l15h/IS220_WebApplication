@@ -100,7 +100,8 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
             entity.Property(e => e.Phone).HasDefaultValueSql("'''NULL'''");
             entity.Property(e => e.PhoneNumber).HasDefaultValueSql("'NULL'");
             entity.Property(e => e.SecurityStamp).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.Status).HasDefaultValueSql("'''active'''");
+            entity.Property(e => e.Status).HasDefaultValueSql("'''activated'''");
+            entity.Property(e => e.AvatarPath).HasDefaultValueSql("'NULL'");
 
             entity.HasMany(d => d.Roles).WithMany(p => p.Users)
                 .UsingEntity<Dictionary<string, object>>(

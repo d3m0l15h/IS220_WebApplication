@@ -2,14 +2,14 @@
 using AspNetCoreHero.ToastNotification.Notyf;
 using IS220_WebApplication.Areas.Admin.Models.Authentication;
 using IS220_WebApplication.Context;
-using IS220_WebApplication.Database;
+
 using IS220_WebApplication.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using static IS220_WebApplication.Database.UsersProcessor;
+
 
 namespace IS220_WebApplication.Areas.Admin.Controllers
 {

@@ -6,6 +6,24 @@ function openForm() {
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
+function previewAvatar() {
+    const preview = document.querySelector('#imagePreview');
+    const file = document.querySelector('#upload').files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = function (e) {
+        preview.src = reader.result;
+        preview.style.display = 'block';
+        
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = "";
+        preview.style.display = 'none';
+    }
+}
 function previewImage() {
     const preview = document.querySelector('#imagePreview');
     const file = document.querySelector('#upload').files[0];
