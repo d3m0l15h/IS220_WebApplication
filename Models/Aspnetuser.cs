@@ -33,8 +33,8 @@ public partial class Aspnetuser : IdentityUser<uint>
     [StringLength(20)]
     public string? Phone { get; set; }
 
-    [Column("birth", TypeName = "date")]
-    public DateTime? Birth { get; set; }
+    [Column("birth")]
+    public DateOnly? Birth { get; set; }
 
     [Column("role", TypeName = "tinyint(4)")]
     public sbyte Role { get; set; }
@@ -48,11 +48,12 @@ public partial class Aspnetuser : IdentityUser<uint>
     [Column("cash", TypeName = "double(13,2)")]
     public double Cash { get; set; }
 
-    [Column("status", TypeName = "text")]
+    [Column("status")]
+    [StringLength(10)]
     public string Status { get; set; } = null!;
 
     [Column("avatarPath", TypeName = "tinytext")]
-    public string AvatarPath { get; set; } = null!;
+    public string? AvatarPath { get; set; }
 
     [StringLength(256)]
     public override string? NormalizedUserName { get; set; }
@@ -61,7 +62,7 @@ public partial class Aspnetuser : IdentityUser<uint>
     public override string? NormalizedEmail { get; set; }
 
     public override bool EmailConfirmed { get; set; }
-    
+
     public override string? PasswordHash { get; set; }
 
     public override string? SecurityStamp { get; set; }
