@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "NewGamePage";
 }
+@using IS220_WebApplication.Utils;
 <link rel="stylesheet" href="~/static/css/newGamePage.css">
 
 <!-------------start GAMES MOI SECTION --------------->
@@ -16,11 +17,11 @@
         @foreach (var item in Model.NewGame!)
         {
             <div class="box">
-                <a asp-controller="download" asp-action="index">
+                <a asp-controller="download" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">
                     <img src="~/images/game/@item.ImgPath" alt=""/>
                 </a>
                 <div class="box_text">
-                    <a asp-controller="download" asp-action="index">@item.Title</a>
+                    <a asp-controller="download" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">@item.Title</a>
                     <h3>
                         @string.Join(", ", item.Categories.Select(c => c.Name))
                     </h3>
@@ -30,7 +31,7 @@
                             <span>4.7</span>
                         </div>
 
-                        <a class="box-btn" asp-controller="download" asp-action="index">
+                        <a class="box-btn" asp-controller="download" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">
                             <p>@string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", item.Price)</p>
                         </a>
                     </div>
