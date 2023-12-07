@@ -41,8 +41,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult AddUser()
         {
-            var viewModel = new UserViewModel();
-            return View(viewModel);
+            return View();
         }
 
         [HttpPost]
@@ -59,7 +58,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 ModelState.Remove("AvatarPath");
             Console.WriteLine("heheeehehehe" + viewModel.User.AvatarPath);
             Utils.Utils.CheckModelState(ModelState);
-
+            Console.WriteLine(viewModel.User);
             switch (ModelState.IsValid)
             {
                 case true:
@@ -80,16 +79,15 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
 
                     var user = new Aspnetuser
                     {
-                        UserName = "viewModel.User.UserName",
-                        Email = "truongducquoc5881@gmail.com",
-                        FirstName = "FirstName",
-                        LastName ="LastName",
-                        Phone = "viewModel.User.Phone",
-                       
-                        Status = "viewModel.User.Status",
+                        UserName = viewModel.User.UserName,
+                        Email = viewModel.User.Email,
+                        FirstName = viewModel.User.FirstName,
+                        LastName = viewModel.User.LastName,
+                        Phone = viewModel.User.Phone,
+                        Status = viewModel.User.Status,
                         LockoutEnabled = false,
                     };
-                    CheckModelState();
+                    
                     var result = await _userManager.CreateAsync(user, "123456");
                     if (!result.Succeeded)
                     {
