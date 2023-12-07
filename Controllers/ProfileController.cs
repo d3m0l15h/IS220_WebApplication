@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Net;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using IS220_WebApplication.Models;
 using IS220_WebApplication.Models.ViewModel;
@@ -36,16 +37,47 @@ public class ProfileController : Controller
     }
     
     [HttpGet]
-    public async Task<IActionResult> ConfirmEmail(string userId, string token)
-    {
+    public async Task<IActionResult> ConfirmEmail([FromQuery] string userId, [FromQuery] string tokenWithTime)
+    {   
+        Console.WriteLine(userId);
+        Console.WriteLine(tokenWithTime);
+        if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(tokenWithTime))
+        {
+            return BadRequest("Invalid parameters");
+        }
+
         var user = await _userManager.FindByIdAsync(userId);
         if (user == null)
         {
-            return NotFound();
+            return NotFound("User not found");
+        }
+        
+        tokenWithTime = WebUtility.UrlDecode(tokenWithTime).Replace("%2B", "+"); // decode '%2B' back to '+'
+        var parts = tokenWithTime.Split('-');
+        if (parts.Length < 2)
+        {
+            return BadRequest("Invalid token format");
+        }
+
+        var token = parts[0];
+        Console.WriteLine(token);
+        Console.WriteLine(parts[1]);
+        const string format = "M/d/yyyy h:mm:ss tt";
+        if (!DateTime.TryParseExact(parts[1], format, CultureInfo.InvariantCulture, DateTimeStyles.None, out var creationTime))
+        {
+            return BadRequest("Invalid token creation time");
+        }
+
+        var expirationTime = TimeSpan.FromDays(1);
+        if (creationTime + expirationTime < DateTime.UtcNow)
+        {
+            return BadRequest("Token expired");
         }
 
         var result = await _userManager.ConfirmEmailAsync(user, token);
-        return View(result.Succeeded ? "EmailConfirmed" : "Error");
+        if (!result.Succeeded) return NotFound();
+        _notyf.Success("Email confirmed successfully");
+        return RedirectToAction("index", "home");
     }
     
     [HttpPost]
@@ -57,10 +89,14 @@ public class ProfileController : Controller
             return NotFound();
         }
 
+        var now = DateTime.UtcNow;
         var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-        var callbackUrl = Url.Action("ConfirmEmail", "Profile", new { userId = user.Id, token = token }, protocol: HttpContext.Request.Scheme);
+        token = token.Replace("+", "%2B");
+        var tokenWithTime = $"{token}-{now}";
 
-        var emailContent = $"Please confirm your account by <a href='{callbackUrl}'>clicking here</a>.";
+        var callbackUrl = Url.Action("ConfirmEmail", "Profile", new { userId = user.Id, tokenWithTime = tokenWithTime }, protocol: HttpContext.Request.Scheme);
+
+        var emailContent = $"Hello {user.UserName},<br>Please confirm your account by <a href='{callbackUrl}'>clicking here</a>.<br>Best Regards,<br>NETGame";
 
         await _emailSender.SendEmailAsync(user.Email!, "Confirm your email", emailContent);
 

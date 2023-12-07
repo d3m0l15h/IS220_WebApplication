@@ -7,7 +7,7 @@ public class GameDetailController : Controller
     // GET
     public IActionResult Index(string slug)
     {
-        var id = int.Parse(slug.Split('-').Last());
+        //var id = int.Parse(slug.Split('-').Last());
         return View();
     }
 }

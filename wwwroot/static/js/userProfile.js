@@ -51,7 +51,8 @@ document.getElementById('verifyButton').addEventListener('click', function() {
         })
         .then(data => {
             if (data.success) {
-                alert("Verification email sent!");
+                var notyf = new Notyf();
+                notyf.success('Sent verification email');
             } else {
                 // Handle the error
             }

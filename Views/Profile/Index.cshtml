@@ -47,7 +47,13 @@
                                 <div class="form-group mt-4">
                                     <label class="form-label">E-mail</label>
                                     <h2>@Model.User!.Email 
-                                        <button id="verifyButton" type="button" class="btn btn-link btn-sm">Verify</button>
+                                        @if(Model.User.EmailConfirmed == false)
+                                        {
+                                            <button id="verifyButton" type="button" class="btn btn-link btn-sm ms-0 pb-2">Verify</button>
+                                        }
+                                        else {
+                                            <label class="badge badge-success" style="color: #0D811D">Verified</label>
+                                        }
                                     </h2>
                                 </div>
                                 <div class="d-flex mt-4">
