@@ -46,12 +46,22 @@
                 </div>
             </div>
 
+            @* SEARCH BAR *@
+            <form class="input-group search-form">
+                <input type="search" id="form1" class="form-control" placeholder="Search game here..."/>
+                <button type="submit">
+                    <i class='bx bx-search-alt-2'></i>
+                </button>
+            </form>
+
+            @* ICON FOR USER *@
             <a class="bx bx-shopping-bag" id="storage-icon" asp-controller="UserStorage" asp-action="UserStorage"></a>
             <i class="bx bx-user user-icon"></i>
         </div>
 
+        @* USER SETTING  *@
         <div class="user-setting text-start">
-            <a asp-controller="UserProfile" asp-action="UserProfile">Account Setting</a>
+            <a asp-controller="UserProfile" asp-action="UserProfile">Profile</a>
             <a asp-controller="" asp-action="">Cart</a>
             <a asp-controller="" asp-action="">Transaction Info</a>
             <a asp-controller="" asp-action="">Log Out</a>
