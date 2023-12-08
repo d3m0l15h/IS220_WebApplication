@@ -362,7 +362,7 @@ span {
 .box-btn p {
     padding: 8px;
     background-color: var(--text-color);
-    border-radius: 2rem;
+    border-radius: .5rem;
     color: var(--main-color);
     font-weight: 400;
     font-size: 1.1rem;
@@ -384,30 +384,20 @@ span {
     gap: 1.2rem;
 }
 
-.more-btn {
-    margin-top: 1rem;
-    text-align: center;
-}
-
-.more-btn button {
+.more-btn a {
+    display: block;
     padding: .8rem 1.6rem;
-    background-color: var(--main-color);
-    border-radius: 10px;
-}
-
-.more-btn button:hover {
-    background: white;
-    transform: scale(1.1);
+    background-color: var(  --main-color);
+    border-radius: .25rem;
+    font-size: 1.5rem;
+    color: white;
     transition: all .3s ease
 }
 
-.more-btn a {
-    font-size: 1.5rem;
-    color: white;
-}
-
-.more-btn button:hover a{
+.more-btn a:hover {
+    background: white;
     color: var(--main-color);
+    transform: scale(1.1);
 }
 
 /*------------------------- FOOTER -------------------------*/
