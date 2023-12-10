@@ -22,6 +22,16 @@ const myfunction = () => {
     document.getElementById('scroll-bar').style.width = scrolled + '%'
 }
 
+// --------------- CLICK BOX ITEM -----------------
+const boxes = document.querySelectorAll('.box');
+
+boxes.forEach(box => {
+    box.addEventListener('click', () => {
+        const link = box.querySelector('a');
+        link.click();
+    });
+});
+
 // -------------- SWIPER (library for display game in trending section) --------------
 const swiper = new Swiper('.trending_content', {
     slidesPerView: 1,

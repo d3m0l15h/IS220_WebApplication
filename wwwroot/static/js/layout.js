@@ -55,3 +55,8 @@ $("#registerForm").submit(function (event) {
     },
   });
 });
+
+document.onclick = (e) => {
+    if (!userIcon.contains(e.target) && !authContainer.contains(e.target))
+        authContainer.classList.remove('isDisplay');
+}
