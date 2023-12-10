@@ -1,66 +1,103 @@
+@model IS220_WebApplication.Models.ViewModel.CombinedViewModel
 @{
-    ViewData["Title"] = "Download Page";
+    ViewData["Title"] = Model.Game!.Title;
 }
+
 
 <link rel="stylesheet" href="~/static/css/downloadPage.css">
 
-<h4 class="fs-4 mb-4 ps-3">God of Wars</h4>
+<h4 class="fs-4 mb-4 ps-3">@Model.Game.Title</h4>
 
 <!-------------start SCREENSHOT --------------->
 <div class="screenshots container">
 
     <div class="screenshots-content">
-        <img src="~/static/img/screenshots1.jpg" alt="">
-        <img src="~/static/img/screenshots2.jpg" alt="">
+        <img src="~/images/game/@Model.Game.ImgPath" alt="">
+        @* <img src="~/static/img/screenshots2.jpg" alt="">
         <img src="~/static/img/screenshots3.jpg" alt="">
         <img src="~/static/img/trending6.jpg" alt="">
         <img src="~/static/img/trending7.png" alt="">
-        <img src="~/static/img/trending8.png" alt="">
+        <img src="~/static/img/trending8.png" alt=""> *@
     </div>
 </div>
 <!-------------end SCREENSHOT --------------->
 
 <!-------------start ABOUT --------------->
 <div class="about container">
-    <h2>About this game</h2>
+    <h2>Description</h2>
     <div class="d-flex">
         <div class="about-info">
-            <p>
-                Incididunt reprehenderit ad nisi nostrud fugiat excepteur aute mollit.
-                Reprehenderit sunt veniam cillum magna cillum sunt. Proident minim
-                aliqua cillum nostrud consequat irure consequat nulla aute qui
-                incididunt nulla reprehenderit sint proident. Aliquip quis eu et nisi
-                tempor Lorem ipsum voluptate irure exercitation aute velit adipisicing
-                excepteur. Consequat tempor culpa cillum et.
-            </p>
+            <p>@Model.Game.Description</p>
         </div>
 
         <table class="about-table table text-light table-dark table-striped align-middle">
             <tbody>
             <tr>
+                <td class="py-3">Name:</td>
+                <td class="py-3">@Model.Game.Title</td>
+            </tr>
+            <tr>
                 <td class="py-3">Release Date</td>
-                <td class="py-3">12 Jan, 2003</td>
+                <td class="py-3">@Model.Game.ReleaseDate.ToString("dd/MM/yyyy")</td>
             </tr>
             <tr>
                 <td class="py-3">Developer:</td>
-                <td class="py-3">Dao Tien Dat</td>
+                <td class="py-3">
+                    <a asp-controller="search" asp-action="developer" asp-route-developer="@Model.Game.DeveloperNavigation.Name.ToUrlFriendly()">@Model.Game.DeveloperNavigation.Name</a>
+                </td>
             </tr>
             <tr>
                 <td class="py-3">Publisher:</td>
-                <td class="py-3">PlayStation PC LLC</td>
+                <td class="py-3">
+                    <a asp-controller="search" asp-action="publisher" asp-route-publisher="@Model.Game.PublisherNavigation.Name.ToUrlFriendly()">@Model.Game.PublisherNavigation.Name</a>
+                </td>
             </tr>
             <tr>
                 <td class="py-3">Category:</td>
-                <td class="py-3">Action, Single Player, Pixel, Indie, Adventure, Rich Story</td>
+                <td class="py-3">
+                    @foreach (var category in Model.Game.Categories)
+                    {
+                        @Html.ActionLink(category.Name, "category", "search", new { category = category.Name.ToUrlFriendly() }, null)
+                        if (category.Equals(Model.Game.Categories.Last()))
+                        {
+                            continue;
+                        }
+                        @:,
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td class="py-3">Status</td>
+                @if (Model.Game.Status == "active")
+                {
+                    <td class="py-3 text-success">Available</td>
+                }
+                else
+                {
+                    <td class="py-3 text-danger">Unavailable</td>
+                }
             </tr>
             </tbody>
         </table>
     </div>
+    <div class="d-flex justify-content-end price">
+        <p class="fs-3 text-primary">đ @Model.Game.Price.ToString("N0")</p>
+    </div>
+    <div class="d-flex" style="justify-content: flex-end;">
+        <div class="button-container">
+
+            <div class="d-flex more-btn">
+                <button class="button buy-now">Mua ngay</button>
+                <button class="button">Thêm vào giỏ</button>
+
+            </div>
+        </div>
+    </div>
+
 </div>
 <!-------------end ABOUT --------------->
 
 <!-------------start DOWNLOAD LINK --------------->
 <div class="download">
-    <a download="deTenGameVaoDay" href="deLinkDownloadGameVao" class="download-links"></a>
 </div>
 <!-------------end DOWNLOAD LINK --------------->

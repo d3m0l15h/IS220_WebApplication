@@ -49,7 +49,9 @@
     .contact-icon .bx {
         margin-top: 8px;
     }
-    
+    .buy-now{
+        margin-left: 10px;
+    }
 }
 
 @media (max-width: 774px) {
@@ -118,6 +120,9 @@
     
     .nav-content {
         flex: 0;
+    }
+    .buy-now{
+        margin-left: 10px;
     }
 }
 

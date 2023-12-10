@@ -122,10 +122,10 @@ html::-webkit-scrollbar {
 }
 
 .nav-content .bx {
-    font-size: 20px;
-    height: 44px;
-    width: 44px;
     display: grid;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
     place-items: center;
     color: var(--text-color);
     background-color: var(--light-color);
@@ -142,19 +142,15 @@ html::-webkit-scrollbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /*margin: 0 44px;*/
-    font-size: 1rem;
 }
 
 .menu .navbarr a {
     width: 100%;
     height: 100%;
-    text-align: center;
-    padding: 14px 10px;
     margin: 2px;
     padding: 14px 10px;
     border-radius: 5px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     color: var(--text-color);
     text-align: center;
@@ -167,11 +163,28 @@ html::-webkit-scrollbar {
     cursor: pointer;
 }
 
+/*SEARCH FORM*/
+.input-group.search-form {
+    width: unset;
+    align-items: center;
+}
+
+.search-form button {
+    border-radius: .25rem;
+    background-color: var(--main-color);
+}
+
+.search-form button .bx{
+    height: 37.6px;
+    width: 45px;
+    background-color: inherit;
+}
+
 /*USER ICON*/
 .user-setting {
     position: absolute;
-    top: 90%;
-    right: 6rem;
+    top: 80%;
+    right: 14rem;
     background: var(--light-color);
     width: 190px;
     height: 220px;
@@ -199,7 +212,10 @@ html::-webkit-scrollbar {
 }
 
 .user-setting a:hover {
-    background: hsl(0, 0%, 100%, 0.4);
+    background-color: var(--main-color);
+    color: white;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
 }
 
 /*------------------------- HOME SECTION -------------------------*/
@@ -346,7 +362,7 @@ span {
 .box-btn p {
     padding: 8px;
     background-color: var(--text-color);
-    border-radius: 2rem;
+    border-radius: .5rem;
     color: var(--main-color);
     font-weight: 400;
     font-size: 1.1rem;
@@ -364,31 +380,25 @@ span {
 
 .category-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.2rem;
 }
 
-.more-btn {
-    margin-top: 1rem;
-    text-align: center;
-}
-
-.more-btn button {
-    padding: .8rem 1.6rem;
-    background-color: var(--main-color);
-    border-radius: 10px;
-}
-
-.more-btn button:hover {
-    background: var(--light-color);
-    transition: 0.3s all linear;
-}
-
 .more-btn a {
+    display: block;
+    padding: .8rem 1.6rem;
+    background-color: var(  --main-color);
+    border-radius: .25rem;
     font-size: 1.5rem;
     color: white;
+    transition: all .3s ease
 }
 
+.more-btn a:hover {
+    background: white;
+    color: var(--main-color);
+    transform: scale(1.1);
+}
 
 /*------------------------- FOOTER -------------------------*/
 .footer {
@@ -482,7 +492,7 @@ span {
     cursor: pointer;
 }
 
-/*------------------------- REGISTER FORM -------------------------*/
+/*------------------------- AUTHENTICATION FORM -------------------------*/
 .auth-container {
     position: fixed;
     width: 768px;
@@ -594,6 +604,10 @@ span {
     color: #000000;
 }
 
+.form-container input:focus {
+    border: 2px solid #512DA8;
+}
+
 .sign-in {
     left: 0;
     width: 50%;
@@ -661,6 +675,14 @@ span {
 .auth-container.active .toggle-container {
     transform: translateX(-100%);
     border-radius: 0 150px 100px 0;
+}
+
+.auth-container.active .close-form i {
+    color: var(--main-color);
+}
+
+.auth-container.active .close-form:hover i {
+    color: var(--text-color);
 }
 
 .toggle {

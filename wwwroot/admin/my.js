@@ -156,3 +156,19 @@ function entityEdited(id, name, element) {
 document.getElementById('upImage').addEventListener('click', function() {
     document.getElementById('upload').click();
 });
+
+document.getElementById('datepicker3').addEventListener('input', function (e) {
+    var input = e.target.value;
+    // Remove any non-digit characters
+    input = input.replace(/\D/g, '');
+    // Add slashes after the month and day
+    if (input.length >= 2) {
+        input = input.substring(0, 2) + '/' + input.substring(2);
+    }
+    if (input.length >= 5) {
+        input = input.substring(0, 5) + '/' + input.substring(5);
+    }
+    // Limit to mm/dd/yyyy format
+    input = input.substring(0, 10);
+    e.target.value = input;
+});

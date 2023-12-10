@@ -48,17 +48,37 @@
                 </div>
             </div>
 
-            <a class="bx bx-shopping-bag" id="storage-icon" asp-controller="" asp-action=""></a>
+            @* SEARCH BAR *@
+            <form class="input-group search-form">
+                <input type="search" id="form1" class="form-control" placeholder="Search game here..."/>
+                <button type="submit">
+                    <i class='bx bx-search-alt-2'></i>
+                </button>
+            </form>
+
+            @* ICON FOR USER *@
+            <a class="bx bx-shopping-bag" id="storage-icon" asp-controller="Storage" asp-action="Index"></a>
             <i class="bx bx-user user-icon"></i>
         </div>
 
         <div class="user-setting text-start">
-            <a asp-controller="profile" asp-action="index">Account Setting</a>
+            <a asp-controller="profile" asp-action="index">Profile</a>
             <a asp-controller="" asp-action="">Cart</a>
             <a asp-controller="storage" asp-action="index">Storage</a>
             <a asp-controller="account" asp-action="logout">Log Out</a>
         </div>
     </nav>
+    @* Offcanvas View *@
+            <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <p>Try scrolling the rest of the page to see this option in action.</p>
+                </div>
+            </div>
 </header>
 
 @* ------------------------- start MAIN (change in Views/Home/Index.cshtml) ------------------------- *@
@@ -98,7 +118,7 @@
         </div>
 
         <div class="footer_box_item">
-            <h3 class="text-capitalize">về chúng tôi</h3>
+            <h3 class="text-capitalize">About Us</h3>
             <div class="d-flex flex-column">
                 <a class="text-capitalize mt-3" href="#!">Home</a>
                 <a class="text-capitalize mt-3" href="#!">Introduction</a>
