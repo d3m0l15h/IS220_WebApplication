@@ -30,6 +30,8 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
 
     public virtual DbSet<Aspnetusertoken> Aspnetusertokens { get; set; }
 
+    public virtual DbSet<Cart> Carts { get; set; }
+
     public virtual DbSet<Category> Categories { get; set; }
 
     public virtual DbSet<Categorygame> Categorygames { get; set; }
@@ -131,6 +133,23 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
                 .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0, 0 });
 
             entity.HasOne(d => d.User).WithMany(p => p.Aspnetusertokens).HasConstraintName("FK_AspNetUserTokens_AspNetUsers_UserId");
+        });
+
+        modelBuilder.Entity<Cart>(entity =>
+        {
+            entity.HasKey(e => new { e.Id, e.Uid, e.GameId })
+                .HasName("PRIMARY")
+                .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0, 0 });
+
+            entity.Property(e => e.Id).ValueGeneratedOnAdd();
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("current_timestamp()");
+            entity.Property(e => e.UpdatedAt)
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("current_timestamp()");
+
+            entity.HasOne(d => d.Game).WithMany(p => p.Carts).HasConstraintName("FK_GAME-ID");
+
+            entity.HasOne(d => d.UidNavigation).WithMany(p => p.Carts).HasConstraintName("FK_aspnetusers-UID");
         });
 
         modelBuilder.Entity<Category>(entity =>
