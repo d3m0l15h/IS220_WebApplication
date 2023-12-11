@@ -32,53 +32,64 @@
 
         <table class="about-table table text-light table-dark table-striped align-middle">
             <tbody>
-            <tr>
-                <td class="py-3">Name:</td>
-                <td class="py-3">@Model.Game.Title</td>
-            </tr>
-            <tr>
-                <td class="py-3">Release Date</td>
-                <td class="py-3">@Model.Game.ReleaseDate.ToString("dd/MM/yyyy")</td>
-            </tr>
-            <tr>
-                <td class="py-3">Developer:</td>
-                <td class="py-3">
-                    <a asp-controller="search" asp-action="developer" asp-route-developer="@Model.Game.DeveloperNavigation.Name.ToUrlFriendly()">@Model.Game.DeveloperNavigation.Name</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="py-3">Publisher:</td>
-                <td class="py-3">
-                    <a asp-controller="search" asp-action="publisher" asp-route-publisher="@Model.Game.PublisherNavigation.Name.ToUrlFriendly()">@Model.Game.PublisherNavigation.Name</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="py-3">Category:</td>
-                <td class="py-3">
-                    @foreach (var category in Model.Game.Categories)
-                    {
-                        @Html.ActionLink(category.Name, "category", "search", new { category = category.Name.ToUrlFriendly() }, null)
-                        if (category.Equals(Model.Game.Categories.Last()))
+                <tr>
+                    <td class="py-3">Name:</td>
+                    <td class="py-3">@Model.Game.Title</td>
+                </tr>
+                <tr>
+                    <td class="py-3">Release Date</td>
+                    <td class="py-3">@Model.Game.ReleaseDate.ToString("dd/MM/yyyy")</td>
+                </tr>
+                <tr>
+                    <td class="py-3">Developer:</td>
+                    <td class="py-3">
+                        <a asp-controller="search" asp-action="developer"
+                            asp-route-developer="@Model.Game.DeveloperNavigation.Name.ToUrlFriendly()">@Model.Game.DeveloperNavigation.Name</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="py-3">Publisher:</td>
+                    <td class="py-3">
+                        <a asp-controller="search" asp-action="publisher"
+                            asp-route-publisher="@Model.Game.PublisherNavigation.Name.ToUrlFriendly()">@Model.Game.PublisherNavigation.Name</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="py-3">Category:</td>
+                    <td class="py-3">
+                        @foreach (var category in Model.Game.Categories)
                         {
-                            continue;
+                            @Html.ActionLink(category.Name, "category", "search", new
+                                {
+                                    category =
+                                     category.Name.ToUrlFriendly()
+                                }, null)
+                            if (category.Equals(Model.Game.Categories.Last()))
+                            {
+                                continue;
+                            }
+                            @:,
                         }
-                        @:,
+                    </td>
+                </tr>
+                <tr>
+                    <td class="py-3">Status</td>
+                    @if (Model.Game.Status == "active")
+                    {
+                        <td class="py-3 text-success">Available</td>
                     }
-                </td>
-            </tr>
-            <tr>
-                <td class="py-3">Status</td>
-                @if (Model.Game.Status == "active")
-                {
-                    <td class="py-3 text-success">Available</td>
-                }
-                else
-                {
-                    <td class="py-3 text-danger">Unavailable</td>
-                }
-            </tr>
+                    else
+                    {
+                        <td class="py-3 text-danger">Unavailable</td>
+                    }
+                </tr>
             </tbody>
         </table>
+
+        <div class="d-none">
+            <input type="text" value="@Model.Game.Id" id="gameid">
+        </div>
+
     </div>
     <div class="d-flex justify-content-end price">
         <p class="fs-3 text-primary">đ @Model.Game.Price.ToString("N0")</p>
@@ -86,9 +97,9 @@
     <div class="d-flex" style="justify-content: flex-end;">
         <div class="button-container">
 
-            <div class="d-flex more-btn">
-                <button class="button buy-now">Mua ngay</button>
-                <button class="button">Thêm vào giỏ</button>
+            <div class="d-flex more-btn mb-4">
+                <button class="btn btn-primary buy-now">Mua ngay</button>
+                <button class="ms-3 btn btn-primary" id="add-to-cart">Thêm vào giỏ</button>
 
             </div>
         </div>
@@ -101,3 +112,53 @@
 <div class="download">
 </div>
 <!-------------end DOWNLOAD LINK --------------->
+
+
+<!----------- start SCRIPT -------------->
+<script>
+    $('#add-to-cart').click(() => {
+        const gameData = {
+            game_id: $('#gameid').val(),
+            quantity: null
+        }
+    @* $('#add-to-cart').append(`
+            <div class="spinner-border" id="add-to-cart-loading" style="width: 20px; height: 20px; margin-left: 10px;" role="status">
+            <span class="visually-hidden">Loading...</span>
+            </div>
+            `) *@
+            $.ajax({
+                method: 'post',
+                url: '/carts/add',
+                encode: true,
+                data: gameData
+            }).done((d) => {
+    @* $('#add-to-cart-loading').remove() *@
+                    $('#cartOffcanvas .offcanvas-body').html(`
+                    <div class="cart-item d-flex justify-content-between align-items-center">
+                        <div class="col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
+                            <img src="${$('.screenshots-content img').src}" class="img-fluid rounded-3" alt="">
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-6">
+                            <h6 class="text-muted">Assassin's Creed® Unity</h6>
+                        </div>
+                        <!-- <div class="col-md-3 col-lg-3 col-xl-3">
+                            <h6 class="text-muted">Assassin's Creed® Unity</h6>
+                        </div>
+                        <div class="col-md-3 col-lg-4 col-xl-2 d-flex">
+                            <div class="quantity d-flex justify-content-center align-items-center">
+                                <h2 class="text-black mb-0">1</h2>
+                            </div>
+                        </div> -->
+                        <div class="col-md-3 col-lg-1 col-xl-2 d-flex justify-content-center">
+                            <h6 class="mb-0">USD 1.000</h6>
+                        </div>
+                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                            <a href="#!" class="text-muted" target-detail=""><span class="btn-close"></span></a>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                `)
+                new bootstrap.Offcanvas('#cartOffcanvas').show()
+            })
+    })
+</script>
