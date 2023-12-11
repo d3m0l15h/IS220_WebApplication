@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2023 at 06:53 AM
+-- Generation Time: Dec 11, 2023 at 12:24 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -123,7 +123,7 @@ CREATE TABLE `aspnetusers` (
 --
 
 INSERT INTO `aspnetusers` (`id`, `username`, `email`, `firstName`, `lastName`, `phone`, `birth`, `role`, `created`, `modified`, `cash`, `status`, `avatarPath`, `NormalizedUserName`, `NormalizedEmail`, `EmailConfirmed`, `PasswordHash`, `SecurityStamp`, `ConcurrencyStamp`, `PhoneNumber`, `PhoneNumberConfirmed`, `TwoFactorEnabled`, `LockoutEnd`, `LockoutEnabled`, `AccessFailedCount`) VALUES
-(1, 'admin', 'davicmax123@gmail.com', 'NULL', 'NULL', 'NULL', NULL, 1, '2023-11-28 00:22:17', '2023-12-07 11:24:02', 0.00, 'active', '\"\"', 'ADMIN', 'DAVICMAX123@GMAIL.COM', 0, 'AQAAAAIAAYagAAAAEGHYA0mmFwEVvL0QUNRTL+fOMlzMFVaaaI8CZTfk1Zv1MI+jB6iY+BCHw+x27zWQVw==', 'UZURDN3OXFSJGR4Y27HUMNJ53VUAOOG7', NULL, NULL, 0, 0, NULL, 0, 0),
+(1, 'admin', 'davicmax123@gmail.com', 'Admin', NULL, '0946388050', '2003-04-17', 1, '2023-11-28 00:22:17', '2023-12-07 17:28:12', 0.00, 'active', '\"\"', 'ADMIN', 'DAVICMAX123@GMAIL.COM', 0, 'AQAAAAIAAYagAAAAEGHYA0mmFwEVvL0QUNRTL+fOMlzMFVaaaI8CZTfk1Zv1MI+jB6iY+BCHw+x27zWQVw==', 'UZURDN3OXFSJGR4Y27HUMNJ53VUAOOG7', '36fdd25c-d0f1-41d2-b32e-6ebab7115bef', NULL, 0, 0, NULL, 0, 0),
 (2, 'user', 'user@gmail.com', 'Dat', 'Dao', '0946388050', '2003-04-17', 0, '2023-11-29 14:48:10', '2023-12-07 11:24:02', 0.00, 'active', '\"\"', 'USER', 'USER@GMAIL.COM', 0, 'AQAAAAIAAYagAAAAEM1dF2GTfpj+gtvFULVsSHFvGGugzPuAYYMZDkXeXWOiiJXvs6008Z392gavQinzzQ==', 'YMK4VTSHD73PMYZXLASHRCTKS3RAGOJ4', 'b45684c9-5141-42b6-b2eb-b8951548af7c', NULL, 0, 0, NULL, 1, 0),
 (8, 'test', '21521930@gm.uit.edu.vn', 'Tien', 'Dat', '0946388050', '2003-04-17', 0, '2023-12-03 14:39:26', '2023-12-07 11:24:02', 0.00, 'active', '\"\"', 'TEST', '21521930@GM.UIT.EDU.VN', 0, 'AQAAAAIAAYagAAAAENi3wqvlzw3m8ylpf7NuJ4PmktmO3GKGQdwXF4S7CppFB2au58C17at0BnWl5z/D7Q==', '6NMG46U2NVHWMX7W4563R42BAP73XE7Z', '689e2b53-1e17-4e8f-b3d1-790af19002f3', NULL, 0, 0, NULL, 1, 0);
 
@@ -138,6 +138,21 @@ CREATE TABLE `aspnetusertokens` (
   `LoginProvider` varchar(128) NOT NULL,
   `Name` varchar(128) NOT NULL,
   `Value` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carts`
+--
+
+CREATE TABLE `carts` (
+  `id` int(11) NOT NULL,
+  `uid` int(10) UNSIGNED NOT NULL,
+  `game_id` int(10) UNSIGNED NOT NULL,
+  `quantity` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -161,6 +176,7 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (5, 'Action'),
 (28, 'Adventure'),
 (16, 'Arcade'),
+(32, 'Assassin'),
 (22, 'Co-op\n'),
 (2, 'Fantasy'),
 (24, 'FPS'),
@@ -170,9 +186,11 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (1, 'Indie'),
 (14, 'Multiplayer'),
 (7, 'Open World'),
+(30, 'Pixel Graphics'),
 (13, 'Puzzle'),
 (25, 'PvE'),
 (20, 'PvP'),
+(31, 'Relaxing'),
 (4, 'RPG'),
 (26, 'Sandbox'),
 (18, 'Sci-fi\n'),
@@ -216,7 +234,11 @@ INSERT INTO `developer` (`id`, `name`) VALUES
 (2, 'Bethesda'),
 (3, ' CD PROJEKT RED'),
 (4, ' Rockstar Games'),
-(5, ' Klei Entertainment');
+(5, ' Klei Entertainment'),
+(6, ' ConcernedApe'),
+(7, ' Re-Logic'),
+(8, 'Ubisoft'),
+(9, ' PlayStation PC LLC');
 
 -- --------------------------------------------------------
 
@@ -246,7 +268,11 @@ INSERT INTO `game` (`id`, `title`, `price`, `releaseDate`, `description`, `publi
 (1, 'Elden Ring', 1000000, '2022-02-25', 'THE NEW FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.', 1, 1, '059911b1-c114-4cf3-b1ad-91e90287bc58_6110RSDn3PL.jpg', 'https://store.steampowered.com/app/1245620/ELDEN_RING/', 'active', 1),
 (2, 'Cyberpunk 2077', 495000, '2020-12-10', 'Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City — a dangerous megalopolis obsessed with power, glamor, and ceaseless body modification.\r\n', 3, 3, 'bd85fbc6-d484-49c3-809e-094bd2467964_cyberpunk-2077-ready-player-v-i102945.jpg', 'https://store.steampowered.com/app/1091500/Cyberpunk_2077', 'active', 1),
 (3, 'Red Dead Redemption 2', 1000000, '2019-12-05', 'Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, RDR2 is the epic tale of outlaw Arthur Morgan and the infamous Van der Linde gang, on the run across America at the dawn of the modern age. Also includes access to the shared living world of Red Dead Online.', 4, 4, 'e968131e-80da-4d56-8979-e2039b55863f_MV5BMjMyZDY5NTctMzQ0Ny00ZTU0LWE1ZDYtNDYzMjAxYjA1ZGYxXkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg', 'https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/?curator_clanid=4777282', 'active', 1),
-(4, 'Don\'t Starve Together', 165000, '2016-04-21', 'Fight, Farm, Build and Explore Together in the standalone multiplayer expansion to the uncompromising wilderness survival game, Don\'t Starve.', 5, 5, '19217643-1f3c-45f2-9708-c5400ecae926_32-658-048-01.jpg', 'https://store.steampowered.com/app/322330/Dont_Starve_Together/', 'active', 1);
+(4, 'Don\'t Starve Together', 165000, '2016-04-21', 'Fight, Farm, Build and Explore Together in the standalone multiplayer expansion to the uncompromising wilderness survival game, Don\'t Starve.', 5, 5, '19217643-1f3c-45f2-9708-c5400ecae926_32-658-048-01.jpg', 'https://store.steampowered.com/app/322330/Dont_Starve_Together/', 'active', 1),
+(5, 'Stardew Valley', 165000, '2016-02-27', 'You\'ve inherited your grandfather\'s old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin your new life. Can you learn to live off the land and turn these overgrown fields into a thriving home?', 6, 6, 'c7a79627-dbd2-4b76-b238-dc8a7654a565_71aqYbO8-xL._AC_UF894,1000_QL80_.jpg', 'https://store.steampowered.com/app/413150/Stardew_Valley/', 'active', 1),
+(6, 'Terraria', 142000, '2011-05-17', 'Dig, fight, explore, build! Nothing is impossible in this action-packed adventure game. Four Pack also available!', 7, 7, '36035b6d-c4e4-4490-a318-d36edd7eece0_71k0BMp4U1L._AC_UF1000,1000_QL80_.jpg', 'https://store.steampowered.com/app/105600/Terraria/', 'active', 1),
+(7, ' Assassin\'s Creed® Unity', 495000, '2014-11-13', 'Assassin’s Creed® Unity tells the story of Arno, a young man who embarks upon an extraordinary journey to expose the true powers behind the French Revolution. In the brand new co-op mode, you and your friends will also be thrown in the middle of a ruthless struggle for the fate of a nation.', 8, 8, 'd84a9147-bf1c-40f2-af33-1257f368ca58_s-l1600.jpg', 'https://store.steampowered.com/app/289650/Assassins_Creed_Unity/', 'active', 1),
+(8, 'God of War', 1159000, '2022-01-14', 'His vengeance against the Gods of Olympus years behind him, Kratos now lives as a man in the realm of Norse Gods and monsters. It is in this harsh, unforgiving world that he must fight to survive… and teach his son to do the same.', 9, 9, '6651f230-779d-4b9c-84c4-543ead53dcd1_71DRhS9jOeL._AC_UF1000,1000_QL80_.jpg', 'https://store.steampowered.com/app/1593500/God_of_War/', 'active', 1);
 
 -- --------------------------------------------------------
 
@@ -272,7 +298,28 @@ INSERT INTO `game_category` (`gameID`, `categoryID`) VALUES
 (3, 28),
 (3, 29),
 (4, 14),
-(4, 21);
+(4, 21),
+(5, 1),
+(5, 4),
+(5, 14),
+(5, 26),
+(5, 30),
+(5, 31),
+(6, 9),
+(6, 14),
+(6, 21),
+(6, 26),
+(6, 28),
+(6, 30),
+(7, 5),
+(7, 7),
+(7, 22),
+(7, 28),
+(7, 32),
+(8, 5),
+(8, 8),
+(8, 12),
+(8, 28);
 
 -- --------------------------------------------------------
 
@@ -305,7 +352,11 @@ INSERT INTO `publisher` (`id`, `name`) VALUES
 (2, 'Bethesda'),
 (3, 'CD PROJEKT RED'),
 (4, ' Rockstar Games'),
-(5, ' Klei Entertainment');
+(5, ' Klei Entertainment'),
+(6, ' ConcernedApe'),
+(7, ' Re-Logic'),
+(8, 'Ubisoft'),
+(9, 'Santa Monica Studio');
 
 -- --------------------------------------------------------
 
@@ -418,6 +469,14 @@ ALTER TABLE `aspnetusertokens`
   ADD PRIMARY KEY (`UserId`,`LoginProvider`,`Name`);
 
 --
+-- Indexes for table `carts`
+--
+ALTER TABLE `carts`
+  ADD PRIMARY KEY (`id`,`uid`,`game_id`),
+  ADD KEY `FK_GAME-ID` (`game_id`),
+  ADD KEY `FK_aspnetusers-UID` (`uid`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -523,28 +582,34 @@ ALTER TABLE `aspnetusers`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `carts`
+--
+ALTER TABLE `carts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `developer`
 --
 ALTER TABLE `developer`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `publisher`
 --
 ALTER TABLE `publisher`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `transaction`
@@ -598,6 +663,13 @@ ALTER TABLE `aspnetuserroles`
 --
 ALTER TABLE `aspnetusertokens`
   ADD CONSTRAINT `FK_AspNetUserTokens_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `carts`
+--
+ALTER TABLE `carts`
+  ADD CONSTRAINT `FK_GAME-ID` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_aspnetusers-UID` FOREIGN KEY (`uid`) REFERENCES `aspnetusers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `game`
