@@ -48,6 +48,9 @@ public partial class Game
     [Column("type", TypeName = "int(1)")]
     public int Type { get; set; }
 
+    [InverseProperty("Game")]
+    public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
+
     [ForeignKey("Developer")]
     [InverseProperty("Games")]
     public virtual Developer DeveloperNavigation { get; set; } = null!;

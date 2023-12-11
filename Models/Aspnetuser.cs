@@ -92,6 +92,9 @@ public partial class Aspnetuser : IdentityUser<uint>
     [InverseProperty("User")]
     public virtual ICollection<Aspnetusertoken> Aspnetusertokens { get; set; } = new List<Aspnetusertoken>();
 
+    [InverseProperty("UidNavigation")]
+    public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
+
     [InverseProperty("User")]
     public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 
