@@ -19,7 +19,8 @@ public class CartsController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        //return View();
+        return RedirectToAction("index", "home");
     }
 
     // [Route("cart/{title}-{id}")]
@@ -38,9 +39,8 @@ public class CartsController : Controller
             _db.SaveChanges();
             return Ok("Success");
         }
-        else
-        {
-            return View();
-        }
+
+        // return View();
+        return RedirectToAction("index", "home");
     }
 }
