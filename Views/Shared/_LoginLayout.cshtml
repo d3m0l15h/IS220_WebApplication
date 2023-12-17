@@ -60,8 +60,15 @@
                 </form>
 
                 @* ICON FOR USER *@
-                <a class="bx bx-shopping-bag" id="storage-icon" data-bs-toggle="offcanvas"
-                    data-bs-target="#cartOffcanvas"></a>
+                <a class="bx bx-shopping-bag position-relative cart-button" data-bs-toggle="offcanvas"
+                    data-bs-target="#cartOffcanvas">
+                    <span
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger visually-hidden"
+                        style="font-size: 0.8rem;">
+                        <span class="text-white cart-quantity"></span>
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </a>
                 <i class="bx bx-user user-icon"></i>
             </div>
 
@@ -74,13 +81,11 @@
         @* Offcanvas View *@
         <div class="offcanvas offcanvas-end text-bg-dark" data-bs-scroll="true" tabindex="-1" id="cartOffcanvas">
             <div class="offcanvas-header bg-dark">
-                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
-                <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas"
+                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cart</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body bg-dark">
-                <p>Try scrolling the rest of the page to see this option in action.</p>
-            </div>
+            <div class="offcanvas-body bg-dark"></div>
         </div>
     </header>
 
