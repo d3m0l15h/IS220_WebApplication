@@ -52,10 +52,10 @@
                 </div>
 
                 @* SEARCH BAR *@
-                <form class="input-group search-form">
-                    <input type="search" id="form1" class="form-control" placeholder="Search games here..." />
+                <form class="input-group search-form" asp-controller="search" asp-action="game" method="get">
+                    <input type="search" id="form1" class="form-control" placeholder="Search games here..." name="search"/>
                     <button type="submit">
-                        <i class='bx bx-search-alt-2'></i>
+                        <i class="bx bx-search-alt-2"></i>
                     </button>
                 </form>
 
