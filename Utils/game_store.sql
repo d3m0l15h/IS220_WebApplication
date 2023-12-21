@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2023 at 11:01 AM
+-- Generation Time: Dec 21, 2023 at 01:02 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -171,6 +171,7 @@ CREATE TABLE `carts` (
   `uid` int(10) UNSIGNED NOT NULL,
   `game_id` int(10) UNSIGNED NOT NULL,
   `quantity` int(10) UNSIGNED DEFAULT NULL,
+  `type` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -179,8 +180,8 @@ CREATE TABLE `carts` (
 -- Dumping data for table `carts`
 --
 
-INSERT INTO `carts` (`id`, `uid`, `game_id`, `quantity`, `created_at`, `updated_at`) VALUES
-(9, 1, 1, NULL, '2023-12-18 17:01:50', '2023-12-18 17:01:50');
+INSERT INTO `carts` (`id`, `uid`, `game_id`, `quantity`, `type`, `created_at`, `updated_at`) VALUES
+(9, 1, 1, NULL, 0, '2023-12-18 17:01:50', '2023-12-18 17:01:50');
 
 -- --------------------------------------------------------
 

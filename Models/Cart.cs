@@ -27,6 +27,9 @@ public partial class Cart
     [Column("quantity", TypeName = "int(10) unsigned")]
     public uint? Quantity { get; set; }
 
+    [Column("type", TypeName = "int(10) unsigned")]
+    public uint Type { get; set; }
+
     [Column("created_at", TypeName = "timestamp")]
     public DateTime CreatedAt { get; set; }
 
