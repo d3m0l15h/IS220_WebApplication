@@ -314,7 +314,7 @@
                     style="border-radius: 16px; background-color :white">
 
                     <div class="table-responsive mt-5 mb-5 p-5">
-                        <table class="table">
+                        <table class="table text-white">
                             <h3 class="normal-text">
                                 Shopping cart
                             </h3>
@@ -327,6 +327,8 @@
                                 </tr>
                             </thead>
                             <tbody class="items-in-cart">
+
+
 
                             </tbody>
                             <tfoot>
@@ -436,4 +438,8 @@
         </div>
     </div>
     <script src="~/static/js/checkout.js"></script>
+    <script>
+        var modelData = @Html.Raw(Json.Serialize(Model));
+        console.log(modelData);
+    </script>
 </section>

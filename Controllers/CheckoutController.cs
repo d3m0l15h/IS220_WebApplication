@@ -19,11 +19,31 @@ public class CheckoutController : Controller
     public async Task<IActionResult> Index()
     {
         string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        var model = new CombinedViewModel
-        {
-            Checkout = await _db.Carts
-                .FirstOrDefaultAsync(c => c.Uid == uint.Parse(userId))
-        };
+        var model = new CombinedViewModel();
+        uint userIdValue;
+        uint.TryParse(userId, out userIdValue);
+
+        model.Checkouts = await _db.Carts
+            .Join(_db.Games,
+                cart => cart.GameId,
+                game => game.Id,
+                (cart, game) => new { Cart = cart, Game = game })
+            .Where(c => c.Cart.Uid == userIdValue)
+            .Select(c => new CheckoutViewModel
+            {
+                CheckoutItems = new List<CheckoutItems>
+                {
+                    new CheckoutItems
+                    {
+                        Title = c.Game.Title,
+                        Quantity = c.Cart.Quantity,
+                        Price = c.Game.Price,
+                        Type = c.Game.Type
+                    }
+                }
+            })
+            .ToListAsync();
+
         return View(model);
     }
 }

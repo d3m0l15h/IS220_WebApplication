@@ -37,7 +37,7 @@ function httpGet(theUrl) {
 
 var dvhcData = [];
 var pdaData = {};
-fetch("/dvhc.json")
+fetch("/static/js/dvhc.json")
   .then((response) => response.json())
   .then((data) => {
     dvhcData = data;
