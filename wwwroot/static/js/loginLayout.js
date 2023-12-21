@@ -65,7 +65,7 @@ function renderCart(items = []) {
                         ).toLocaleString("en")}</h6>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" class="text-white" game-action="remove-cart" game-target="${
+                        <a href="javascript:void(0);" class="text-white" game-action="remove-cart" game-target="${
                           item.gameId
                         }"><span class="btn-close btn-close-white"></span></a>
                     </div>
@@ -87,7 +87,7 @@ function renderCart(items = []) {
 function syncCart() {
   $.ajax({
     method: "get",
-    url: "/carts/get",
+    url: "/cart/get",
     encode: true,
   }).done((items) => {
     console.log(items);
@@ -102,7 +102,7 @@ $("#add-to-cart").click(() => {
   };
   $.ajax({
     method: "post",
-    url: "/carts/add",
+    url: "/cart/add",
     encode: true,
     data: gameData,
   }).done((d) => {
@@ -119,7 +119,7 @@ $(document).on("click", '[game-action="remove-cart"]', function () {
   };
   $.ajax({
     method: "post",
-    url: "/carts/remove",
+    url: "/cart/remove",
     encode: true,
     data: gameData,
   }).done((d) => {
