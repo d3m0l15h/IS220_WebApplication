@@ -8,20 +8,15 @@ using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace IS220_WebApplication.Controllers;
 
-public class CartsController : Controller
+public class CartController : Controller
 {
     private readonly MyDbContext _db;
 
-    public CartsController(MyDbContext db)
+    public CartController(MyDbContext db)
     {
         _db = db;
     }
-
-    public IActionResult Index()
-    {
-        //return View();
-        return RedirectToAction("index", "home");
-    }
+    
     [HttpPost]
     public IActionResult Add(uint game_id)
     {
@@ -43,8 +38,6 @@ public class CartsController : Controller
         _db.Carts.Add(cartItem);
         _db.SaveChanges();
         return Ok("Successfully added to cart.");
-
-        // return View();
     }
     [HttpGet]
     public IActionResult Get()
@@ -73,7 +66,7 @@ public class CartsController : Controller
     [HttpPost]
     public IActionResult Remove(uint game_id)
     {
-        var cartItem = _db.Carts.Where(c => c.GameId == game_id).FirstOrDefault();
+        var cartItem = _db.Carts.FirstOrDefault(c => c.GameId == game_id);
         if (cartItem == null)
         {
             return NotFound();
