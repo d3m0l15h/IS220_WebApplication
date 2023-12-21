@@ -57,17 +57,28 @@ function renderCart(items = []) {
                         )}" class="img-fluid rounded-3" alt="">
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-6 px-2">
-                        <h6 class="text-white">${item.gameTitle}</h6>
+                        <div>
+                            <h6><span class="badge bg-secondary">Software</span> ${
+                              item.gameTitle
+                            }</h6>
+                        </div>
+                        <div class="quantity-input mt-2">
+                            <button class="btn btn-icon text-white" game-action="change-quantity-minus">-</button>
+                            <input type="text" game-input="quantity" value="1">
+                            <button class="btn btn-icon text-white" game-action="change-quantity-plus">+</button>
+                        </div>
                     </div>
                     <div class="col-md-3 col-lg-1 col-xl-2 d-flex justify-content-center">
-                        <h6 class="mb-0">USD ${Number(
+                        <h6 class="mb-0">${Number(
                           item.gamePrice
-                        ).toLocaleString("en")}</h6>
+                        ).toLocaleString("vi")}đ</h6>
                     </div>
-                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="javascript:void(0);" class="text-white" game-action="remove-cart" game-target="${
+                    <div class="col-md-1 col-lg-1 col-xl-1 ms-3">
+                        <a href="#!" class="btn btn-icon btn-outline-danger" game-action="remove-cart" game-target="${
                           item.gameId
-                        }"><span class="btn-close btn-close-white"></span></a>
+                        }">
+                            <i class='bx bx-trash-alt'></i>
+                        </a>
                     </div>
                 </div>
                 <hr class="my-4">`;
@@ -87,22 +98,23 @@ function renderCart(items = []) {
 function syncCart() {
   $.ajax({
     method: "get",
-    url: "/cart/get",
+    url: "/carts/get",
     encode: true,
   }).done((items) => {
-    console.log(items);
     renderCart(items);
   });
 }
+syncCart();
 
-$("#add-to-cart").click(() => {
+$('[game-action="add-cart"]').click(() => {
   const gameData = {
     game_id: $("#gameid").val(),
-    quantity: null,
+    type: $("[name=game-type]:checked").val(),
+    quantity: parseInt($(".about-table .game-quantity input").val()),
   };
   $.ajax({
     method: "post",
-    url: "/cart/add",
+    url: "/carts/add",
     encode: true,
     data: gameData,
   }).done((d) => {
@@ -119,7 +131,7 @@ $(document).on("click", '[game-action="remove-cart"]', function () {
   };
   $.ajax({
     method: "post",
-    url: "/cart/remove",
+    url: "/carts/remove",
     encode: true,
     data: gameData,
   }).done((d) => {
@@ -128,4 +140,34 @@ $(document).on("click", '[game-action="remove-cart"]', function () {
   });
 });
 
-syncCart();
+$(document).on("click", '[game-action*="change-quantity"]', function () {
+  const q = $(this).siblings('[game-input="quantity"]').first();
+  const current = parseInt(q.val());
+  if (isNaN(current)) {
+    q.val(1);
+    return;
+  }
+  if ($(this).attr("game-action") == "change-quantity-minus") {
+    if (current > 1) {
+      q.val(current - 1);
+    } else {
+      notyf.error("Quantity must be at least 1");
+    }
+  }
+  if ($(this).attr("game-action") == "change-quantity-plus") {
+    q.val(current + 1);
+  }
+});
+
+$(document).on("input", '.quantity-input [game-input="quantity"]', function () {
+  const current = parseInt($(this).val());
+  if (isNaN(current)) {
+    $(this).val(1);
+    return;
+  }
+  if (current < 1) {
+    $(this).val(1);
+    notyf.error("Quantity must be at least 1");
+    return;
+  }
+});
