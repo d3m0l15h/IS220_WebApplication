@@ -12,9 +12,6 @@ public class ProcessorManager
     private CategoriesProcessor CategoriesProcessor { get; set; }
     private GameOwnerProcessor GameOwnerProcessor{ get; set; }
     private DeveloperProcessor DeveloperProcessor{ get; set; }
-    private TransactionProcessor TransactionProcessor{ get; set; }
-    private TransactionInformationProcessor TransactionInformationProcessor{ get; set; }
-    private TransactionTypeProcessor TransactionTypeProcessor{ get; set; }
 
 
     public ProcessorManager(MyDbContext db)
@@ -26,9 +23,6 @@ public class ProcessorManager
         CategoriesProcessor = new CategoriesProcessor(db);
         GameOwnerProcessor = new GameOwnerProcessor(db);
         DeveloperProcessor = new DeveloperProcessor(db);
-        TransactionProcessor = new TransactionProcessor(db);
-        TransactionInformationProcessor = new TransactionInformationProcessor(db);
-        TransactionTypeProcessor = new TransactionTypeProcessor(db);
     }
 
     public void SetUserProcessor(UsersProcessor usersProcessor)
@@ -99,35 +93,5 @@ public class ProcessorManager
     public PublishersProcessor GetPublishersProcessor()
     {
         return PublishersProcessor;
-    }
-
-    public void SetTransactionInformation(TransactionInformationProcessor transactionInformationProcessor)
-    {
-        TransactionInformationProcessor = transactionInformationProcessor;
-    }
-
-    public TransactionInformationProcessor GetTransactionInformationProcessor()
-    {
-        return TransactionInformationProcessor;
-    }
-
-    public void SetTransactionProcessor(TransactionProcessor transactionProcessor)
-    {
-        TransactionProcessor = transactionProcessor;
-    }
-
-    public TransactionProcessor GetTransactionProcessor()
-    {
-        return TransactionProcessor;
-    }
-
-    public void SetTransactionTypeProcessor(TransactionTypeProcessor transactionTypeProcessor)
-    {
-        TransactionTypeProcessor = transactionTypeProcessor;
-    }
-
-    public TransactionTypeProcessor GetTransactionTypeProcessor()
-    {
-        return TransactionTypeProcessor;
     }
 }

@@ -84,6 +84,9 @@ public partial class Aspnetuser : IdentityUser<uint>
     public override int AccessFailedCount { get; set; }
 
     [InverseProperty("User")]
+    public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
+
+    [InverseProperty("User")]
     public virtual ICollection<Aspnetuserclaim> Aspnetuserclaims { get; set; } = new List<Aspnetuserclaim>();
 
     [InverseProperty("User")]
@@ -96,7 +99,7 @@ public partial class Aspnetuser : IdentityUser<uint>
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
     [InverseProperty("User")]
-    public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
     [ForeignKey("UserId")]
     [InverseProperty("Users")]
