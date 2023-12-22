@@ -6,7 +6,7 @@ using IS220_WebApplication.Models.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using IEmailSender = IS220_WebApplication.Utils.IEmailSender;
-
+using AddressProcessor = IS220_WebApplication.Database.AddressProcessor;
 namespace IS220_WebApplication.Controllers;
 
 public class ProfileController : Controller
@@ -14,8 +14,10 @@ public class ProfileController : Controller
     private readonly UserManager<Aspnetuser> _userManager;
     private readonly IEmailSender _emailSender;
     private readonly INotyfService _notyf;
-    public ProfileController(UserManager<Aspnetuser> userManager, INotyfService notyf, IEmailSender emailSender)
+    private readonly AddressProcessor _address;
+    public ProfileController(UserManager<Aspnetuser> userManager, INotyfService notyf, IEmailSender emailSender, AddressProcessor address)
     {
+        _address = address;
         _userManager = userManager;
         _notyf = notyf;
         _emailSender = emailSender;
@@ -29,16 +31,21 @@ public class ProfileController : Controller
         {
             return RedirectToAction("index", "home");
         }
-        var user = new CombinedViewModel
+        var user = _userManager.GetUserAsync(User).Result;
+        var defaultAddress = _address.GetDefaultAddress(user.Id);
+        List<Address> nondefaultAddresses = _address.GetNonDefaultAddresses(user.Id);
+        var viewModel = new CombinedViewModel
         {
-            User = _userManager.GetUserAsync(User).Result
+            User = user,
+            DefaultAddress = defaultAddress,
+            NonDefaultAddresses = nondefaultAddresses
         };
-        return View(user);
+        return View(viewModel);
     }
-    
+
     [HttpGet]
     public async Task<IActionResult> ConfirmEmail([FromQuery] string userId, [FromQuery] string tokenWithTime)
-    {   
+    {
         Console.WriteLine(userId);
         Console.WriteLine(tokenWithTime);
         if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(tokenWithTime))
@@ -51,7 +58,7 @@ public class ProfileController : Controller
         {
             return NotFound("User not found");
         }
-        
+
         tokenWithTime = WebUtility.UrlDecode(tokenWithTime).Replace("%2B", "+"); // decode '%2B' back to '+'
         var parts = tokenWithTime.Split('-');
         if (parts.Length < 2)
@@ -79,7 +86,7 @@ public class ProfileController : Controller
         _notyf.Success("Email confirmed successfully");
         return RedirectToAction("index", "home");
     }
-    
+
     [HttpPost]
     public async Task<IActionResult> SendVerificationEmail()
     {
@@ -129,10 +136,10 @@ public class ProfileController : Controller
         if (result.Succeeded)
         {
             _notyf.Success("Profile updated successfully");
-            return RedirectToAction("index","profile");
+            return RedirectToAction("index", "profile");
         }
         _notyf.Error("Update failed");
-        return RedirectToAction("index","profile");
+        return RedirectToAction("index", "profile");
     }
 
     [HttpPost]
@@ -141,10 +148,10 @@ public class ProfileController : Controller
     {
         var user = await _userManager.GetUserAsync(User);
         model.User = user;
-        
+
         ViewBag.PasswordChangeAttempted = true;
-        if (!ModelState.IsValid){return View("index", model);}
-        
+        if (!ModelState.IsValid) { return View("index", model); }
+
         var isCurrentPasswordValid = await _userManager.CheckPasswordAsync(user!, model.ChangePassword!.CurrentPassword);
         if (!isCurrentPasswordValid)
         {
@@ -154,8 +161,8 @@ public class ProfileController : Controller
 
         var changePasswordResult = await _userManager.ChangePasswordAsync(user!, model.ChangePassword!.CurrentPassword, model.ChangePassword.NewPassword);
         if (!changePasswordResult.Succeeded) return RedirectToAction("index", model);
-        
+
         _notyf.Success("Password changed successfully");
-        return RedirectToAction("index","profile");
+        return RedirectToAction("index", "profile");
     }
 }
