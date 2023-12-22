@@ -189,7 +189,6 @@ html::-webkit-scrollbar {
     height: 220px;
     border-radius: 0.5rem;
     padding: 10px;
-
     text-align: center;
     display: flex;
     flex-direction: column;
