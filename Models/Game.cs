@@ -45,8 +45,8 @@ public partial class Game
     [StringLength(10)]
     public string Status { get; set; } = null!;
 
-    [Column("type", TypeName = "int(1)")]
-    public int Type { get; set; }
+    [Column("type", TypeName = "int(1) unsigned")]
+    public uint Type { get; set; }
 
     [Column("stock", TypeName = "int(11)")]
     public int Stock { get; set; }

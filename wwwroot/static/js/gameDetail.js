@@ -1,3 +1,23 @@
+var GAME_QUANTITY_IN_STOCK = 0;
+
+$(document).ready(() => {
+  const qtyInStock = parseInt($("#disc-stock").val());
+  GAME_QUANTITY_IN_STOCK = qtyInStock;
+  $(".quantity-left-alert-text").text(`${qtyInStock} left in stock`);
+  if (qtyInStock < 10) {
+    $(".quantity-left-alert").addClass("show");
+  } else {
+    $(".quantity-left-alert").removeClass("show");
+  }
+  if (qtyInStock == 0) {
+    $(".quantity-left-alert").addClass("show");
+    $(".quantity-left-alert-text").text("Out of stock");
+    $("#gametype-disc").prop("disabled", true);
+  } else {
+    $("#gametype-disc").prop("disabled", false);
+  }
+});
+
 $(".about-table [name=game-type]").click(function () {
   const type = $(this).val();
   if (type == 1) {
@@ -24,6 +44,10 @@ $(".about-table [game-action*='change-quantity']").click(function () {
     }
   }
   if ($(this).attr("game-action") == "change-quantity-plus") {
+    if (current + 1 > GAME_QUANTITY_IN_STOCK) {
+      notyf.error("Out of stock");
+      return;
+    }
     q.val(current + 1);
   }
 });
@@ -37,6 +61,11 @@ $(".about-table .game-quantity input").on("input", function () {
   if (current < 1) {
     $(this).val(1);
     notyf.error("Quantity must be at least 1");
+    return;
+  }
+  if (current > GAME_QUANTITY_IN_STOCK) {
+    notyf.error("Out of stock");
+    $(this).val(GAME_QUANTITY_IN_STOCK);
     return;
   }
 });

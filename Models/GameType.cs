@@ -11,6 +11,7 @@ public class GameType
 {
     public const uint Software = 0;
     public const uint Disc = 1;
+    public const uint Both = 2;
     public static string Get(uint type)
     {
         return type == Software ? "Software" : "Disc";

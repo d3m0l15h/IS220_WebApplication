@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+
 namespace IS220_WebApplication.Models;
 
 [Table("address")]
@@ -52,5 +53,4 @@ public partial class Address
     [ForeignKey("UserId")]
     [InverseProperty("Addresses")]
     public virtual Aspnetuser User { get; set; } = null!;
-
 }
