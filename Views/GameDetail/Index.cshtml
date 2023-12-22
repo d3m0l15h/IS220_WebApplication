@@ -83,24 +83,92 @@
                         <td class="py-3 text-danger">Unavailable</td>
                     }
                 </tr>
+                <tr>
+                    <td class="py-3">Type:</td>
+                    <td class="py-3">
+                        @if (Model.Game.Type == GameType.Software)
+                        {
+                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
+                                id="gimetype-software" ad="gametype-software" autocomplete="off" checked>
+                            <label class="btn btn-outline-primary"
+                                for="gametype-software">@GameType.Get(GameType.Software)</label>
+                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
+                                autocomplete="off" disabled>
+                            <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
+                        }
+                        else if (Model.Game.Type == GameType.Disc)
+                        {
+                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
+                                id="gimetype-software" ad="gametype-software" autocomplete="off" disabled>
+                            <label class="btn btn-outline-primary"
+                                for="gametype-software">@GameType.Get(GameType.Software)</label>
+                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
+                                autocomplete="off" checked>
+                            <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
+                        }
+                        else if (Model.Game.Type == GameType.Both)
+                        {
+                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
+                                id="gametype-software" autocomplete="off">
+                            <label class="btn btn-outline-primary"
+                                for="gametype-software">@GameType.Get(GameType.Software)</label>
+
+                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
+                        }
+                    </td>
+                </tr>
+                @if (Model.Game.Type == GameType.Disc)
+                {
+                    <tr class="game-quantity fade show">
+                        <td class="py-3">Quantity:</td>
+                        <td class="py-3">
+                            <div class="quantity-input d-flex">
+                                <button class="btn btn-icon text-white" game-action="change-quantity-minus" game->-</button>
+                                <input type="text" value="1">
+                                <button class="btn btn-icon text-white" game-action="change-quantity-plus">+</button>
+                            </div>
+                            <div class="mt-1 ms-2 d-flex text-danger quantity-left-alert fade">
+                                <span class="quantity-left-alert-text"></span>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="game-quantity fade">
+                        <td class="py-3">Quantity:</td>
+                        <td class="py-3">
+                            <div class="quantity-input d-flex">
+                                <button class="btn btn-icon text-white" game-action="change-quantity-minus" game->-</button>
+                                <input type="text" value="1">
+                                <button class="btn btn-icon text-white" game-action="change-quantity-plus">+</button>
+                            </div>
+
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
 
         <div class="d-none">
             <input type="text" value="@Model.Game.Id" id="gameid">
+            <input type="text" value="@Model.Game.Stock" id="disc-stock">
         </div>
 
     </div>
+
+
     <div class="d-flex justify-content-end price">
-        <p class="fs-3 text-primary">đ @Model.Game.Price.ToString("N0")</p>
+        <p class="fs-3 text-primary">@Model.Game.Price.ToString("N0") đ</p>
     </div>
-    <div class="d-flex" style="justify-content: flex-end;">
+    <div class="d-flex justify-content-end">
         <div class="button-container">
 
             <div class="d-flex more-btn mb-4">
-                <button class="btn btn-primary buy-now">Mua ngay</button>
-                <button class="ms-3 btn btn-primary" id="add-to-cart">Thêm vào giỏ</button>
-
+                <button class="btn btn-primary buy-now">Buy now</button>
+                <button class="ms-3 btn btn-primary" game-action="add-cart">Add to cart</button>
             </div>
         </div>
     </div>
@@ -115,3 +183,4 @@
 
 
 <!----------- start SCRIPT -------------->
+<script src="~/static/js/gameDetail.js"></script>

@@ -5,6 +5,7 @@ using IS220_WebApplication.Models;
 using IS220_WebApplication.Utils;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using IS220_WebApplication.Database;
 using MySqlConnector;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,11 +38,11 @@ builder.Services.AddDefaultIdentity<Aspnetuser>(options =>
     {
         options.SignIn.RequireConfirmedAccount = false;
         options.User.RequireUniqueEmail = true;
-        options.Password.RequireDigit = false;  
-        options.Password.RequiredLength = 0; 
+        options.Password.RequireDigit = false;
+        options.Password.RequiredLength = 0;
         options.Password.RequireLowercase = false;
         options.Password.RequireUppercase = false;
-        options.Password.RequireNonAlphanumeric = false;  
+        options.Password.RequireNonAlphanumeric = false;
         options.Password.RequiredUniqueChars = 0;
     })
     .AddEntityFrameworkStores<MyDbContext>()
@@ -49,7 +50,7 @@ builder.Services.AddDefaultIdentity<Aspnetuser>(options =>
 
 builder.Services.Configure<EmailSettings>(cfg.GetSection("EmailSettings"));
 builder.Services.AddTransient<IEmailSender, EmailSender>();
-
+builder.Services.AddScoped<AddressProcessor>();
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 var app = builder.Build();

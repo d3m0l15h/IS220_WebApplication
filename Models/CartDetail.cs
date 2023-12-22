@@ -13,5 +13,8 @@ public class CartDetail
     public string GameTitle { get; set; } = null!;
     public string? GameImg { get; set; }
     public decimal GamePrice { get; set; }
+    public uint? GameType { get; set; }
+    public string? GameTypeStr { get; set; }
     public uint? Quantity { get; set; }
+    public DateTime UpdatedAt { get; set; }
 }

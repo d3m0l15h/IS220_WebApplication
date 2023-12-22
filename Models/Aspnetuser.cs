@@ -11,12 +11,17 @@ namespace IS220_WebApplication.Models;
 [Index("NormalizedEmail", Name = "EmailIndex")]
 [Index("NormalizedUserName", Name = "UserNameIndex", IsUnique = true)]
 [Index("Email", Name = "email", IsUnique = true)]
+[Index("Username", Name = "username", IsUnique = true)]
 public partial class Aspnetuser : IdentityUser<uint>
 {
     [Key]
     [Column("id", TypeName = "int(10) unsigned")]
     public override uint Id { get; set; }
-    
+
+    [Column("username")]
+    [StringLength(50)]
+    public string Username { get; set; } = null!;
+
     [Column("email")]
     [StringLength(256)]
     public override string? Email { get; set; }
