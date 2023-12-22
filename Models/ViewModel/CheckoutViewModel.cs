@@ -12,8 +12,8 @@ public class CheckoutItems
     public string Title { get; set; }
     public uint? Quantity { get; set; }
     public decimal Price { get; set; }
-    public int Type { get; set; }
-
+    public uint? Type { get; set; }
+    public string Image { get; set; }
 }
 public class CheckoutViewModel
 {

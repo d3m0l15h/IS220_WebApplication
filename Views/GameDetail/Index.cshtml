@@ -86,20 +86,22 @@
                 <tr>
                     <td class="py-3">Type:</td>
                     <td class="py-3">
-                        <input type="radio" class="btn-check" name="game-type" value="0" id="gametype-software"
-                            autocomplete="off">
-                        <label class="btn btn-outline-primary" for="gametype-software">Software</label>
+                        <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
+                            id="gimetype-software" ad="gametype-software" autocomplete="off">
+                        <label class="btn btn-outline-primary"
+                           
+                            for="gametype-software">@GameType.Get(GameType.Software)</label>
 
-                        <input type="radio" class="btn-check" name="game-type" value="1" id="gametype-disc"
+                        <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
                             autocomplete="off">
-                        <label class="btn btn-outline-primary" for="gametype-disc">Disc</label>
+                        <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
                     </td>
                 </tr>
                 <tr class="game-quantity fade">
                     <td class="py-3">Quantity:</td>
                     <td class="py-3">
                         <div class="quantity-input d-flex">
-                            <button class="btn btn-icon text-white" game-action="change-quantity-minus">-</button>
+                            <button class="btn btn-icon text-white" game-action="change-quantity-minus" game->-</button>
                             <input type="text" value="1">
                             <button class="btn btn-icon text-white" game-action="change-quantity-plus">+</button>
                         </div>

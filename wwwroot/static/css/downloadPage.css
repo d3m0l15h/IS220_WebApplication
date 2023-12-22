@@ -46,13 +46,3 @@
   height: 440px;
   object-fit: cover;
 }
-
-.quantity-input input {
-  color: var(--body-color);
-  background: transparent;
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-  width: 2rem;
-  text-align: center;
-}

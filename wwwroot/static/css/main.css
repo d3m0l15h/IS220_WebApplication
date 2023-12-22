@@ -1,6 +1,5 @@
 /*------------------------- FONT -------------------------*/
-@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&display=swap");
 
 /*------------------------- VARIBLES -------------------------*/
 :root {
@@ -9,14 +8,14 @@
     --light-color: #322f40;
     --text-color: hsl(0, 0%, 91%);
     --black-color: #444;
-    --border: .1rem solid rgba(0, 0, 0, .1);
-    --border-hover: .1rem solid var(--black-color);
-    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    --border-hover: 0.1rem solid var(--black-color);
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 /*------------------------- ALL ELEMENTS -------------------------*/
 * {
-    font-family: 'AR One Sans', sans-serif;
+    font-family: "AR One Sans", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -170,7 +169,7 @@ html::-webkit-scrollbar {
 }
 
 .search-form button {
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     background-color: var(--main-color);
 }
 
@@ -194,7 +193,7 @@ html::-webkit-scrollbar {
     text-align: center;
     display: flex;
     flex-direction: column;
-    row-gap: .5rem;
+    row-gap: 0.5rem;
 
     clip-path: circle(0% at 100% 0%);
 }
@@ -362,7 +361,7 @@ span {
 .box-btn p {
     padding: 8px;
     background-color: var(--text-color);
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     color: var(--main-color);
     font-weight: 400;
     font-size: 1.1rem;
@@ -386,12 +385,12 @@ span {
 
 .more-btn a {
     display: block;
-    padding: .8rem 1.6rem;
+    padding: 0.8rem 1.6rem;
     background-color: var(--main-color);
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     font-size: 1.5rem;
     color: white;
-    transition: all .3s ease
+    transition: all 0.3s ease;
 }
 
 .more-btn a:hover {
@@ -437,7 +436,7 @@ span {
 
 .footer_box_item a {
     color: #fff;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 }
 
 .footer_box_item a:hover {
@@ -534,7 +533,7 @@ span {
 .auth-container p {
     font-size: 14px;
     line-height: 20px;
-    letter-spacing: .3px;
+    letter-spacing: 0.3px;
     margin: 20px 0;
 }
 
@@ -606,7 +605,7 @@ span {
 }
 
 .form-container input:focus {
-    border: 2px solid #512DA8;
+    border: 2px solid #512da8;
 }
 
 .sign-in {
@@ -776,6 +775,19 @@ span {
 
 .input-error {
     color: red;
+}
+
+
+
+/*------------------------- CART -------------------------*/
+.quantity-input input {
+    color: var(--body-color);
+    background: transparent;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    width: 2rem;
+    text-align: center;
 }
 
 

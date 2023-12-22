@@ -18,23 +18,35 @@ public class CartsController : Controller
     }
 
     [HttpPost]
-    public IActionResult Add(uint game_id)
+    public IActionResult Add(uint game_id, uint type, uint quantity)
     {
         if (ModelState.IsValid)
         {
             string uid = User.FindFirstValue(ClaimTypes.NameIdentifier);
             uint userId = uint.Parse(uid);
 
-            // Check if the game_id already exists in the cart for this user
-            if (_db.Carts.Any(c => c.Uid == userId && c.GameId == game_id))
+            // Check if the game_id as software type already exists in the cart for this user
+            if (_db.Carts.Any(c => c.Uid == userId && c.GameId == game_id && type == GameType.Software && c.Type == type))
             {
                 return Ok("The game is already in your cart.");
             }
 
+            // Update the quantity if the game_id already exists in the cart for this user
+            var eCartItem = _db.Carts.Where(c => c.Uid == userId && c.GameId == game_id && c.Type == type).FirstOrDefault();
+            if (eCartItem != null)
+            {
+                eCartItem.Quantity += quantity;
+                _db.SaveChanges();
+                return Ok("Successfully updated cart.");
+            }
+
+            // Add the game to the cart
             var cartItem = new Cart()
             {
                 Uid = userId,
-                GameId = game_id
+                GameId = game_id,
+                Type = type,
+                Quantity = quantity
             };
             _db.Carts.Add(cartItem);
             _db.SaveChanges();
@@ -63,9 +75,13 @@ public class CartsController : Controller
                         GameTitle = game.Title,
                         GameImg = game.ImgPath,
                         GamePrice = game.Price,
-                        Quantity = cart.Quantity
+                        GameType = cart.Type,
+                        GameTypeStr = GameType.Get(cart.Type),
+                        Quantity = cart.Quantity,
+                        UpdatedAt = cart.UpdatedAt
                     }
                 )
+                // .OrderByDescending(c => c.UpdatedAt)
                 .ToList();
             return Ok(userCart);
         }
@@ -75,9 +91,9 @@ public class CartsController : Controller
         }
     }
     [HttpPost]
-    public IActionResult Remove(uint game_id)
+    public IActionResult Remove(uint game_id, uint type)
     {
-        var cartItem = _db.Carts.Where(c => c.GameId == game_id).FirstOrDefault();
+        var cartItem = _db.Carts.Where(c => c.GameId == game_id && c.Type == type).FirstOrDefault();
         if (cartItem == null)
         {
             return NotFound();
@@ -87,5 +103,20 @@ public class CartsController : Controller
         _db.SaveChanges();
 
         return Ok("Successfully removed from cart.");
+    }
+
+    [HttpPost]
+    public IActionResult Update(uint game_id, uint type, uint quantity)
+    {
+        var cartItem = _db.Carts.Where(c => c.GameId == game_id && c.Type == type).FirstOrDefault();
+        if (cartItem == null)
+        {
+            return NotFound();
+        }
+
+        cartItem.Quantity = quantity;
+        _db.SaveChanges();
+
+        return Ok("Successfully updated cart.");
     }
 }
