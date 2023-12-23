@@ -8,33 +8,33 @@ namespace IS220_WebApplication.Models;
 
 [PrimaryKey("Id", "Uid", "GameId")]
 [Table("carts")]
+[Index("Uid", Name = "FK_ASPNETUSERS-UID")]
 [Index("GameId", Name = "FK_GAME-ID")]
-[Index("Uid", Name = "FK_aspnetusers-UID")]
 public partial class Cart
 {
     [Key]
-    [Column("id", TypeName = "int(11)")]
+    [Column("ID", TypeName = "int(11)")]
     public int Id { get; set; }
 
     [Key]
-    [Column("uid", TypeName = "int(10) unsigned")]
+    [Column("UID", TypeName = "int(10) unsigned")]
     public uint Uid { get; set; }
 
     [Key]
-    [Column("game_id", TypeName = "int(10) unsigned")]
+    [Column("GAME_ID", TypeName = "int(10) unsigned")]
     public uint GameId { get; set; }
 
-    [Column("quantity", TypeName = "int(10) unsigned")]
+    [Column("QUANTITY", TypeName = "int(10) unsigned")]
     public uint? Quantity { get; set; }
 
-    [Column("type", TypeName = "int(10) unsigned")]
+    [Column("TYPE", TypeName = "int(10) unsigned")]
     public uint Type { get; set; }
 
-    [Column("created_at", TypeName = "timestamp")]
-    public DateTime CreatedAt { get; set; }
+    [Column("CREATED", TypeName = "timestamp")]
+    public DateTime Created { get; set; }
 
-    [Column("updated_at", TypeName = "timestamp")]
-    public DateTime UpdatedAt { get; set; }
+    [Column("MODIFIED", TypeName = "timestamp")]
+    public DateTime Modified { get; set; }
 
     [ForeignKey("GameId")]
     [InverseProperty("Carts")]

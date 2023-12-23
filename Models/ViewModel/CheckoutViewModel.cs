@@ -9,11 +9,11 @@ public class CheckoutItems
 {
     public uint GameId { get; set; }
     public int CartId { get; set; }
-    public string Title { get; set; }
+    public string? Title { get; set; }
     public uint? Quantity { get; set; }
     public decimal Price { get; set; }
     public uint? Type { get; set; }
-    public string Image { get; set; }
+    public string? Image { get; set; }
 }
 public class CheckoutViewModel
 {

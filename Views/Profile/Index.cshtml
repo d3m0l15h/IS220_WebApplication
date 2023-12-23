@@ -65,13 +65,13 @@
                                 <div class="d-flex mt-4">
                                     <div class="form-group w-50 me-1">
                                         <label class="form-label">First name</label>
-                                        <input type="text" class="form-control" asp-for="User!.FirstName"
-                                            value="@Model.User.FirstName">
+                                        <input type="text" class="form-control" asp-for="User!.Firstname"
+                                            value="@Model.User.Firstname">
                                     </div>
                                     <div class="form-group w-50 ms-1">
                                         <label class="form-label">Last name</label>
-                                        <input type="text" class="form-control" asp-for="User!.LastName"
-                                            value="@Model.User.LastName">
+                                        <input type="text" class="form-control" asp-for="User!.Lastname"
+                                            value="@Model.User.Lastname">
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                         </form>
                     </div>
                     <div class="tab-pane fade tab" id="manage-address">
-                        <form asp-controller="address" asp-action="update" method="post" enctype="multipart/form-data">
+                        <form asp-controller="address" asp-action="" method="post" enctype="multipart/form-data">
                             @Html.AntiForgeryToken()
                             <div class="card-body">
 
@@ -161,13 +161,13 @@
                                                         </div>
                                                         <p class="mb-1 text-dark">@Model.DefaultAddress.Receiver
                                                             @Model.DefaultAddress.Phone</p>
-                                                        </p>
+                                                        
                                                         <p class="mb-1 text-dark">@Model.DefaultAddress.Street,
                                                             @Model.DefaultAddress.Ward</p>
                                                         <p class="text-dark">
                                                             @Model.DefaultAddress.City,
                                                             @Model.DefaultAddress.State</p>
-                                                        </p>
+                                                        
 
                                                     </div>
                                                 </div>

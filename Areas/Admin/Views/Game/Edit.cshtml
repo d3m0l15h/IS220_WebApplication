@@ -62,7 +62,7 @@
                 <div class="dm-date-picker">
                     <div class="form-group mb-0 form-group-calender">
                         <div class="position-relative">
-                            <input type="text" class="form-control form-control-lg" id="datepicker3" placeholder="MM/DD/YYYY" asp-for="Game.ReleaseDate" value="@Model.Game.ReleaseDate.ToString("MM/dd/yyyy")">
+                            <input type="text" class="form-control form-control-lg" id="datepicker3" placeholder="MM/DD/YYYY" asp-for="Game.Releasedate" value="@Model.Game.Releasedate.ToString("MM/dd/yyyy")">
                             <a href="#">
                                 <img class="svg" src="~/admin/img/svg/calendar.svg" alt="calendar">
                             </a>
@@ -185,8 +185,9 @@
                 <div class="dm-select-list d-flex align-center">
                     <div class="dm-select ">
                         <select asp-for="Game.Type" class="form-control ">
-                            <option value="1">Game</option>
-                            <option value="2">Console</option>
+                            <option value="0">Software</option>
+                            <option value="1">Console</option>
+                            <option value="2">Both</option>
                         </select>
                     </div>
                 </div>
@@ -198,7 +199,7 @@
                                             <div class="dm-select ">
                                                 <select asp-for="Game.Status" class="form-control ">
                                                     <option value="active">Active</option>
-                                                    <option value="deactivete">Deactivete</option>
+                                                    <option value="deactivate">Deactivate</option>
                                                     <option value="block">Block</option>
                                                 </select>
                                             </div>
@@ -208,7 +209,7 @@
             <!-- form group 8 -->
             <div class="form-group mb-0">
                 <label for="name10">Download link</label>
-                <input type="text" class="form-control" id="name10" asp-for="Game.DownloadLink">
+                <input type="text" class="form-control" id="name10" asp-for="Game.Downloadlink">
             </div>
             <!-- End: form -->
         </div>
@@ -227,7 +228,7 @@
         <div class="add-product__body-img px-sm-40 px-20">
             <div class="upload-product-media d-flex justify-content-between align-items-center mt-25">
                 <div class="upload-media-area d-flex">
-                    <img id="imagePreview" src="~/images/game/@Model.Game.ImgPath" alt="Image Preview"/>
+                    <img id="imagePreview" src="~/images/game/@Model.Game.Imgpath" alt="Image Preview"/>
 
                     <div class=" upload-media-area__title  d-flex flex-wrap align-items-center ms-10">
                         <div>

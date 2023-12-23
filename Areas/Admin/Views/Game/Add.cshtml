@@ -61,7 +61,7 @@
                 <div class="dm-date-picker">
                     <div class="form-group mb-0 form-group-calender">
                         <div class="position-relative">
-                            <input type="text" class="form-control form-control-lg" id="datepicker3" placeholder="MM/DD/YYYY" asp-for="Game.ReleaseDate">
+                            <input type="text" class="form-control form-control-lg" id="datepicker3" placeholder="MM/DD/YYYY" asp-for="Game.Releasedate">
                             <a href="#">
                                 <img class="svg" src="~/admin/img/svg/calendar.svg" alt="calendar">
                             </a>
@@ -182,8 +182,9 @@
                 <div class="dm-select-list d-flex align-center">
                     <div class="dm-select ">
                         <select asp-for="Game.Type" class="form-control ">
-                            <option value="1">Game</option>
-                            <option value="2">Console</option>
+                            <option value="0">Software</option>
+                            <option value="1">Console</option>
+                            <option value="2">Both</option>
                         </select>
                     </div>
                 </div>
@@ -192,7 +193,7 @@
             <!-- form group 8 -->
             <div class="form-group mb-0">
                 <label for="name10">Download link</label>
-                <input type="text" class="form-control" id="name10" asp-for="Game.DownloadLink">
+                <input type="text" class="form-control" id="name10" asp-for="Game.Downloadlink">
             </div>
             <!-- End: form -->
         </div>

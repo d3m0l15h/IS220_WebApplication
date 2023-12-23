@@ -8,85 +8,91 @@ using Microsoft.EntityFrameworkCore;
 namespace IS220_WebApplication.Models;
 
 [Table("aspnetusers")]
-[Index("NormalizedEmail", Name = "EmailIndex")]
-[Index("NormalizedUserName", Name = "UserNameIndex", IsUnique = true)]
-[Index("Email", Name = "email", IsUnique = true)]
-[Index("Username", Name = "username", IsUnique = true)]
+[Index("Email", Name = "EMAIL", IsUnique = true)]
+[Index("Normalizedemail", Name = "EMAILINDEX")]
+[Index("Normalizedusername", Name = "USERNAMEINDEX", IsUnique = true)]
 public partial class Aspnetuser : IdentityUser<uint>
 {
     [Key]
-    [Column("id", TypeName = "int(10) unsigned")]
+    [Column("ID", TypeName = "int(10) unsigned")]
     public override uint Id { get; set; }
 
-    [Column("username")]
-    [StringLength(50)]
-    public string Username { get; set; } = null!;
-
-    [Column("email")]
+    [Column("EMAIL")]
     [StringLength(256)]
     public override string? Email { get; set; }
 
-    [Column("firstName")]
+    [Column("FIRSTNAME")]
     [StringLength(50)]
-    public string? FirstName { get; set; }
+    public string? Firstname { get; set; }
 
-    [Column("lastName")]
+    [Column("LASTNAME")]
     [StringLength(50)]
-    public string? LastName { get; set; }
+    public string? Lastname { get; set; }
 
-    [Column("phone")]
+    [Column("PHONE")]
     [StringLength(20)]
     public string? Phone { get; set; }
 
-    [Column("birth")]
+    [Column("BIRTH")]
     public DateOnly? Birth { get; set; }
 
-    [Column("role", TypeName = "tinyint(4)")]
+    [Column("ROLE", TypeName = "tinyint(4)")]
     public sbyte Role { get; set; }
 
-    [Column("created", TypeName = "datetime")]
+    [Column("CREATED", TypeName = "datetime")]
     public DateTime Created { get; set; }
 
-    [Column("modified", TypeName = "datetime")]
+    [Column("MODIFIED", TypeName = "datetime")]
     public DateTime? Modified { get; set; }
 
-    [Column("cash", TypeName = "double(13,2)")]
+    [Column("CASH", TypeName = "double(13,2)")]
     public double Cash { get; set; }
 
-    [Column("status")]
+    [Column("STATUS")]
     [StringLength(10)]
     public string Status { get; set; } = null!;
 
-    [Column("avatarPath", TypeName = "tinytext")]
-    public string? AvatarPath { get; set; }
+    [Column("AVATARPATH", TypeName = "tinytext")]
+    public string? Avatarpath { get; set; }
 
+    [Column("NORMALIZEDUSERNAME")]
     [StringLength(256)]
-    public override string? NormalizedUserName { get; set; }
+    public string? Normalizedusername { get; set; }
 
+    [Column("NORMALIZEDEMAIL")]
     [StringLength(256)]
-    public override string? NormalizedEmail { get; set; }
+    public string? Normalizedemail { get; set; }
 
-    public override bool EmailConfirmed { get; set; }
+    [Column("EMAILCONFIRMED")]
+    public bool Emailconfirmed { get; set; }
 
-    public override string? PasswordHash { get; set; }
+    [Column("PASSWORDHASH")]
+    public string? Passwordhash { get; set; }
 
-    public override string? SecurityStamp { get; set; }
+    [Column("SECURITYSTAMP")]
+    public string? Securitystamp { get; set; }
 
-    public override string? ConcurrencyStamp { get; set; }
+    [Column("CONCURRENCYSTAMP")]
+    public string? Concurrencystamp { get; set; }
 
-    public override string? PhoneNumber { get; set; }
+    [Column("PHONENUMBER")]
+    public string? Phonenumber { get; set; }
 
-    public override bool PhoneNumberConfirmed { get; set; }
+    [Column("PHONENUMBERCONFIRMED")]
+    public bool Phonenumberconfirmed { get; set; }
 
-    public override bool TwoFactorEnabled { get; set; }
+    [Column("TWOFACTORENABLED")]
+    public bool Twofactorenabled { get; set; }
 
+    [Column("LOCKOUTEND")]
     [MaxLength(6)]
-    public override DateTimeOffset? LockoutEnd { get; set; }
+    public DateTime? Lockoutend { get; set; }
 
-    public override bool LockoutEnabled { get; set; }
+    [Column("LOCKOUTENABLED")]
+    public bool Lockoutenabled { get; set; }
 
-    [Column(TypeName = "int(11)")]
-    public override int AccessFailedCount { get; set; }
+    [Column("ACCESSFAILEDCOUNT", TypeName = "int(11)")]
+    public int Accessfailedcount { get; set; }
 
     [InverseProperty("User")]
     public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
@@ -104,13 +110,13 @@ public partial class Aspnetuser : IdentityUser<uint>
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
     [InverseProperty("User")]
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public virtual ICollection<UserOrder> UserOrders { get; set; } = new List<UserOrder>();
 
-    [ForeignKey("UserId")]
+    [ForeignKey("Userid")]
     [InverseProperty("Users")]
     public virtual ICollection<Game> Games { get; set; } = new List<Game>();
 
-    [ForeignKey("UserId")]
+    [ForeignKey("Userid")]
     [InverseProperty("Users")]
     public virtual ICollection<Aspnetrole> Roles { get; set; } = new List<Aspnetrole>();
 }

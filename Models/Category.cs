@@ -7,14 +7,14 @@ using Microsoft.EntityFrameworkCore;
 namespace IS220_WebApplication.Models;
 
 [Table("category")]
-[Index("Name", Name = "name", IsUnique = true)]
+[Index("Name", Name = "NAME", IsUnique = true)]
 public partial class Category
 {
     [Key]
-    [Column("id", TypeName = "int(10) unsigned")]
+    [Column("ID", TypeName = "int(10) unsigned")]
     public uint Id { get; set; }
 
-    [Column("name")]
+    [Column("NAME")]
     [StringLength(30)]
     public string Name { get; set; } = null!;
 

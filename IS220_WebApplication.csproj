@@ -49,5 +49,9 @@
       <AdditionalFiles Include="Areas\Admin\Views\Shared\_ValidationScriptsPartial.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\ConsoleGame\Index.cshtml" />
+    </ItemGroup>
+
 
 </Project>

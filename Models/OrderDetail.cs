@@ -7,31 +7,38 @@ using Microsoft.EntityFrameworkCore;
 namespace IS220_WebApplication.Models;
 
 [Table("order_detail")]
-[Index("GameId", Name = "FK_Game_Trans")]
-[Index("TypeId", Name = "Fk_Type_Trans")]
+[Index("GameId", Name = "FK_ord_det_Game")]
+[Index("OrderId", Name = "FK_ord_det_Order")]
 public partial class OrderDetail
 {
     [Key]
-    [Column("id", TypeName = "int(11) unsigned")]
+    [Column("id", TypeName = "int(10) unsigned")]
     public uint Id { get; set; }
 
-    [Column("typeID", TypeName = "int(11) unsigned")]
-    public uint TypeId { get; set; }
+    [Column("orderID", TypeName = "int(10) unsigned")]
+    public uint OrderId { get; set; }
 
-    [Column("amount", TypeName = "int(11)")]
-    public int Amount { get; set; }
+    [Column("gameID", TypeName = "int(10) unsigned")]
+    public uint GameId { get; set; }
 
-    [Column("gameID", TypeName = "int(11) unsigned")]
-    public uint? GameId { get; set; }
+    [Column("quantity", TypeName = "int(10) unsigned")]
+    public uint? Quantity { get; set; }
+
+    [Column("type")]
+    [StringLength(50)]
+    public string Type { get; set; } = null!;
+
+    [Column("created", TypeName = "int(11)")]
+    public int Created { get; set; }
+
+    [Column("modified", TypeName = "timestamp")]
+    public DateTime? Modified { get; set; }
 
     [ForeignKey("GameId")]
     [InverseProperty("OrderDetails")]
-    public virtual Game? Game { get; set; }
+    public virtual Game Game { get; set; } = null!;
 
-    [InverseProperty("Detail")]
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
-
-    [ForeignKey("TypeId")]
+    [ForeignKey("OrderId")]
     [InverseProperty("OrderDetails")]
-    public virtual OrderType Type { get; set; } = null!;
+    public virtual UserOrder Order { get; set; } = null!;
 }

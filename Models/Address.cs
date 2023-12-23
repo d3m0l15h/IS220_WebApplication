@@ -7,50 +7,53 @@ using Microsoft.EntityFrameworkCore;
 namespace IS220_WebApplication.Models;
 
 [Table("address")]
-[Index("UserId", Name = "FK_Add_User")]
+[Index("Userid", Name = "FK_ADD_USER")]
 public partial class Address
 {
     [Key]
-    [Column("id", TypeName = "int(10) unsigned")]
+    [Column("ID", TypeName = "int(10) unsigned")]
     public uint Id { get; set; }
 
-    [Column("userID", TypeName = "int(10) unsigned")]
-    public uint UserId { get; set; }
+    [Column("USERID", TypeName = "int(10) unsigned")]
+    public uint Userid { get; set; }
 
-    [Column("street")]
+    [Column("STREET")]
     [StringLength(255)]
     public string Street { get; set; } = null!;
 
-    [Column("ward")]
+    [Column("WARD")]
     [StringLength(255)]
     public string Ward { get; set; } = null!;
 
-    [Column("city")]
+    [Column("CITY")]
     [StringLength(255)]
     public string City { get; set; } = null!;
 
-    [Column("state")]
+    [Column("STATE")]
     [StringLength(255)]
     public string State { get; set; } = null!;
 
-    [Column("isDefault")]
-    public bool IsDefault { get; set; }
+    [Column("ISDEFAULT")]
+    public bool Isdefault { get; set; }
 
-    [Column("phone")]
+    [Column("PHONE")]
     [StringLength(255)]
     public string Phone { get; set; } = null!;
 
-    [Column("receiver")]
+    [Column("RECEIVER")]
     [StringLength(255)]
     public string Receiver { get; set; } = null!;
 
-    [Column("created_at", TypeName = "timestamp")]
+    [Column("CREATED_AT", TypeName = "timestamp")]
     public DateTime CreatedAt { get; set; }
 
-    [Column("updated_at", TypeName = "timestamp")]
+    [Column("UPDATED_AT", TypeName = "timestamp")]
     public DateTime? UpdatedAt { get; set; }
 
-    [ForeignKey("UserId")]
+    [ForeignKey("Userid")]
     [InverseProperty("Addresses")]
     public virtual Aspnetuser User { get; set; } = null!;
+
+    [InverseProperty("Address")]
+    public virtual ICollection<UserOrder> UserOrders { get; set; } = new List<UserOrder>();
 }

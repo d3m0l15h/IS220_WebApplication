@@ -1,12 +1,12 @@
 using System.Globalization;
 using System.Net;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using IS220_WebApplication.Database;
 using IS220_WebApplication.Models;
 using IS220_WebApplication.Models.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using IEmailSender = IS220_WebApplication.Utils.IEmailSender;
-using AddressProcessor = IS220_WebApplication.Database.AddressProcessor;
 namespace IS220_WebApplication.Controllers;
 
 public class ProfileController : Controller
@@ -32,8 +32,8 @@ public class ProfileController : Controller
             return RedirectToAction("index", "home");
         }
         var user = _userManager.GetUserAsync(User).Result;
-        var defaultAddress = _address.GetDefaultAddress(user.Id);
-        List<Address> nondefaultAddresses = _address.GetNonDefaultAddresses(user.Id);
+        var defaultAddress = _address.GetDefaultAddress(user!.Id);
+        var nondefaultAddresses = _address.GetNonDefaultAddresses(user.Id);
         var viewModel = new CombinedViewModel
         {
             User = user,
@@ -127,8 +127,8 @@ public class ProfileController : Controller
             return NotFound();
         }
 
-        user.FirstName = model.User!.FirstName;
-        user.LastName = model.User!.LastName;
+        user.Firstname = model.User!.Firstname;
+        user.Lastname = model.User!.Lastname;
         user.Phone = model.User!.Phone;
         user.Birth = model.User!.Birth;
 

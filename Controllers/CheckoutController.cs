@@ -35,7 +35,7 @@ public class CheckoutController : Controller
                 Quantity = c.Cart.Quantity,
                 Price = c.Game.Price,
                 Type = c.Cart.Type,
-                Image = c.Game.ImgPath
+                Image = c.Game.Imgpath
             })
             .ToListAsync();
 

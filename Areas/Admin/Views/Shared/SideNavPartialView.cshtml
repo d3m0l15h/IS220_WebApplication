@@ -1,46 +1,51 @@
 ﻿<div class="sidebar-wrapper">
-         <div class="sidebar sidebar-collapse" id="sidebar">
-            <div class="sidebar__menu-group">
-               <ul class="sidebar_nav">
-                  <li class="">
-                     <a asp-area="admin" asp-controller="dashboard" asp-action="index">
+    <div class="sidebar sidebar-collapse" id="sidebar">
+        <div class="sidebar__menu-group">
+            <ul class="sidebar_nav">
+                <li class="">
+                    <a asp-area="admin" asp-controller="dashboard" asp-action="index">
                         <span class="nav-icon uil uil-create-dashboard"></span>
                         <span class="menu-text">Dashboard</span>
-                     </a>
-                  </li>
-                  <li class="menu-title mt-15">
-                     <span>Management</span>
-                  </li>
-                  <li class="has-child">
-                     <a class="">
+                    </a>
+                </li>
+                <li class="menu-title mt-15">
+                    <span>Management</span>
+                </li>
+                <li class="has-child">
+                    <a class="">
                         <span class="nav-icon uil uil-archive"></span>
                         <span class="menu-text">Game</span>
                         <span class="toggle-icon"></span>
-                     </a>
-                     <ul>
+                    </a>
+                    <ul>
                         <li class="">
-                           <a asp-area="admin" asp-controller="game" asp-action="index">List</a>
+                            <a asp-area="admin" asp-controller="game" asp-action="index">List</a>
                         </li>
                         <li class="">
-                           <a asp-area="admin" asp-controller="category" asp-action="index">Category</a>
+                            <a asp-area="admin" asp-controller="category" asp-action="index">Category</a>
                         </li>
-                     </ul>
-                  </li>
-                  <li>
-                  <a  asp-area="admin" asp-controller="user" asp-action="index" class="">
-                     <span class="nav-icon uil uil-users-alt"></span>
-                     <span class="menu-text">User</span>
-                  </a>
-                  
-               </li>
-                  
-                  <li class="">
-                     <a href="sign-up.html">
+                    </ul>
+                </li>
+                <li>
+                    <a asp-area="admin" asp-controller="user" asp-action="index" class="">
+                        <span class="nav-icon uil uil-users-alt"></span>
+                        <span class="menu-text">User</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="admin" asp-controller="order" asp-action="index" class="">
+                        <span class="nav-icon uil uil-shopping-cart"></span>
+                        <span class="menu-text">Order</span>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="sign-up.html">
                         <span class="nav-icon uil uil-chart"></span>
                         <span class="menu-text">Report</span>
-                     </a>
-                  </li>
-               </ul>
-            </div>
-         </div>
-      </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

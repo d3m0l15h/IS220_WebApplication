@@ -7,21 +7,23 @@ using Microsoft.EntityFrameworkCore;
 namespace IS220_WebApplication.Models;
 
 [Table("aspnetuserclaims")]
-[Index("UserId", Name = "IX_AspNetUserClaims_UserId")]
+[Index("Userid", Name = "IX_ASPNETUSERCLAIMS_USERID")]
 public partial class Aspnetuserclaim
 {
     [Key]
-    [Column(TypeName = "int(11)")]
+    [Column("ID", TypeName = "int(11)")]
     public int Id { get; set; }
 
-    [Column(TypeName = "int(10) unsigned")]
-    public uint UserId { get; set; }
+    [Column("USERID", TypeName = "int(10) unsigned")]
+    public uint Userid { get; set; }
 
-    public string? ClaimType { get; set; }
+    [Column("CLAIMTYPE")]
+    public string? Claimtype { get; set; }
 
-    public string? ClaimValue { get; set; }
+    [Column("CLAIMVALUE")]
+    public string? Claimvalue { get; set; }
 
-    [ForeignKey("UserId")]
+    [ForeignKey("Userid")]
     [InverseProperty("Aspnetuserclaims")]
     public virtual Aspnetuser User { get; set; } = null!;
 }

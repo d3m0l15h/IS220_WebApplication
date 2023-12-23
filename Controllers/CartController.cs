@@ -20,10 +20,11 @@ public class CartsController : Controller
     [HttpPost]
     public IActionResult Add(uint game_id, uint type, uint quantity)
     {
-        if (ModelState.IsValid)
+        if (!ModelState.IsValid) return BadRequest();
+        var uid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (uid != null)
         {
-            string uid = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            uint userId = uint.Parse(uid);
+            var userId = uint.Parse(uid);
 
             // Check if the game_id as software type already exists in the cart for this user
             if (_db.Carts.Any(c => c.Uid == userId && c.GameId == game_id && type == GameType.Software && c.Type == type))
@@ -32,7 +33,7 @@ public class CartsController : Controller
             }
 
             // Update the quantity if the game_id already exists in the cart for this user
-            var eCartItem = _db.Carts.Where(c => c.Uid == userId && c.GameId == game_id && c.Type == type).FirstOrDefault();
+            var eCartItem = _db.Carts.FirstOrDefault(c => c.Uid == userId && c.GameId == game_id && c.Type == type);
             if (eCartItem != null)
             {
                 eCartItem.Quantity += quantity;
@@ -49,51 +50,42 @@ public class CartsController : Controller
                 Quantity = quantity
             };
             _db.Carts.Add(cartItem);
-            _db.SaveChanges();
-            return Ok("Successfully added to cart.");
         }
-        else
-        {
-            return View();
-        }
+
+        _db.SaveChanges();
+        return Ok("Successfully added to cart.");
     }
     [HttpGet]
     public IActionResult Get()
     {
-        if (ModelState.IsValid)
-        {
-            string uid = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var userCart = _db.Carts
-                .Where(c => c.Uid == uint.Parse(uid))
-                .Join(
-                    _db.Games,
-                    cart => cart.GameId,
-                    game => game.Id,
-                    (cart, game) => new CartDetail
-                    {
-                        GameId = game.Id,
-                        GameTitle = game.Title,
-                        GameImg = game.ImgPath,
-                        GamePrice = game.Price,
-                        GameType = cart.Type,
-                        GameTypeStr = GameType.Get(cart.Type),
-                        Quantity = cart.Quantity,
-                        UpdatedAt = cart.UpdatedAt
-                    }
-                )
-                // .OrderByDescending(c => c.UpdatedAt)
-                .ToList();
-            return Ok(userCart);
-        }
-        else
-        {
-            return View();
-        }
+        if (!ModelState.IsValid) return BadRequest();
+        var uid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var userCart = _db.Carts
+            .Where(c => uid != null && c.Uid == uint.Parse(uid))
+            .Join(
+                _db.Games,
+                cart => cart.GameId,
+                game => game.Id,
+                (cart, game) => new CartDetail
+                {
+                    GameId = game.Id,
+                    GameTitle = game.Title,
+                    GameImg = game.Imgpath,
+                    GamePrice = game.Price,
+                    GameType = cart.Type,
+                    GameTypeStr = GameType.Get(cart.Type),
+                    Quantity = cart.Quantity,
+                    UpdatedAt = cart.Modified
+                }
+            )
+            // .OrderByDescending(c => c.UpdatedAt)
+            .ToList();
+        return Ok(userCart);
     }
     [HttpPost]
     public IActionResult Remove(uint game_id, uint type)
     {
-        var cartItem = _db.Carts.Where(c => c.GameId == game_id && c.Type == type).FirstOrDefault();
+        var cartItem = _db.Carts.FirstOrDefault(c => c.GameId == game_id && c.Type == type);
         if (cartItem == null)
         {
             return NotFound();
@@ -108,7 +100,7 @@ public class CartsController : Controller
     [HttpPost]
     public IActionResult Update(uint game_id, uint type, uint quantity)
     {
-        var cartItem = _db.Carts.Where(c => c.GameId == game_id && c.Type == type).FirstOrDefault();
+        var cartItem = _db.Carts.FirstOrDefault(c => c.GameId == game_id && c.Type == type);
         if (cartItem == null)
         {
             return NotFound();

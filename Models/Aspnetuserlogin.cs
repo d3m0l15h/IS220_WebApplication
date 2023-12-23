@@ -6,25 +6,28 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Models;
 
-[PrimaryKey("LoginProvider", "ProviderKey")]
+[PrimaryKey("Loginprovider", "Providerkey")]
 [Table("aspnetuserlogins")]
-[Index("UserId", Name = "IX_AspNetUserLogins_UserId")]
+[Index("Userid", Name = "IX_ASPNETUSERLOGINS_USERID")]
 public partial class Aspnetuserlogin
 {
     [Key]
+    [Column("LOGINPROVIDER")]
     [StringLength(128)]
-    public string LoginProvider { get; set; } = null!;
+    public string Loginprovider { get; set; } = null!;
 
     [Key]
+    [Column("PROVIDERKEY")]
     [StringLength(128)]
-    public string ProviderKey { get; set; } = null!;
+    public string Providerkey { get; set; } = null!;
 
-    public string? ProviderDisplayName { get; set; }
+    [Column("PROVIDERDISPLAYNAME")]
+    public string? Providerdisplayname { get; set; }
 
-    [Column(TypeName = "int(10) unsigned")]
-    public uint UserId { get; set; }
+    [Column("USERID", TypeName = "int(10) unsigned")]
+    public uint Userid { get; set; }
 
-    [ForeignKey("UserId")]
+    [ForeignKey("Userid")]
     [InverseProperty("Aspnetuserlogins")]
     public virtual Aspnetuser User { get; set; } = null!;
 }

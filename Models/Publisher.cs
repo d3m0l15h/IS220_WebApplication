@@ -10,10 +10,10 @@ namespace IS220_WebApplication.Models;
 public partial class Publisher
 {
     [Key]
-    [Column("id", TypeName = "int(10) unsigned")]
+    [Column("ID", TypeName = "int(10) unsigned")]
     public uint Id { get; set; }
 
-    [Column("name")]
+    [Column("NAME")]
     [StringLength(50)]
     public string Name { get; set; } = null!;
 

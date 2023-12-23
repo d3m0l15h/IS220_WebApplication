@@ -27,7 +27,7 @@ builder.Services.AddSession();
 
 builder.Services.AddNotyf(config =>
 {
-    config.DurationInSeconds = 5;
+    config.DurationInSeconds = 2;
     config.IsDismissable = true;
     config.Position = NotyfPosition.BottomRight;
 });

@@ -7,21 +7,23 @@ using Microsoft.EntityFrameworkCore;
 namespace IS220_WebApplication.Models;
 
 [Table("aspnetroleclaims")]
-[Index("RoleId", Name = "IX_AspNetRoleClaims_RoleId")]
+[Index("Roleid", Name = "IX_ASPNETROLECLAIMS_ROLEID")]
 public partial class Aspnetroleclaim
 {
     [Key]
-    [Column(TypeName = "int(11)")]
+    [Column("ID", TypeName = "int(11)")]
     public int Id { get; set; }
 
-    [Column(TypeName = "int(10) unsigned")]
-    public uint RoleId { get; set; }
+    [Column("ROLEID", TypeName = "int(10) unsigned")]
+    public uint Roleid { get; set; }
 
-    public string? ClaimType { get; set; }
+    [Column("CLAIMTYPE")]
+    public string? Claimtype { get; set; }
 
-    public string? ClaimValue { get; set; }
+    [Column("CLAIMVALUE")]
+    public string? Claimvalue { get; set; }
 
-    [ForeignKey("RoleId")]
+    [ForeignKey("Roleid")]
     [InverseProperty("Aspnetroleclaims")]
     public virtual Aspnetrole Role { get; set; } = null!;
 }

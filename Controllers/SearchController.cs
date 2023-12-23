@@ -15,8 +15,7 @@ public class SearchController : Controller
     }
     
     [HttpGet]
-    [Route(("/game"))]
-    public IActionResult Game(string search, int page = 1, int pageSize = 10)
+    public IActionResult Index(string search, int page = 1, int pageSize = 10)
     {
        var games = _db.Games.Where(g => g.Title.Contains(search));
        var viewModel = new CombinedViewModel
@@ -24,7 +23,7 @@ public class SearchController : Controller
            SearchGame = games.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
            TotalCount = games.Count()
        };
-        return View("index", viewModel);
+        return View("Index", viewModel);
     }
     
     [HttpGet]

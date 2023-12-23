@@ -19,15 +19,14 @@ public class AddressController : Controller
     [HttpGet]
     public IActionResult GetDefaultAddress()
     {
-        string uid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var uid = User.FindFirstValue(ClaimTypes.NameIdentifier);
         if (uid == null)
         {
             return Unauthorized();
         }
-        uint userId = uint.Parse(uid);
+        var userId = uint.Parse(uid);
         var defaultAddress = _db.Addresses
-            .Where(a => a.UserId == userId && a.IsDefault == true)
-            .FirstOrDefault();
+            .FirstOrDefault(a => a.Userid == userId && a.Isdefault == true);
 
         if (defaultAddress == null)
         {

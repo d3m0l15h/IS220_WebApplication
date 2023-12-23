@@ -20,17 +20,16 @@ public class AddressProcessor : Processor<Address>
 
     //     return _db.Addresses.Skip(start).Take(length).ToList();
     // }
-    public Address GetDefaultAddress(uint userId)
+    public Address? GetDefaultAddress(uint userId)
     {
         var defaultAddress = _db.Addresses
-            .Where(a => a.UserId == userId && a.IsDefault == true)
-            .FirstOrDefault();
+            .FirstOrDefault(a => a.Userid == userId && a.Isdefault == true);
         return defaultAddress;
     }
     public List<Address> GetNonDefaultAddresses(uint userId)
     {
         var nonDefaultAddress = _db.Addresses
-            .Where(a => a.UserId == userId && a.IsDefault == false)
+            .Where(a => a.Userid == userId && a.Isdefault == false)
             .ToList();
         return nonDefaultAddress;
     }

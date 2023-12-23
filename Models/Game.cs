@@ -7,48 +7,47 @@ using Microsoft.EntityFrameworkCore;
 namespace IS220_WebApplication.Models;
 
 [Table("game")]
-[Index("Developer", Name = "FK_Game_Developer")]
-[Index("Publisher", Name = "FK_Game_Publisher")]
+[Index("Developer", Name = "FK_GAME_DEVELOPER")]
+[Index("Publisher", Name = "FK_GAME_PUBLISHER")]
 public partial class Game
 {
     [Key]
-    [Column("id", TypeName = "int(10) unsigned")]
+    [Column("ID", TypeName = "int(10) unsigned")]
     public uint Id { get; set; }
 
-    [Column("title")]
+    [Column("TITLE")]
     [StringLength(100)]
     public string Title { get; set; } = null!;
 
-    [Column("price")]
-    [Precision(10, 0)]
+    [Column("PRICE", TypeName = "double(10,2) unsigned")]
     public decimal Price { get; set; }
 
-    [Column("releaseDate")]
-    public DateOnly ReleaseDate { get; set; }
+    [Column("RELEASEDATE")]
+    public DateOnly Releasedate { get; set; }
 
-    [Column("description", TypeName = "text")]
+    [Column("DESCRIPTION", TypeName = "text")]
     public string? Description { get; set; }
 
-    [Column("publisher", TypeName = "int(10) unsigned")]
+    [Column("PUBLISHER", TypeName = "int(10) unsigned")]
     public uint Publisher { get; set; }
 
-    [Column("developer", TypeName = "int(10) unsigned")]
+    [Column("DEVELOPER", TypeName = "int(10) unsigned")]
     public uint Developer { get; set; }
 
-    [Column("imgPath", TypeName = "tinytext")]
-    public string? ImgPath { get; set; }
+    [Column("IMGPATH", TypeName = "tinytext")]
+    public string? Imgpath { get; set; }
 
-    [Column("downloadLink", TypeName = "tinytext")]
-    public string DownloadLink { get; set; } = null!;
+    [Column("DOWNLOADLINK", TypeName = "tinytext")]
+    public string Downloadlink { get; set; } = null!;
 
-    [Column("status")]
+    [Column("STATUS")]
     [StringLength(10)]
     public string Status { get; set; } = null!;
 
-    [Column("type", TypeName = "int(1) unsigned")]
+    [Column("TYPE", TypeName = "int(1) unsigned")]
     public uint Type { get; set; }
 
-    [Column("stock", TypeName = "int(11)")]
+    [Column("STOCK", TypeName = "int(11)")]
     public int Stock { get; set; }
 
     [InverseProperty("Game")]
@@ -69,7 +68,7 @@ public partial class Game
     [InverseProperty("Games")]
     public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
 
-    [ForeignKey("GameId")]
+    [ForeignKey("Gameid")]
     [InverseProperty("Games")]
     public virtual ICollection<Aspnetuser> Users { get; set; } = new List<Aspnetuser>();
 }
