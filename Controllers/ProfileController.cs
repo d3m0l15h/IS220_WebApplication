@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using IEmailSender = IS220_WebApplication.Utils.IEmailSender;
 using AddressProcessor = IS220_WebApplication.Database.AddressProcessor;
+
 namespace IS220_WebApplication.Controllers;
 
 public class ProfileController : Controller
@@ -15,12 +16,14 @@ public class ProfileController : Controller
     private readonly IEmailSender _emailSender;
     private readonly INotyfService _notyf;
     private readonly AddressProcessor _address;
-    public ProfileController(UserManager<Aspnetuser> userManager, INotyfService notyf, IEmailSender emailSender, AddressProcessor address)
+    private readonly ILogger<ProfileController> _logger;
+    public ProfileController(UserManager<Aspnetuser> userManager, INotyfService notyf, IEmailSender emailSender, AddressProcessor address, ILogger<ProfileController> logger)
     {
         _address = address;
         _userManager = userManager;
         _notyf = notyf;
         _emailSender = emailSender;
+        _logger = logger;
     }
 
     // GET
@@ -164,5 +167,37 @@ public class ProfileController : Controller
 
         _notyf.Success("Password changed successfully");
         return RedirectToAction("index", "profile");
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> CreateNewAddress(CombinedViewModel model)
+    {
+        var user = await _userManager.GetUserAsync(User);
+        model.User = user;
+        if (!ModelState.IsValid) { return View("index", model); }
+        var address = new Address
+        {
+            UserId = user.Id,
+            Receiver = model.CreateAddress!.Receiver,
+            Phone = model.CreateAddress!.Phone,
+            Street = model.CreateAddress!.Street,
+            Ward = model.CreateAddress!.Ward,
+            State = model.CreateAddress!.State,
+            City = model.CreateAddress!.City,
+        };
+        var result = _address.CreateAddress(address);
+        _logger.LogInformation("Status code: {StatusCode}", result.GetStatusCode().Value);
+        if ((int)result.GetStatusCode().Value == 200)
+        {
+            _notyf.Success("Address created successfully");
+            return RedirectToAction("index", "profile");
+        }
+        else
+        {
+            _notyf.Error("Address creation failed");
+            return View("index", model);
+
+        }
     }
 }

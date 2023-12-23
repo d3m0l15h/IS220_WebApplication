@@ -15,7 +15,10 @@ public class CheckoutItems
     public uint? Type { get; set; }
     public string Image { get; set; }
 }
-public class CheckoutViewModel
-{
-    public List<CheckoutItems> CheckoutItems { get; set; }
-}
+// public class CheckoutViewModel
+// {
+//     public List<CheckoutItems> CheckoutItems { get; set; }
+//     public int TotalCount { get; set; }
+//     public Address? DefaultAddress { get; set; }
+//     public List<Address>? NonDefaultAddresses { get; set; }
+// }

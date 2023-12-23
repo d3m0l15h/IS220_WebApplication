@@ -80,4 +80,35 @@ public class AddressProcessor : Processor<Address>
     //     };
     //     return response;
     // }
+    public Response CreateAddress(Address address)
+    {
+        var response = new Response();
+        try
+        {
+
+            var existingAddresses = _db.Addresses.Where(a => a.UserId == address.UserId).ToList();
+
+            if (existingAddresses.Any())
+            {
+
+                address.IsDefault = true;
+            }
+            else
+            {
+
+                address.IsDefault = false;
+            }
+
+            _db.Addresses.Add(address);
+            _db.SaveChanges();
+            response.SetStatusCode(StatusCode.Ok);
+            response.SetMessage("Address created successfully");
+        }
+        catch (Exception e)
+        {
+            response.SetStatusCode(StatusCode.InternalServerError);
+            response.SetMessage(e.Message);
+        }
+        return response;
+    }
 }
