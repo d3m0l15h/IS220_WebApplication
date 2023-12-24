@@ -12,145 +12,151 @@
                     style="border-radius: 16px; background-color: white">
                     <div class="card-body m-3 p-3">
                         @* @if ($address != null && $nonDefaultAddress != null) *@
-                        <div class="row gutters">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center">
+                        @if (@Model.DefaultAddress != null)
+                        {
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center">
 
 
-                                <h6 class="mb-3 normal-text fs-2 mt-3 me-3">My addresses</h6>
-                                <i data-bs-toggle="modal" data-bs-target="#createAddress"
-                                    class="far fa-map-marker-plus fs-3"></i>
-                            </div>
-                            <div class="col-6 d-flex align-items-stretch">
-                                <div class="card addresses-item mb-4 shadow-sm w-100" address="{{ $address->id }}">
-                                    <div class="default-address p-3">
-                                        <div class="media">
-                                            <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="row">
-                                                    <div class="col-10">
-                                                        <p class="fw-bolder">Default</p>
-
-                                                    </div>
-                                                    <div class="col-2 text-end">
-
-                                                    </div>
+                                    <h6 class="mb-3 normal-text fs-2 mt-3 me-3">My addresses</h6>
+                                    <i data-bs-toggle="modal" data-bs-target="#createAddress"
+                                        class="bx bxs-map fs-3 createAddress"></i>
+                                </div>
+                                <div class="col-6 d-flex align-items-stretch">
+                                    <div class="card addresses-item mb-4 shadow-sm w-100"
+                                        address="@Model.DefaultAddress.Id">
+                                        <div class="default-address p-3">
+                                            <div class="media">
+                                                <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i>
                                                 </div>
-                                                @* <p class="mb-1">{{ $address->receiver }}
-                                                {{ $address->phone }}</p>
-                                                <p class="mb-1">{{ $address->street }},
-                                                {{ $address->ward }}</p>
-                                                <p>
-                                                {{ $address->city }},
-                                                {{ $address->state }}
-                                                </p> *@
+                                                <div class="media-body">
+                                                    <div class="row">
+                                                        <div class="col-10">
+                                                            <p class="fw-bolder text-dark">Default</p>
 
+                                                        </div>
+                                                        <div class="col-2 text-end">
+                                                            @* <i class='bx bxs-edit-alt text-dark'></i> *@
+                                                        </div>
+                                                    </div>
+                                                    <p class="mb-1 text-dark">@Model.DefaultAddress.Receiver,
+                                                        @Model.DefaultAddress.Phone</p>
+                                                    <p class="mb-1 text-dark">@Model.DefaultAddress.Street,
+                                                        @Model.DefaultAddress.Ward
+                                                    </p>
+                                                    <p class="text-dark">
+                                                        @Model.DefaultAddress.City, @Model.DefaultAddress.State
+                                                    </p>
+
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
+                                    </div>
+                                </div>
+                                <div class="col-6 d-flex align-items-stretch" data-bs-toggle="modal"
+                                    data-bs-target="#more-addresses">
+                                    <div class="bg-white card addresses-item mb-4 shadow-sm w-100">
+                                        <div
+                                            class="other-address p-3 d-flex justify-content-center align-items-center h-100">
+                                            <div class="media">
+                                                <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i>
+                                                </div>
+                                                <div class="media-body d-flex flex-column align-items-center">
+                                                    <p class="other-address-quantity m-2 text-dark">
+                                                        @Model.NonDefaultAddresses.Count address more
+                                                    </p>
+
+                                                    <p>
+                                                        <i class='bx bxs-info-circle' style='color:#0f0e0e'></i>
+                                                    </p>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-6 d-flex align-items-stretch" data-bs-toggle="modal"
-                                data-bs-target="#more-addresses">
-                                <div class="bg-white card addresses-item mb-4 shadow-sm w-100">
-                                    <div
-                                        class="other-address p-3 d-flex justify-content-center align-items-center h-100">
-                                        <div class="media">
-                                            <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i>
-                                            </div>
-                                            <div class="media-body d-flex flex-column align-items-center">
-                                                @* <p class="other-address-quantity m-2">
-                                                {{ $nonDefaultAddress->count() }} address more
-                                                </p> *@
+                            <div class="modal fade" id="more-addresses" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">More</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body position-relative other-address-information">
+                                            <div class="row gutters">
 
-                                                <p>
-                                                    <i class="fal fa-info-circle fs-3"></i>
+                                                    @foreach (var address in @Model.NonDefaultAddresses){
+
+                                                <div class="col-6 d-flex align-items-stretch">
+                                                <div class="card addresses-item mb-4 shadow-sm w-100 other-address-item"
+                                                address="{{ $address->id }}" type="modal-item">
+                                                <div class="default-address p-3">
+                                                <div class="media">
+                                                <div class="mr-3"><i
+                                                class="icofont-briefcase icofont-3x"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                <div class="row">
+                                                <div class="col-10">
+                                                </div>
+                                                <div class="col-2 text-end">
+
+                                                </div>
+                                                </div>
+                                                <p class="mb-1 text-dark">
+                                                @address.Receiver,
+                                                @address.Phone</p>
+                                                <p class="mb-1 text-dark">
+                                                @address.Street,
+                                                @address.Ward</p>
+                                                <p class="text-dark">
+                                                @address.City,
+                                                @address.State
                                                 </p>
 
+                                                </div>
+                                                </div>
+                                                </div>
+
+                                                </div>
+                                                </div>
+                                                    }
+                                                
                                             </div>
+
                                         </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal fade" id="more-addresses" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">More</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body position-relative other-address-information">
-                                        <div class="row gutters">
-
-                                            @* @foreach ($nonDefaultAddress as $address)
-                                            <div class="col-6 d-flex align-items-stretch">
-                                            <div class="card addresses-item mb-4 shadow-sm w-100 other-address-item"
-                                            address="{{ $address->id }}" type="modal-item">
-                                            <div class="default-address p-3">
-                                            <div class="media">
-                                            <div class="mr-3"><i
-                                            class="icofont-briefcase icofont-3x"></i>
-                                            </div>
-                                            <div class="media-body">
-                                            <div class="row">
-                                            <div class="col-10">
-                                            </div>
-                                            <div class="col-2 text-end">
-
-                                            </div>
-                                            </div>
-                                            <p class="mb-1">
-                                            {{ $address->receiver }}
-                                            {{ $address->phone }}</p>
-                                            <p class="mb-1">
-                                            {{ $address->street }},
-                                            {{ $address->ward }}</p>
-                                            <p>
-                                            {{ $address->city }},
-                                            {{ $address->state }}
-                                            </p>
-
-                                            </div>
-                                            </div>
-                                            </div>
-
-                                            </div>
-                                            </div>
-                                            @endforeach *@
-                                        </div>
-
                                     </div>
                                 </div>
-                            </div>
 
-                        </div>
+                            </div>
+                        }
 
                         <div class="modal fade" id="createAddress" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Create new address
+                                        <h5 class="modal-title text-dark" id="exampleModalLabel">Create new address
                                         </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <h6 class="mt-3 mb-2 normal-text fs-2">Fill in the blank</h6>
+                                            <h6 class="mt-3 mb-2 normal-text fs-2 text-dark">Fill in the blank</h6>
                                         </div>
                                         <div class="row d-flex">
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-floating mb-3">
                                                     <input type="text" id="new-receiver" class="form-control"
                                                         placeholder="inputhere">
-                                                    <label>Receiver</label>
+                                                    <label class="text-dark">Receiver</label>
 
                                                 </div>
                                             </div>
@@ -158,7 +164,7 @@
                                                 <div class="form-floating mb-3">
                                                     <input type="phone" id="new-phone" class="form-control"
                                                         placeholder="inputhere">
-                                                    <label>Phone number</label>
+                                                    <label class="text-dark">Phone number</label>
 
                                                 </div>
                                             </div>
@@ -171,7 +177,7 @@
 
                                                 <div class="form-floating mb-3">
                                                     <input id="new-street" class="form-control" placeholder="inputhere">
-                                                    <label>Đường</label>
+                                                    <label class="text-dark">Đường</label>
 
                                                 </div>
 
@@ -184,7 +190,7 @@
                                                         class="form-control province dropdown-toggle"
                                                         data-bs-toggle="dropdown" placeholder="inputhere"
                                                         oninput="proSearch()">
-                                                    <label>Tỉnh/Thành</label>
+                                                    <label class="text-dark">Tỉnh/Thành</label>
                                                     <ul class="dropdown-menu" id="province_list"></ul>
                                                 </div>
                                             </div>
@@ -195,7 +201,7 @@
                                                         class="form-control district dropdown-toggle"
                                                         data-bs-toggle="dropdown" placeholder="inputhere"
                                                         oninput="disSearch()">
-                                                    <label>Quận/Huyện</label>
+                                                    <label class="text-dark">Quận/Huyện</label>
                                                     <ul class="dropdown-menu" id="district_list"></ul>
                                                 </div>
                                             </div>
@@ -206,7 +212,7 @@
                                                         class="form-control ward dropdown-toggle"
                                                         data-bs-toggle="dropdown" placeholder="inputhere"
                                                         oninput="warSearch()">
-                                                    <label>Phường/Xã</label>
+                                                    <label class="text-dark">Phường/Xã</label>
                                                     <ul class="dropdown-menu" id="ward_list"></ul>
                                                 </div>
 
@@ -328,7 +334,7 @@
                             </thead>
                             <tbody class="items-in-cart">
 
-                                @foreach (var item in Model.Checkout)
+                                @foreach (var item in Model.CheckoutItems)
                                 {
                                     <div class="cart-item d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
@@ -347,7 +353,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-lg-1 col-xl-2 d-flex justify-content-center">
-                                            <h6 class="mb-0">@item.Price đ</h6>
+                                            <h6 class="mb-0">@String.Format(new System.Globalization.CultureInfo(name:
+                                            "vi-VN"), "{0:C}", @item.Price)</h6>
                                         </div>
                                         <div class="col-md-1 col-lg-1 col-xl-1 ms-3">
                                             <a href="#!" class="btn btn-icon btn-outline-danger" game-action="remove-cart"
@@ -399,10 +406,10 @@
                                             <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i>
                                             </div>
                                             <div class="media-body d-flex flex-column align-items-center">
-                                                <p class="method-name m-2">Banking</p>
+                                                <p class="method-name m-2 text-dark">Banking</p>
 
                                                 <p>
-                                                    <i class="fas fa-university fs-3"></i>
+                                                    <i class='bx bxs-bank fs-3 text-dark'></i>
                                                 </p>
 
                                             </div>
@@ -420,10 +427,10 @@
                                             <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i>
                                             </div>
                                             <div class="media-body d-flex flex-column align-items-center">
-                                                <p class="method-name m-2">Cash on delivery (COD)</p>
+                                                <p class="method-name m-2 text-dark">Cash on delivery (COD)</p>
 
                                                 <p>
-                                                    <i class="fas fa-money-bill fs-3"></i>
+                                                    <i class='bx bxs-package fs-3 text-dark'></i>
                                                 </p>
 
                                             </div>
@@ -441,10 +448,10 @@
                                             <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i>
                                             </div>
                                             <div class="media-body d-flex flex-column align-items-center">
-                                                <p class="method-name m-2">Pay at our store</p>
+                                                <p class="method-name m-2 text-dark">Pay at our store</p>
 
                                                 <p>
-                                                    <i class="fas fa-store fs-3"></i>
+                                                    <i class='bx bxs-store-alt fs-3 text-dark'></i>
                                                 </p>
 
                                             </div>
@@ -470,9 +477,76 @@
         </div>
     </div>
     <script src="~/static/js/checkout.js"></script>
+    @* Import Jquert *@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         var modelData = @Html.Raw(Json.Serialize(Model));
-        console.log(modelData.checkout);
+        console.log(modelData);
         document.querySelector('.cart-button').classList.add('d-none')
+        document.querySelectorAll('.card.payment-method-item').forEach(item => {
+            item.addEventListener('click', () => {
+                SelectMethod(item.getAttribute('id'))
+            })
+        })
+        document.querySelectorAll('.card.addresses-item').forEach(item => {
+            item.addEventListener('click', () => {
+                SelectAddress(item.getAttribute('address'))
+            })
+        })
+        function SelectMethod(id) {
+            let items = document.querySelectorAll(".card.payment-method-item");
+            items.forEach((item) => {
+                items.forEach((item) => {
+                    item.classList.remove("checked");
+                });
+            });
+
+            let item = $(`.payment-method-item[id='${id}']`);
+            let check = item.find('.col-2.text-end')
+            check.html(`<i class='bx bxs-check-circle text-dark' ></i>`)
+            item.addClass("checked");
+        }
+        function SelectAddress(id) {
+            let items = document.querySelectorAll(".card.addresses-item");
+            items.forEach((item) => {
+                let check = item.querySelector('.col-2.text-end')
+                item.classList.remove("checked");
+                if (check) {
+                    check.innerHTML = ''
+                }
+
+            });
+
+            if ($(`.addresses-item[address='${id}']`).attr('type') == 'modal-item') {
+                let item = $(`.addresses-item[address='${id}']`);
+                let modalitem = $(`.addresses-item[address='${id}'][type='modal-item']`);
+                let check = item.find('.col-2.text-end')
+                check.html(`<i class='bx bxs-check-circle text-dark' ></i>`)
+                item.addClass("checked");
+                let otherAddress = $('.other-address')
+                otherAddress.parent().removeClass('bg-white')
+                otherAddress.parent().addClass('checked')
+                otherAddress.parent().attr('address', id)
+                var content = modalitem.find('.media-body')
+                otherAddress.find('.media-body')[0].innerHTML = content[0].innerHTML
+
+            } else {
+                var nonDefaultAddressesCount = @Model.NonDefaultAddresses.Count;
+                let item = $(`.addresses-item[address='${id}']`);
+                let modalitem = $(`.addresses-item[address='${id}'][type='modal-item']`);
+                let check = item.find('.col-2.text-end')
+                check.html(`<i class='bx bxs-check-circle text-dark' ></i>`)
+                item.addClass("checked");
+                let otherAddress = $('.other-address')
+                otherAddress.parent().addClass('bg-white')
+                otherAddress.find('.media-body')[0].innerHTML = `
+                                                                <p class="other-address-quantity m-2 text-dark">${nonDefaultAddressesCount} address more</p>
+                                                                <p>
+                                                                    <i class='bx bxs-info-circle' style='color:#0f0e0e'></i>
+                                                                </p>
+                `
+
+            }
+        }
     </script>
 </section>

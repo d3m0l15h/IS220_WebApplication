@@ -22,8 +22,7 @@ public class CheckoutController : Controller
         var model = new CombinedViewModel();
         uint userIdValue;
         uint.TryParse(userId, out userIdValue);
-
-        model.Checkout = await _db.Carts
+        model.CheckoutItems = await _db.Carts
             .Join(_db.Games,
                 cart => cart.GameId,
                 game => game.Id,
@@ -39,7 +38,12 @@ public class CheckoutController : Controller
             })
             .ToListAsync();
 
-
+        // model.TotalCount = model.Checkout.Sum(c => c.Quantity ?? 0);
+        model.DefaultAddress = await _db.Addresses
+            .FirstOrDefaultAsync(a => a.UserId == userIdValue && a.IsDefault == true);
+        model.NonDefaultAddresses = await _db.Addresses
+            .Where(a => a.UserId == userIdValue && a.IsDefault == false)
+            .ToListAsync();
         return View(model);
     }
 }

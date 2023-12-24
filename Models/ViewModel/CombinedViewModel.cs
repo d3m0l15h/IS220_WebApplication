@@ -9,8 +9,10 @@ public class CombinedViewModel
     public Game? Game { get; set; }
     public Aspnetuser? User { get; set; }
     public ChangePasswordViewModel? ChangePassword { get; set; }
-    public List<CheckoutItems>? Checkout { get; set; }
+    public List<CheckoutItems> CheckoutItems { get; set; }
     public int TotalCount { get; set; }
     public Address? DefaultAddress { get; set; }
     public List<Address>? NonDefaultAddresses { get; set; }
+    public CreateAddressViewModel? CreateAddress { get; set; }
+    // public CheckoutViewModel? CheckoutViewModel { get; set; }
 }

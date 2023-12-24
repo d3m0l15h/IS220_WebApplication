@@ -12,22 +12,35 @@ public class Response
         _statusCodes = StatusCode.Ok;
         data = new List<List<string>>();
     }
-    public Response(string message, StatusCode statusCode) {
+    public Response(string message, StatusCode statusCode)
+    {
         this.message = message;
         _statusCodes = statusCode;
     }
-    public Response(string message, StatusCode statusCode,List<List<string>> data) {
+    public Response(string message, StatusCode statusCode, List<List<string>> data)
+    {
         this.message = message;
         _statusCodes = statusCode;
         this.data = data;
     }
-    public List<List<string>>? GetData() {
+    public List<List<string>>? GetData()
+    {
         return data;
     }
-    public string? GetMessage() {
+    public string? GetMessage()
+    {
         return message;
     }
-    public StatusCode? GetStatusCode() {
+    public StatusCode? GetStatusCode()
+    {
         return _statusCodes;
+    }
+    public void SetMessage(string message)
+    {
+        this.message = message;
+    }
+    public void SetStatusCode(StatusCode statusCode)
+    {
+        _statusCodes = statusCode;
     }
 }
