@@ -1,6 +1,7 @@
 @model IS220_WebApplication.Models.ViewModel.CombinedViewModel
 @{
     ViewData["Title"] = Model.Game!.Title;
+    var checkoutUrl = Url.Action("index", "checkout");
 }
 
 
@@ -86,36 +87,36 @@
                 <tr>
                     <td class="py-3">Type:</td>
                     <td class="py-3">
-                        @if (Model.Game.Type == GameType.Software)
+                        @switch (Model.Game.Type)
                         {
-                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
-                                id="gimetype-software" ad="gametype-software" autocomplete="off" checked>
-                            <label class="btn btn-outline-primary"
-                                for="gametype-software">@GameType.Get(GameType.Software)</label>
-                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
-                                autocomplete="off" disabled>
-                            <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
-                        }
-                        else if (Model.Game.Type == GameType.Disc)
-                        {
-                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
-                                id="gimetype-software" ad="gametype-software" autocomplete="off" disabled>
-                            <label class="btn btn-outline-primary"
-                                for="gametype-software">@GameType.Get(GameType.Software)</label>
-                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
-                                autocomplete="off" checked>
-                            <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
-                        }
-                        else if (Model.Game.Type == GameType.Both)
-                        {
-                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
-                                id="gametype-software" autocomplete="off">
-                            <label class="btn btn-outline-primary"
-                                for="gametype-software">@GameType.Get(GameType.Software)</label>
+                            case GameType.Software:
+                                <text><input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
+                                             id="gimetype-software" ad="gametype-software" autocomplete="off" checked></text>
+                                <label class="btn btn-outline-primary"
+                                       for="gametype-software">@GameType.Get(GameType.Software)</label>
+                                <text><input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
+                                             autocomplete="off" disabled></text>
+                                <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
+                                break;
+                            case GameType.Disc:
+                                <text><input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
+                                             id="gimetype-software" ad="gametype-software" autocomplete="off" disabled></text>
+                                <label class="btn btn-outline-primary"
+                                       for="gametype-software">@GameType.Get(GameType.Software)</label>
+                                <text><input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
+                                             autocomplete="off" checked></text>
+                                <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
+                                break;
+                            case GameType.Both:
+                                <text><input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
+                                             id="gametype-software" autocomplete="off"></text>
+                                <label class="btn btn-outline-primary"
+                                       for="gametype-software">@GameType.Get(GameType.Software)</label>
 
-                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
-                                autocomplete="off">
-                            <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
+                                <text><input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
+                                             autocomplete="off"></text>
+                                <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
+                                break;
                         }
                     </td>
                 </tr>
@@ -167,7 +168,7 @@
         <div class="button-container">
 
             <div class="d-flex more-btn mb-4">
-                <button class="btn btn-primary buy-now">Buy now</button>
+                <button class="btn btn-primary buy-now" >Buy now</button>
                 <button class="ms-3 btn btn-primary" game-action="add-cart">Add to cart</button>
             </div>
         </div>
@@ -183,4 +184,4 @@
 
 
 <!----------- start SCRIPT -------------->
-<script src="~/static/js/gameDetail.js"></script>
+<script src="~/static/js/gameDetail.js"></script> 

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Globalization;
 using System.Net;
 using AspNetCoreHero.ToastNotification.Abstractions;
@@ -35,7 +36,8 @@ public class ProfileController : Controller
             return RedirectToAction("index", "home");
         }
         var user = _userManager.GetUserAsync(User).Result;
-        var defaultAddress = _address.GetDefaultAddress(user!.Id);
+        Debug.Assert(user != null, nameof(user) + " != null");
+        var defaultAddress = _address.GetDefaultAddress(user.Id);
         var nondefaultAddresses = _address.GetNonDefaultAddresses(user.Id);
         var viewModel = new CombinedViewModel
         {

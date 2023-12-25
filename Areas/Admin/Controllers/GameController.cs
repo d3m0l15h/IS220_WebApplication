@@ -140,6 +140,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 game.Developer = model.Game.Developer;
                 game.DownloadLink = model.Game.DownloadLink;
                 game.Type = model.Game.Type;
+                game.Stock = model.Game.Stock;
                 game.Status = model.Game.Status;
 
                 if (model.ImageFile != null)
