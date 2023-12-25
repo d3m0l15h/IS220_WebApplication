@@ -38,7 +38,6 @@ public class CheckoutController : Controller
             })
             .ToListAsync();
 
-        // model.TotalCount = model.Checkout.Sum(c => c.Quantity ?? 0);
         model.DefaultAddress = await _db.Addresses
             .FirstOrDefaultAsync(a => a.UserId == userIdValue && a.IsDefault == true);
         model.NonDefaultAddresses = await _db.Addresses

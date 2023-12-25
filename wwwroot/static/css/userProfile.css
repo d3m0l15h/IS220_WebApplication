@@ -41,3 +41,8 @@ label.btn {
 .card {
     background-color: transparent;
 }
+.dropdown-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}

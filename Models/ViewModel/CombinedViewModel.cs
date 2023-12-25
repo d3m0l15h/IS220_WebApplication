@@ -15,4 +15,5 @@ public class CombinedViewModel
     public List<Address>? NonDefaultAddresses { get; set; }
     public CreateAddressViewModel? CreateAddress { get; set; }
     public CheckoutViewModel? CheckoutViewModel { get; set; }
+    public OrderDetailViewModel? OrderDetailViewModel { get; set; }
 }

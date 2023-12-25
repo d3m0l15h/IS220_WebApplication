@@ -4,6 +4,101 @@
 }
 <link rel="stylesheet" href="~/static/css/userProfile.css">
 
+
+
+
+@* {{-- Modal for add new addresses --}} *@
+<div class="modal fade text-dark" id="createAddress" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create new address</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <form id="form-createNewAddress">
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <div class="row d-flex">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" id="new-receiver"
+                                    class="form-control" placeholder="inputhere"
+                                    asp-for="CreateAddress!.Receiver">
+                                <label>Receiver</label>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-floating mb-3">
+                                <input type="phone" id="new-phone" class="form-control"
+                                    placeholder="inputhere"
+                                    asp-for="CreateAddress!.Phone">
+                                <label>Phone number</label>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-12">
+
+                            <div class="form-floating mb-3">
+                                <input id="new-street" class="form-control"
+                                    placeholder="inputhere"
+                                    asp-for="CreateAddress!.Street">
+                                <label>Đường</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex address-input">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" address-type="province"
+                                    class="form-control dropdown-toggle"
+                                    data-bs-toggle="dropdown" placeholder="inputhere"
+                                    asp-for="CreateAddress!.State">
+                                <label>Tỉnh/Thành</label>
+                                <ul class="dropdown-menu" id="province_list"></ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" address-type="district"
+                                    class="form-control dropdown-toggle"
+                                    data-bs-toggle="dropdown" placeholder="inputhere"
+                                    asp-for="CreateAddress!.City">
+                                <label>Quận/Huyện</label>
+                                <ul class="dropdown-menu" id="district_list"></ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" address-type="ward"
+                                    class="form-control dropdown-toggle"
+                                    data-bs-toggle="dropdown" placeholder="inputhere"
+                                    asp-for="CreateAddress!.Ward">
+                                <label>Phường/Xã</label>
+                                <ul class="dropdown-menu" id="ward_list"></ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <a type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Close</a>
+                        <a class="btn btn-primary btn-create-address">Let's go</a>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
 <div class="container flex-grow-1 my-4">
     <div class="opt card overflow-hidden">
         <div class="row no-gutters">
@@ -110,14 +205,15 @@
 
 
                                         <h6 class="mb-3 normal-text fs-2 mt-3 me-3">My addresses</h6>
-                                        <button class="btn btn-dark">
-                                            <i data-bs-toggle="modal" data-bs-target="#createAddress"
-                                                class="bx bxs-map fs-3 createAddress"></i>
+                                        <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#createAddress">
+                                            @* <i class="bx bxs-map fs-3 createAddress"></i> *@
+                                            Add New
                                         </button>
                                     </div>
-                                    <div class="col-6 d-flex align-items-stretch" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        <div class="bg-white card addresses-item mb-4 shadow-sm w-100">
+
+
+                                    <div class="col-6 d-flex align-items-stretch">
+                                        <div class="bg-light card addresses-item mb-4 shadow-sm w-100" address-item-action="edit" address-item-id="@Model.DefaultAddress.Id">
                                             <div class="default-address p-3">
                                                 <div class="media">
                                                     <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i></div>
@@ -138,52 +234,78 @@
                                                             @Model.DefaultAddress.Ward</p>
                                                         <p class="text-dark">@Model.DefaultAddress.City,
                                                             @Model.DefaultAddress.State</p>
-
-
                                                     </div>
                                                 </div>
                                             </div>
 
                                         </div>
                                     </div>
-                                    <div class="col-6 d-flex align-items-stretch" data-bs-toggle="modal"
-                                        data-bs-target="#more-addresses">
-                                        <div class="bg-white card addresses-item mb-4 shadow-sm w-100">
-                                            <div
-                                                class="other-address p-3 d-flex justify-content-center align-items-center h-100">
-                                                <div class="media">
-                                                    <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i></div>
-                                                    <div class="media-body d-flex flex-column align-items-center">
-                                                        <p class="other-address-quantity m-2 text-dark">
-                                                            @Model.NonDefaultAddresses.Count() address more
-                                                        </p>
 
-                                                        <p>
-                                                            <i class='bx bxs-info-circle' style='color:#0f0e0e'></i>
-                                                        </p>
 
+                                    
+                                    @if (@Model.NonDefaultAddresses.Count() == 1)
+                                    {
+                                        <div class="col-6 d-flex align-items-stretch">
+                                            <div class="bg-light card addresses-item mb-4 shadow-sm w-100" address-item-actzion="edit" address-item-id="@Model.NonDefaultAddresses[0].Id">
+                                                <div class="default-address p-3">
+                                                    <div class="media">
+                                                        <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i></div>
+                                                        <div class="media-body">
+                                                            <div class="row">
+                                                                <div class="col-10"></div>
+                                                                <div class="col-2 text-end">
+                                                                    <i class='bx bxs-edit-alt text-dark'></i>
+                                                                </div>
+                                                            </div>
+                                                            <p class="mb-1 text-dark">@Model.NonDefaultAddresses[0].Receiver
+                                                                @Model.NonDefaultAddresses[0].Phone</p>
+                                                            <p class="mb-1 text-dark">@Model.NonDefaultAddresses[0].Street,
+                                                                @Model.NonDefaultAddresses[0].Ward</p>
+                                                            <p class="text-dark">@Model.NonDefaultAddresses[0].City,
+                                                                @Model.NonDefaultAddresses[0].State</p>
+                                                        </div>
                                                     </div>
                                                 </div>
 
                                             </div>
-
                                         </div>
-                                    </div>
-                                    @* {{-- Modal for default address --}} *@
-                                    <div class="modal fade" id="exampleModal" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    }
+                                    else if (@Model.NonDefaultAddresses.Count() > 0)
+                                    {
+                                        <div class="col-6 d-flex align-items-stretch" data-bs-toggle="modal"
+                                            data-bs-target="#more-addresses">
+                                            <div class="bg-white card addresses-item mb-4 shadow-sm w-100">
+                                                <div
+                                                    class="other-address p-3 d-flex justify-content-center align-items-center h-100">
+                                                    <div class="media">
+                                                        <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i></div>
+                                                        <div class="media-body d-flex flex-column align-items-center">
+                                                            <p class="other-address-quantity m-2 text-dark">
+                                                                @Model.NonDefaultAddresses.Count() address more
+                                                            </p>
+                                                            <p>
+                                                                <i class='bx bxs-info-circle' style='color:#0f0e0e'></i>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+
+                                    @* {{-- Modal for edit address --}} *@
+                                    <div class="modal fade" id="editAddressModal" tabindex="-1" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title text-dark" id="exampleModalLabel">Default
-                                                        address
-                                                    </h5>
+                                                    <h5 class="modal-title text-dark">Edit Default address</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="media-body">
-                                                        <div class="row">
+                                                        <div class="row text-dark address-input">
                                                             <div class="col-6">
 
                                                                 <div class="form-floating mb-3">
@@ -200,13 +322,12 @@
                                                                 </div>
                                                                 <div class="form-floating mb-3">
 
-                                                                    <input type="text" id="district"
-                                                                        class="form-control district dropdown-toggle"
+                                                                    <input type="text" address-type="district"
+                                                                        class="form-control dropdown-toggle"
                                                                         data-bs-toggle="dropdown" placeholder="inputhere"
-                                                                        value="@Model.DefaultAddress.City"
-                                                                        oninput="disSearch()">
-                                                                    <label>Quận/Huyện</label>
-                                                                    <ul class="dropdown-menu" id="district_list"></ul>
+                                                                        value="@Model.DefaultAddress.City">
+                                                                    <label>District</label>
+                                                                    <ul class="dropdown-menu"></ul>
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
@@ -217,22 +338,20 @@
                                                                     <label for="phone">Phone number</label>
                                                                 </div>
                                                                 <div class="form-floating mb-3">
-                                                                    <input type="text" id="province"
-                                                                        class="form-control province dropdown-toggle"
+                                                                    <input type="text" address-type="province"
+                                                                        class="form-control dropdown-toggle"
                                                                         data-bs-toggle="dropdown" placeholder="inputhere"
-                                                                        value="@Model.DefaultAddress.State"
-                                                                        oninput="proSearch()">
-                                                                    <label>Tỉnh/Thành</label>
-                                                                    <ul class="dropdown-menu" id="province_list"></ul>
+                                                                        value="@Model.DefaultAddress.State">
+                                                                    <label>Province</label>
+                                                                    <ul class="dropdown-menu"></ul>
                                                                 </div>
                                                                 <div class="form-floating mb-3">
-                                                                    <input type="text" id="ward"
-                                                                        class="form-control ward dropdown-toggle"
+                                                                    <input type="text" address-type="ward"
+                                                                        class="form-control dropdown-toggle"
                                                                         data-bs-toggle="dropdown" placeholder="inputhere"
-                                                                        value="@Model.DefaultAddress.Ward"
-                                                                        oninput="warSearch()">
-                                                                    <label>Phường/Xã</label>
-                                                                    <ul class="dropdown-menu" id="ward_list"></ul>
+                                                                        value="@Model.DefaultAddress.Ward">
+                                                                    <label>Ward</label>
+                                                                    <ul class="dropdown-menu"></ul>
                                                                 </div>
                                                             </div>
 
@@ -248,32 +367,43 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row gutters mt-4">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <div class="text-right">
-
-                                                    <button type="button" id="submit" name="submit"
-                                                        class="btn btn-primary update-information">Update</button>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
+
+
                                     @* {{-- Modal for more addresses --}} *@
-                                    <div class="modal fade" id="more-addresses" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal text-dark fade" id="more-addresses" tabindex="-1" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">More</h5>
+                                                    <h5 class="modal-title">More</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body position-relative other-address-information">
-                                                    <div class="row gutters">
-
-
+                                                    <div class="row">
+                                                        @foreach (var address in Model.NonDefaultAddresses)
+                                                        {
+                                                            <div class="col">
+                                                                <div class="bg-light card addresses-item mb-4 shadow-sm w-100" address-item-action="edit" address-item-id="@address.Id">
+                                                                    <div class="default-address p-3">
+                                                                        <div class="media">
+                                                                            <div class="media-body">
+                                                                                <div class="d-flex mb-1">
+                                                                                    <span class="text-dark fw-bold">@address.Receiver @address.Phone</span>
+                                                                                </div>
+                                                                                <div class="d-flex mb-1">
+                                                                                    <span class="text-dark">@address.Street, @address.Ward</span>
+                                                                                </div>
+                                                                                <div class="d-flex mb-1">
+                                                                                    <span class="text-dark">@address.City, @address.State</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -286,106 +416,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal fade text-dark" id="createAddress" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Create new address</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    @* <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <h6 class="mt-3 mb-2 normal-text fs-2">Fill in the blank</h6>
-                                                </div> *@
-                                                   
-                                                        <div class="row d-flex">
-                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                                <div class="form-floating mb-3">
-                                                                    <input type="text" id="new-receiver"
-                                                                        class="form-control" placeholder="inputhere">
-                                                                    <label>Receiver</label>
-
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                                <div class="form-floating mb-3">
-                                                                    <input type="phone" id="new-phone" class="form-control"
-                                                                        placeholder="inputhere">
-                                                                    <label>Phone number</label>
-
-                                                                </div>
-                                                            </div>
-
-
-                                                        </div>
-                                                        <div class="row">
-
-                                                            <div class="col-12">
-
-                                                                <div class="form-floating mb-3">
-                                                                    <input id="new-street" class="form-control"
-                                                                        placeholder="inputhere">
-                                                                    <label>Đường</label>
-
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="row d-flex">
-                                                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                                                                <div class="form-floating mb-3">
-                                                                    <input type="text" id="new-province"
-                                                                        class="form-control province dropdown-toggle"
-                                                                        data-bs-toggle="dropdown" placeholder="inputhere"
-                                                                        oninput="proSearch()">
-                                                                    <label>Tỉnh/Thành</label>
-                                                                    <ul class="dropdown-menu" id="province_list"></ul>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                                                                <div class="form-floating mb-3">
-
-                                                                    <input type="text" id="new-district"
-                                                                        class="form-control district dropdown-toggle"
-                                                                        data-bs-toggle="dropdown" placeholder="inputhere"
-                                                                        oninput="disSearch()">
-                                                                    <label>Quận/Huyện</label>
-                                                                    <ul class="dropdown-menu" id="district_list"></ul>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-
-                                                                <div class="form-floating mb-3">
-                                                                    <input type="text" id="new-ward"
-                                                                        class="form-control ward dropdown-toggle"
-                                                                        data-bs-toggle="dropdown" placeholder="inputhere"
-                                                                        oninput="warSearch()">
-                                                                    <label>Phường/Xã</label>
-                                                                    <ul class="dropdown-menu" id="ward_list"></ul>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Close</button>
-                                                            <button type="submit"
-                                                                class="btn btn-primary create-new-address">Let's go</button>
-                                                        </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row gutters mt-4">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <div class="text-right">
-                                                    {{-- <button type="button" id="submit" name="submit"
-                                                        class="btn btn-secondary">Cancel</button> --}}
-                                                    <button type="button" id="submit" name="submit"
-                                                        class="btn btn-primary update-information">Update</button>
+                                }
+                                else
+                                {
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <h6 class="mb-3 normal-text fs-2 mt-3 me-3">My addresses</h6>
+                                        <div class="d-flex justify-content-center">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <button class="btn btn-lg btn-dark" data-bs-toggle="modal" data-bs-target="#createAddress">
+                                                        @* <i class="bx bxs-map fs-3 createAddress"></i> *@
+                                                        Add New
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -395,86 +437,92 @@
                         </div>
 
                         <hr class="border-light m-0">
-                        @if (@Model.DefaultAddress == null)
+                        @* @if (@Model.DefaultAddress == null)
                         {
-                            <form method="post" asp-controller="profile" asp-action="createNewAddress">
-                                @Html.AntiForgeryToken()
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h6 class="mt-3 mb-2 normal-text fs-2">Create new address</h6>
-                                </div>
-                                <div class="row d-flex">
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" id="new-receiver" class="form-control"
-                                                placeholder="inputhere">
-                                            <label>Receiver</label>
+                        <form method="post" asp-controller="profile" asp-action="">
+                        @Html.AntiForgeryToken()
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h6 class="mt-3 mb-2 normal-text fs-2">Create new address</h6>
+                        </div>
+                        <div class="row d-flex">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="form-floating mb-3">
+                        <input type="text" id="new-receiver" class="form-control"
+                        placeholder="inputhere">
+                        <label>Receiver</label>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="phone" id="new-phone" class="form-control" placeholder="inputhere">
-                                            <label>Phone number</label>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-12">
-
-                                        <div class="form-floating mb-3">
-                                            <input id="new-street" class="form-control" placeholder="inputhere"
-                                                asp-for="CreateAddress!.Street">
-                                            <label>Đường</label>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="row d-flex">
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" id="new-province"
-                                                class="form-control province dropdown-toggle" data-bs-toggle="dropdown"
-                                                placeholder="inputhere" oninput="proSearch()"
-                                                asp-for="CreateAddress!.State">
-                                            <label>Tỉnh/Thành</label>
-                                            <ul class="dropdown-menu" id="province_list"></ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                                        <div class="form-floating mb-3">
-
-                                            <input type="text" id="new-district"
-                                                class="form-control district dropdown-toggle" data-bs-toggle="dropdown"
-                                                placeholder="inputhere" oninput="disSearch()" asp-for="CreateAddress!.City">
-                                            <label>Quận/Huyện</label>
-                                            <ul class="dropdown-menu" id="district_list"></ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-
-                                        <div class="form-floating mb-3">
-                                            <input type="text" id="new-ward" class="form-control ward dropdown-toggle"
-                                                data-bs-toggle="dropdown" placeholder="inputhere" oninput="warSearch()"
-                                                asp-for="CreateAddress!.Ward">
-                                            <label>Phường/Xã</label>
-                                            <ul class="dropdown-menu" id="ward_list"></ul>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary create-new-address">Let's go</button>
-                                </div>
-                            </form>
-                        }
+                        </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="form-floating mb-3">
+                        <input type="phone" id="new-phone" class="form-control" placeholder="inputhere">
+                        <label>Phone number</label>
+                        </div>
+                        </div>
 
 
-                        @* </form> *@
+                        </div>
+                        <div class="row">
+
+                        <div class="col-12">
+
+                        <div class="form-floating mb-3">
+                        <input id="new-street" class="form-control" placeholder="inputhere"
+                        asp-for="CreateAddress!.Street">
+                        <label>Đường</label>
+                        </div>
+
+                        </div>
+                        </div>
+                        <div class="row d-flex">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                        <div class="form-floating mb-3">
+                        <input type="text" id="new-province"
+                        class="form-control province dropdown-toggle" data-bs-toggle="dropdown"
+                        placeholder="inputhere" oninput="proSearch()"
+                        asp-for="CreateAddress!.State">
+                        <label>Tỉnh/Thành</label>
+                        <ul class="dropdown-menu" id="province_list"></ul>
+                        </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                        <div class="form-floating mb-3">
+
+                        <input type="text" id="new-district"
+                        class="form-control district dropdown-toggle" data-bs-toggle="dropdown"
+                        placeholder="inputhere" oninput="disSearch()" asp-for="CreateAddress!.City">
+                        <label>Quận/Huyện</label>
+                        <ul class="dropdown-menu" id="district_list"></ul>
+                        </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+
+                        <div class="form-floating mb-3">
+                        <input type="text" id="new-ward" class="form-control ward dropdown-toggle"
+                        data-bs-toggle="dropdown" placeholder="inputhere" oninput="warSearch()"
+                        asp-for="CreateAddress!.Ward">
+                        <label>Phường/Xã</label>
+                        <ul class="dropdown-menu" id="ward_list"></ul>
+                        </div>
+
+                        </div>
+                        </div>
+
+                        <div class="footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary create-new-address">Let's go</button>
+                        </div>
+                        </form>
+                        } *@
+                        <script>
+                            window.onload = function () {
+                                var AddressCreationAttempted = '@ViewBag.AddressCreationAttempted';
+                                if (AddressCreationAttempted === 'True') {
+                                    reOpen();
+                                }
+                            }
+                        </script>
+
                     </div>
                     <div class="tab-pane fade tab" id="account-change-password">
                         <form method="post" asp-controller="profile" asp-action="resetPwd">
@@ -519,11 +567,33 @@
         </div>
     </div>
 </div>
-@* Import axios *@
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    @* var modelData = @Html.Raw(Json.Serialize(Model));
-        console.log(modelData); *@
+    $('.btn-create-address').click(() => {
+        $.ajax({
+            url: '/profile/createNewAddress',
+            type: 'POST',
+            data: $('#form-createNewAddress').serialize(),
+            encode: true,
+            success: function (result) {
+                if (result.ok) {
+                    notyf.success(result.message);
+                    $('#createAddress').modal('hide');
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1000);
+                } else {
+                    notyf.error(result.message);
+                }
+            }
+        })
+    })
+
+    $('[address-item-action="edit"]').click((e) => {
+        const id = $(e).attr('address-item-id');
+        
+        $('.modal').modal('hide');
+        $('#editAddressModal').modal('show');
+    })
 </script>
 <script src="~/static/js/checkout.js"></script>
 <script src="~/static/js/userProfile.js"></script>

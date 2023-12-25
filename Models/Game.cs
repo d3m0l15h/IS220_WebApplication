@@ -58,9 +58,6 @@ public partial class Game
     [InverseProperty("Games")]
     public virtual Developer DeveloperNavigation { get; set; } = null!;
 
-    [InverseProperty("Game")]
-    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
-
     [ForeignKey("Publisher")]
     [InverseProperty("Games")]
     public virtual Publisher PublisherNavigation { get; set; } = null!;

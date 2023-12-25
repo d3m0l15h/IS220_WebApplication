@@ -103,7 +103,7 @@ public partial class Aspnetuser : IdentityUser<uint>
     [InverseProperty("UidNavigation")]
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
-    [InverseProperty("User")]
+    [InverseProperty("UidNavigation")]
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
     [ForeignKey("UserId")]

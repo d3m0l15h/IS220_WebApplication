@@ -7,32 +7,49 @@ using Microsoft.EntityFrameworkCore;
 namespace IS220_WebApplication.Models;
 
 [Table("order")]
-[Index("DetailId", Name = "FK_Info_Trans")]
-[Index("UserId", Name = "FK_User_Trans")]
+[Index("Address", Name = "FK_Address_Address")]
+[Index("PaymentMethod", Name = "FK_PaymentMethod_PaymentMethod")]
+[Index("Status", Name = "FK_Status_OrderStatus")]
+[Index("Uid", Name = "FK_User_Trans")]
 public partial class Order
 {
     [Key]
     [Column("id", TypeName = "int(10) unsigned")]
     public uint Id { get; set; }
 
-    [Column("detailID", TypeName = "int(11) unsigned")]
-    public uint DetailId { get; set; }
-
     [Column("date", TypeName = "timestamp")]
     public DateTime Date { get; set; }
 
-    [Column("userID", TypeName = "int(10) unsigned")]
-    public uint UserId { get; set; }
+    [Column("uid", TypeName = "int(10) unsigned")]
+    public uint Uid { get; set; }
 
-    [Column("status")]
-    [StringLength(15)]
-    public string Status { get; set; } = null!;
+    [Column("status", TypeName = "int(10) unsigned")]
+    public uint Status { get; set; }
 
-    [ForeignKey("DetailId")]
+    [Column("paymentMethod", TypeName = "int(10) unsigned")]
+    public uint PaymentMethod { get; set; }
+
+    [Column("address", TypeName = "int(10) unsigned")]
+    public uint Address { get; set; }
+
+    [ForeignKey("Address")]
     [InverseProperty("Orders")]
-    public virtual OrderDetail Detail { get; set; } = null!;
+    public virtual Address AddressNavigation { get; set; } = null!;
 
-    [ForeignKey("UserId")]
+    [InverseProperty("Order")]
+    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+
+    [ForeignKey("PaymentMethod")]
     [InverseProperty("Orders")]
-    public virtual Aspnetuser User { get; set; } = null!;
+    public virtual Paymentmethod PaymentMethodNavigation { get; set; } = null!;
+
+    [ForeignKey("Status")]
+    [InverseProperty("Orders")]
+    public virtual OrderStatus StatusNavigation { get; set; } = null!;
+
+    [ForeignKey("Uid")]
+    [InverseProperty("Orders")]
+    public virtual Aspnetuser UidNavigation { get; set; } = null!;
+
+
 }

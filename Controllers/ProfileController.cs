@@ -168,14 +168,14 @@ public class ProfileController : Controller
         _notyf.Success("Password changed successfully");
         return RedirectToAction("index", "profile");
     }
-    [Route("profile/create-new-address")]
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> CreateNewAddress(CombinedViewModel model)
     {
         var user = await _userManager.GetUserAsync(User);
         model.User = user;
-        if (!ModelState.IsValid) { return View("index", model); }
+        ViewBag.AddressCreationAttempted = true;
         var address = new Address
         {
             UserId = user.Id,
@@ -190,14 +190,62 @@ public class ProfileController : Controller
         // _logger.LogInformation("Status code: {StatusCode}", result.GetStatusCode().Value);
         if ((int)result.GetStatusCode().Value == 200)
         {
-            _notyf.Success("Address created successfully");
-            return RedirectToAction("index", "profile");
+            return new JsonResult(new { Ok = true, Message = "Address created successfully" });
         }
         else
         {
-
-            _notyf.Error("Address creation failed");
-            return View("index", model);
+            return new JsonResult(new { Ok = false, Message = "Address creation failed" });
         }
     }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> UpdateAddress(CombinedViewModel model)
+    {
+        var user = await _userManager.GetUserAsync(User);
+        var updatedAddress = model.CreateAddress;
+        var address = _address.GetAddress(updatedAddress!.Id);
+
+        if (address == null)
+        {
+            return new JsonResult(new { Ok = false, Message = "Address not found" });
+        }
+
+        address.Receiver = updatedAddress.Receiver;
+        address.Phone = updatedAddress.Phone;
+        address.Street = updatedAddress.Street;
+        address.Ward = updatedAddress.Ward;
+        address.State = updatedAddress.State;
+        address.City = updatedAddress.City;
+
+        var result = _address.UpdateAddress(address);
+
+        if ((int)result.GetStatusCode().Value == 200)
+        {
+            return new JsonResult(new { Ok = true, Message = "Address updated successfully" });
+        }
+        else
+        {
+            return new JsonResult(new { Ok = false, Message = "Address update failed" });
+        }
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteAddress(CombinedViewModel model)
+    {
+        var user = await _userManager.GetUserAsync(User);
+        var addressId = model.CreateAddress!.Id;
+        var result = _address.DeleteAddress(addressId);
+
+        if ((int)result.GetStatusCode().Value == 200)
+        {
+            return new JsonResult(new { Ok = true, Message = "Address deleted successfully" });
+        }
+        else
+        {
+            return new JsonResult(new { Ok = false, Message = "Address deletion failed" });
+        }
+    }
+
 }

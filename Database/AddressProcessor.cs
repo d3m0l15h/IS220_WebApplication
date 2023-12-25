@@ -34,6 +34,71 @@ public class AddressProcessor : Processor<Address>
             .ToList();
         return nonDefaultAddress;
     }
+    public Address GetAddress(uint addressId)
+    {
+        var address = _db.Addresses
+            .Where(a => a.Id == addressId)
+            .FirstOrDefault();
+        return address;
+    }
+    public Response UpdateAddress(Address address)
+    {
+        var response = new Response();
+        try
+        {
+            var existingAddresses = _db.Addresses.Where(a => a.UserId == address.UserId).ToList();
+
+            if (existingAddresses.Any())
+            {
+                address.IsDefault = false;
+            }
+            else
+            {
+                address.IsDefault = true;
+            }
+
+            _db.Entry(address).State = EntityState.Modified;
+            _db.SaveChanges();
+            response.SetStatusCode(StatusCode.Ok);
+            response.SetMessage("Address updated successfully");
+        }
+        catch (Exception e)
+        {
+            response.SetStatusCode(StatusCode.InternalServerError);
+            response.SetMessage(e.Message);
+        }
+        return response;
+    }
+
+    public Response DeleteAddress(uint addressId)
+    {
+        var response = new Response();
+        try
+        {
+            var address = _db.Addresses
+                .Where(a => a.Id == addressId)
+                .FirstOrDefault();
+
+            if (address == null)
+            {
+                response.SetStatusCode(StatusCode.NotFound);
+                response.SetMessage("Address not found");
+                return response;
+            }
+
+            _db.Addresses.Remove(address);
+            _db.SaveChanges();
+            response.SetStatusCode(StatusCode.Ok);
+            response.SetMessage("Address deleted successfully");
+        }
+        catch (Exception e)
+        {
+            response.SetStatusCode(StatusCode.InternalServerError);
+            response.SetMessage(e.Message);
+        }
+        return response;
+    }
+
     public override Response InsertData(Dictionary<string, string> columnValueMap, bool isCommit)
     {
         return Insert(columnValueMap, GetDefaultDatabaseTable(), isCommit);
@@ -90,13 +155,11 @@ public class AddressProcessor : Processor<Address>
 
             if (existingAddresses.Any())
             {
-
-                address.IsDefault = true;
+                address.IsDefault = false;
             }
             else
             {
-
-                address.IsDefault = false;
+                address.IsDefault = true;
             }
 
             _db.Addresses.Add(address);

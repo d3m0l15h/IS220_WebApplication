@@ -8,30 +8,30 @@ namespace IS220_WebApplication.Models;
 
 [Table("order_detail")]
 [Index("GameId", Name = "FK_Game_Trans")]
-[Index("TypeId", Name = "Fk_Type_Trans")]
+[Index("OrderId", Name = "FK_OrderId_Order")]
 public partial class OrderDetail
 {
     [Key]
     [Column("id", TypeName = "int(11) unsigned")]
     public uint Id { get; set; }
 
-    [Column("typeID", TypeName = "int(11) unsigned")]
-    public uint TypeId { get; set; }
+    [Column("price", TypeName = "int(11)")]
+    public int Price { get; set; }
 
-    [Column("amount", TypeName = "int(11)")]
-    public int Amount { get; set; }
-
-    [Column("gameID", TypeName = "int(11) unsigned")]
+    [Column("gameId", TypeName = "int(11) unsigned")]
     public uint? GameId { get; set; }
 
-    [ForeignKey("GameId")]
-    [InverseProperty("OrderDetails")]
-    public virtual Game? Game { get; set; }
+    [Column("gameType", TypeName = "int(10) unsigned")]
+    public uint? GameType { get; set; }
 
-    [InverseProperty("Detail")]
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    [Column("quantity", TypeName = "int(10) unsigned")]
+    public uint? Quantity { get; set; }
 
-    [ForeignKey("TypeId")]
+    [Column("orderId", TypeName = "int(10) unsigned")]
+    public uint OrderId { get; set; }
+
+    [ForeignKey("OrderId")]
     [InverseProperty("OrderDetails")]
-    public virtual OrderType Type { get; set; } = null!;
+    public virtual Order Order { get; set; } = null!;
+    public Game Game { get; set; } = null!;
 }

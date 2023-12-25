@@ -44,6 +44,9 @@ fetch("/static/js/dvhc.json")
     proSearch();
     disSearch();
     warSearch();
+    $(".address-input").each((_, e) => {
+      new AddressInput($(e));
+    });
   })
   .catch((error) => {
     console.error("Error:", error);
@@ -418,3 +421,144 @@ function dvhccodeSearch() {
     $("#dvhc_code_result").text("");
   }
 }
+
+class AddressInput {
+  constructor(el) {
+    if (!el) return;
+    this.id = `ad${Math.random().toString(36).substring(7)}`;
+    this.$el = el;
+    this.province = null;
+    this.district = null;
+    this.ward = null;
+    this.$province = this.$el.find('[address-type="province"]');
+    this.$district = this.$el.find('[address-type="district"]');
+    this.$ward = this.$el.find('[address-type="ward"]');
+    this.$province.attr("_ad", this.id);
+    this.$district.attr("_ad", this.id);
+    this.$ward.attr("_ad", this.id);
+    this.$province.on("input change", () => {
+      this.sync();
+    });
+    this.$district.on("input change", () => {
+      this.sync();
+    });
+    this.$ward.on("input change", () => {
+      this.sync();
+    });
+    this.$province.on("click", (e) => {
+      e.preventDefault();
+      this.sync();
+      this.renderDropdown("province");
+    });
+    this.$district.on("click", (e) => {
+      e.preventDefault();
+      this.sync();
+      this.renderDropdown("district");
+    });
+    this.$ward.on("click", (e) => {
+      e.preventDefault();
+      this.sync();
+      this.renderDropdown("ward");
+    });
+  }
+  sync() {
+    this.province = dvhcData.province.find(
+      (p) => p.id == this.$province.attr("address-value")
+    );
+    if (this.province) {
+      this.district = this.province.district.find(
+        (d) => d.id == this.$district.attr("address-value")
+      );
+    }
+    if (this.district) {
+      this.ward = this.district.ward.find(
+        (w) => w.id == this.$ward.attr("address-value")
+      );
+    }
+    this.renderDropdown("province", this.$province.val());
+    this.renderDropdown("district", this.$district.val());
+    this.renderDropdown("ward", this.$ward.val());
+  }
+  renderDropdownItem(type, id, name) {
+    return `<li><a class="dropdown-item" address-action="fill" address-type="${type}" address-value="${id}" address-target="${this.id}">${name}</a></li>`;
+  }
+  renderDropdown(type, filter = "") {
+    let $dropdown = null;
+    switch (type) {
+      case "province":
+        $dropdown = this.$province.siblings(".dropdown-menu").first();
+        $dropdown.empty();
+        if (!filter) {
+          dvhcData.province.forEach((p) => {
+            $dropdown.append(this.renderDropdownItem("province", p.id, p.name));
+          });
+        } else {
+          dvhcData.province
+            .filter((p) => toQuery(p.name).includes(toQuery(filter)))
+            .forEach((p) => {
+              $dropdown.append(
+                this.renderDropdownItem("province", p.id, p.name)
+              );
+            });
+        }
+        break;
+      case "district":
+        $dropdown = this.$district.siblings(".dropdown-menu").first();
+        $dropdown.empty();
+        if (!this.province) {
+          $dropdown.append(
+            '<li><a class="dropdown-item">Please select province first</a></li>'
+          );
+          return;
+        }
+        if (!filter) {
+          this.province.district.forEach((d) => {
+            $dropdown.append(this.renderDropdownItem("district", d.id, d.name));
+          });
+        } else {
+          this.province.district
+            .filter((d) => toQuery(d.name).includes(toQuery(filter)))
+            .forEach((d) => {
+              $dropdown.append(
+                this.renderDropdownItem("district", d.id, d.name)
+              );
+            });
+        }
+        break;
+      case "ward":
+        $dropdown = this.$ward.siblings(".dropdown-menu").first();
+        $dropdown.empty();
+        if (!this.district) {
+          $dropdown.append(
+            '<li><a class="dropdown-item">Please select district first</a></li>'
+          );
+          return;
+        }
+        if (!filter) {
+          this.district.ward.forEach((w) => {
+            $dropdown.append(this.renderDropdownItem("ward", w.id, w.name));
+          });
+        } else {
+          this.district.ward
+            .filter((w) => toQuery(w.name).includes(toQuery(filter)))
+            .forEach((w) => {
+              $dropdown.append(this.renderDropdownItem("ward", w.id, w.name));
+            });
+        }
+        break;
+    }
+  }
+}
+
+$(document).on("click", '[address-action="fill"]', function (e) {
+  e.preventDefault();
+  const $this = $(this);
+  const $input = $(
+    `[_ad="${$this.attr("address-target")}"][address-type="${$this.attr(
+      "address-type"
+    )}"]`
+  );
+  $input.val($this.text());
+  $input.attr("address-value", $this.attr("address-value"));
+  $input.trigger("change");
+});

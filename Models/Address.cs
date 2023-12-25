@@ -50,6 +50,9 @@ public partial class Address
     [Column("updated_at", TypeName = "timestamp")]
     public DateTime? UpdatedAt { get; set; }
 
+    [InverseProperty("AddressNavigation")]
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+
     [ForeignKey("UserId")]
     [InverseProperty("Addresses")]
     public virtual Aspnetuser User { get; set; } = null!;
