@@ -168,7 +168,7 @@ public class ProfileController : Controller
         _notyf.Success("Password changed successfully");
         return RedirectToAction("index", "profile");
     }
-
+    [Route("profile/create-new-address")]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> CreateNewAddress(CombinedViewModel model)
@@ -187,14 +187,15 @@ public class ProfileController : Controller
             City = model.CreateAddress!.City,
         };
         var result = _address.CreateAddress(address);
-        _logger.LogInformation("Status code: {StatusCode}", result.GetStatusCode()!.Value);
-        if ((int)result.GetStatusCode()!.Value == 200)
+        // _logger.LogInformation("Status code: {StatusCode}", result.GetStatusCode().Value);
+        if ((int)result.GetStatusCode().Value == 200)
         {
             _notyf.Success("Address created successfully");
             return RedirectToAction("index", "profile");
         }
         else
         {
+
             _notyf.Error("Address creation failed");
             return View("index", model);
 
