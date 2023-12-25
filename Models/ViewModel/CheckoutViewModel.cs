@@ -19,7 +19,6 @@ public class CheckoutViewModel
 {
     public List<CheckoutItems> CheckoutItems { get; set; }
     public int TotalCount { get; set; }
-    public Address SelectedAddress { get; set; }
-
-    public string? PaymentMethod { get; set; }
+    public uint SelectedAddress { get; set; }
+    public uint Paymentmethod { get; set; }
 }

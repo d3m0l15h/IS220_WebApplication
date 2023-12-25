@@ -321,22 +321,22 @@
 
                     <div class="table-responsive mt-5 mb-5 p-5">
                         <table class="table text-white">
-                            <h3 class="normal-text">
+                            <h3 class="normal-text mb-3">
                                 Shopping cart
                             </h3>
-                            <thead>
+                            @* <thead>
                                 <tr>
                                     <th scope="col" class="h5">Name</th>
-
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Price</th>
                                 </tr>
-                            </thead>
+                            </thead> *@
                             <tbody class="items-in-cart">
-
                                 @foreach (var item in Model.CheckoutItems)
                                 {
+                                    
                                     <div class="cart-item d-flex justify-content-between align-items-center">
+                                        
                                         <div class="col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
                                             <img src='~/images/game/@item.Image' class="img-fluid rounded-3" alt="">
                                         </div>
@@ -367,22 +367,16 @@
                                     </div>
                                     <hr class="my-4">
                                 }
-
                             </tbody>
-
                             <tfoot>
-                                <tr>
-                                    <th scope="row">
-
-                                    </th>
-
-                                    <td class="align-middle">
-
-                                    </td>
-                                    <td class="align-middle">
-                                        <p class="mb-0 normal-text total-money fs-2">vcl</p>
-                                    </td>
-                                </tr>
+                                <div class="row justify-content-end">
+                                    <div class="col-md-3 d-flex justify-content-center total-price">
+                                        <h2>test</h2>
+                                    </div>
+                                    <div class="col-md-1">
+                                        
+                                    </div>
+                                </div>
                             </tfoot>
                         </table>
                     </div>
@@ -399,7 +393,7 @@
 
                             </div>
                             <div class="col-4 d-flex align-items-stretch">
-                                <div class="card payment-method-item mb-4 shadow-sm w-100" id="method-1">
+                                <div class="card payment-method-item mb-4 shadow-sm w-100" id="1">
                                     <div
                                         class="payment-method p-3 d-flex justify-content-center align-items-center h-100">
                                         <div class="media">
@@ -420,7 +414,7 @@
                                 </div>
                             </div>
                             <div class="col-4 d-flex align-items-stretch">
-                                <div class="card payment-method-item mb-4 shadow-sm w-100" id="method-2">
+                                <div class="card payment-method-item mb-4 shadow-sm w-100" id="2">
                                     <div
                                         class="payment-method p-3 d-flex justify-content-center align-items-center h-100">
                                         <div class="media">
@@ -441,7 +435,7 @@
                                 </div>
                             </div>
                             <div class="col-4 d-flex align-items-stretch">
-                                <div class="card payment-method-item mb-4 shadow-sm w-100" id="method-3">
+                                <div class="card payment-method-item mb-4 shadow-sm w-100" id="3">
                                     <div
                                         class="payment-method p-3 d-flex justify-content-center align-items-center h-100">
                                         <div class="media">
@@ -480,8 +474,39 @@
     @* Import Jquert *@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+        $('.checkout').click(function () {
+            var address = $('.addresses-item.checked').attr('address')
+            var paymentMethod = $('.payment-method-item.checked').attr('id')
+            @* console.log(address) *@
+            @* console.log(paymentMethod) *@
+            $.ajax({
+                url: '/order',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    CheckoutViewModel:{
+                    SelectedAddress: address,
+                    Paymentmethod: paymentMethod,
+                }}),
+                success: function (data) {
+                    console.log(data)
+                    window.location.href = `/order/${data.orderId}`
+                },
+                error: function (data) {
+                    console.log(data)
+                }
+            });
+        })
+        
         var modelData = @Html.Raw(Json.Serialize(Model));
         console.log(modelData);
+        var totalMoney = 0;
+        modelData.checkoutItems.forEach(el=>{
+            totalMoney += el.price*el.quantity;
+        })
+        var totalMoneyFormatted = totalMoney.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+        $('.total-price h2').html(totalMoneyFormatted); 
+        
         document.querySelector('.cart-button').classList.add('d-none')
         document.querySelectorAll('.card.payment-method-item').forEach(item => {
             item.addEventListener('click', () => {

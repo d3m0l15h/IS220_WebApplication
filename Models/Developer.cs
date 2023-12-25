@@ -10,10 +10,10 @@ namespace IS220_WebApplication.Models;
 public partial class Developer
 {
     [Key]
-    [Column("ID", TypeName = "int(10) unsigned")]
+    [Column("id", TypeName = "int(10) unsigned")]
     public uint Id { get; set; }
 
-    [Column("NAME")]
+    [Column("name")]
     [StringLength(50)]
     public string Name { get; set; } = null!;
 

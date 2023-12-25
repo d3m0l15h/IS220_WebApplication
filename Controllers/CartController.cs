@@ -70,12 +70,12 @@ public class CartsController : Controller
                 {
                     GameId = game.Id,
                     GameTitle = game.Title,
-                    GameImg = game.Imgpath,
+                    GameImg = game.ImgPath,
                     GamePrice = game.Price,
                     GameType = cart.Type,
                     GameTypeStr = GameType.Get(cart.Type),
                     Quantity = cart.Quantity,
-                    UpdatedAt = cart.Modified
+                    UpdatedAt = cart.UpdatedAt
                 }
             )
             // .OrderByDescending(c => c.UpdatedAt)

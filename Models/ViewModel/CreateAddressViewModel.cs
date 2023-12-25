@@ -4,6 +4,8 @@ namespace IS220_WebApplication.Models.ViewModel;
 
 public class CreateAddressViewModel
 {
+    public uint Id { get; set; }
+
     [Microsoft.Build.Framework.Required]
     [Display(Name = "Receiver")]
     public string Receiver { get; set; } = null!;

@@ -75,7 +75,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             ModelState.Remove("Game.Status");
             if (ModelState.IsValid)
             {
-                viewModel.Game.Imgpath = SaveImage(viewModel.ImageFile);
+                viewModel.Game.ImgPath = SaveImage(viewModel.ImageFile);
                 await _db.Games.AddAsync(viewModel.Game);
                 await _db.SaveChangesAsync();
 
@@ -133,27 +133,27 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 game.Title = model.Game.Title;
-                game.Releasedate = model.Game.Releasedate;
+                game.ReleaseDate = model.Game.ReleaseDate;
                 game.Price = model.Game.Price;
                 game.Description = model.Game.Description;
                 game.Publisher = model.Game.Publisher;
                 game.Developer = model.Game.Developer;
-                game.Downloadlink = model.Game.Downloadlink;
+                game.DownloadLink = model.Game.DownloadLink;
                 game.Type = model.Game.Type;
                 game.Status = model.Game.Status;
 
                 if (model.ImageFile != null)
                 {
-                    if (game.Imgpath != null)
+                    if (game.ImgPath != null)
                     {
-                        var oldImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/game", game.Imgpath);
+                        var oldImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/game", game.ImgPath);
                         if (System.IO.File.Exists(oldImagePath))
                         {
                             System.IO.File.Delete(oldImagePath);
                         }
                     }
 
-                    game.Imgpath = SaveImage(model.ImageFile);
+                    game.ImgPath = SaveImage(model.ImageFile);
                 }
 
 

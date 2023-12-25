@@ -6,28 +6,25 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Models;
 
-[PrimaryKey("Userid", "Loginprovider", "Name")]
+[PrimaryKey("UserId", "LoginProvider", "Name")]
 [Table("aspnetusertokens")]
 public partial class Aspnetusertoken
 {
     [Key]
-    [Column("USERID", TypeName = "int(10) unsigned")]
-    public uint Userid { get; set; }
+    [Column(TypeName = "int(10) unsigned")]
+    public uint UserId { get; set; }
 
     [Key]
-    [Column("LOGINPROVIDER")]
     [StringLength(128)]
-    public string Loginprovider { get; set; } = null!;
+    public string LoginProvider { get; set; } = null!;
 
     [Key]
-    [Column("NAME")]
     [StringLength(128)]
     public string Name { get; set; } = null!;
 
-    [Column("VALUE")]
     public string? Value { get; set; }
 
-    [ForeignKey("Userid")]
+    [ForeignKey("UserId")]
     [InverseProperty("Aspnetusertokens")]
     public virtual Aspnetuser User { get; set; } = null!;
 }

@@ -23,16 +23,72 @@ public class AddressProcessor : Processor<Address>
     public Address? GetDefaultAddress(uint userId)
     {
         var defaultAddress = _db.Addresses
-            .FirstOrDefault(a => a.Userid == userId && a.Isdefault == true);
+            .FirstOrDefault(a => a.UserId == userId && a.IsDefault == true);
         return defaultAddress;
     }
     public List<Address> GetNonDefaultAddresses(uint userId)
     {
         var nonDefaultAddress = _db.Addresses
-            .Where(a => a.Userid == userId && a.Isdefault == false)
+            .Where(a => a.UserId == userId && a.IsDefault == false)
             .ToList();
         return nonDefaultAddress;
     }
+    public Address GetAddress(uint addressId)
+    {
+        var address = _db.Addresses
+            .FirstOrDefault(a => a.Id == addressId);
+        return address;
+    }
+    public Response UpdateAddress(Address address)
+    {
+        var response = new Response();
+        try
+        {
+            var existingAddresses = _db.Addresses.Where(a => a.UserId == address.UserId).ToList();
+
+            address.IsDefault = !existingAddresses.Any();
+
+            _db.Entry(address).State = EntityState.Modified;
+            _db.SaveChanges();
+            response.SetStatusCode(StatusCode.Ok);
+            response.SetMessage("Address updated successfully");
+        }
+        catch (Exception e)
+        {
+            response.SetStatusCode(StatusCode.InternalServerError);
+            response.SetMessage(e.Message);
+        }
+        return response;
+    }
+
+    public Response DeleteAddress(uint addressId)
+    {
+        var response = new Response();
+        try
+        {
+            var address = _db.Addresses
+                .FirstOrDefault(a => a.Id == addressId);
+
+            if (address == null)
+            {
+                response.SetStatusCode(StatusCode.NotFound);
+                response.SetMessage("Address not found");
+                return response;
+            }
+
+            _db.Addresses.Remove(address);
+            _db.SaveChanges();
+            response.SetStatusCode(StatusCode.Ok);
+            response.SetMessage("Address deleted successfully");
+        }
+        catch (Exception e)
+        {
+            response.SetStatusCode(StatusCode.InternalServerError);
+            response.SetMessage(e.Message);
+        }
+        return response;
+    }
+
     public override Response InsertData(Dictionary<string, string> columnValueMap, bool isCommit)
     {
         return Insert(columnValueMap, GetDefaultDatabaseTable(), isCommit);
@@ -85,9 +141,9 @@ public class AddressProcessor : Processor<Address>
         try
         {
 
-            var existingAddresses = _db.Addresses.Where(a => a.Userid == address.Userid).ToList();
+            var existingAddresses = _db.Addresses.Where(a => a.UserId == address.UserId).ToList();
 
-            address.Isdefault = existingAddresses.Any();
+            address.IsDefault = !existingAddresses.Any();
 
             _db.Addresses.Add(address);
             _db.SaveChanges();

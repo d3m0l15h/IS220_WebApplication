@@ -12,7 +12,7 @@
         {
             <div class="box">
                 <a asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">
-                    <img src="~/images/game/@item.Imgpath" alt=""/>
+                    <img src="~/images/game/@item.ImgPath" alt=""/>
                 </a>
                 <div class="box-text">
                     <h2><a asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">@item.Title</a></h2>

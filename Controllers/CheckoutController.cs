@@ -34,15 +34,14 @@ public class CheckoutController : Controller
                 Quantity = c.Cart.Quantity,
                 Price = c.Game.Price,
                 Type = c.Cart.Type,
-                Image = c.Game.Imgpath
+                Image = c.Game.ImgPath
             })
             .ToListAsync();
 
-        // model.TotalCount = model.Checkout.Sum(c => c.Quantity ?? 0);
         model.DefaultAddress = await _db.Addresses
-            .FirstOrDefaultAsync(a => a.Userid == userIdValue && a.Isdefault == true);
+            .FirstOrDefaultAsync(a => a.UserId == userIdValue && a.IsDefault == true);
         model.NonDefaultAddresses = await _db.Addresses
-            .Where(a => a.Userid == userIdValue && a.Isdefault == false)
+            .Where(a => a.UserId == userIdValue && a.IsDefault == false)
             .ToListAsync();
         return View(model);
     }

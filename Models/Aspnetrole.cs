@@ -7,28 +7,25 @@ using Microsoft.EntityFrameworkCore;
 namespace IS220_WebApplication.Models;
 
 [Table("aspnetroles")]
-[Index("Normalizedname", Name = "ROLENAMEINDEX", IsUnique = true)]
+[Index("NormalizedName", Name = "RoleNameIndex", IsUnique = true)]
 public partial class Aspnetrole
 {
     [Key]
-    [Column("ID", TypeName = "int(10) unsigned")]
+    [Column(TypeName = "int(10) unsigned")]
     public uint Id { get; set; }
 
-    [Column("NAME")]
     [StringLength(256)]
     public string? Name { get; set; }
 
-    [Column("NORMALIZEDNAME")]
     [StringLength(256)]
-    public string? Normalizedname { get; set; }
+    public string? NormalizedName { get; set; }
 
-    [Column("CONCURRENCYSTAMP")]
-    public string? Concurrencystamp { get; set; }
+    public string? ConcurrencyStamp { get; set; }
 
     [InverseProperty("Role")]
     public virtual ICollection<Aspnetroleclaim> Aspnetroleclaims { get; set; } = new List<Aspnetroleclaim>();
 
-    [ForeignKey("Roleid")]
+    [ForeignKey("RoleId")]
     [InverseProperty("Roles")]
     public virtual ICollection<Aspnetuser> Users { get; set; } = new List<Aspnetuser>();
 }

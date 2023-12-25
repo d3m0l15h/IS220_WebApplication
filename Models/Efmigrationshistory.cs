@@ -10,11 +10,9 @@ namespace IS220_WebApplication.Models;
 public partial class Efmigrationshistory
 {
     [Key]
-    [Column("MIGRATIONID")]
     [StringLength(150)]
-    public string Migrationid { get; set; } = null!;
+    public string MigrationId { get; set; } = null!;
 
-    [Column("PRODUCTVERSION")]
     [StringLength(32)]
-    public string Productversion { get; set; } = null!;
+    public string ProductVersion { get; set; } = null!;
 }

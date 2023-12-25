@@ -21,7 +21,7 @@ namespace IS220_WebApplication.Controllers
         {
             var viewModel = new CombinedViewModel
             {
-                NewGame = _db.Games.OrderByDescending(game => game.Releasedate)
+                NewGame = _db.Games.OrderByDescending(game => game.ReleaseDate)
                     .Include(game => game.Categories)
                     .Take(16).ToList()
             };

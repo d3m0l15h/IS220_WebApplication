@@ -48,15 +48,15 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddUser(UserViewModel viewModel)
         {
-            viewModel.User.Avatarpath = Utils.Utils.SaveImage(viewModel.AvatarPath, "wwwroot/images/user");
+            viewModel.User.AvatarPath = Utils.Utils.SaveImage(viewModel.AvatarPath, "wwwroot/images/user");
             if (viewModel.AvatarPath == null)
-                viewModel.User.Avatarpath = "/admin/img/svg/userExtra.svg";
+                viewModel.User.AvatarPath = "/admin/img/svg/userExtra.svg";
             viewModel.User.Role = 1;
             ModelState.Remove("User.PasswordHash");
             ModelState.Remove("User.AvatarPath");
             if (viewModel.AvatarPath == null)
                 ModelState.Remove("AvatarPath");
-            Console.WriteLine("heheeehehehe" + viewModel.User.Avatarpath);
+            Console.WriteLine("heheeehehehe" + viewModel.User.AvatarPath);
             Utils.Utils.CheckModelState(ModelState);
             Console.WriteLine(viewModel.User);
             switch (ModelState.IsValid)
@@ -81,8 +81,8 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                     {
                         UserName = viewModel.User.UserName,
                         Email = viewModel.User.Email,
-                        Firstname = viewModel.User.Firstname,
-                        Lastname = viewModel.User.Lastname,
+                        FirstName = viewModel.User.FirstName,
+                        LastName = viewModel.User.LastName,
                         Phone = viewModel.User.Phone,
                         Status = viewModel.User.Status,
                         LockoutEnabled = false,

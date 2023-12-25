@@ -6,8 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IS220_WebApplication.Models;
 
-[Table("publisher")]
-public partial class Publisher
+[Table("order_status")]
+public partial class OrderStatus
 {
     [Key]
     [Column("id", TypeName = "int(10) unsigned")]
@@ -17,6 +17,6 @@ public partial class Publisher
     [StringLength(50)]
     public string Name { get; set; } = null!;
 
-    [InverseProperty("PublisherNavigation")]
-    public virtual ICollection<Game> Games { get; set; } = new List<Game>();
+    [InverseProperty("StatusNavigation")]
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

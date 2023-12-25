@@ -26,7 +26,7 @@ public class AddressController : Controller
         }
         var userId = uint.Parse(uid);
         var defaultAddress = _db.Addresses
-            .FirstOrDefault(a => a.Userid == userId && a.Isdefault == true);
+            .FirstOrDefault(a => a.UserId == userId && a.IsDefault == true);
 
         if (defaultAddress == null)
         {

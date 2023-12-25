@@ -7,53 +7,53 @@ using Microsoft.EntityFrameworkCore;
 namespace IS220_WebApplication.Models;
 
 [Table("address")]
-[Index("Userid", Name = "FK_ADD_USER")]
+[Index("UserId", Name = "FK_Add_User")]
 public partial class Address
 {
     [Key]
-    [Column("ID", TypeName = "int(10) unsigned")]
+    [Column("id", TypeName = "int(10) unsigned")]
     public uint Id { get; set; }
 
-    [Column("USERID", TypeName = "int(10) unsigned")]
-    public uint Userid { get; set; }
+    [Column("userID", TypeName = "int(10) unsigned")]
+    public uint UserId { get; set; }
 
-    [Column("STREET")]
+    [Column("street")]
     [StringLength(255)]
     public string Street { get; set; } = null!;
 
-    [Column("WARD")]
+    [Column("ward")]
     [StringLength(255)]
     public string Ward { get; set; } = null!;
 
-    [Column("CITY")]
+    [Column("city")]
     [StringLength(255)]
     public string City { get; set; } = null!;
 
-    [Column("STATE")]
+    [Column("state")]
     [StringLength(255)]
     public string State { get; set; } = null!;
 
-    [Column("ISDEFAULT")]
-    public bool Isdefault { get; set; }
+    [Column("isDefault")]
+    public bool IsDefault { get; set; }
 
-    [Column("PHONE")]
+    [Column("phone")]
     [StringLength(255)]
     public string Phone { get; set; } = null!;
 
-    [Column("RECEIVER")]
+    [Column("receiver")]
     [StringLength(255)]
     public string Receiver { get; set; } = null!;
 
-    [Column("CREATED_AT", TypeName = "timestamp")]
+    [Column("created_at", TypeName = "timestamp")]
     public DateTime CreatedAt { get; set; }
 
-    [Column("UPDATED_AT", TypeName = "timestamp")]
+    [Column("updated_at", TypeName = "timestamp")]
     public DateTime? UpdatedAt { get; set; }
 
-    [ForeignKey("Userid")]
+    [InverseProperty("AddressNavigation")]
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+
+    [ForeignKey("UserId")]
     [InverseProperty("Addresses")]
     public virtual Aspnetuser User { get; set; } = null!;
-
-    [InverseProperty("Address")]
-    public virtual ICollection<UserOrder> UserOrders { get; set; } = new List<UserOrder>();
 }

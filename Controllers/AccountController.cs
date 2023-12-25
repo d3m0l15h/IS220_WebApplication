@@ -89,8 +89,8 @@ public class AccountController : Controller
                 {
                     UserName = model.UserRegister!.Username,
                     Email = model.UserRegister!.Email,
-                    Firstname = model.UserRegister!.FirstName,
-                    Lastname = model.UserRegister!.LastName,
+                    FirstName = model.UserRegister!.FirstName,
+                    LastName = model.UserRegister!.LastName,
                     LockoutEnabled = false,
                 };
                 var result = await _userManager.CreateAsync(user, model.UserRegister!.Password!);

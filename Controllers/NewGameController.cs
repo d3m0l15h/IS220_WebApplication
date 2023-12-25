@@ -18,7 +18,7 @@ public class NewGameController : Controller
     {
         var newGame = new CombinedViewModel
         {
-            NewGame = _db.Games.OrderByDescending(game => game.Releasedate)
+            NewGame = _db.Games.OrderByDescending(game => game.ReleaseDate)
                 .Include(game => game.Categories)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
