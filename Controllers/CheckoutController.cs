@@ -18,7 +18,7 @@ public class CheckoutController : Controller
     [Route("checkout")]
     public async Task<IActionResult> Index()
     {
-        string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         var model = new CombinedViewModel();
         uint userIdValue;
         uint.TryParse(userId, out userIdValue);
@@ -40,9 +40,9 @@ public class CheckoutController : Controller
 
         // model.TotalCount = model.Checkout.Sum(c => c.Quantity ?? 0);
         model.DefaultAddress = await _db.Addresses
-            .FirstOrDefaultAsync(a => a.UserId == userIdValue && a.IsDefault == true);
+            .FirstOrDefaultAsync(a => a.Userid == userIdValue && a.Isdefault == true);
         model.NonDefaultAddresses = await _db.Addresses
-            .Where(a => a.UserId == userIdValue && a.IsDefault == false)
+            .Where(a => a.Userid == userIdValue && a.Isdefault == false)
             .ToListAsync();
         return View(model);
     }

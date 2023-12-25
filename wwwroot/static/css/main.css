@@ -183,10 +183,10 @@ html::-webkit-scrollbar {
 .user-setting {
     position: absolute;
     top: 80%;
-    right: 14rem;
+    right: 12rem;
     background: var(--light-color);
-    width: 190px;
-    height: 220px;
+    width: auto;
+    height: auto;
     border-radius: 0.5rem;
     padding: 10px;
     text-align: center;

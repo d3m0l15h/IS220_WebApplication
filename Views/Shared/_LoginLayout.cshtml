@@ -46,11 +46,10 @@
                     <a href="/#home">HOME</a>
                     <a href="/#trending">HOT GAMES</a>
                     <a href="/#new">NEW GAMES</a>
-                    <a href="/#console">CONSOLE GAMES</a>
                     <a href="/#contact">CONTACT</a>
                 </div>
             </div>
-
+            
             @* SEARCH BAR *@
             <form class="input-group search-form" asp-controller="search" asp-action="index" method="get">
                 <input type="search" id="form1" class="form-control" placeholder="Search games here..." name="search"/>
@@ -58,7 +57,6 @@
                     <i class="bx bx-search-alt-2"></i>
                 </button>
             </form>
-
             @* ICON FOR USER *@
             <a class="bx bx-shopping-bag position-relative cart-button" data-bs-toggle="offcanvas"
                data-bs-target="#cartOffcanvas">

@@ -79,7 +79,7 @@ function disSearch() {
     if ($(".province").val()) {
       if (pdaData["province_id"]) {
         for (i in dvhcData["province"]) {
-          if (pdaData["province_id"] == dvhcData["province"][i]["id"]) {
+          if (pdaData["province_id"] === dvhcData["province"][i]["id"]) {
             for (j in dvhcData["province"][i]["district"]) {
               var d = dvhcData["province"][i]["district"][j]["name"],
                 did = dvhcData["province"][i]["district"][j]["id"];

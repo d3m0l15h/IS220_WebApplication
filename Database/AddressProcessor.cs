@@ -9,7 +9,7 @@ namespace IS220_WebApplication.Database;
 
 public class AddressProcessor : Processor<Address>
 {
-    protected readonly MyDbContext _db;
+    private readonly MyDbContext _db;
     public AddressProcessor(MyDbContext db) : base(db)
     {
         _db = db;
@@ -85,18 +85,9 @@ public class AddressProcessor : Processor<Address>
         try
         {
 
-            var existingAddresses = _db.Addresses.Where(a => a.UserId == address.UserId).ToList();
+            var existingAddresses = _db.Addresses.Where(a => a.Userid == address.Userid).ToList();
 
-            if (existingAddresses.Any())
-            {
-
-                address.IsDefault = true;
-            }
-            else
-            {
-
-                address.IsDefault = false;
-            }
+            address.Isdefault = existingAddresses.Any();
 
             _db.Addresses.Add(address);
             _db.SaveChanges();

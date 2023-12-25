@@ -178,7 +178,7 @@ public class ProfileController : Controller
         if (!ModelState.IsValid) { return View("index", model); }
         var address = new Address
         {
-            Userid = user.Id,
+            Userid = user!.Id,
             Receiver = model.CreateAddress!.Receiver,
             Phone = model.CreateAddress!.Phone,
             Street = model.CreateAddress!.Street,
@@ -187,8 +187,8 @@ public class ProfileController : Controller
             City = model.CreateAddress!.City,
         };
         var result = _address.CreateAddress(address);
-        _logger.LogInformation("Status code: {StatusCode}", result.GetStatusCode().Value);
-        if ((int)result.GetStatusCode().Value == 200)
+        _logger.LogInformation("Status code: {StatusCode}", result.GetStatusCode()!.Value);
+        if ((int)result.GetStatusCode()!.Value == 200)
         {
             _notyf.Success("Address created successfully");
             return RedirectToAction("index", "profile");
