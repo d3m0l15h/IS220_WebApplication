@@ -25,10 +25,10 @@ namespace IS220_WebApplication.Controllers
                     .Include(game => game.Categories)
                     .Where(game => game.Status == "active")
                     .Take(8).ToList(),
-                ConsoleGame = _db.Games.Where(game => game.Type == 1)
+                ConsoleGame = _db.Games.Where(game => game.Type == 1 && game.Status == "active")
                     .Include(game => game.Categories)
                     .ToList(),
-                SoftwareGame = _db.Games.Where(game => game.Type == 1 && game.Status == "active")
+                SoftwareGame = _db.Games.Where(game => game.Type == 1 )
                     .Include(game => game.Categories)
                     .ToList(),
                 HotGame = _db.Games

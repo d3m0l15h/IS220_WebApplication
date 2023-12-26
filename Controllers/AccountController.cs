@@ -110,13 +110,24 @@ public class AccountController : Controller
                 return Json(new { isValid = false, errors });
         }
     }
+    
+    [HttpGet]
+    public async Task<IActionResult> IsEmailVerified()
+    {
+        var user = await _userManager.GetUserAsync(User);
+        if (user == null)
+        {
+            return Unauthorized();
+        }
 
+        return Json(user.EmailConfirmed);
+    }
+    
     [HttpGet]
     public async Task<IActionResult> Logout()
     {
-        var originalUrl = HttpContext.Request.Headers["Referer"].ToString();
         await _signInManager.SignOutAsync();
         _notyf?.Success("You have been logged out");
-        return Redirect(originalUrl);
+        return RedirectToAction("index", "home");
     }
 }

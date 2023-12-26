@@ -16,14 +16,16 @@ namespace IS220_WebApplication.Controllers;
 public class StorageController : Controller
 {
     private readonly MyDbContext _context;
+    private UserManager<Aspnetuser> _userManager;
 
-    public StorageController(MyDbContext context)
+    public StorageController(MyDbContext context, UserManager<Aspnetuser> userManager)
     {
         _context = context;
+        _userManager = userManager;
     }
     public IActionResult Index()
     {
-        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var userId = _userManager.GetUserId(User);
         var purchasedGame = _context.OrderDetails
             .Include(x => x.Order)
             .Include(x => x.Game)

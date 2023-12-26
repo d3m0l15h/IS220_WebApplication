@@ -41,9 +41,9 @@ public class OrderController : Controller
         {
             return NotFound();
         }
-        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        var user = await _userManager.GetUserAsync(User);
-        if (order.Uid != user.Id)
+        var user = _userManager.GetUserAsync(User).Result;
+        
+        if (order.Uid != user.Id && user.Role != 1)
         {
             return Unauthorized();
         }

@@ -23,8 +23,7 @@ public class AddressProcessor : Processor<Address>
     public Address GetDefaultAddress(uint userId)
     {
         var defaultAddress = _db.Addresses
-            .Where(a => a.UserId == userId && a.IsDefault == true)
-            .FirstOrDefault();
+            .FirstOrDefault(a => a.UserId == userId && a.IsDefault == true);
         return defaultAddress;
     }
     public List<Address> GetNonDefaultAddresses(uint userId)
@@ -37,8 +36,7 @@ public class AddressProcessor : Processor<Address>
     public Address GetAddress(uint addressId)
     {
         var address = _db.Addresses
-            .Where(a => a.Id == addressId)
-            .FirstOrDefault();
+            .FirstOrDefault(a => a.Id == addressId);
         return address;
     }
     public Response UpdateAddress(Address address)

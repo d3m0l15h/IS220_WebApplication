@@ -439,27 +439,44 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
         $('.checkout').click(function () {
-            var address = $('.addresses-item.checked').attr('address')
-            var paymentMethod = $('.payment-method-item.checked').attr('id')
-            $.ajax({
-                url: '/order',
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({
-                    CheckoutViewModel:{
-                    SelectedAddress: address,
-                    Paymentmethod: paymentMethod,
-                }}),
-                success: function (data) {
-                    console.log(data)
-                    window.location.href = `/order/${data.orderId}`
-                },
-                error: function (data) {
-                    notyf.error(`You must choose your payment method and address`)
-                    console.log(data)
-                }
-            });
-        })
+    var address = $('.addresses-item.checked').attr('address')
+    var paymentMethod = $('.payment-method-item.checked').attr('id')
+
+    // Check if user's email is verified
+    $.ajax({
+        url: '/account/isEmailVerified', // Replace with your actual API endpoint
+        type: 'GET',
+        success: function (isVerified) {
+            if (isVerified) {
+                // Proceed with checkout
+                $.ajax({
+                    url: '/order',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        CheckoutViewModel:{
+                        SelectedAddress: address,
+                        Paymentmethod: paymentMethod,
+                    }}),
+                    success: function (data) {
+                        console.log(data)
+                        window.location.href = `/order/${data.orderId}`
+                    },
+                    error: function (data) {
+                        notyf.error(`You must choose your payment method and address`)
+                        console.log(data)
+                    }
+                });
+            } else {
+                // Show error message
+                notyf.error('Please verify your email before proceeding with checkout.')
+            }
+        },
+        error: function (error) {
+            console.log(error)
+        }
+    });
+})
         
         document.querySelector('.cart-button').classList.add('d-none')
         document.querySelectorAll('.card.payment-method-item').forEach(item => {

@@ -20,6 +20,7 @@ public class NewGameController : Controller
         {
             NewGame = _db.Games.OrderByDescending(game => game.ReleaseDate)
                 .Include(game => game.Categories)
+                .Where(game =>game.Status == "active" )
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToList(),
