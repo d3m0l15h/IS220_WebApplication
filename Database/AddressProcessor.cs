@@ -150,8 +150,14 @@ public class AddressProcessor : Processor<Address>
         var response = new Response();
         try
         {
-
             var existingAddresses = _db.Addresses.Where(a => a.UserId == address.UserId).ToList();
+
+            if (existingAddresses.Count >= 3)
+            {
+                response.SetStatusCode(StatusCode.BadRequest);
+                response.SetMessage("Maximum of 3 addresses allowed per user");
+                return response;
+            }
 
             if (existingAddresses.Any())
             {

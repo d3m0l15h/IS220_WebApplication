@@ -289,40 +289,41 @@
 
 
                                         @* {{-- Modal for edit address --}} *@
-                                        <div class="modal fade" id="editAddressModal" tabindex="-1" aria-hidden="true">
+                                        <div class="modal fade" id="editAddressModal-@Model.DefaultAddress.Id" tabindex="-1"
+                                            aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title text-dark">Edit Default address</h5>
+                                                        <h5 class="modal-title">Edit Default address</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                     </div>
-                                                    <div class="modal-body">
+                                                    <div class="modal-body" destination-address="@Model.DefaultAddress.Id">
                                                         <div class="media-body">
                                                             <div class="row text-dark address-input">
                                                                 <div class="col-6">
 
                                                                     <div class="form-floating mb-3">
                                                                         <input type="email" class="form-control"
-                                                                            id="receiver"
+                                                                            id="receiver" address-type="receiver"
                                                                             value="@Model.DefaultAddress.Receiver">
                                                                         <label for="receiver">Receiver</label>
                                                                     </div>
                                                                     <div class="form-floating mb-3">
                                                                         <input id="street" class="form-control"
-                                                                            placeholder="inputhere"
+                                                                            placeholder="inputhere" address-type="street"
                                                                             value="@Model.DefaultAddress.Street">
                                                                         <label class="">Đường</label>
 
                                                                     </div>
                                                                     <div class="form-floating mb-3">
 
-                                                                        <input type="text" address-type="district"
+                                                                        <input type="text" id="city" address-type="city"
                                                                             class="form-control dropdown-toggle"
                                                                             data-bs-toggle="dropdown"
                                                                             placeholder="inputhere"
                                                                             value="@Model.DefaultAddress.City">
-                                                                        <label>District</label>
+                                                                        <label>City</label>
                                                                         <ul class="dropdown-menu"></ul>
                                                                     </div>
                                                                 </div>
@@ -330,11 +331,13 @@
 
                                                                     <div class="form-floating mb-3">
                                                                         <input type="email" class="form-control" id="phone"
+                                                                            address-type="phone"
                                                                             value="@Model.DefaultAddress.Phone">
                                                                         <label for="phone">Phone number</label>
                                                                     </div>
                                                                     <div class="form-floating mb-3">
-                                                                        <input type="text" address-type="province"
+                                                                        <input type="text" id="state"
+                                                                            address-type="province"
                                                                             class="form-control dropdown-toggle"
                                                                             data-bs-toggle="dropdown"
                                                                             placeholder="inputhere"
@@ -343,7 +346,7 @@
                                                                         <ul class="dropdown-menu"></ul>
                                                                     </div>
                                                                     <div class="form-floating mb-3">
-                                                                        <input type="text" address-type="ward"
+                                                                        <input type="text" id="ward" address-type="ward"
                                                                             class="form-control dropdown-toggle"
                                                                             data-bs-toggle="dropdown"
                                                                             placeholder="inputhere"
@@ -360,17 +363,91 @@
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Close</button>
                                                             <button type="button" class="btn btn-primary update-address"
-                                                                target-id=>Save changes</button>
+                                                                target-id="@Model.DefaultAddress.Id">Save changes</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        @foreach (var item in @Model.NonDefaultAddresses)
+                                        {
+                                            <div class="modal fade" id="editAddressModal-@item.Id" tabindex="-1"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Edit address</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body" destination-address="@item.Id">
+                                                            <div class="media-body">
+                                                                <div class="row text-dark address-input">
+                                                                    <div class="col-6">
 
+                                                                        <div class="form-floating mb-3">
+                                                                            <input type="email" class="form-control"
+                                                                                value="@item.Receiver" address-type="receiver">
+                                                                            <label for="receiver">Receiver</label>
+                                                                        </div>
+                                                                        <div class="form-floating mb-3">
+                                                                            <input class="form-control" address-type="street"
+                                                                                placeholder="inputhere" value="@item.Street">
+                                                                            <label class="">Đường</label>
+
+                                                                        </div>
+                                                                        <div class="form-floating mb-3">
+
+                                                                            <input type="text" address-type="city"
+                                                                                class="form-control dropdown-toggle"
+                                                                                data-bs-toggle="dropdown"
+                                                                                placeholder="inputhere" value="@item.City">
+                                                                            <label>City</label>
+                                                                            <ul class="dropdown-menu"></ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-6">
+
+                                                                        <div class="form-floating mb-3">
+                                                                            <input type="email" address-type="phone"
+                                                                                class="form-control" value="@item.Phone">
+                                                                            <label for="phone">Phone number</label>
+                                                                        </div>
+                                                                        <div class="form-floating mb-3">
+                                                                            <input type="text" address-type="state"
+                                                                                class="form-control dropdown-toggle"
+                                                                                data-bs-toggle="dropdown"
+                                                                                placeholder="inputhere" value="@item.State">
+                                                                            <label>Province</label>
+                                                                            <ul class="dropdown-menu"></ul>
+                                                                        </div>
+                                                                        <div class="form-floating mb-3">
+                                                                            <input type="text" address-type="ward"
+                                                                                class="form-control dropdown-toggle"
+                                                                                data-bs-toggle="dropdown"
+                                                                                placeholder="inputhere" value="@item.Ward">
+                                                                            <label>Ward</label>
+                                                                            <ul class="dropdown-menu"></ul>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary update-address"
+                                                                    target-id="@item.Id">Save changes</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
 
                                         @* {{-- Modal for more addresses --}} *@
-                                        <div class="modal text-dark fade" id="more-addresses" tabindex="-1"
-                                            aria-hidden="true">
+                                        <div class="modal fade" id="more-addresses" tabindex="-1" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -443,83 +520,7 @@
                             </div>
 
                             <hr class="border-light m-0">
-                            @* @if (@Model.DefaultAddress == null)
-                            {
-                            <form method="post" asp-controller="profile" asp-action="">
-                            @Html.AntiForgeryToken()
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <h6 class="mt-3 mb-2 normal-text fs-2">Create new address</h6>
-                            </div>
-                            <div class="row d-flex">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-floating mb-3">
-                            <input type="text" id="new-receiver" class="form-control"
-                            placeholder="inputhere">
-                            <label>Receiver</label>
 
-                            </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-floating mb-3">
-                            <input type="phone" id="new-phone" class="form-control" placeholder="inputhere">
-                            <label>Phone number</label>
-                            </div>
-                            </div>
-
-
-                            </div>
-                            <div class="row">
-
-                            <div class="col-12">
-
-                            <div class="form-floating mb-3">
-                            <input id="new-street" class="form-control" placeholder="inputhere"
-                            asp-for="CreateAddress!.Street">
-                            <label>Đường</label>
-                            </div>
-
-                            </div>
-                            </div>
-                            <div class="row d-flex">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                            <div class="form-floating mb-3">
-                            <input type="text" id="new-province"
-                            class="form-control province dropdown-toggle" data-bs-toggle="dropdown"
-                            placeholder="inputhere" oninput="proSearch()"
-                            asp-for="CreateAddress!.State">
-                            <label>Tỉnh/Thành</label>
-                            <ul class="dropdown-menu" id="province_list"></ul>
-                            </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                            <div class="form-floating mb-3">
-
-                            <input type="text" id="new-district"
-                            class="form-control district dropdown-toggle" data-bs-toggle="dropdown"
-                            placeholder="inputhere" oninput="disSearch()" asp-for="CreateAddress!.City">
-                            <label>Quận/Huyện</label>
-                            <ul class="dropdown-menu" id="district_list"></ul>
-                            </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-
-                            <div class="form-floating mb-3">
-                            <input type="text" id="new-ward" class="form-control ward dropdown-toggle"
-                            data-bs-toggle="dropdown" placeholder="inputhere" oninput="warSearch()"
-                            asp-for="CreateAddress!.Ward">
-                            <label>Phường/Xã</label>
-                            <ul class="dropdown-menu" id="ward_list"></ul>
-                            </div>
-
-                            </div>
-                            </div>
-
-                            <div class="footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary create-new-address">Let's go</button>
-                            </div>
-                            </form>
-                            } *@
                             <script>
                                 window.onload = function () {
                                     var AddressCreationAttempted = '@ViewBag.AddressCreationAttempted';
@@ -600,12 +601,48 @@
         })
     })
 
-    $('[address-item-action="edit"]').click((e) => {
-        const id = $(e).attr('address-item-id');
+    $('[address-item-action="edit"]').click(function (e) {
+
+        const id = $(this).attr('address-item-id');
 
         $('.modal').modal('hide');
-        $('#editAddressModal').modal('show');
+        $(`#editAddressModal-${id}`).modal('show');
     })
+
+    $('button.update-address').click(function () {
+        var id = $(this).attr('target-id');
+        console.log($('.modal-body[destination-address="' + id + '"]').find('input[address-type="phone"]').val());
+
+        $.ajax({
+            url: '/update-address',
+            type: 'POST',
+            contentType: "application/json",
+            data: JSON.stringify({
+                Id: id,
+                Receiver: $('.modal-body[destination-address="' + id + '"]').find('input[address-type="receiver"]').val(),
+                Phone: $('.modal-body[destination-address="' + id + '"]').find('input[address-type="phone"]').val(),
+                Street: $('.modal-body[destination-address="' + id + '"]').find('input[address-type="street"]').val(),
+                Ward: $('.modal-body[destination-address="' + id + '"]').find('input[address-type="ward"]').val(),
+                City: $('.modal-body[destination-address="' + id + '"]').find('input[address-type="city"]').val(),
+                State: $('.modal-body[destination-address="' + id + '"]').find('input[address-type="state"]').val(),
+            }),
+            success: function (result) {
+
+                console.log(result);
+                notyf.success('Update address sucessfully');
+                $('#editAddressModal').modal('hide');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error(textStatus, errorThrown);
+                notyf.error('An error occurred while updating the address');
+            }
+        });
+    });
+
 </script>
 <script src="~/static/js/checkout.js"></script>
 <script src="~/static/js/userProfile.js"></script>

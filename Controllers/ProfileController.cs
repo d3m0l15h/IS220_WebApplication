@@ -41,7 +41,8 @@ public class ProfileController : Controller
         {
             User = user,
             DefaultAddress = defaultAddress,
-            NonDefaultAddresses = nondefaultAddresses
+            NonDefaultAddresses = nondefaultAddresses,
+            // AddressUpdateModel = new AddressUpdateModel()
         };
         return View(viewModel);
     }
@@ -194,7 +195,7 @@ public class ProfileController : Controller
         }
         else
         {
-            return new JsonResult(new { Ok = false, Message = "Address creation failed" });
+            return new JsonResult(new { Ok = false, Message = result.GetMessage() });
         }
     }
 

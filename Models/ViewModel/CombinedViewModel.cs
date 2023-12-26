@@ -20,4 +20,5 @@ public class CombinedViewModel
     public CheckoutViewModel? CheckoutViewModel { get; set; }
     public OrderDetailViewModel? OrderDetailViewModel { get; set; }
     public StorageViewModel? StorageViewModel { get; set; }
+    public AddressUpdateModel? AddressUpdateModel { get; set; }
 }
