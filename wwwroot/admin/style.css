@@ -3341,7 +3341,7 @@ ul {
 }
 
 .contents {
-  padding: 74px 15px 72px 295px;
+  padding: 74px 15px 72px 260px;
   transition: var(--transition);
   background-color: var(--contents-bg);
 }
@@ -5386,7 +5386,7 @@ body.top-menu .navbar-left .customizer-trigger + .top-menu {
   height: 100%;
   overflow-y: auto;
   box-shadow: 0 0 30px rgba(var(--light-gray-rgba), 0.1);
-  width: 280px;
+  width: 230px;
   background: var(--color-white);
   padding: 0;
   transition: var(--transition);
@@ -11535,7 +11535,7 @@ body.top-menu .navbar-left .customizer-trigger + .top-menu {
 .userDatatable table td {
   border-top: 0;
   border-bottom: none;
-  padding: 10px 20px;
+  padding: 10px 19px;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -11734,6 +11734,7 @@ body.top-menu .navbar-left .customizer-trigger + .top-menu {
   transform: translate(-50%, -50%);
   top: 50%;
   pointer-events: none;
+  
 }
 .form-group-calender a img,
 .form-group-calender a svg {
@@ -18790,14 +18791,22 @@ td.order-summery .total > div {
 }
 
 .orderDatatable_actions {
-  min-width: 130px;
-  max-width: 100%;
-  justify-content: flex-end;
+  min-width: 70px;
+  /*max-width: 100%;*/
+  /*justify-content: flex-end;*/
 }
 .orderDatatable_actions li a {
   width: 35px;
   height: 35px;
   border-radius: 50%;
+}
+.orderDatatable_actions li button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background-color: white ;
+  /*color: var(--color-primary);*/
 }
 .orderDatatable_actions li a.view:hover {
   background: rgba(var(--color-primary-rgba), 0.1);
@@ -18813,11 +18822,12 @@ td.order-summery .total > div {
 .orderDatatable_actions li a.edit:hover i {
   color: var(--color-info);
 }
-.orderDatatable_actions li a.remove:hover {
+.orderDatatable_actions li button.remove:hover {
   background: rgba(var(--color-danger-rgba), 0.1);
+  
 }
-.orderDatatable_actions li a.remove:hover svg,
-.orderDatatable_actions li a.remove:hover i {
+.orderDatatable_actions li button.remove:hover svg,
+.orderDatatable_actions li button.remove:hover i {
   color: var(--color-danger);
 }
 .orderDatatable_actions li a img,
@@ -18825,7 +18835,12 @@ td.order-summery .total > div {
   width: 16px;
   color: var(--color-lighten);
 }
+
 .orderDatatable_actions li a i {
+  color: var(--color-lighten);
+  font-size: calc(16.2px + 0.15vw);
+}
+.orderDatatable_actions li button i {
   color: var(--color-lighten);
   font-size: calc(16.2px + 0.15vw);
 }

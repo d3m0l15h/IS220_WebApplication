@@ -49,7 +49,7 @@ public partial class Aspnetuser : IdentityUser<uint>
     public double Cash { get; set; }
 
     [Column("status")]
-    [StringLength(10)]
+    [StringLength(11)]
     public string Status { get; set; } = null!;
 
     [Column("avatarPath", TypeName = "tinytext")]
