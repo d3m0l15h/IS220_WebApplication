@@ -27,15 +27,18 @@ public class CartsController : Controller
             var userId = uint.Parse(uid);
 
             // Check if the game_id as software type already exists in the cart for this user
-            if (_db.Carts.Any(c => c.Uid == userId && c.GameId == game_id && type == GameType.Software && c.Type == type))
+            if (_db.Carts.Any(c => c.Uid == userId && c.GameId == game_id && type == GameType.Software && c.Type == type) && quantity <= _db.Games.FirstOrDefault(g => g.Id == game_id)!.Stock)
             {
                 return Ok("The game is already in your cart.");
             }
-
-            // Update the quantity if the game_id already exists in the cart for this user
             var eCartItem = _db.Carts.FirstOrDefault(c => c.Uid == userId && c.GameId == game_id && c.Type == type);
             if (eCartItem != null)
             {
+                if (eCartItem.Quantity + quantity > _db.Games.FirstOrDefault(g => g.Id == game_id)!.Stock)
+                {
+                    return BadRequest("The game is out of stock.");
+                }
+
                 eCartItem.Quantity += quantity;
                 _db.SaveChanges();
                 return Ok("Successfully updated cart.");

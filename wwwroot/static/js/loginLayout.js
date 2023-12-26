@@ -116,7 +116,6 @@ function syncCart() {
         renderCart(items);
     });
 }
-
 syncCart();
 
 function updateCartQuantity(gameId, type, quantity) {
@@ -134,20 +133,43 @@ function updateCartQuantity(gameId, type, quantity) {
         syncCart();
     });
 }
+$('[game-action="buy-now"]').click(() => {
+  console.log("buy now");
+  const gameData = {
+    game_id: $("#gameid").val(),
+    type: $("[name=game-type]:checked").val(),
+    quantity: parseInt($(".about-table .game-quantity input").val()) || 1,
+  };
+
+  if (gameData.type == undefined) {
+    return notyf.error("Please select a type of game");
+  }
+
+  $.ajax({
+    method: "post",
+    url: "/carts/add",
+    encode: true,
+    data: gameData,
+  })
+    .done((d) => {
+      window.location.href = "/checkout";
+    })
+    .error((e) => {
+      notyf.error(e.responseText);
+    });
+});
 
 $('[game-action="add-cart"]').click(() => {
-    const gameData = {
-        game_id: $("#gameid").val(),
-        type: $("[name=game-type]:checked").val(),
-        quantity: parseInt($(".about-table .game-quantity input").val()),
-    };
-
-    // type is not specified
-    if (gameData.type === undefined) {
-        return notyf.error("Please select a type of game");
-    } else if (gameData.type === '1' && $("#disc-stock").val() === '0') {
-        return notyf.error("Out of stock");
-    }
+  // console.log("add cart");
+  const gameData = {
+    game_id: $("#gameid").val(),
+    type: $("[name=game-type]:checked").val(),
+    quantity: parseInt($(".about-table .game-quantity input").val()),
+  };
+  // type is not specified
+  if (gameData.type === undefined) {
+    return notyf.error("Please select a type of game");
+  }
 
     $.ajax({
         method: "post",

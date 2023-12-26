@@ -87,36 +87,67 @@
                 <tr>
                     <td class="py-3">Type:</td>
                     <td class="py-3">
-                        @switch (Model.Game.Type)
+                        @if (Model.Game.Type == GameType.Software)
                         {
-                            case GameType.Software:
-                                <text><input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
-                                             id="gimetype-software" ad="gametype-software" autocomplete="off" checked></text>
-                                <label class="btn btn-outline-primary"
-                                       for="gametype-software">@GameType.Get(GameType.Software)</label>
-                                <text><input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
-                                             autocomplete="off" disabled></text>
-                                <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
-                                break;
-                            case GameType.Disc:
-                                <text><input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
-                                             id="gimetype-software" ad="gametype-software" autocomplete="off" disabled></text>
-                                <label class="btn btn-outline-primary"
-                                       for="gametype-software">@GameType.Get(GameType.Software)</label>
-                                <text><input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
-                                             autocomplete="off" checked></text>
-                                <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
-                                break;
-                            case GameType.Both:
-                                <text><input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
-                                             id="gametype-software" autocomplete="off"></text>
-                                <label class="btn btn-outline-primary"
-                                       for="gametype-software">@GameType.Get(GameType.Software)</label>
+                            @if (Model.StorageViewModel.purchasedGame.Any(x => x.GetType().GetProperty("Title")?.GetValue(x)
+                           == Model.Game?.Title))
+                            {
+                                <h6>
 
-                                <text><input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
-                                             autocomplete="off"></text>
-                                <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
-                                break;
+
+                                </h6>
+                                <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
+                                    id="gametype-software" autocomplete="off" disabled>
+                                <label class="btn btn-outline-primary" for="gametype-software">@GameType.Get(GameType.Software)
+                                    <span class="badge rounded-pill bg-success" style="font-size: 8px;">Owned</span></label>
+                            }
+                            else
+                            {
+
+                                <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
+                                    id="gametype-software" autocomplete="off">
+                                <label class="btn btn-outline-primary"
+                                    for="gametype-software">@GameType.Get(GameType.Software)</label>
+                            }
+                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
+                        }
+                        else if (@Model.Game.Type == GameType.Disc)
+                        {
+                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
+                                id="gimetype-software" ad="gametype-software" autocomplete="off" disabled>
+                            <label class="btn btn-outline-primary"
+                                for="gametype-software">@GameType.Get(GameType.Software)</label>
+                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
+                                autocomplete="off" checked>
+                            <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
+                        }
+                        else if (@Model.Game.Type == GameType.Both)
+                        {
+                            @if (Model.StorageViewModel.purchasedGame.Any(x => x.GetType().GetProperty("Title")?.GetValue(x)
+                           == Model.Game?.Title))
+                            {
+                                <h6>
+
+
+                                </h6>
+                                <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
+                                    id="gametype-software" autocomplete="off" disabled>
+                                <label class="btn btn-outline-primary" for="gametype-software">@GameType.Get(GameType.Software)
+                                    <span class="badge rounded-pill bg-success" style="font-size: 8px;">Owned</span></label>
+                            }
+                            else
+                            {
+
+                                <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
+                                    id="gametype-software" autocomplete="off">
+                                <label class="btn btn-outline-primary"
+                                    for="gametype-software">@GameType.Get(GameType.Software)</label>
+                            }
+                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
                         }
                     </td>
                 </tr>
@@ -166,11 +197,23 @@
     </div>
     <div class="d-flex justify-content-end">
         <div class="button-container">
+            @if ((Model.StorageViewModel.purchasedGame.Any(x => x.GetType().GetProperty("Title")?.GetValue(x)
+            == Model.Game?.Title) && Model.Game.Type == 0) || (Model.Game.Type == 1 && Model.Game.Stock == 0) ||
+            (Model.StorageViewModel.purchasedGame.Any(x => x.GetType().GetProperty("Title")?.GetValue(x)
+            == Model.Game?.Title && Model.Game.Type == 2 && Model.Game.Stock == 0)))
+            {
+                @* <span class="badge rounded-pill bg-success" style="font-size: 15px;">Owned</span> *@
+            }
+            else
+            {
 
-            <div class="d-flex more-btn mb-4">
-                <button class="btn btn-primary buy-now" >Buy now</button>
-                <button class="ms-3 btn btn-primary" game-action="add-cart">Add to cart</button>
-            </div>
+                <div class="d-flex more-btn mb-4">
+                    <button class="btn btn-primary buy-now" game-action="buy-now">Buy now</button>
+                    <button class="ms-3 btn btn-primary" game-action="add-cart">Add to cart</button>
+                </div>
+            }
+
+
         </div>
     </div>
 
@@ -184,4 +227,4 @@
 
 
 <!----------- start SCRIPT -------------->
-<script src="~/static/js/gameDetail.js"></script> 
+<script src="~/static/js/gameDetail.js"></script>

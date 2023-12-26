@@ -369,76 +369,61 @@
                                     <th scope="col">Price</th>
                                 </tr>
                             </thead> *@
-            <tbody class="items-in-cart">
-            @foreach (var item in Model.CheckoutItems)
-            {
-                <div class="cart-item d-flex justify-content-between align-items-center">
-
-                    <div class="col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
-                        <img src='~/images/game/@item.Image' class="img-fluid rounded-3" alt="">
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-6 px-2">
-                        
-                        <div>
-                            <h6>
-                                @if(item.Type == 0)
+                            <tbody class="items-in-cart">
+                                @foreach (var item in Model.CheckoutItems)
                                 {
-                                    <span class="badge bg-secondary">Software</span> 
-                                }
-                                else{
-                                    <span class="badge bg-secondary">Disc</span> 
-                                }@item.Title
-                            </h6>
-                                @if (item.Type == 1)
-                            {
-                                <div class="quantity-input mt-2">
-                                    <button class="btn btn-icon text-white"
-                                            game-action="change-quantity-minus">
-                                        -
-                                    </button>
-                                    <input type="text" game-input="quantity" value="1">
-                                    <button class="btn btn-icon text-white"
-                                            game-action="change-quantity-plus">
-                                        +
-                                    </button>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-1 col-xl-2 d-flex justify-content-center">
-                        <h6 class="mb-0">
-                            @string.Format(new System.Globalization.CultureInfo(name:
-                                "vi-VN"), "{0:C}", item.Price)
-                        </h6>
-                    </div>
-                    <div class="col-md-1 col-lg-1 col-xl-1 ms-3">
-                        <a href="#!" class="btn btn-icon btn-outline-danger" game-action="remove-cart"
-                           game-target="${
-                          item.gameId
-                        }">
-                            <i class='bx bx-trash-alt'></i>
-                        </a>
-                    </div>
-                </div>
-                <hr class="my-4">
-            }
-            </tbody>
-            <tfoot>
-            <div class="row justify-content-end">
-                <div class="col-1">
-                    <h2>Total</h2>
-                </div>
-                <div class="col-md-3 d-flex justify-content-center total-price-disc">
-                    <h2>@totalPriceFormatted</h2>
-                </div>
-                <div class="col-md-1">
+                                    
+                                    <div class="cart-item d-flex justify-content-between align-items-center">
+                                        
+                                        <div class="col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
+                                            <img src='~/images/game/@item.Image' class="img-fluid rounded-3" alt="">
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-xl-6 px-2">
+                                            <div>
+                                                @if(@item.Type == 1){
+                                                <h6><span class="badge bg-secondary">Disc</span> @item.Title</h6>
 
+                                                }
+                                                else{
+                                                <h6><span class="badge bg-secondary">Software</span> @item.Title</h6>
+
+                                                }
+                                            </div>
+                                            <div class="quantity-input mt-2">
+                                                @* <button class="btn btn-icon text-white"
+                                                    game-action="change-quantity-minus">-</button> *@
+                                                    <span>
+                                                        Quantity: @item.Quantity
+                                                    </span>
+                                                @* <span type="text" game-input="quantity" value="@item.Quantity"> *@
+                                                @* <button class="btn btn-icon text-white"
+                                                    game-action="change-quantity-plus">+</button> *@
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-lg-1 col-xl-2 d-flex justify-content-center">
+                                            <h6 class="mb-0">@String.Format(new System.Globalization.CultureInfo(name:
+                                            "vi-VN"), "{0:C}", @item.Price)</h6>
+                                        </div>
+                                        <div class="col-md-1 col-lg-1 col-xl-1 ms-3">
+                                           
+                                        </div>
+                                    </div>
+                                    <hr class="my-4">
+                                }
+                            </tbody>
+                            <tfoot>
+                                <div class="row justify-content-end">
+                                    <div class="col-md-3 d-flex justify-content-center total-price">
+                                        <h2>test</h2>
+                                    </div>
+                                    <div class="col-md-1">
+                                        
+                                    </div>
+                                </div>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            </tfoot>
-        </table>
-    </div>
-</div>
 
 <div class="card shadow-2-strong mb-5 mb-lg-0 bg-dark text-white"
      style="border-radius: 16px; background-color: white">
@@ -520,15 +505,13 @@
         <div class="row d-flex justify-content-end">
             <div class="col-3 d-flex justify-content-around p-0">
 
-                <button class="btn btn-primary" onclick="window.history.back()">
-                    Continue
-                    shopping
-                </button>
-                <button class="btn btn-primary checkout">Complete</button>
-            </div>
-        </div>
-    </div>
-</div>
+                                <button class="btn btn-primary" onclick="window.history.back()">Continue
+                                    shopping</button>
+                                <button class="ms-3 btn btn-primary checkout">Complete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 </div>
 </div>

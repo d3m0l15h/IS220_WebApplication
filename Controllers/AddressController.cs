@@ -32,7 +32,6 @@ public class AddressController : Controller
         {
             return NotFound();
         }
-
         return Ok(defaultAddress);
     }
     
