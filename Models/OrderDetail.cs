@@ -30,8 +30,11 @@ public partial class OrderDetail
     [Column("orderId", TypeName = "int(10) unsigned")]
     public uint OrderId { get; set; }
 
+    [ForeignKey("GameId")]
+    [InverseProperty("OrderDetails")]
+    public virtual Game? Game { get; set; }
+
     [ForeignKey("OrderId")]
     [InverseProperty("OrderDetails")]
     public virtual Order Order { get; set; } = null!;
-    public Game Game { get; set; } = null!;
 }

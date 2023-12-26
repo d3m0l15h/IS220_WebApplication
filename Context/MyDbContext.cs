@@ -277,6 +277,8 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
+            entity.HasOne(d => d.Game).WithMany(p => p.OrderDetails).HasConstraintName("FK_OrderId_Game");
+
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_OrderId_Order");

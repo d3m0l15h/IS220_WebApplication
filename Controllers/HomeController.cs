@@ -32,15 +32,16 @@ namespace IS220_WebApplication.Controllers
                     .Include(game => game.Categories)
                     .ToList(),
                 HotGame = _db.Games
-                    .Join(_db.OrderDetails,
+                    .Where(game => game.Status == "active")
+                    .GroupJoin(_db.OrderDetails,
                         game => game.Id,
                         orderDetail => orderDetail.GameId,
-                        (game, orderDetail) => new { game, orderDetail })
-                    .GroupBy(x => x.game.Id)
+                        (game, orderDetails) => new { game, orderDetails })
+                    .SelectMany(x => x.orderDetails.DefaultIfEmpty(), (x, y) => new { x.game, OrderDetail = y })
+                    .GroupBy(x => x.game)
                     .OrderByDescending(g => g.Count())
                     .Take(8)
-                    .Select(g => g.First().game)
-                    .Where(game => game.Status == "active")
+                    .Select(g => g.Key)
                     .ToList()
             };
             return View(viewModel);
