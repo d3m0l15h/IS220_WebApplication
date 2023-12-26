@@ -29,7 +29,7 @@ builder.Services.AddNotyf(config =>
 {
     config.DurationInSeconds = 2;
     config.IsDismissable = true;
-    config.Position = NotyfPosition.BottomRight;
+    config.Position = NotyfPosition.BottomLeft;
 });
 
 builder.Services.AddDbContext<MyDbContext>(options => options.UseMySql(cfg["dbGameStore"] ?? string.Empty, new MySqlServerVersion(new Version(8, 0, 21))));

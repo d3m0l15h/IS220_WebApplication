@@ -134,7 +134,6 @@ function updateCartQuantity(gameId, type, quantity) {
     });
 }
 $('[game-action="buy-now"]').click(() => {
-  console.log("buy now");
   const gameData = {
     game_id: $("#gameid").val(),
     type: $("[name=game-type]:checked").val(),

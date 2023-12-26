@@ -64,6 +64,7 @@ public class OrderController : Controller
     {
         if (model == null || model.CheckoutViewModel == null)
         {
+            // _notyf.Error('Checkout failed');
             return Json(new { isValid = false, message = "Model or CheckoutViewModel is null." });
         }
 
