@@ -20,14 +20,14 @@
                         <div class="tab-pane fade  show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                             <div class="row justify-content-center">
                                 <div class="col-xxl-4 col-10">
-                                     <form method="post" asp-controller="User" asp-action="AddUser" enctype="multipart/form-data">
+                                     <form method="post" asp-area="admin" asp-controller="user" asp-action="add" enctype="multipart/form-data">
                                      <div class="mt-sm-40 mb-sm-50 mt-20 mb-20">
                                          <div class="user-tab-info-title mb-sm-40 mb-20 text-capitalize">
                                              <h5 class="fw-500">Personal Information</h5>
                                          </div>
                                          <div class="account-profile d-flex align-items-center mb-4 ">
                                              <div class="ap-img pro_img_wrapper">
-                                                 <input id="upload" type="file" class="d-none" asp-for="AvatarPath" onchange="previewImage()" >
+                                                 <input id="upload" type="file" class="d-none" accept="jpg, png" asp-for="AvatarPath" onchange="previewImage()" >
                                                  <!-- Profile picture image-->
                                                  <label for="upload">
                                                      <img id="imagePreview" class="ap-img__main rounded-circle wh-120 bg-lighter d-flex" src="~/admin/img/svg/user.svg" alt="profile">
@@ -77,7 +77,7 @@
                                                      <div class="radio-horizontal-list d-flex flex-wrap">
                                                             
                                                          <div class="radio-theme-default custom-radio ">
-                                                             <input class="radio" type="radio"  value="activated" asp-for="UserStatus" id="radio-status-1">
+                                                             <input class="radio" type="radio" value="activated" asp-for="UserStatus" id="radio-status-1">
                                                              <label for="radio-status-1">
                                                                  <span class="radio-text">Activated</span>
                                                              </label>

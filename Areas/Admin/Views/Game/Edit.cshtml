@@ -207,9 +207,9 @@
                                         <div class="dm-select-list d-flex align-center">
                                             <div class="dm-select ">
                                                 <select asp-for="Game.Status" class="form-control ">
-                                                    <option value="active">Active</option>
-                                                    <option value="deactivete">Deactivete</option>
-                                                    <option value="block">Block</option>
+                                                    <option value="active">Activated</option>
+                                                    <option value="deactivete">Deactivated</option>
+                                                    <option value="block">Blocked</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -238,7 +238,6 @@
             <div class="upload-product-media d-flex justify-content-between align-items-center mt-25">
                 <div class="upload-media-area d-flex">
                     <img id="imagePreview" src="~/images/game/@Model.Game.ImgPath" alt="Image Preview"/>
-
                     <div class=" upload-media-area__title  d-flex flex-wrap align-items-center ms-10">
                         <div>
                             <p id="imgName"></p>

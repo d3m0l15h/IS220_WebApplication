@@ -22,7 +22,6 @@ builder.Services.AddRazorPages()
 
 builder.Services.AddDistributedMemoryCache();
 
-builder.Services.AddSession();
 
 builder.Services.AddNotyf(config =>
 {
@@ -49,7 +48,13 @@ builder.Services.AddDefaultIdentity<Aspnetuser>(options =>
 
 builder.Services.Configure<EmailSettings>(cfg.GetSection("EmailSettings"));
 builder.Services.AddTransient<IEmailSender, EmailSender>();
-
+builder.Services.AddSession(
+    options =>
+    {
+        options.IdleTimeout = TimeSpan.FromHours(12);
+        options.Cookie.Name = ".yourApp.Session"; // <--- Add line
+        options.Cookie.IsEssential = true;
+    });
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 var app = builder.Build();
@@ -84,6 +89,8 @@ app.MapControllerRoute(
     pattern: "game/{slug}",
     defaults: new { controller = "GameDetail", action = "Index" }
 );
+
+
 
 app.MapControllerRoute(
     name: "default",

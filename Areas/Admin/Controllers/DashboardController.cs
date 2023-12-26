@@ -1,5 +1,7 @@
+
 using IS220_WebApplication.Areas.Admin.Models.Authentication;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace IS220_WebApplication.Areas.Admin.Controllers
 {
@@ -11,5 +13,6 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         {
             return View();
         }
+        
     }
 }

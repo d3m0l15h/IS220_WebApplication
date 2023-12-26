@@ -156,3 +156,5 @@ function entityEdited(id, name, element) {
 document.getElementById('upImage').addEventListener('click', function() {
     document.getElementById('upload').click();
 });
+
+
