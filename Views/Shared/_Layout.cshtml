@@ -22,6 +22,8 @@
     @* MAIN *@
     <link rel="stylesheet" href="~/static/css/main.css" />
     <link rel="stylesheet" href="~/static/css/responsive.css">
+    @* jquery *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 </head>
 
 <body>
@@ -36,100 +38,79 @@
             <!-- LOGO -->
             <a asp-controller="Home" asp-action="Index" class="logo">NET<span>Game</span></a>
 
-        <!-- NAV ICON -->
-        <div class="nav-content">
-            <!-- MENU -->
-            <div class="menu">
-                <div class="navbarr">
-                    <a href="/#home">HOME</a>
-                    <a href="/#trending">HOT GAMES</a>
-                    <a href="/#new">NEW GAMES</a>
-                    <a href="/#console">CONSOLE GAMES</a>
-                    <a href="/#contact">CONTACT</a>
+            <!-- NAV ICON -->
+            <div class="nav-content">
+                <!-- MENU -->
+                <div class="menu">
+                    <div class="navbarr">
+                        <a href="/#home">HOME</a>
+                        <a href="/#trending">HOT GAMES</a>
+                        <a href="/#new">NEW GAMES</a>
+                        <a href="/#console">CONSOLE GAMES</a>
+                        <a href="/#contact">CONTACT</a>
+                    </div>
+                </div>
+
+                @* SEARCH BAR *@
+                <form class="input-group search-form" asp-controller="search" asp-action="index" method="get">
+                    <input type="search" id="form1" class="form-control" placeholder="Search games here..." name="search"/>
+                    <button type="submit">
+                        <i class="bx bx-search-alt-2"></i>
+                    </button>
+                </form>
+
+                <i class='bx bx-user user-icon'></i>
+            </div>
+        </nav>
+    </header>
+    @* ------------------------- start AUTHENCATION FORM ------------------------- *@
+    <div class="auth-container" id="container">
+        <div class="form-container sign-up">
+            <form id="registerForm" method="post" asp-controller="account" asp-action="register">
+                <h1>Create Account</h1>
+                <span>or use your email for registeration: </span>
+                <input type="text" placeholder="Username">
+                <div class="input-row">
+                    <div class="input-field">
+                        <input class="w-50" type="text" placeholder="Họ" asp-for="UserRegister!.LastName">
+                    </div>
+                    <div class="ms-2 input-field">
+                        <input class="w-50" type="text" placeholder="Tên" asp-for="UserRegister!.FirstName">
+                    </div>
+                </div>
+                <input type="email" placeholder="Email" asp-for="UserRegister!.Email">
+                <input type="password" placeholder="Password" asp-for="UserRegister!.Password">
+                <input type="password" placeholder="Confirm password" asp-for="UserRegister!.PasswordConfirm">
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="form-container sign-in">
+            <form method="post" asp-controller="account" asp-action="login">
+                @Html.AntiForgeryToken()
+                <h1>Sign In</h1>
+                
+                <input type="text" placeholder="Username or Email" style="text-transform: none;" name="ue">
+                <input type="password" placeholder="Password" style="text-transform: none;" name="password">
+                <a href="#">Forget your password ?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome back!</h1>
+                    <p>Enter your personal details to use all of site features.</p>
+                    <button class="hidden" id="login">Sign in</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features !</p>
+                    <button class="hidden" id="register">Sign up</button>
                 </div>
             </div>
-
-            @* SEARCH BAR *@
-            <form class="input-group search-form">
-                <input type="search" id="form1" class="form-control" placeholder="Search games here..."/>
-                <button type="submit">
-                    <i class='bx bx-search-alt-2'></i>
-                </button>
-            </form>
-            
-            <i class='bx bx-user user-icon'></i>
         </div>
-    </nav>
-</header>
-@* ------------------------- start AUTHENCATION FORM ------------------------- *@
-<div class="auth-container" id="container">
-    <div class="form-container sign-up">
-        <form>
-            <h1>Create Account</h1>
-            <div class="social-icons">
-                <a href="#" class="icon">
-                    <i class='bx bxl-google'></i>
-                </a>
-                <a href="#" class="icon">
-                    <i class='bx bxl-facebook'></i>
-                </a>
-                <a href="#" class="icon">
-                    <i class='bx bxl-github'></i>
-                </a>
-            </div>
-            <span>or use your email for registeration: </span>
-            <input type="text" placeholder="Username">
-            <div class="input-row">
-                            <div class="input-field">
-                                <input class="w-50" type="text" placeholder="Họ" asp-for="UserRegister!.LastName">
-                            </div>
-                            <div class="ms-2 input-field">
-                                <input class="w-50" type="text" placeholder="Tên" asp-for="UserRegister!.FirstName">
-                            </div>
-                        </div>
-            <input type="email" placeholder="Email" asp-for="UserRegister!.Email">
-            <input type="password" placeholder="Password" asp-for="UserRegister!.Password">
-            <input type="password" placeholder="Confirm password" asp-for="UserRegister!.PasswordConfirm">
-            <button type="submit">Sign Up</button>
-        </form>
-    </div>
-
-    <div class="form-container sign-in">
-        <form method="post" asp-controller="account" asp-action="login">
-            @Html.AntiForgeryToken()
-            <h1>Sign In</h1>
-            <div class="social-icons">
-                <a href="#" class="icon">
-                    <i class='bx bxl-google'></i>
-                </a>
-                <a href="#" class="icon">
-                    <i class='bx bxl-facebook'></i>
-                </a>
-                <a href="#" class="icon">
-                    <i class='bx bxl-github'></i>
-                </a>
-            </div>
-            <input type="text" placeholder="Username or Email" style="text-transform: none;" name="ue">
-            <input type="password" placeholder="Password" style="text-transform: none;" name="password">
-            <a href="#">Forget your password ?</a>
-            <button type="submit">Sign In</button>
-        </form>
-    </div>
-
-    <div class="toggle-container">
-        <div class="toggle">
-            <div class="toggle-panel toggle-left">
-                <h1>Welcome back!</h1>
-                <p>Enter your personal details to use all of site features.</p>
-                <button class="hidden" id="login">Sign in</button>
-            </div>
-            <div class="toggle-panel toggle-right">
-                <h1>Hello, Friend!</h1>
-                <p>Register with your personal details to use all of site features !</p>
-                <button class="hidden" id="register">Sign up</button>
-            </div>
-        </div>
-    </div>
 
         <div class="close-form">
             <i class="bx bx-x"></i>
@@ -156,11 +137,12 @@
                     quaerat unde et accusantium ullam adipisci beatae sequi tempore cupiditate!
                 </p>
 
-            <div class="contact">
-                <div class="contact-box">
-                    <i class='bx bx-map'></i>
-                    <a href="https://maps.app.goo.gl/zVpeZQRVPwacvRF58">Han Thuyen Street, Thu Duc City, Ho Chi Minh City, Vietnam</a>
-                </div>
+                <div class="contact">
+                    <div class="contact-box">
+                        <i class='bx bx-map'></i>
+                        <a href="https://maps.app.goo.gl/zVpeZQRVPwacvRF58">Han Thuyen Street, Thu Duc City, Ho Chi Minh
+                            City, Vietnam</a>
+                    </div>
 
                     <div class="contact-box">
                         <i class='bx bx-phone'></i>
@@ -174,56 +156,56 @@
                 </div>
             </div>
 
-        <div class="footer_box_item">
-            <h3 class="text-capitalize">About Us</h3>
-            <div class="d-flex flex-column">
-                <a class="text-capitalize mt-3" href="#!">Home</a>
-                <a class="text-capitalize mt-3" href="#!">Introduction</a>
-                <a class="text-capitalize mt-3" href="#!">Buy Games</a>
-                <a class="text-capitalize mt-3" href="#!">Contact</a>
+            <div class="footer_box_item">
+                <h3 class="text-capitalize">About Us</h3>
+                <div class="d-flex flex-column">
+                    <a class="text-capitalize mt-3" href="#!">Home</a>
+                    <a class="text-capitalize mt-3" href="#!">Introduction</a>
+                    <a class="text-capitalize mt-3" href="#!">Buy Games</a>
+                    <a class="text-capitalize mt-3" href="#!">Contact</a>
+                </div>
+            </div>
+
+            <div class="footer_box_item">
+                <h3 class="text-capitalize">Customer Care</h3>
+                <div class="d-flex flex-column">
+                    <a class="text-capitalize mt-3" href="#!">Home</a>
+                    <a class="text-capitalize mt-3" href="#!">Introduction</a>
+                    <a class="text-capitalize mt-3" href="#!">Buy Games</a>
+                    <a class="text-capitalize mt-3" href="#!">Contact</a>
+                </div>
+            </div>
+
+            <div class="footer_box_item">
+                <h3 class="text-capitalize">Follow us:</h3>
+                <div class="contact-icon">
+                    <i class='bx bxl-facebook-circle'></i>
+                    <i class='bx bxl-instagram'></i>
+                    <i class='bx bxl-youtube'></i>
+                </div>
             </div>
         </div>
 
-        <div class="footer_box_item">
-            <h3 class="text-capitalize">Customer Care</h3>
-            <div class="d-flex flex-column">
-                <a class="text-capitalize mt-3" href="#!">Home</a>
-                <a class="text-capitalize mt-3" href="#!">Introduction</a>
-                <a class="text-capitalize mt-3" href="#!">Buy Games</a>
-                <a class="text-capitalize mt-3" href="#!">Contact</a>
-            </div>
+        <!-- COPYRIGHT -->
+        <div class="footer_copyright">
+            <p>&#169; 2023 NETGame. All right reserved</p>
         </div>
+    </footer>
+    @* ------------------------- end FOOTER ------------------------- *@
 
-        <div class="footer_box_item">
-            <h3 class="text-capitalize">Follow us:</h3>
-            <div class="contact-icon">
-                <i class='bx bxl-facebook-circle'></i>
-                <i class='bx bxl-instagram'></i>
-                <i class='bx bxl-youtube'></i>
-            </div>
-        </div>
-    </div>
-
-    <!-- COPYRIGHT -->
-    <div class="footer_copyright">
-        <p>&#169; 2023 NETGame. All right reserved</p>
-    </div>
-</footer>
-@* ------------------------- end FOOTER ------------------------- *@
-
-@* ------------------------- SCRIPT ------------------------- *@
-@* jquery *@
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-@* bootstrap *@
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/notyf@3.9.0/notyf.min.js"></script>
-@* swiperJS (slide animation) *@
-<script src="~/lib/swiperJS/swiper-bundle.min.js"></script>
-@* MAIN *@
-<<script src="~/static/js/main.js"></script>
- <script src="~/static/js/layout.js"></script>
- <script asp-append-version="true"></script>
- @await Component.InvokeAsync("Notyf")
-@await RenderSectionAsync("Scripts", required: false)
+    @* ------------------------- SCRIPT ------------------------- *@
+    @* bootstrap *@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3.9.0/notyf.min.js"></script>
+    @* swiperJS (slide animation) *@
+    <script src="~/lib/swiperJS/swiper-bundle.min.js"></script>
+    @* MAIN *@
+    <<script src="~/static/js/main.js">
+        </script>
+        <script src="~/static/js/layout.js"></script>
+        <script asp-append-version="true"></script>
+    @await Component.InvokeAsync("Notyf")
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

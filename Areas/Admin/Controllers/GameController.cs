@@ -31,9 +31,10 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index(string searchQuery, int pageNumber = 1, int pageSize = 10)
         {
-            IQueryable<Game> games = _db.Games
+            var games = _db.Games
                 .Include(g => g.DeveloperNavigation)
-                .Include(g => g.PublisherNavigation);
+                .Include(g => g.PublisherNavigation)
+                .Where(g=>g.Status != "deleted");
             
             if (!string.IsNullOrEmpty(searchQuery))
             {
@@ -140,6 +141,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 game.Developer = model.Game.Developer;
                 game.DownloadLink = model.Game.DownloadLink;
                 game.Type = model.Game.Type;
+                game.Stock = model.Game.Stock;
                 game.Status = model.Game.Status;
 
                 if (model.ImageFile != null)
@@ -177,6 +179,17 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             Utils.Utils.CheckModelState(ModelState);
             _notyf?.Error("Update game failed!");
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(uint id)
+        {
+            var game = await _db.Games.FindAsync(id);
+            game.Status = "deleted";
+            _db.Games.Update(game);
+            await _db.SaveChangesAsync();
+            _notyf.Success("Delete game successfully!");
+            return RedirectToAction("index");
         }
         
         private static string SaveImage(IFormFile? imageFile)

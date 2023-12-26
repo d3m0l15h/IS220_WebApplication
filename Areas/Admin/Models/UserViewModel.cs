@@ -4,7 +4,7 @@ namespace IS220_WebApplication.Areas.Admin.Models;
 
 public class UserViewModel
 {
-    public Aspnetuser User { get; set; } = null!;
+    public Aspnetuser? User { get; set; } = null!;
     
     public string UserStatus
     {

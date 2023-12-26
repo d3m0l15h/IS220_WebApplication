@@ -16,7 +16,7 @@ public partial class Aspnetuser : IdentityUser<uint>
     [Key]
     [Column("id", TypeName = "int(10) unsigned")]
     public override uint Id { get; set; }
-    
+
     [Column("email")]
     [StringLength(256)]
     public override string? Email { get; set; }
@@ -49,7 +49,7 @@ public partial class Aspnetuser : IdentityUser<uint>
     public double Cash { get; set; }
 
     [Column("status")]
-    [StringLength(10)]
+    [StringLength(11)]
     public string Status { get; set; } = null!;
 
     [Column("avatarPath", TypeName = "tinytext")]
@@ -84,6 +84,9 @@ public partial class Aspnetuser : IdentityUser<uint>
     public override int AccessFailedCount { get; set; }
 
     [InverseProperty("User")]
+    public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
+
+    [InverseProperty("User")]
     public virtual ICollection<Aspnetuserclaim> Aspnetuserclaims { get; set; } = new List<Aspnetuserclaim>();
 
     [InverseProperty("User")]
@@ -92,8 +95,11 @@ public partial class Aspnetuser : IdentityUser<uint>
     [InverseProperty("User")]
     public virtual ICollection<Aspnetusertoken> Aspnetusertokens { get; set; } = new List<Aspnetusertoken>();
 
-    [InverseProperty("User")]
-    public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
+    [InverseProperty("UidNavigation")]
+    public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
+
+    [InverseProperty("UidNavigation")]
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
     [ForeignKey("UserId")]
     [InverseProperty("Users")]

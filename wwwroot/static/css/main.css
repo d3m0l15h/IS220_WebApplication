@@ -1,6 +1,5 @@
 /*------------------------- FONT -------------------------*/
-@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&display=swap");
 
 /*------------------------- VARIBLES -------------------------*/
 :root {
@@ -9,14 +8,14 @@
     --light-color: #322f40;
     --text-color: hsl(0, 0%, 91%);
     --black-color: #444;
-    --border: .1rem solid rgba(0, 0, 0, .1);
-    --border-hover: .1rem solid var(--black-color);
-    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    --border-hover: 0.1rem solid var(--black-color);
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 /*------------------------- ALL ELEMENTS -------------------------*/
 * {
-    font-family: 'AR One Sans', sans-serif;
+    font-family: "AR One Sans", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -84,11 +83,12 @@ html::-webkit-scrollbar {
 
 /*------------------------- HEADER -------------------------*/
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     background: var(--dark-color);
     z-index: 100;
+
 }
 
 /* --- NAV --- */
@@ -97,6 +97,8 @@ html::-webkit-scrollbar {
     align-items: center;
     justify-content: center;
     padding: 0.8rem 0;
+    top: 0;
+   
 }
 
 /* --- LOGO --- */
@@ -142,6 +144,7 @@ html::-webkit-scrollbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .menu .navbarr a {
@@ -170,11 +173,11 @@ html::-webkit-scrollbar {
 }
 
 .search-form button {
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     background-color: var(--main-color);
 }
 
-.search-form button .bx{
+.search-form button .bx {
     height: 37.6px;
     width: 45px;
     background-color: inherit;
@@ -184,17 +187,16 @@ html::-webkit-scrollbar {
 .user-setting {
     position: absolute;
     top: 80%;
-    right: 14rem;
+    right: 12rem;
     background: var(--light-color);
-    width: 190px;
-    height: 220px;
+    width: auto;
+    height: auto;
     border-radius: 0.5rem;
     padding: 10px;
-
     text-align: center;
     display: flex;
     flex-direction: column;
-    row-gap: .5rem;
+    row-gap: 0.5rem;
 
     clip-path: circle(0% at 100% 0%);
 }
@@ -362,7 +364,7 @@ span {
 .box-btn p {
     padding: 8px;
     background-color: var(--text-color);
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     color: var(--main-color);
     font-weight: 400;
     font-size: 1.1rem;
@@ -386,12 +388,12 @@ span {
 
 .more-btn a {
     display: block;
-    padding: .8rem 1.6rem;
-    background-color: var(  --main-color);
-    border-radius: .25rem;
+    padding: 0.8rem 1.6rem;
+    background-color: var(--main-color);
+    border-radius: 0.25rem;
     font-size: 1.5rem;
     color: white;
-    transition: all .3s ease
+    transition: all 0.3s ease;
 }
 
 .more-btn a:hover {
@@ -437,7 +439,7 @@ span {
 
 .footer_box_item a {
     color: #fff;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 }
 
 .footer_box_item a:hover {
@@ -500,16 +502,16 @@ span {
     left: 25%;
     justify-content: center;
     align-items: center;
-    
+
     background-color: #fff;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     border-radius: 30px;
     overflow: hidden;
     max-width: 100%;
     min-height: 480px;
-    
+
     z-index: 100;
-    
+
     display: none;
 }
 
@@ -518,6 +520,7 @@ span {
     z-index: 20000;
     position: fixed;
 }
+
 .overlay {
     position: fixed;
     top: 0;
@@ -533,7 +536,7 @@ span {
 .auth-container p {
     font-size: 14px;
     line-height: 20px;
-    letter-spacing: .3px;
+    letter-spacing: 0.3px;
     margin: 20px 0;
 }
 
@@ -605,7 +608,7 @@ span {
 }
 
 .form-container input:focus {
-    border: 2px solid #512DA8;
+    border: 2px solid #512da8;
 }
 
 .sign-in {
@@ -633,11 +636,13 @@ span {
 }
 
 @keyframes move {
+
     0%,
     49.99% {
         opacity: 0;
         z-index: 1;
     }
+
     50%,
     100% {
         opacity: 1;
@@ -767,9 +772,44 @@ span {
 }
 
 .input-field input {
-    width: 100% !important;  /* Adjust this value as needed */
+    width: 100% !important;
+    /* Adjust this value as needed */
 }
 
 .input-error {
     color: red;
+}
+
+
+
+/*------------------------- CART -------------------------*/
+.quantity-input input {
+    color: var(--body-color);
+    background: transparent;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    width: 2rem;
+    text-align: center;
+}
+
+
+
+
+/*------------------------- BOOTSTRAP CUSTOMIZE -------------------------*/
+.btn-icon,
+.btn-icon:focus,
+.btn-icon:hover {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background-color: transparent !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-icon.btn-outline-danger:focus,
+.btn-icon.btn-outline-danger:hover {
+    color: #dc3545 !important;
+    transform: scale(1.3);
+    transition: all 0.2s ease-in-out;
 }

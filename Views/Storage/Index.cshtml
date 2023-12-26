@@ -1,10 +1,13 @@
+@model IS220_WebApplication.Models.ViewModel.CombinedViewModel
 @{
     ViewData["Title"] = "User Storage";
+
 }
 
 <head>
     <link rel="stylesheet" href="~/static/css/userStorage.css">
 </head>
+<section class="my-5">
 
 <div class="container my-4">
     <div class="opt card overflow-hidden">
@@ -12,11 +15,11 @@
             <div class="col-2">
                 <div class="list-group list-group-flush account-settings-links rounded">
                     <a class="list-group-item list-group-item-action active fs-6 py-3" data-toggle="list"
-                       href="#account-order">
-                        Library
+                        href="#account-order">
+                        Purchased game
                     </a>
                     <a class="list-group-item list-group-item-action fs-6 py-3" data-toggle="list"
-                       href="#account-transaction">
+                        href="#account-transaction">
                         Transactions History
                     </a>
                 </div>
@@ -24,86 +27,66 @@
             <div class="col-10">
                 <div class="tab-content">
                     <div class="container tab-pane fade active show" id="account-order">
-                        @* 1 dong chi duoc 4 game *@
-                        <div class="row my-4">
-                            <div class="col-3">
-                                <a class="card" asp-controller="Storage" asp-action="DownloadGame">
-                                    <img src="~/static/img/new1.jpg" alt="" class="card-img">
-                                </a>
-                            </div>
-                            <div class="col-3">
-                                <a class="card" asp-controller="Storage" asp-action="DownloadGame">
-                                    <img src="~/static/img/new2.jpg" alt="" class="card-img">
-                                </a>
-                            </div>
-                            <div class="col-3">
-                                <a class="card" asp-controller="Storage" asp-action="DownloadGame">
-                                    <img src="~/static/img/new3.jpg" alt="" class="card-img">
-                                </a>
-                            </div>
-                            <div class="col-3">
-                                <a class="card" asp-controller="Storage" asp-action="DownloadGame">
-                                    <img src="~/static/img/new4.jpg" alt="" class="card-img">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row my-4">
-                            <div class="col-3">
-                                <a class="card" asp-controller="Storage" asp-action="DownloadGame">
-                                    <img src="~/static/img/new5.png" alt="" class="card-img">
-                                </a>
-                            </div>
-                            <div class="col-3">
-                                <a class="card" asp-controller="Storage" asp-action="DownloadGame">
-                                    <img src="~/static/img/new6.png" alt="" class="card-img">
-                                </a>
-                            </div>
-                            <div class="col-3">
-                                <a class="card" asp-controller="Storage" asp-action="DownloadGame">
-                                    <img src="~/static/img/new7.png" alt="" class="card-img">
-                                </a>
-                            </div>
-                            <div class="col-3">
-                                <a class="card" asp-controller="" asp-action="">
-                                    <img src="~/static/img/new8.jpg" alt="" class="card-img">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="account-transaction">
-                        <table class="table align-middle table-dark table-hover table-striped table-rounded">
-                            <thead>
-                            <tr>
-                                <th scope="col" class="py-4">Time</th>
-                                <th scope="col" class="py-4">Trading ID</th>
-                                <th scope="col" class="py-4">Name</th>
-                                <th scope="col" class="py-4">Spent</th>
-                                <th scope="col" class="py-4">Left</th>
-                            </tr>
-                            </thead>
+                            <div class="container">
+                                <div class="row">
+                        @foreach (var game in Model.StorageViewModel.purchasedGame)
+                        {
 
-                            <tbody>
-                            <tr>
-                                <td class="py-3">21/11/2023 12:00:00</td>
-                                <td class="py-3">1212121</td>
-                                <td class="py-3">Nạp NETCoin qua Momo Payment.</td>
-                                <td class="text-success py-3">+100.000đ</td>
-                                <td class="py-3">100.000đ</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3">21/11/2023 12:00:00</td>
-                                <td class="py-3">121211221</td>
-                                <td class="py-3">God of war</td>
-                                <td class="text-danger py-3">-100.000đ</td>
-                                <td class="py-3">0đ</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                    <div class="col-3">
+                                        <a class="card" asp-controller="Storage" asp-action="DownloadGame" asp-route-url='@game.GetType().GetProperty("DownloadLink").GetValue(@game)'>
+                                            <img src='~/images/game/@game.GetType().GetProperty("ImgPath").GetValue(game)'
+                                                alt="" class="card-img">
+                                        </a>
+                                    </div>
+                        }
+                                </div>
+                            </div>
+                    </div>
+                        <div class="tab-pane fade" id="account-transaction">
+                            <table class="table align-middle table-dark table-hover table-striped table-rounded">
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="py-4 text-center">OrderNo</th>
+                                        <th scope="col" class="py-4 text-center">Time</th>
+                                        <th scope="col" class="py-4 text-center">Status</th>
+                                        <th scope="col" class="py-4 text-center">Total</th>
+                                        <th scope="col" class="py-4 text-center">Detail</th>
+                                        
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                @foreach(var order in @Model.StorageViewModel.order) {
+                                    var id = order.GetType().GetProperty("id").GetValue(@order);
+                                    <tr>
+                                        <td class="py-3 text-center">@order.GetType().GetProperty("id").GetValue(@order)</td>
+                                        <td class="py-3 text-center">@(((DateTime)order.GetType().GetProperty("date").GetValue(order)).ToString("dd/MM/yyyy HH:mm:ss"))</td>
+                                        <td class="py-3 text-center">@order.GetType().GetProperty("status").GetValue(@order)</td>
+                                        <td class="text-success text-center py-3">@string.Format(new System.Globalization.CultureInfo(name: "vi-vn"),"{0:C}",@order.GetType().GetProperty("total").GetValue(@order))</td>
+                                        <td class="py-3 text-center">
+                                            <a class="btn btn-outline-primary btn-rounded waves-effect" type="button" href="/order/@id" aria-expanded="false"
+                                                aria-controls="collapseExample">
+                                                <i class='bx bxs-info-square'></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                            <h3>
+                                Total of order: @Model.StorageViewModel.order.Count
+                            </h3>
+                            <h3>
+
+                                Total of spend: @Model.StorageViewModel.order.Sum(x => (int)x.GetType().GetProperty("total").GetValue(x)).ToString("C0", new System.Globalization.CultureInfo("vi-VN"))
+                            </h3>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<script src="~/static/js/userStorage.js"></script>
+    <script src="~/static/js/userStorage.js"></script>

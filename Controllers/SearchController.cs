@@ -1,4 +1,5 @@
 using IS220_WebApplication.Context;
+using IS220_WebApplication.Models;
 using IS220_WebApplication.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,19 @@ public class SearchController : Controller
         _db = db;
     }
 
+    [HttpGet]
+    public IActionResult Index(string search, int page = 1, int pageSize = 10)
+    {
+       var games = _db.Games.Where(g => g.Title.Contains(search));
+       var viewModel = new CombinedViewModel
+       {
+           SearchGame = games.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
+           TotalCount = games.Count()
+       };
+        return View("Index", viewModel);
+    }
+
+    [HttpGet]
     [Route("/developer/{developer}/{page:int?}")]
     public IActionResult Developer(string developer, int page = 1, int pageSize = 10)
     {
@@ -24,9 +38,10 @@ public class SearchController : Controller
             TotalCount = games.Count()
         };
 
-        return View("Index",viewModel);
+        return View("Index", viewModel);
     }
 
+    [HttpGet]
     [Route("/publisher/{publisher}/{page:int?}")]
     public IActionResult Publisher(string publisher, int page = 1, int pageSize = 10)
     {
@@ -41,6 +56,7 @@ public class SearchController : Controller
         return View("Index", viewModel);
     }
 
+    [HttpGet]
     [Route("/category/{category}/{page:int?}")]
     public IActionResult Category(string category, int page = 1, int pageSize = 10)
     {
@@ -53,7 +69,8 @@ public class SearchController : Controller
 
         return View("Index", viewModel);
     }
-    public static string FromUrlFriendly(string str)
+
+    private static string FromUrlFriendly(string str)
     {
         return System.Net.WebUtility.UrlDecode(str.Replace('-', ' '));
     }

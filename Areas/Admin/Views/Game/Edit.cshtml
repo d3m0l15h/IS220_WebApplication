@@ -185,25 +185,31 @@
                 <div class="dm-select-list d-flex align-center">
                     <div class="dm-select ">
                         <select asp-for="Game.Type" class="form-control ">
-                            <option value="1">Game</option>
-                            <option value="2">Console</option>
+                            <option value="0">Software</option>
+                            <option value="1">Console</option>
+                            <option value="2">Both</option>
                         </select>
                     </div>
                 </div>
             </div>
-                
+            
             <div class="form-group">
-                                        <label for="name9">Status</label>
-                                        <div class="dm-select-list d-flex align-center">
-                                            <div class="dm-select ">
-                                                <select asp-for="Game.Status" class="form-control ">
-                                                    <option value="active">Active</option>
-                                                    <option value="deactivete">Deactivete</option>
-                                                    <option value="block">Block</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
+                <label for="name1">Stock</label>
+                <input type="number" min="0" class="form-control" id="name11" asp-for="Game.Stock" style="width: 20%">
+            </div>
+            
+            <div class="form-group">
+                <label for="name9">Status</label>
+                <div class="dm-select-list d-flex align-center">
+                    <div class="dm-select ">
+                        <select asp-for="Game.Status" class="form-control ">
+                            <option value="active">Active</option>
+                            <option value="deactivate">Deactivate</option>
+                            <option value="block">Block</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             
             <!-- form group 8 -->
             <div class="form-group mb-0">
@@ -272,3 +278,25 @@
 </div>
 
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var typeSelect = document.querySelector('select[name="Game.Type"]');
+        var stockInput = document.querySelector('input#name11');
+
+        // Check the value on page load
+        if (typeSelect.value === '0') {
+            stockInput.setAttribute('disabled', 'disabled');
+        } else {
+            stockInput.removeAttribute('disabled');
+        }
+
+        // Listen for changes
+        typeSelect.addEventListener('change', function() {
+            if (this.value === '0') {
+                stockInput.setAttribute('disabled', 'disabled');
+            } else {
+                stockInput.removeAttribute('disabled');
+            }
+        });
+    });
+</script>

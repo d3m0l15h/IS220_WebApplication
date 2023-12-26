@@ -11,6 +11,10 @@ label.btn {
     margin-bottom: 0;
 }
 
+label, h1, h2, h6 {
+    color: #ffffff;
+}
+
 .btn-outline-primary {
     border-color: #26B4FF;
     background: transparent;
@@ -40,4 +44,9 @@ label.btn {
 
 .card {
     background-color: transparent;
+}
+.dropdown-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
 }

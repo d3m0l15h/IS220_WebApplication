@@ -57,6 +57,13 @@ $("#registerForm").submit(function (event) {
 });
 
 document.onclick = (e) => {
-    if (!userIcon.contains(e.target) && !authContainer.contains(e.target))
-        authContainer.classList.remove('isDisplay');
-}
+  if (!userIcon.contains(e.target) && !authContainer.contains(e.target)) {
+    authContainer.classList.remove("isDisplay");
+    document.querySelector(".overlay").remove();
+  }
+};
+
+$('[game-action="add-cart"]').click(() => {
+  notyf.error("Please login to add game to cart");
+  setTimeout(() => $(".user-icon").click(), 200);
+});

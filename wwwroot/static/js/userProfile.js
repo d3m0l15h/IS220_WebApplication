@@ -35,9 +35,9 @@ function reOpen() {
         el.classList.remove('show');
     });
 
-    listGroupItem[1].classList.add('active'); // Assuming the password change tab is the second item
-    listOption[1].classList.add('active');
-    listOption[1].classList.add('show');
+    listGroupItem[2].classList.add('active'); // Assuming the password change tab is the second item
+    listOption[2].classList.add('active');
+    listOption[2].classList.add('show');
 }
 
 document.getElementById('verifyButton').addEventListener('click', function() {

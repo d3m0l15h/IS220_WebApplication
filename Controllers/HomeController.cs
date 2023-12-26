@@ -23,7 +23,26 @@ namespace IS220_WebApplication.Controllers
             {
                 NewGame = _db.Games.OrderByDescending(game => game.ReleaseDate)
                     .Include(game => game.Categories)
-                    .Take(8).ToList()
+                    .Where(game => game.Status == "active")
+                    .Take(8).ToList(),
+                ConsoleGame = _db.Games.Where(game => game.Type == 1 && game.Status == "active")
+                    .Include(game => game.Categories)
+                    .ToList(),
+                SoftwareGame = _db.Games.Where(game => game.Type == 1 )
+                    .Include(game => game.Categories)
+                    .ToList(),
+                HotGame = _db.Games
+                    .Where(game => game.Status == "active")
+                    .GroupJoin(_db.OrderDetails,
+                        game => game.Id,
+                        orderDetail => orderDetail.GameId,
+                        (game, orderDetails) => new { game, orderDetails })
+                    .SelectMany(x => x.orderDetails.DefaultIfEmpty(), (x, y) => new { x.game, OrderDetail = y })
+                    .GroupBy(x => x.game)
+                    .OrderByDescending(g => g.Count())
+                    .Take(8)
+                    .Select(g => g.Key)
+                    .ToList()
             };
             return View(viewModel);
         }

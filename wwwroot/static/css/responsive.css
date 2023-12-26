@@ -1,5 +1,13 @@
 /*------------------------- Making Responsive -------------------------*/
+@media (max-width: 1280px) {
+    .user-setting {
+            right: 5rem;
+    }
+}
 @media (max-width: 1080px) {
+    .user-setting{
+        right: 3rem;
+    }
     .container {
         margin: 0 auto;
         max-width: 90%;
@@ -8,11 +16,6 @@
     .nav {
         padding: 10px 0;
     }
-    
-    /*.menu-icon {*/
-    /*    display: flex;*/
-    /*}*/
-
     .notification {
         right: 4rem;
     }
@@ -55,6 +58,9 @@
 }
 
 @media (max-width: 774px) {
+    .user-setting {
+            right: 2.2rem;
+        }
     .menu-icon {
         display: flex;
     }

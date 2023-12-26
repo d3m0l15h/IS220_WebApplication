@@ -16,7 +16,6 @@ th {
 }
 
 th, td {
-    border: 2px solid var(--main-color);
     padding: 20px;
 }
 

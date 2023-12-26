@@ -6,6 +6,7 @@ using IS220_WebApplication.Models.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using IEmailSender = IS220_WebApplication.Utils.IEmailSender;
+using AddressProcessor = IS220_WebApplication.Database.AddressProcessor;
 
 namespace IS220_WebApplication.Controllers;
 
@@ -14,11 +15,15 @@ public class ProfileController : Controller
     private readonly UserManager<Aspnetuser> _userManager;
     private readonly IEmailSender _emailSender;
     private readonly INotyfService _notyf;
-    public ProfileController(UserManager<Aspnetuser> userManager, INotyfService notyf, IEmailSender emailSender)
+    private readonly AddressProcessor _address;
+    private readonly ILogger<ProfileController> _logger;
+    public ProfileController(UserManager<Aspnetuser> userManager, INotyfService notyf, IEmailSender emailSender, AddressProcessor address, ILogger<ProfileController> logger)
     {
+        _address = address;
         _userManager = userManager;
         _notyf = notyf;
         _emailSender = emailSender;
+        _logger = logger;
     }
 
     // GET
@@ -29,16 +34,22 @@ public class ProfileController : Controller
         {
             return RedirectToAction("index", "home");
         }
-        var user = new CombinedViewModel
+        var user = _userManager.GetUserAsync(User).Result;
+        var defaultAddress = _address.GetDefaultAddress(user.Id);
+        var nondefaultAddresses = _address.GetNonDefaultAddresses(user.Id);
+        var viewModel = new CombinedViewModel
         {
-            User = _userManager.GetUserAsync(User).Result
+            User = user,
+            DefaultAddress = defaultAddress,
+            NonDefaultAddresses = nondefaultAddresses,
+            // AddressUpdateModel = new AddressUpdateModel()
         };
-        return View(user);
+        return View(viewModel);
     }
-    
+
     [HttpGet]
     public async Task<IActionResult> ConfirmEmail([FromQuery] string userId, [FromQuery] string tokenWithTime)
-    {   
+    {
         Console.WriteLine(userId);
         Console.WriteLine(tokenWithTime);
         if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(tokenWithTime))
@@ -51,7 +62,7 @@ public class ProfileController : Controller
         {
             return NotFound("User not found");
         }
-        
+
         tokenWithTime = WebUtility.UrlDecode(tokenWithTime).Replace("%2B", "+"); // decode '%2B' back to '+'
         var parts = tokenWithTime.Split('-');
         if (parts.Length < 2)
@@ -79,7 +90,7 @@ public class ProfileController : Controller
         _notyf.Success("Email confirmed successfully");
         return RedirectToAction("index", "home");
     }
-    
+
     [HttpPost]
     public async Task<IActionResult> SendVerificationEmail()
     {
@@ -129,10 +140,10 @@ public class ProfileController : Controller
         if (result.Succeeded)
         {
             _notyf.Success("Profile updated successfully");
-            return RedirectToAction("index","profile");
+            return RedirectToAction("index", "profile");
         }
         _notyf.Error("Update failed");
-        return RedirectToAction("index","profile");
+        return RedirectToAction("index", "profile");
     }
 
     [HttpPost]
@@ -140,22 +151,91 @@ public class ProfileController : Controller
     public async Task<IActionResult> ResetPwd(CombinedViewModel model)
     {
         var user = await _userManager.GetUserAsync(User);
+        var defaultAddress = _address.GetDefaultAddress(user!.Id);
+        var nondefaultAddresses = _address.GetNonDefaultAddresses(user.Id);
         model.User = user;
-        
+        model.DefaultAddress = defaultAddress;
+        model.NonDefaultAddresses = nondefaultAddresses;
+
         ViewBag.PasswordChangeAttempted = true;
-        if (!ModelState.IsValid){return View("index", model);}
-        
-        var isCurrentPasswordValid = await _userManager.CheckPasswordAsync(user!, model.ChangePassword!.CurrentPassword);
+        if (!ModelState.IsValid) { return View("index", model); }
+
+        var isCurrentPasswordValid = await _userManager.CheckPasswordAsync(user, model.ChangePassword!.CurrentPassword);
         if (!isCurrentPasswordValid)
         {
             ModelState.AddModelError("ChangePassword.CurrentPassword", "Current password is incorrect");
             return View("index", model);
         }
 
-        var changePasswordResult = await _userManager.ChangePasswordAsync(user!, model.ChangePassword!.CurrentPassword, model.ChangePassword.NewPassword);
+        var changePasswordResult = await _userManager.ChangePasswordAsync(user, model.ChangePassword!.CurrentPassword, model.ChangePassword.NewPassword);
         if (!changePasswordResult.Succeeded) return RedirectToAction("index", model);
-        
+
         _notyf.Success("Password changed successfully");
-        return RedirectToAction("index","profile");
+        return RedirectToAction("index", "profile");
     }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> CreateNewAddress(CombinedViewModel model)
+    {
+        var user = await _userManager.GetUserAsync(User);
+        model.User = user;
+        ViewBag.AddressCreationAttempted = true;
+        var address = new Address
+        {
+            UserId = user!.Id,
+            Receiver = model.CreateAddress!.Receiver,
+            Phone = model.CreateAddress!.Phone,
+            Street = model.CreateAddress!.Street,
+            Ward = model.CreateAddress!.Ward,
+            State = model.CreateAddress!.State,
+            City = model.CreateAddress!.City,
+        };
+        var result = _address.CreateAddress(address);
+        // _logger.LogInformation("Status code: {StatusCode}", result.GetStatusCode().Value);
+        return (int)result.GetStatusCode()!.Value == 200
+            ? new JsonResult(new { Ok = true, Message = "Address created successfully" })
+            : new JsonResult(new { Ok = false, Message = result.GetMessage() });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> UpdateAddress(CombinedViewModel model)
+    {
+        var user = await _userManager.GetUserAsync(User);
+        var updatedAddress = model.CreateAddress;
+        var address = _address.GetAddress(updatedAddress!.Id);
+
+        if (address == null)
+        {
+            return new JsonResult(new { Ok = false, Message = "Address not found" });
+        }
+
+        address.Receiver = updatedAddress.Receiver;
+        address.Phone = updatedAddress.Phone;
+        address.Street = updatedAddress.Street;
+        address.Ward = updatedAddress.Ward;
+        address.State = updatedAddress.State;
+        address.City = updatedAddress.City;
+
+        var result = _address.UpdateAddress(address);
+
+        return (int)result.GetStatusCode()!.Value == 200
+            ? new JsonResult(new { Ok = true, Message = "Address updated successfully" })
+            : new JsonResult(new { Ok = false, Message = "Address update failed" });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteAddress(CombinedViewModel model)
+    {
+        var user = await _userManager.GetUserAsync(User);
+        var addressId = model.CreateAddress!.Id;
+        var result = _address.DeleteAddress(addressId);
+
+        return (int)result.GetStatusCode().Value == 200
+            ? new JsonResult(new { Ok = true, Message = "Address deleted successfully" })
+            : new JsonResult(new { Ok = false, Message = "Address deletion failed" });
+    }
+
 }

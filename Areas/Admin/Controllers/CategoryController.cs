@@ -1,4 +1,5 @@
 using System.Web;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using IS220_WebApplication.Areas.Admin.Models.Authentication;
 using IS220_WebApplication.Context;
 using IS220_WebApplication.Models;
@@ -11,12 +12,15 @@ namespace IS220_WebApplication.Areas.Admin.Controllers;
 public class CategoryController : Controller
 {
     private readonly MyDbContext _db;
+    private readonly INotyfService _notyf;
 
-    public CategoryController(MyDbContext db)
+    public CategoryController(MyDbContext db, INotyfService notyf)
     {
         _db = db;
+        _notyf = notyf;
     }
 
+    
     [HttpGet]
     public IActionResult Index(string searchQuery, int page = 1, int pageSize = 10)
     {
@@ -65,6 +69,7 @@ public class CategoryController : Controller
         var category = _db.Categories.Find(model.Id);
         if (category != null) category.Name = model.Name;
         _db.SaveChanges();
+        _notyf.Success("Update Category successfully.");
         const string script = $"<script>window.opener.location.reload();window.close();</script>";
         return Content(script, "text/html");
     }

@@ -1142,9 +1142,21 @@
                 input.attr("type", "password");
             }
         });
+        $(".toggle-password3").click(function () {
+            $(this).toggleClass("uil-eye");
+            input = $(this).parent().find("#confirm-password-field");
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
     }
 
     eye_pass();
+
+    
+    
 
     $("#mail-to,#reply-to,#reply-to2").select2({
         placeholder: "",

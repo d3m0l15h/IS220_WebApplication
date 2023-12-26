@@ -167,7 +167,7 @@
                         <button type="button" class="transparent uil uil-plus border-0" style="font-size: 20px"
                                 onclick="addWindow('developer');">
                         </button>
-                    </div>      
+                    </div>
                     <div>
                         <button type="button" class="transparent uil uil-pen border-0 ms-1" style="font-size: 15px"
                                 onclick="editWindow('developer', 'Game.Developer');">
@@ -178,15 +178,22 @@
 
             <!-- form group -->
             <div class="form-group">
-                <label for="name9">Type</label>
+                <label>Type</label>
                 <div class="dm-select-list d-flex align-center">
                     <div class="dm-select ">
                         <select asp-for="Game.Type" class="form-control ">
-                            <option value="1">Game</option>
-                            <option value="2">Console</option>
+                            <option value="0">Software</option>
+                            <option value="1">Console</option>
+                            <option value="2">Both</option>
                         </select>
                     </div>
                 </div>
+            </div>
+            
+            
+            <div class="form-group">
+                <label for="name1">Stock</label>
+                <input type="number" value="0" min="0" class="form-control" id="name11" asp-for="Game.Stock" style="width: 20%">
             </div>
 
             <!-- form group 8 -->
@@ -255,3 +262,25 @@
 </div>
 
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var typeSelect = document.querySelector('select[name="Game.Type"]');
+        var stockInput = document.querySelector('input#name11');
+
+        // Check the value on page load
+        if (typeSelect.value === '0') {
+            stockInput.setAttribute('disabled', 'disabled');
+        } else {
+            stockInput.removeAttribute('disabled');
+        }
+
+        // Listen for changes
+        typeSelect.addEventListener('change', function() {
+            if (this.value === '0') {
+                stockInput.setAttribute('disabled', 'disabled');
+            } else {
+                stockInput.removeAttribute('disabled');
+            }
+        });
+    });
+</script>

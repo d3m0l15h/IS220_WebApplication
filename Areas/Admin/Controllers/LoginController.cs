@@ -1,14 +1,7 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
-using AspNetCoreHero.ToastNotification.Notyf;
-using IS220_WebApplication.Areas.Admin.Models.Authentication;
-using IS220_WebApplication.Context;
-
 using IS220_WebApplication.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
 
 namespace IS220_WebApplication.Areas.Admin.Controllers
@@ -62,14 +55,19 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 
                 var originalUrl = HttpContext.Request.Cookies["OriginalUrl"];
                 HttpContext.Response.Cookies.Delete("OriginalUrl");
+               
                 
                 if (!string.IsNullOrEmpty(originalUrl))
                 {
                     return LocalRedirect(originalUrl);
                 }
                 _notyf?.Success("Login successful");
+
+                @ViewData["User"] = "1234567";
+                
                 return RedirectToAction("index", "dashboard");
             }
+            
             
             _notyf?.Error("Wrong username or password");
             return View();

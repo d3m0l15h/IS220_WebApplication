@@ -18,6 +18,8 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
     {
     }
 
+    public virtual DbSet<Address> Addresses { get; set; }
+
     public virtual DbSet<Aspnetrole> Aspnetroles { get; set; }
 
     public virtual DbSet<Aspnetroleclaim> Aspnetroleclaims { get; set; }
@@ -30,9 +32,9 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
 
     public virtual DbSet<Aspnetusertoken> Aspnetusertokens { get; set; }
 
-    public virtual DbSet<Category> Categories { get; set; }
+    public virtual DbSet<Cart> Carts { get; set; }
 
-    public virtual DbSet<Categorygame> Categorygames { get; set; }
+    public virtual DbSet<Category> Categories { get; set; }
 
     public virtual DbSet<Developer> Developers { get; set; }
 
@@ -40,13 +42,15 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
 
     public virtual DbSet<Game> Games { get; set; }
 
+    public virtual DbSet<Order> Orders { get; set; }
+
+    public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+
+    public virtual DbSet<OrderStatus> OrderStatuses { get; set; }
+
+    public virtual DbSet<Paymentmethod> Paymentmethods { get; set; }
+
     public virtual DbSet<Publisher> Publishers { get; set; }
-
-    public virtual DbSet<Transaction> Transactions { get; set; }
-
-    public virtual DbSet<TransactionInfomation> TransactionInfomations { get; set; }
-
-    public virtual DbSet<TransactionType> TransactionTypes { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -63,6 +67,18 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
         modelBuilder
             .UseCollation("utf8mb4_general_ci")
             .HasCharSet("utf8mb4");
+
+        modelBuilder.Entity<Address>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("current_timestamp()");
+            entity.Property(e => e.UpdatedAt).ValueGeneratedOnAddOrUpdate();
+
+            entity.HasOne(d => d.User).WithMany(p => p.Addresses)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Add_User");
+        });
 
         modelBuilder.Entity<Aspnetrole>(entity =>
         {
@@ -133,16 +149,26 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
             entity.HasOne(d => d.User).WithMany(p => p.Aspnetusertokens).HasConstraintName("FK_AspNetUserTokens_AspNetUsers_UserId");
         });
 
+        modelBuilder.Entity<Cart>(entity =>
+        {
+            entity.HasKey(e => new { e.Id, e.Uid, e.GameId })
+                .HasName("PRIMARY")
+                .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0, 0 });
+
+            entity.Property(e => e.Id).ValueGeneratedOnAdd();
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("current_timestamp()");
+            entity.Property(e => e.UpdatedAt)
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("current_timestamp()");
+
+            entity.HasOne(d => d.Game).WithMany(p => p.Carts).HasConstraintName("FK_GAME-ID");
+
+            entity.HasOne(d => d.UidNavigation).WithMany(p => p.Carts).HasConstraintName("FK_aspnetusers-UID");
+        });
+
         modelBuilder.Entity<Category>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
-        });
-
-        modelBuilder.Entity<Categorygame>(entity =>
-        {
-            entity.HasKey(e => new { e.CategoryId, e.GameId })
-                .HasName("PRIMARY")
-                .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
         });
 
         modelBuilder.Entity<Developer>(entity =>
@@ -160,7 +186,7 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.Property(e => e.Status).HasDefaultValueSql("'active'");
-            entity.Property(e => e.Type).HasDefaultValueSql("'1'");
+            entity.Property(e => e.Type).HasDefaultValueSql("'2'");
 
             entity.HasOne(d => d.DeveloperNavigation).WithMany(p => p.Games)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -224,38 +250,51 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
                     });
         });
 
-        modelBuilder.Entity<Publisher>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
-        });
-
-        modelBuilder.Entity<Transaction>(entity =>
+        modelBuilder.Entity<Order>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.Property(e => e.Date).HasDefaultValueSql("current_timestamp()");
 
-            entity.HasOne(d => d.TransInfo).WithMany(p => p.Transactions)
+            entity.HasOne(d => d.AddressNavigation).WithMany(p => p.Orders)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Info_Trans");
+                .HasConstraintName("FK_Address_Address");
 
-            entity.HasOne(d => d.User).WithMany(p => p.Transactions)
+            entity.HasOne(d => d.PaymentMethodNavigation).WithMany(p => p.Orders)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_User_Trans");
+                .HasConstraintName("FK_PaymentMethod_PaymentMethod");
+
+            entity.HasOne(d => d.StatusNavigation).WithMany(p => p.Orders)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Status_OrderStatus");
+
+            entity.HasOne(d => d.UidNavigation).WithMany(p => p.Orders)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_User_Ord");
         });
 
-        modelBuilder.Entity<TransactionInfomation>(entity =>
+        modelBuilder.Entity<OrderDetail>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.HasOne(d => d.Game).WithMany(p => p.TransactionInfomations).HasConstraintName("FK_Game_Trans");
+            entity.HasOne(d => d.Game).WithMany(p => p.OrderDetails).HasConstraintName("FK_OrderId_Game");
 
-            entity.HasOne(d => d.Type).WithMany(p => p.TransactionInfomations)
+            entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Fk_Type_Trans");
+                .HasConstraintName("FK_OrderId_Order");
         });
 
-        modelBuilder.Entity<TransactionType>(entity =>
+        modelBuilder.Entity<OrderStatus>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+        });
+
+        modelBuilder.Entity<Paymentmethod>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+        });
+
+        modelBuilder.Entity<Publisher>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
         });
