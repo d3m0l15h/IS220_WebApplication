@@ -1,6 +1,29 @@
 @model IS220_WebApplication.Models.ViewModel.CombinedViewModel
 @{
     ViewData["Title"] = "Checkout";
+    decimal totalPriceSoft = 0;
+    decimal totalPriceDisc = 0;
+
+    foreach (var item in Model.CheckoutItems)
+    {
+        if (!item.Quantity.HasValue)
+        {
+            continue;
+        }
+
+        var itemTotal = item.Price * item.Quantity.Value;
+        if (item.Type == 0) // Assuming Type 0 is for software items
+        {
+            totalPriceSoft += itemTotal;
+        }
+        else // Assuming other types are for discounted items
+        {
+            totalPriceDisc += itemTotal;
+        }
+    }
+
+    var totalPriceSoftFormatted = totalPriceSoft.ToString("C", new System.Globalization.CultureInfo("vi-VN"));
+    var totalPriceDiscFormatted = totalPriceDisc.ToString("C", new System.Globalization.CultureInfo("vi-VN"));
 }
 <link rel="stylesheet" href="~/static/css/main.css">
 <link rel="stylesheet" href="~/static/css/checkout.css">
@@ -63,7 +86,7 @@
                     <h2>Total</h2>
                 </div>
                 <div class="col-md-3 d-flex justify-content-center total-price-soft">
-                    <h2>0</h2>
+                    <h2>@totalPriceSoftFormatted</h2>
                 </div>
                 <div class="col-md-1">
 
@@ -477,7 +500,7 @@
                     <h2>Total</h2>
                 </div>
                 <div class="col-md-3 d-flex justify-content-center total-price-disc">
-                    <h2>0</h2>
+                    <h2>@totalPriceDiscFormatted</h2>
                 </div>
                 <div class="col-md-1">
 
@@ -608,26 +631,6 @@
                 }
             });
         })
-        
-        var modelData = @Html.Raw(Json.Serialize(Model));
-        console.log(modelData);
-        var totalPriceSoft = 0;
-        var totalPriceDisc = 0;
-        
-        modelData.checkoutItems.forEach(el => {
-            var itemTotal = el.price * el.quantity;
-            if (el.type == 0) { // Assuming Type 0 is for software items
-                totalPriceSoft += itemTotal;
-            } else { // Assuming other types are for discounted items
-                totalPriceDisc += itemTotal;
-            }
-        });
-        
-        var totalPriceSoftFormatted = totalPriceSoft.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
-        $('.total-price-soft h2').html(totalPriceSoftFormatted);
-        
-        var totalPriceDiscFormatted = totalPriceDisc.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
-        $('.total-price-disc h2').html(totalPriceDiscFormatted);
         
         document.querySelector('.cart-button').classList.add('d-none')
         document.querySelectorAll('.card.payment-method-item').forEach(item => {
