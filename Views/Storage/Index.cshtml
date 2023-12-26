@@ -46,20 +46,29 @@
 
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="py-4">Time</th>
-                                        <th scope="col" class="py-4">OrderNo</th>
-                                        <th scope="col" class="py-4">Status</th>
-                                        <th scope="col" class="py-4">Total</th>
+                                        <th scope="col" class="py-4 text-center">OrderNo</th>
+                                        <th scope="col" class="py-4 text-center">Time</th>
+                                        <th scope="col" class="py-4 text-center">Status</th>
+                                        <th scope="col" class="py-4 text-center">Total</th>
+                                        <th scope="col" class="py-4 text-center">Detail</th>
+                                        
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                 @foreach(var order in @Model.StorageViewModel.order) {
+                                    var id = order.GetType().GetProperty("id").GetValue(@order);
                                     <tr>
-                                        <td class="py-3">@order.GetType().GetProperty("date").GetValue(@order)</td>
-                                        <td class="py-3">@order.GetType().GetProperty("id").GetValue(@order)</td>
-                                        <td class="py-3">@order.GetType().GetProperty("status").GetValue(@order)</td>
-                                        <td class="text-success py-3">@order.GetType().GetProperty("total").GetValue(@order)</td>
+                                        <td class="py-3 text-center">@order.GetType().GetProperty("id").GetValue(@order)</td>
+                                        <td class="py-3 text-center">@order.GetType().GetProperty("date").GetValue(@order)</td>
+                                        <td class="py-3 text-center">@order.GetType().GetProperty("status").GetValue(@order)</td>
+                                        <td class="text-success text-center py-3">@string.Format(new System.Globalization.CultureInfo(name: "vi-vn"),"{0:C}",@order.GetType().GetProperty("total").GetValue(@order))</td>
+                                        <td class="py-3 text-center">
+                                            <a class="btn btn-outline-primary btn-rounded waves-effect" type="button" href="/order/@id" aria-expanded="false"
+                                                aria-controls="collapseExample">
+                                                <i class='bx bxs-info-square'></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 }
                                 </tbody>
