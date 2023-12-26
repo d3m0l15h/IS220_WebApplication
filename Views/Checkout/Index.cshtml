@@ -1,8 +1,7 @@
 @model IS220_WebApplication.Models.ViewModel.CombinedViewModel
 @{
     ViewData["Title"] = "Checkout";
-    decimal totalPriceSoft = 0;
-    decimal totalPriceDisc = 0;
+    decimal totalPrice = 0;
 
     foreach (var item in Model.CheckoutItems)
     {
@@ -12,18 +11,10 @@
         }
 
         var itemTotal = item.Price * item.Quantity.Value;
-        if (item.Type == 0) // Assuming Type 0 is for software items
-        {
-            totalPriceSoft += itemTotal;
-        }
-        else // Assuming other types are for discounted items
-        {
-            totalPriceDisc += itemTotal;
-        }
+        totalPrice += itemTotal;
     }
-
-    var totalPriceSoftFormatted = totalPriceSoft.ToString("C", new System.Globalization.CultureInfo("vi-VN"));
-    var totalPriceDiscFormatted = totalPriceDisc.ToString("C", new System.Globalization.CultureInfo("vi-VN"));
+    
+    var totalPriceFormatted = totalPrice.ToString("C", new System.Globalization.CultureInfo("vi-VN"));
 }
 <link rel="stylesheet" href="~/static/css/main.css">
 <link rel="stylesheet" href="~/static/css/checkout.css">
@@ -31,78 +22,6 @@
 <div class="container h-100 py-3">
 <div class="row d-flex justify-content-center align-items-center h-100">
 <div class="col">
-
-<div class="card shadow-2-strong mt-4 mb-4 bg-dark text-white"
-     style="border-radius: 16px; background-color :white">
-
-    <div class="table-responsive p-5">
-        <table class="table text-white">
-            <h3 class="normal-text mb-3">
-                Shopping cart
-            </h3>
-            @* <thead>
-                                <tr>
-                                    <th scope="col" class="h5">Name</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Price</th>
-                                </tr>
-                            </thead> *@
-            <tbody class="items-in-cart">
-            @foreach (var item in Model.CheckoutItems.Where(item => item.Type == 0))
-            {
-                <div class="cart-item d-flex justify-content-between align-items-center">
-
-                    <div class="col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
-                        <img src='~/images/game/@item.Image' class="img-fluid rounded-3" alt="">
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-6 px-2">
-                        <div>
-                            <h6>
-                                <span class="badge bg-secondary">Software</span> @item.Title
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-1 col-xl-2 d-flex justify-content-center">
-                        <h6 class="mb-0">
-                            @string.Format(new System.Globalization.CultureInfo(name:
-                                "vi-VN"), "{0:C}", item.Price)
-                        </h6>
-                    </div>
-                    <div class="col-md-1 col-lg-1 col-xl-1 ms-3">
-                        <a href="#!" class="btn btn-icon btn-outline-danger" game-action="remove-cart"
-                           game-target="${
-                          item.gameId
-                        }">
-                            <i class='bx bx-trash-alt'></i>
-                        </a>
-                    </div>
-                </div>
-                @:<hr class="my-4">
-            }
-            </tbody>
-            <tfoot>
-            <div class="row justify-content-end">
-                <div class="col-1">
-                    <h2>Total</h2>
-                </div>
-                <div class="col-md-3 d-flex justify-content-center total-price-soft">
-                    <h2>@totalPriceSoftFormatted</h2>
-                </div>
-                <div class="col-md-1">
-
-                </div>
-            </div>
-            <div class="row justify-content-end mt-5">
-                <div class="col-md-3 d-flex justify-content-center total-price-soft">
-                    <button class="btn btn-primary checkout">Buy</button>
-                </div>
-                <div class="col-md-1">
-                </div>
-            </div>
-            </tfoot>
-        </table>
-    </div>
-</div>
 
 <div class="card shadow-2-strong mb-5 mb-lg-0 bg-dark text-white"
      style="border-radius: 16px; background-color: white">
@@ -451,7 +370,7 @@
                                 </tr>
                             </thead> *@
             <tbody class="items-in-cart">
-            @foreach (var item in Model.CheckoutItems.Where(item => item.Type != 0))
+            @foreach (var item in Model.CheckoutItems)
             {
                 <div class="cart-item d-flex justify-content-between align-items-center">
 
@@ -459,21 +378,31 @@
                         <img src='~/images/game/@item.Image' class="img-fluid rounded-3" alt="">
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-6 px-2">
+                        
                         <div>
                             <h6>
-                                <span class="badge bg-secondary">Disc</span> @item.Title
+                                @if(item.Type == 0)
+                                {
+                                    <span class="badge bg-secondary">Software</span> 
+                                }
+                                else{
+                                    <span class="badge bg-secondary">Disc</span> 
+                                }@item.Title
                             </h6>
-                        </div>
-                        <div class="quantity-input mt-2">
-                            <button class="btn btn-icon text-white"
-                                    game-action="change-quantity-minus">
-                                -
-                            </button>
-                            <input type="text" game-input="quantity" value="1">
-                            <button class="btn btn-icon text-white"
-                                    game-action="change-quantity-plus">
-                                +
-                            </button>
+                                @if (item.Type == 1)
+                            {
+                                <div class="quantity-input mt-2">
+                                    <button class="btn btn-icon text-white"
+                                            game-action="change-quantity-minus">
+                                        -
+                                    </button>
+                                    <input type="text" game-input="quantity" value="1">
+                                    <button class="btn btn-icon text-white"
+                                            game-action="change-quantity-plus">
+                                        +
+                                    </button>
+                                </div>
+                            }
                         </div>
                     </div>
                     <div class="col-md-3 col-lg-1 col-xl-2 d-flex justify-content-center">
@@ -500,7 +429,7 @@
                     <h2>Total</h2>
                 </div>
                 <div class="col-md-3 d-flex justify-content-center total-price-disc">
-                    <h2>@totalPriceDiscFormatted</h2>
+                    <h2>@totalPriceFormatted</h2>
                 </div>
                 <div class="col-md-1">
 
