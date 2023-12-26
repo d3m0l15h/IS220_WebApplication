@@ -27,9 +27,9 @@ builder.Services.AddSession();
 
 builder.Services.AddNotyf(config =>
 {
-    config.DurationInSeconds = 5;
+    config.DurationInSeconds = 3;
     config.IsDismissable = true;
-    config.Position = NotyfPosition.BottomRight;
+    config.Position = NotyfPosition.BottomLeft;
 });
 
 builder.Services.AddDbContext<MyDbContext>(options => options.UseMySql(cfg["dbGameStore"] ?? string.Empty, new MySqlServerVersion(new Version(8, 0, 21))));

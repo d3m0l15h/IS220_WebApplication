@@ -17,13 +17,29 @@ namespace IS220_WebApplication.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var viewModel = new CombinedViewModel
             {
                 NewGame = _db.Games.OrderByDescending(game => game.ReleaseDate)
                     .Include(game => game.Categories)
-                    .Take(8).ToList()
+                    .Take(8).ToList(),
+                ConsoleGame = _db.Games.Where(game => game.Type == 1)
+                    .Include(game => game.Categories)
+                    .ToList(),
+                SoftwareGame = _db.Games.Where(game => game.Type == 1)
+                    .Include(game => game.Categories)
+                    .ToList(),
+                HotGame = _db.Games
+                    .Join(_db.OrderDetails,
+                        game => game.Id,
+                        orderDetail => orderDetail.GameId,
+                        (game, orderDetail) => new { game, orderDetail })
+                    .GroupBy(x => x.game.Id)
+                    .OrderByDescending(g => g.Count())
+                    .Take(8)
+                    .Select(g => g.First().game)
+                    .ToList()
             };
             return View(viewModel);
         }

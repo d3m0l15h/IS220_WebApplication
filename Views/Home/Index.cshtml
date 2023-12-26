@@ -29,168 +29,55 @@
     <div class="trending_content swiper">
         <div class="swiper-wrapper">
             <!-- SLIDE 1 -->
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="~/static/img/trending1.webp" alt="" />
-                    <div class="box-text">
-                        <a class="" asp-controller="GameDetail" asp-action="index">
-                            Cyberpunk 2077
-                        </a>
-                        <h3>Action, Lorem ipsum dolor sit amet</h3>
-                        <div class="rating-download">
-                            <div class="rating">
-                                <i class="bx bxs-star"></i>
-                                <span>4.7</span>
-                            </div>
+            @* <div class="swiper-slide">
+            <div class="box">
+            <img src="~/static/img/trending1.webp" alt="" />
+            <div class="box-text">
+            <a class="" asp-controller="GameDetail" asp-action="index">
+            Cyberpunk 2077
+            </a>
+            <h3>Action, Lorem ipsum dolor sit amet</h3>
+            <div class="rating-download">
+            <div class="rating">
+            <i class="bx bxs-star"></i>
+            <span>4.7</span>
+            </div>
 
-                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
-                                <p>100.000đ</p>
-                            </a>
+            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
+            <p>100.000đ</p>
+            </a>
+            </div>
+            </div>
+            </div>
+            </div> *@
+            @foreach (var item in Model.HotGame!)
+            {
+                <div class="swiper-slide">
+
+                    <div class="box">
+                        <img src="~/images/game/@item.ImgPath" alt="" />
+                        <div class="box-text">
+                            <a asp-controller="" asp-action="">@item.Title</a>
+                            <h3>@item.Description</h3>
+                            <div class="rating-download">
+                                <div class="rating">
+                                    <i class="bx bxs-star"></i>
+                                    <span>4.7</span>
+                                </div>
+
+                                <a class="box-btn" asp-controller="GameDetail" asp-action="index">
+                                    <p>@string.Format(new
+                                                  System.Globalization.CultureInfo(name: "vi-vn"), "{0:C}", @item.Price)</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
+            }
             <!-- SLIDE 2 -->
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="~/static/img/trending2.jpg" alt="" />
-                    <div class="box-text">
-                        <a asp-controller="" asp-action="">Battlefield 2042</a>
-                        <h3>Action Lorem ipsum dolor sit amet.</h3>
-                        <div class="rating-download">
-                            <div class="rating">
-                                <i class="bx bxs-star"></i>
-                                <span>4.7</span>
-                            </div>
-                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
-                                <p>100.000đ</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- SLIDE 3 -->
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="~/static/img/trending3.jpg" alt="" />
-                    <div class="box-text">
-                        <a asp-controller="" asp-action="">Assassin's Creed</a>
-                        <h3>Action Lorem ipsum dolor sit amet.</h3>
-                        <div class="rating-download">
-                            <div class="rating">
-                                <i class="bx bxs-star"></i>
-                                <span>4.7</span>
-                            </div>
-                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
-                                <p>100.000đ</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- SLIDE 4 -->
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="~/static/img/trending4.jpg" alt="" />
-                    <div class="box-text">
-                        <a asp-controller="" asp-action="">Ghost of Tsushima</a>
-                        <h3>Action</h3>
-                        <div class="rating-download">
-                            <div class="rating">
-                                <i class="bx bxs-star"></i>
-                                <span>4.7</span>
-                            </div>
 
-                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
-                                <p>100.000đ</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SLIDE 5 -->
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="~/static/img/trending5.png" alt="" />
-                    <div class="box-text">
-                        <a asp-controller="" asp-action="">GTA V</a>
-                        <h3>Action</h3>
-                        <div class="rating-download">
-                            <div class="rating">
-                                <i class="bx bxs-star"></i>
-                                <span>4.7</span>
-                            </div>
-                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
-                                <p>100.000đ</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SLIDE 6 -->
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="~/static/img/trending6.jpg" alt="" />
-                    <div class="box-text">
-                        <a asp-controller="" asp-action="">Dying Light 2</a>
-                        <h3>Action</h3>
-                        <div class="rating-download">
-                            <div class="rating">
-                                <i class="bx bxs-star"></i>
-                                <span>4.7</span>
-                            </div>
-                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
-                                <p>100.000đ</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SLIDE 7 -->
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="~/static/img/trending7.png" alt="" />
-                    <div class="box-text">
-                        <a asp-controller="" asp-action="">Halo Infinite</a>
-                        <h3>Action, Ldistinctio erum sequi tempora.</h3>
-                        <div class="rating-download">
-                            <div class="rating">
-                                <i class="bx bxs-star"></i>
-                                <span>4.7</span>
-                            </div>
-                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
-                                <p>100.000đ</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SLIDE 8 -->
-            <div class="swiper-slide">
-                <div class="box">
-                    <img src="~/static/img/trending8.png" alt="" />
-                    <div class="box-text">
-                        <a asp-controller="" asp-action="">Resident Evil Village</a>
-                        <h3>Action</h3>
-                        <div class="rating-download">
-                            <div class="rating">
-                                <i class="bx bxs-star"></i>
-                                <span>4.7</span>
-                            </div>
-                            <a class="box-btn" asp-area="" asp-controller="GameDetail" asp-action="index">
-                                <p>100.000đ</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -249,156 +136,180 @@
     <!-- Content -->
     <div class="category-content">
         <!-- Box 1 -->
-        <div class="box">
-            <img src="~/static/img/new1.jpg" alt="" />
-            <div class="box-text">
-                <a asp-controller="" asp-action="">Subway Surfers</a>
-                <h3>Action Lorem ipsum dolor sit amet.</h3>
-                <div class="rating-download">
-                    <div class="rating">
-                        <i class="bx bxs-star"></i>
-                        <span>4.7</span>
-                    </div>
 
-                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
-                        <p>100.000đ</p>
-                    </a>
-                </div>
-            </div>
+        @* <div class="box">
+        <img src="~/static/img/new1.jpg" alt="" />
+        <div class="box-text">
+        <a asp-controller="" asp-action="">Subway Surfers</a>
+        <h3>Action Lorem ipsum dolor sit amet.</h3>
+        <div class="rating-download">
+        <div class="rating">
+        <i class="bx bxs-star"></i>
+        <span>4.7</span>
+        </div>
+
+        <a class="box-btn" asp-controller="GameDetail" asp-action="index">
+        <p>100.000đ</p>
+        </a>
+        </div>
+        </div>
         </div>
 
         <!-- Box 2 -->
         <div class="box">
-            <img src="~/static/img/new2.jpg" alt="" />
-            <div class="box-text">
-                <a asp-controller="" asp-action="">Call of Duty</a>
-                <h3>Action Lorem ipsum dolor sit amet.</h3>
-                <div class="rating-download">
-                    <div class="rating">
-                        <i class="bx bxs-star"></i>
-                        <span>4.7</span>
-                    </div>
+        <img src="~/static/img/new2.jpg" alt="" />
+        <div class="box-text">
+        <a asp-controller="" asp-action="">Call of Duty</a>
+        <h3>Action Lorem ipsum dolor sit amet.</h3>
+        <div class="rating-download">
+        <div class="rating">
+        <i class="bx bxs-star"></i>
+        <span>4.7</span>
+        </div>
 
-                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
-                        <p>100.000đ</p>
-                    </a>
-                </div>
-            </div>
+        <a class="box-btn" asp-controller="GameDetail" asp-action="index">
+        <p>100.000đ</p>
+        </a>
+        </div>
+        </div>
         </div>
 
         <!-- Box 3 -->
         <div class="box">
-            <img src="~/static/img/new3.jpg" alt="" />
-            <div class="box-text">
-                <a asp-controller="" asp-action="">Free Guy</a>
-                <h3>Action</h3>
-                <div class="rating-download">
-                    <div class="rating">
-                        <i class="bx bxs-star"></i>
-                        <span>4.7</span>
-                    </div>
+        <img src="~/static/img/new3.jpg" alt="" />
+        <div class="box-text">
+        <a asp-controller="" asp-action="">Free Guy</a>
+        <h3>Action</h3>
+        <div class="rating-download">
+        <div class="rating">
+        <i class="bx bxs-star"></i>
+        <span>4.7</span>
+        </div>
 
-                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
-                        <p>100.000đ</p>
-                    </a>
-                </div>
-            </div>
+        <a class="box-btn" asp-controller="GameDetail" asp-action="index">
+        <p>100.000đ</p>
+        </a>
+        </div>
+        </div>
         </div>
 
         <!-- Box 4 -->
         <div class="box">
-            <img src="~/static/img/new4.jpg" alt="" />
-            <div class="box-text">
-                <a asp-controller="" asp-action="">Clash Royale</a>
-                <h3>Action</h3>
-                <div class="rating-download">
-                    <div class="rating">
-                        <i class="bx bxs-star"></i>
-                        <span>4.7</span>
-                    </div>
+        <img src="~/static/img/new4.jpg" alt="" />
+        <div class="box-text">
+        <a asp-controller="" asp-action="">Clash Royale</a>
+        <h3>Action</h3>
+        <div class="rating-download">
+        <div class="rating">
+        <i class="bx bxs-star"></i>
+        <span>4.7</span>
+        </div>
 
-                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
-                        <p>100.000đ</p>
-                    </a>
-                </div>
-            </div>
+        <a class="box-btn" asp-controller="GameDetail" asp-action="index">
+        <p>100.000đ</p>
+        </a>
+        </div>
+        </div>
         </div>
 
         <!-- Box 5 -->
         <div class="box">
-            <img src="~/static/img/new5.png" alt="" />
-            <div class="box-text">
-                <a asp-controller="" asp-action="">Minecraft</a>
-                <h3>Action</h3>
-                <div class="rating-download">
-                    <div class="rating">
-                        <i class="bx bxs-star"></i>
-                        <span>4.7</span>
-                    </div>
+        <img src="~/static/img/new5.png" alt="" />
+        <div class="box-text">
+        <a asp-controller="" asp-action="">Minecraft</a>
+        <h3>Action</h3>
+        <div class="rating-download">
+        <div class="rating">
+        <i class="bx bxs-star"></i>
+        <span>4.7</span>
+        </div>
 
-                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
-                        <p>100.000đ</p>
-                    </a>
-                </div>
-            </div>
+        <a class="box-btn" asp-controller="GameDetail" asp-action="index">
+        <p>100.000đ</p>
+        </a>
+        </div>
+        </div>
         </div>
 
         <!-- Box 6 -->
         <div class="box">
-            <img src="~/static/img/new6.png" alt="" />
-            <div class="box-text">
-                <a asp-controller="" asp-action="">PUBG</a>
-                <h3>Action</h3>
-                <div class="rating-download">
-                    <div class="rating">
-                        <i class="bx bxs-star"></i>
-                        <span>4.7</span>
-                    </div>
+        <img src="~/static/img/new6.png" alt="" />
+        <div class="box-text">
+        <a asp-controller="" asp-action="">PUBG</a>
+        <h3>Action</h3>
+        <div class="rating-download">
+        <div class="rating">
+        <i class="bx bxs-star"></i>
+        <span>4.7</span>
+        </div>
 
-                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
-                        <p>100.000đ</p>
-                    </a>
-                </div>
-            </div>
+        <a class="box-btn" asp-controller="GameDetail" asp-action="index">
+        <p>100.000đ</p>
+        </a>
+        </div>
+        </div>
         </div>
 
         <!-- Box 7 -->
         <div class="box">
-            <img src="~/static/img/new7.png" alt="" />
-            <div class="box-text">
-                <a asp-controller="" asp-action="">Fornite</a>
-                <h3>Action</h3>
-                <div class="rating-download">
-                    <div class="rating">
-                        <i class="bx bxs-star"></i>
-                        <span>4.7</span>
-                    </div>
+        <img src="~/static/img/new7.png" alt="" />
+        <div class="box-text">
+        <a asp-controller="" asp-action="">Fornite</a>
+        <h3>Action</h3>
+        <div class="rating-download">
+        <div class="rating">
+        <i class="bx bxs-star"></i>
+        <span>4.7</span>
+        </div>
 
-                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
-                        <p>100.000đ</p>
-                    </a>
-                </div>
-            </div>
+        <a class="box-btn" asp-controller="GameDetail" asp-action="index">
+        <p>100.000đ</p>
+        </a>
+        </div>
+        </div>
         </div>
 
         <!-- Box 8 -->
         <div class="box">
-            <img src="~/static/img/new8.jpg" alt="" />
-            <div class="box-text">
-                <a asp-controller="" asp-action="">Marvel of Champions</a>
-                <h3>Action</h3>
-                <div class="rating-download">
-                    <div class="rating">
-                        <i class="bx bxs-star"></i>
-                        <span>4.7</span>
-                    </div>
+        <img src="~/static/img/new8.jpg" alt="" />
+        <div class="box-text">
+        <a asp-controller="" asp-action="">Marvel of Champions</a>
+        <h3>Action</h3>
+        <div class="rating-download">
+        <div class="rating">
+        <i class="bx bxs-star"></i>
+        <span>4.7</span>
+        </div>
 
-                    <a class="box-btn" asp-controller="GameDetail" asp-action="index">
-                        <p>100.000đ</p>
-                    </a>
+        <a class="box-btn" asp-controller="GameDetail" asp-action="index">
+        <p>100.000đ</p>
+        </a>
+        </div>
+        </div>
+        </div> *@
+        @foreach (var item in Model.ConsoleGame!)
+        {
+            <div class="box">
+                <img src="~/images/game/@item.ImgPath" alt="" />
+                <div class="box-text">
+                    <a asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()"
+                        asp-route-id="@item.Id">@item.Title</a>
+                    <h3>@string.Join(", ", item.Categories.Select(c => c.Name))</h3>
+                    <div class="rating-download">
+                        <div class="rating">
+                            <i class="bx bxs-star"></i>
+                            <span>4.7</span>
+                        </div>
+
+                        <a class="box-btn" asp-controller="gamedetail" asp-action="index"
+                            asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">
+                            <p>@string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", item.Price)</p>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
+
     </div>
 
     <div class="more-btn mt-4 d-flex justify-content-center">
