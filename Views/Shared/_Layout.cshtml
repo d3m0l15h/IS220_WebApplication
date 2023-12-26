@@ -65,19 +65,8 @@
     @* ------------------------- start AUTHENCATION FORM ------------------------- *@
     <div class="auth-container" id="container">
         <div class="form-container sign-up">
-            <form>
+            <form id="registerForm" method="post" asp-controller="account" asp-action="register">
                 <h1>Create Account</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon">
-                        <i class='bx bxl-google'></i>
-                    </a>
-                    <a href="#" class="icon">
-                        <i class='bx bxl-facebook'></i>
-                    </a>
-                    <a href="#" class="icon">
-                        <i class='bx bxl-github'></i>
-                    </a>
-                </div>
                 <span>or use your email for registeration: </span>
                 <input type="text" placeholder="Username">
                 <div class="input-row">
@@ -99,17 +88,7 @@
             <form method="post" asp-controller="account" asp-action="login">
                 @Html.AntiForgeryToken()
                 <h1>Sign In</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon">
-                        <i class='bx bxl-google'></i>
-                    </a>
-                    <a href="#" class="icon">
-                        <i class='bx bxl-facebook'></i>
-                    </a>
-                    <a href="#" class="icon">
-                        <i class='bx bxl-github'></i>
-                    </a>
-                </div>
+                
                 <input type="text" placeholder="Username or Email" style="text-transform: none;" name="ue">
                 <input type="password" placeholder="Password" style="text-transform: none;" name="password">
                 <a href="#">Forget your password ?</a>
