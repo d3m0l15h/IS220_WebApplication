@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2023 at 08:48 AM
+-- Generation Time: Dec 26, 2023 at 10:45 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -375,23 +375,26 @@ CREATE TABLE `order` (
   `uid` int(10) UNSIGNED NOT NULL,
   `status` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `paymentMethod` int(10) UNSIGNED NOT NULL,
-  `address` int(10) UNSIGNED NOT NULL
+  `address` int(10) UNSIGNED NOT NULL,
+  `confirmed_at` timestamp NULL DEFAULT NULL,
+  `completed_at` timestamp NULL DEFAULT NULL,
+  `cancel_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `order`
 --
 
-INSERT INTO `order` (`id`, `date`, `uid`, `status`, `paymentMethod`, `address`) VALUES
-(2, '2023-12-25 07:16:38', 1, 1, 2, 1),
-(3, '2023-12-25 07:24:32', 1, 1, 1, 1),
-(4, '2023-12-25 10:46:09', 1, 1, 2, 1),
-(5, '2023-12-25 10:46:40', 1, 1, 2, 1),
-(6, '2023-12-25 10:46:53', 1, 1, 3, 1),
-(7, '2023-12-25 10:47:18', 1, 1, 1, 1),
-(8, '2023-12-25 10:48:19', 1, 1, 1, 1),
-(9, '2023-12-25 10:49:55', 1, 1, 3, 1),
-(10, '2023-12-25 11:00:37', 1, 1, 3, 9);
+INSERT INTO `order` (`id`, `date`, `uid`, `status`, `paymentMethod`, `address`, `confirmed_at`, `completed_at`, `cancel_at`) VALUES
+(2, '2023-12-25 07:16:38', 1, 1, 2, 1, NULL, NULL, NULL),
+(3, '2023-12-25 07:24:32', 1, 1, 1, 1, NULL, NULL, NULL),
+(4, '2023-12-25 10:46:09', 1, 1, 2, 1, NULL, NULL, NULL),
+(5, '2023-12-25 10:46:40', 1, 1, 2, 1, NULL, NULL, NULL),
+(6, '2023-12-25 10:46:53', 1, 1, 3, 1, NULL, NULL, NULL),
+(7, '2023-12-25 10:47:18', 1, 1, 1, 1, NULL, NULL, NULL),
+(8, '2023-12-25 10:48:19', 1, 1, 1, 1, NULL, NULL, NULL),
+(9, '2023-12-25 10:49:55', 1, 1, 3, 1, NULL, NULL, NULL),
+(10, '2023-12-25 11:00:37', 1, 1, 3, 9, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 

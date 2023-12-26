@@ -101,7 +101,7 @@ public partial class MyDbContext : IdentityDbContext<Aspnetuser, IdentityRole<ui
             entity.Property(e => e.LastName).HasDefaultValueSql("'NULL'");
             entity.Property(e => e.Modified).ValueGeneratedOnAddOrUpdate();
             entity.Property(e => e.Phone).HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.Status).HasDefaultValueSql("'active'");
+            entity.Property(e => e.Status).HasDefaultValueSql("'activated'");
 
             entity.HasMany(d => d.Roles).WithMany(p => p.Users)
                 .UsingEntity<Dictionary<string, object>>(
