@@ -96,6 +96,7 @@ public class OrderController : Controller
                 GameId = items.CartItem.GameId,
                 Quantity = items.CartItem.Quantity,
                 GameType = items.CartItem.Type,
+                Price = (int)items.Price,
             };
             _db.OrderDetails.Add(orderDetail);
             await _db.SaveChangesAsync();
@@ -105,5 +106,6 @@ public class OrderController : Controller
         _notyf?.Success("Order created successfully.");
         return Json(new { isValid = true, message = $"Order #{order.Id} created successfully.", orderId = order.Id });
     }
+
 
 }

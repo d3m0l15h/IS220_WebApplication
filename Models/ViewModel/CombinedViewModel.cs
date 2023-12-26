@@ -16,4 +16,5 @@ public class CombinedViewModel
     public CreateAddressViewModel? CreateAddress { get; set; }
     public CheckoutViewModel? CheckoutViewModel { get; set; }
     public OrderDetailViewModel? OrderDetailViewModel { get; set; }
+    public StorageViewModel? StorageViewModel { get; set; }
 }

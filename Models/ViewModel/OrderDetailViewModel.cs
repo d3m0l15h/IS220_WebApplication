@@ -10,9 +10,6 @@ public class OrderDetailViewModel
 {
     public Order Order { get; set; } = null!;
     public IEnumerable<OrderDetail> OrderDetails { get; set; } = null!;
-    // public List<OrderDetailViewModel> OrderDetails { get; set;
-    public uint GetOrderID
-    {
-        get => Order.Id;
-    }
+
+
 }

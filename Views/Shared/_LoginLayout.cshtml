@@ -1,6 +1,6 @@
 ﻿@model IS220_WebApplication.Models.ViewModel.CombinedViewModel
 <!DOCTYPE html>
-<html lang="vi en">
+<html lang="vi en" data-bs-theme="dark">
 
 <head>
     <meta charset="utf-8" />
@@ -54,8 +54,9 @@
                 </div>
 
                 @* SEARCH BAR *@
-                <form class="input-group search-form">
-                    <input type="search" id="form1" class="form-control" placeholder="Search game here..." />
+                <form class="input-group search-form" action="/game" method="get">
+                    <input type="search" name="search" id="search" class="form-control"
+                        placeholder="Search game here..." />
                     <button type="submit">
                         <i class='bx bx-search-alt-2'></i>
                     </button>

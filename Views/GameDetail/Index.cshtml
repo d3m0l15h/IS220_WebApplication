@@ -86,7 +86,7 @@
                 <tr>
                     <td class="py-3">Type:</td>
                     <td class="py-3">
-                        @if (Model.Game.Type == GameType.Software)
+                        @if (@Model.Game.Type == GameType.Software)
                         {
                             <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
                                 id="gimetype-software" ad="gametype-software" autocomplete="off" checked>
@@ -96,7 +96,7 @@
                                 autocomplete="off" disabled>
                             <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
                         }
-                        else if (Model.Game.Type == GameType.Disc)
+                        else if (@Model.Game.Type == GameType.Disc)
                         {
                             <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
                                 id="gimetype-software" ad="gametype-software" autocomplete="off" disabled>
@@ -106,20 +106,19 @@
                                 autocomplete="off" checked>
                             <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
                         }
-                        else if (Model.Game.Type == GameType.Both)
+                        else if (@Model.Game.Type == GameType.Both)
                         {
                             <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
                                 id="gametype-software" autocomplete="off">
                             <label class="btn btn-outline-primary"
                                 for="gametype-software">@GameType.Get(GameType.Software)</label>
-
                             <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
                                 autocomplete="off">
                             <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
                         }
                     </td>
                 </tr>
-                @if (Model.Game.Type == GameType.Disc)
+                @if (@Model.Game.Type == GameType.Disc)
                 {
                     <tr class="game-quantity fade show">
                         <td class="py-3">Quantity:</td>

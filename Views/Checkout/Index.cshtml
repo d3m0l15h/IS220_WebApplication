@@ -342,14 +342,24 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6 col-xl-6 px-2">
                                             <div>
+                                                @if(@item.Type == 1){
+                                                <h6><span class="badge bg-secondary">Disc</span> @item.Title</h6>
+
+                                                }
+                                                else{
                                                 <h6><span class="badge bg-secondary">Software</span> @item.Title</h6>
+
+                                                }
                                             </div>
                                             <div class="quantity-input mt-2">
-                                                <button class="btn btn-icon text-white"
-                                                    game-action="change-quantity-minus">-</button>
-                                                <input type="text" game-input="quantity" value="1">
-                                                <button class="btn btn-icon text-white"
-                                                    game-action="change-quantity-plus">+</button>
+                                                @* <button class="btn btn-icon text-white"
+                                                    game-action="change-quantity-minus">-</button> *@
+                                                    <span>
+                                                        Quantity: @item.Quantity
+                                                    </span>
+                                                @* <span type="text" game-input="quantity" value="@item.Quantity"> *@
+                                                @* <button class="btn btn-icon text-white"
+                                                    game-action="change-quantity-plus">+</button> *@
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-lg-1 col-xl-2 d-flex justify-content-center">
