@@ -81,10 +81,7 @@
                                         <div class="d-flex">
                                             <div class="userDatatable__imgWrapper d-flex align-items-center">
                                                 @{
-                                                   
-                                                        <img class="profile-image rounded-circle d-block m-0 wh-38" src='@obj.AvatarPath'/>
-                                                    
-                                                   
+                                                    <img class="profile-image rounded-circle d-block m-0 wh-38" src='@obj.AvatarPath' alt=""/>
                                                 }
                                             </div>
                                             <div class="userDatatable-inline-title d-flex align-items-center">
@@ -120,7 +117,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        @switch (@obj.Status)
+                                        @switch (obj.Status)
                                         {
                                             case "activated":
                                                 <div class="userDatatable-content d-inline-block">
@@ -140,7 +137,7 @@
                                         }
                                     </td>
                                     <td>
-                                        @switch (@obj.Role)
+                                        @switch (obj.Role)
                                         {
                                             case 1:
                                                 <div class="userDatatable-content d-inline-block">
