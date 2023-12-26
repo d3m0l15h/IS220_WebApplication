@@ -5,584 +5,580 @@
 <link rel="stylesheet" href="~/static/css/userProfile.css">
 
 
-@* {{-- Modal for add new addresses --}} *@
-<div class="modal fade text-dark" id="createAddress" tabindex="-1" aria-hidden="true" data-bs-theme="light">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create new address</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close">
-                </button>
-            </div>
-            <form id="form-createNewAddress">
-                @Html.AntiForgeryToken()
-                <div class="modal-body">
-                    <div class="row d-flex">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-floating mb-3">
-                                <input type="text" id="new-receiver"
-                                       class="form-control" placeholder="inputhere"
-                                       asp-for="CreateAddress!.Receiver">
-                                <label>Receiver</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-floating mb-3">
-                                <input type="phone" id="new-phone" class="form-control"
-                                       placeholder="inputhere"
-                                       asp-for="CreateAddress!.Phone">
-                                <label>Phone number</label>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12">
-
-                            <div class="form-floating mb-3">
-                                <input id="new-street" class="form-control"
-                                       placeholder="inputhere"
-                                       asp-for="CreateAddress!.Street">
-                                <label>Đường</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex address-input">
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                            <div class="form-floating mb-3">
-                                <input type="text" address-type="province"
-                                       class="form-control dropdown-toggle"
-                                       data-bs-toggle="dropdown" placeholder="inputhere"
-                                       asp-for="CreateAddress!.State">
-                                <label>Tỉnh/Thành</label>
-                                <ul class="dropdown-menu" id="province_list"></ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                            <div class="form-floating mb-3">
-                                <input type="text" address-type="district"
-                                       class="form-control dropdown-toggle"
-                                       data-bs-toggle="dropdown" placeholder="inputhere"
-                                       asp-for="CreateAddress!.City">
-                                <label>Quận/Huyện</label>
-                                <ul class="dropdown-menu" id="district_list"></ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                            <div class="form-floating mb-3">
-                                <input type="text" address-type="ward"
-                                       class="form-control dropdown-toggle"
-                                       data-bs-toggle="dropdown" placeholder="inputhere"
-                                       asp-for="CreateAddress!.Ward">
-                                <label>Phường/Xã</label>
-                                <ul class="dropdown-menu" id="ward_list"></ul>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <a type="button" class="btn btn-secondary"
-                           data-bs-dismiss="modal">
-                            Close
-                        </a>
-                        <a class="btn btn-primary btn-create-address">Let's go</a>
-                    </div>
-
+<section class="my-5">
+    <div class="modal fade text-dark" id="createAddress" tabindex="-1" aria-hidden="true" data-bs-theme="light">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create new address</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
+                <form id="form-createNewAddress">
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <div class="row d-flex">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" id="new-receiver" class="form-control" placeholder="inputhere"
+                                        asp-for="CreateAddress!.Receiver">
+                                    <label>Receiver</label>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-floating mb-3">
+                                    <input type="phone" id="new-phone" class="form-control" placeholder="inputhere"
+                                        asp-for="CreateAddress!.Phone">
+                                    <label>Phone number</label>
 
-
-<div class="container flex-grow-1 my-4">
-<div class="opt card overflow-hidden">
-<div class="row no-gutters">
-<div class="col-md-3">
-    <div class="list-group list-group-flush account-settings-links rounded">
-        <a class="list-group-item list-group-item-action active fs-5 py-3" data-toggle="list"
-           href="javascript:void(0);">
-            User information
-        </a>
-        <a class="list-group-item list-group-item-action fs-5 py-3" data-toggle="list"
-           href="javascript:void(0);">
-            Manage address
-        </a>
-        <a class="list-group-item list-group-item-action fs-5 py-3" data-toggle="list"
-           href="javascript:void(0);">
-            Change password
-        </a>
-    </div>
-</div>
-<div class="col-md-9">
-<div class="tab-content">
-<div class="tab-pane fade active show tab" id="account-general">
-    <form asp-controller="profile" asp-action="update" method="post" enctype="multipart/form-data">
-        @Html.AntiForgeryToken()
-        <div class="card-body media align-items-center">
-            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
-                 class="d-block ui-w-80">
-            <div class="media-body ml-4 mt-3">
-                <label class="btn btn-outline-primary">
-                    Upload avatar
-                    <input type="file" class="account-settings-fileinput">
-                </label>
-            </div>
-        </div>
-
-        <hr class="border-light m-0">
-
-
-        <div class="card-body">
-
-            <div class="form-group mt-2">
-                <label class="form-label">Username</label>
-                <h1>@Model.User!.UserName</h1>
-            </div>
-            <div class="form-group mt-4">
-                <label class="form-label">E-mail</label>
-                <h2>
-                    @Model.User!.Email
-                    @if (Model.User.EmailConfirmed == false)
-                    {
-                        <button id="verifyButton" type="button"
-                                class="btn btn-link btn-sm ms-0 pb-2">
-                            Verify
-                        </button>
-                    }
-                    else
-                    {
-                        <label class="badge badge-success" style="color: #0D811D">Verified</label>
-                    }
-                </h2>
-            </div>
-            <div class="d-flex mt-4">
-                <div class="form-group w-50 me-1">
-                    <label class="form-label">First name</label>
-                    <input type="text" class="form-control" asp-for="User!.FirstName"
-                           value="@Model.User.FirstName">
-                </div>
-                <div class="form-group w-50 ms-1">
-                    <label class="form-label">Last name</label>
-                    <input type="text" class="form-control" asp-for="User!.LastName"
-                           value="@Model.User.LastName">
-                </div>
-            </div>
-        </div>
-
-        <hr class="border-light m-0">
-
-        <div class="card-body pb-2">
-            <div class="form-group mt-4">
-                <label class="form-label">Birth</label>
-                <input type="date" class="form-control" asp-for="User!.Birth"
-                       value="@(Model.User.Birth.HasValue ? Model.User.Birth.Value.ToString("yyyy-MM-dd") : string.Empty)">
-            </div>
-            <div class="form-group mt-4">
-                <label class="form-label">Phone</label>
-                <input type="text" class="form-control" asp-for="User!.Phone"
-                       value="@Model.User.Phone">
-            </div>
-        </div>
-
-        <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary">SAVE</button>&nbsp;
-            <button type="button" class="btn btn-secondary">CANCEL</button>
-        </div>
-    </form>
-</div>
-<div class="tab-pane fade tab" id="manage-address">
-@* <form asp-controller="address" asp-action="update" method="post"
-                        enctype="multipart/form-data"> *@
-@* @Html.AntiForgeryToken() *@
-<div class="card-body">
-<div class="row gutters">
-@if (Model.DefaultAddress != null)
-{
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center">
-        <h6 class="mb-3 normal-text fs-2 mt-3 me-3">My addresses</h6>
-        <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#createAddress">
-            @* <i class="bx bxs-map fs-3 createAddress"></i> *@
-            Add New
-        </button>
-    </div>
-    <div class="col-6 d-flex align-items-stretch">
-        <div class="bg-light card addresses-item mb-4 shadow-sm w-100" address-item-action="edit" address-item-id="@Model.DefaultAddress.Id">
-            <div class="default-address p-3">
-                <div class="media">
-                    <div class="mr-3">
-                        <i class="icofont-briefcase icofont-3x"></i>
-                    </div>
-                    <div class="media-body">
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
-                            <div class="col-10">
-                                <p class="fw-bolder text-dark">Default</p>
 
-                            </div>
-                            <div class="col-2 text-end">
-                                <i class='bx bxs-edit-alt text-dark'></i>
+                            <div class="col-12">
+
+                                <div class="form-floating mb-3">
+                                    <input id="new-street" class="form-control" placeholder="inputhere"
+                                        asp-for="CreateAddress!.Street">
+                                    <label>Đường</label>
+                                </div>
                             </div>
                         </div>
-                        <p class="mb-1 text-dark">
-                            @Model.DefaultAddress.Receiver
-                            @Model.DefaultAddress.Phone
-                        </p>
+                        <div class="row d-flex address-input">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" address-type="province" class="form-control dropdown-toggle"
+                                        data-bs-toggle="dropdown" placeholder="inputhere"
+                                        asp-for="CreateAddress!.State">
+                                    <label>Tỉnh/Thành</label>
+                                    <ul class="dropdown-menu" id="province_list"></ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" address-type="district" class="form-control dropdown-toggle"
+                                        data-bs-toggle="dropdown" placeholder="inputhere" asp-for="CreateAddress!.City">
+                                    <label>Quận/Huyện</label>
+                                    <ul class="dropdown-menu" id="district_list"></ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" address-type="ward" class="form-control dropdown-toggle"
+                                        data-bs-toggle="dropdown" placeholder="inputhere" asp-for="CreateAddress!.Ward">
+                                    <label>Phường/Xã</label>
+                                    <ul class="dropdown-menu" id="ward_list"></ul>
+                                </div>
 
-                        <p class="mb-1 text-dark">
-                            @Model.DefaultAddress.Street,
-                            @Model.DefaultAddress.Ward
-                        </p>
-                        <p class="text-dark">
-                            @Model.DefaultAddress.City,
-                            @Model.DefaultAddress.State
-                        </p>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+                            <a class="btn btn-primary btn-create-address">Let's go</a>
+                        </div>
+
                     </div>
-                </div>
+                </form>
             </div>
-
         </div>
     </div>
-    @switch (Model.NonDefaultAddresses.Count())
-    {
-        case 1:
-            <div class="col-6 d-flex align-items-stretch">
-                <div class="bg-light card addresses-item mb-4 shadow-sm w-100" address-item-actzion="edit" address-item-id="@Model.NonDefaultAddresses[0].Id">
-                    <div class="default-address p-3">
-                        <div class="media">
-                            <div class="mr-3">
-                                <i class="icofont-briefcase icofont-3x"></i>
-                            </div>
-                            <div class="media-body">
-                                <div class="row">
-                                    <div class="col-10"></div>
-                                    <div class="col-2 text-end">
-                                        <i class='bx bxs-edit-alt text-dark'></i>
+
+
+
+
+    <div class="container flex-grow-1 my-4">
+        <div class="opt card overflow-hidden">
+            <div class="row no-gutters">
+                <div class="col-md-3">
+                    <div class="list-group list-group-flush account-settings-links rounded">
+                        <a class="list-group-item list-group-item-action active fs-5 py-3" data-toggle="list"
+                            href="javascript:void(0);">
+                            User information
+                        </a>
+                        <a class="list-group-item list-group-item-action fs-5 py-3" data-toggle="list"
+                            href="javascript:void(0);">
+                            Manage address
+                        </a>
+                        <a class="list-group-item list-group-item-action fs-5 py-3" data-toggle="list"
+                            href="javascript:void(0);">
+                            Change password
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show tab" id="account-general">
+                            <form asp-controller="profile" asp-action="update" method="post"
+                                enctype="multipart/form-data">
+                                @Html.AntiForgeryToken()
+                                <div class="card-body media align-items-center">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
+                                        class="d-block ui-w-80">
+                                    <div class="media-body ml-4 mt-3">
+                                        <label class="btn btn-outline-primary">
+                                            Upload avatar
+                                            <input type="file" class="account-settings-fileinput">
+                                        </label>
                                     </div>
                                 </div>
-                                <p class="mb-1 text-dark">
-                                    @Model.NonDefaultAddresses[0].Receiver
-                                    @Model.NonDefaultAddresses[0].Phone
-                                </p>
-                                <p class="mb-1 text-dark">
-                                    @Model.NonDefaultAddresses[0].Street,
-                                    @Model.NonDefaultAddresses[0].Ward
-                                </p>
-                                <p class="text-dark">
-                                    @Model.NonDefaultAddresses[0].City,
-                                    @Model.NonDefaultAddresses[0].State
-                                </p>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-            break;
-        case > 0:
-            <div class="col-6 d-flex align-items-stretch" data-bs-toggle="modal"
-                 data-bs-target="#more-addresses">
-                <div class="bg-white card addresses-item mb-4 shadow-sm w-100">
-                    <div
-                        class="other-address p-3 d-flex justify-content-center align-items-center h-100">
-                        <div class="media">
-                            <div class="mr-3">
-                                <i class="icofont-briefcase icofont-3x"></i>
-                            </div>
-                            <div class="media-body d-flex flex-column align-items-center">
-                                <p class="other-address-quantity m-2 text-dark">
-                                    @Model.NonDefaultAddresses.Count() address more
-                                </p>
-                                <p>
-                                    <i class='bx bxs-info-circle' style='color:#0f0e0e'></i>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            break;
-    }
-    
-    @* {{-- Modal for edit address --}} *@
-    <div class="modal fade" id="editAddressModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-dark">Edit Default address</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close">
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="media-body">
-                        <div class="row text-dark address-input">
-                            <div class="col-6">
-
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="receiver"
-                                           value="@Model.DefaultAddress.Receiver">
-                                    <label for="receiver">Receiver</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input id="street" class="form-control"
-                                           placeholder="inputhere"
-                                           value="@Model.DefaultAddress.Street">
-                                    <label class="">Đường</label>
-
-                                </div>
-                                <div class="form-floating mb-3">
-
-                                    <input type="text" address-type="district"
-                                           class="form-control dropdown-toggle"
-                                           data-bs-toggle="dropdown" placeholder="inputhere"
-                                           value="@Model.DefaultAddress.City">
-                                    <label>District</label>
-                                    <ul class="dropdown-menu"></ul>
-                                </div>
-                            </div>
-                            <div class="col-6">
-
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="phone"
-                                           value="@Model.DefaultAddress.Phone">
-                                    <label for="phone">Phone number</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" address-type="province"
-                                           class="form-control dropdown-toggle"
-                                           data-bs-toggle="dropdown" placeholder="inputhere"
-                                           value="@Model.DefaultAddress.State">
-                                    <label>Province</label>
-                                    <ul class="dropdown-menu"></ul>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" address-type="ward"
-                                           class="form-control dropdown-toggle"
-                                           data-bs-toggle="dropdown" placeholder="inputhere"
-                                           value="@Model.DefaultAddress.Ward">
-                                    <label>Ward</label>
-                                    <ul class="dropdown-menu"></ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">
-                            Close
-                        </button>
-                        <button type="button" class="btn btn-primary update-address"
-                                target-id="">
-                            Save changes
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                <hr class="border-light m-0">
 
 
-    @* {{-- Modal for more addresses --}} *@
-    <div class="modal text-dark fade" id="more-addresses" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">More</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close">
-                    </button>
-                </div>
-                <div class="modal-body position-relative other-address-information">
-                    <div class="row">
-                        @foreach (var address in Model.NonDefaultAddresses)
-                        {
-                            <div class="col">
-                                <div class="bg-light card addresses-item mb-4 shadow-sm w-100" address-item-action="edit" address-item-id="@address.Id">
-                                    <div class="default-address p-3">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <div class="d-flex mb-1">
-                                                    <span class="text-dark fw-bold">@address.Receiver @address.Phone</span>
-                                                </div>
-                                                <div class="d-flex mb-1">
-                                                    <span class="text-dark">@address.Street, @address.Ward</span>
-                                                </div>
-                                                <div class="d-flex mb-1">
-                                                    <span class="text-dark">@address.City, @address.State</span>
-                                                </div>
-                                            </div>
+                                <div class="card-body">
+
+                                    <div class="form-group mt-2">
+                                        <label class="form-label">Username</label>
+                                        <h1>@Model.User!.UserName</h1>
+                                    </div>
+                                    <div class="form-group mt-4">
+                                        <label class="form-label">E-mail</label>
+                                        <h2>@Model.User!.Email
+                                            @if (Model.User.EmailConfirmed == false)
+                                            {
+                                                <button id="verifyButton" type="button"
+                                                    class="btn btn-link btn-sm ms-0 pb-2">Verify</button>
+                                            }
+                                            else
+                                            {
+                                                <label class="badge badge-success" style="color: #0D811D">Verified</label>
+                                            }
+                                        </h2>
+                                    </div>
+                                    <div class="d-flex mt-4">
+                                        <div class="form-group w-50 me-1">
+                                            <label class="form-label">First name</label>
+                                            <input type="text" class="form-control" asp-for="User!.FirstName"
+                                                value="@Model.User.FirstName">
+                                        </div>
+                                        <div class="form-group w-50 ms-1">
+                                            <label class="form-label">Last name</label>
+                                            <input type="text" class="form-control" asp-for="User!.LastName"
+                                                value="@Model.User.LastName">
                                         </div>
                                     </div>
                                 </div>
+
+                                <hr class="border-light m-0">
+
+                                <div class="card-body pb-2">
+                                    <div class="form-group mt-4">
+                                        <label class="form-label">Birth</label>
+                                        <input type="date" class="form-control" asp-for="User!.Birth"
+                                            value="@(Model.User.Birth.HasValue ? Model.User.Birth.Value.ToString("yyyy-MM-dd") : string.Empty)">
+                                    </div>
+                                    <div class="form-group mt-4">
+                                        <label class="form-label">Phone</label>
+                                        <input type="text" class="form-control" asp-for="User!.Phone"
+                                            value="@Model.User.Phone">
+                                    </div>
+                                </div>
+
+                                <div class="text-end mt-3">
+                                    <button type="submit" class="btn btn-primary">SAVE</button>&nbsp;
+                                    <button type="button" class="btn btn-secondary">CANCEL</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade tab" id="manage-address">
+                            @* <form asp-controller="address" asp-action="update" method="post"
+                            enctype="multipart/form-data"> *@
+                            @* @Html.AntiForgeryToken() *@
+                            <div class="card-body">
+                                <div class="row gutters">
+                                    @if (@Model.DefaultAddress != null)
+                                    {
+
+                                        <div
+                                            class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center">
+
+
+                                            <h6 class="mb-3 normal-text fs-2 mt-3 me-3">My addresses</h6>
+                                            <button class="btn btn-dark" data-bs-toggle="modal"
+                                                data-bs-target="#createAddress">
+                                                @* <i class="bx bxs-map fs-3 createAddress"></i> *@
+                                                Add New
+                                            </button>
+                                        </div>
+
+
+                                        <div class="col-6 d-flex align-items-stretch">
+                                            <div class="bg-light card addresses-item mb-4 shadow-sm w-100"
+                                                address-item-action="edit" address-item-id="@Model.DefaultAddress.Id">
+                                                <div class="default-address p-3">
+                                                    <div class="media">
+                                                        <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i></div>
+                                                        <div class="media-body">
+                                                            <div class="row">
+                                                                <div class="col-10">
+                                                                    <p class="fw-bolder text-dark">Default</p>
+
+                                                                </div>
+                                                                <div class="col-2 text-end">
+                                                                    <i class='bx bxs-edit-alt text-dark'></i>
+                                                                </div>
+                                                            </div>
+                                                            <p class="mb-1 text-dark">@Model.DefaultAddress.Receiver
+                                                                @Model.DefaultAddress.Phone</p>
+
+                                                            <p class="mb-1 text-dark">@Model.DefaultAddress.Street,
+                                                                @Model.DefaultAddress.Ward</p>
+                                                            <p class="text-dark">@Model.DefaultAddress.City,
+                                                                @Model.DefaultAddress.State</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+                                        @if (@Model.NonDefaultAddresses.Count() == 1)
+                                        {
+                                            <div class="col-6 d-flex align-items-stretch">
+                                                <div class="bg-light card addresses-item mb-4 shadow-sm w-100"
+                                                    address-item-actzion="edit"
+                                                    address-item-id="@Model.NonDefaultAddresses[0].Id">
+                                                    <div class="default-address p-3">
+                                                        <div class="media">
+                                                            <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i></div>
+                                                            <div class="media-body">
+                                                                <div class="row">
+                                                                    <div class="col-10"></div>
+                                                                    <div class="col-2 text-end">
+                                                                        <i class='bx bxs-edit-alt text-dark'></i>
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mb-1 text-dark">@Model.NonDefaultAddresses[0].Receiver
+                                                                    @Model.NonDefaultAddresses[0].Phone</p>
+                                                                <p class="mb-1 text-dark">@Model.NonDefaultAddresses[0].Street,
+                                                                    @Model.NonDefaultAddresses[0].Ward</p>
+                                                                <p class="text-dark">@Model.NonDefaultAddresses[0].City,
+                                                                    @Model.NonDefaultAddresses[0].State</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        }
+                                        else if (@Model.NonDefaultAddresses.Count() > 0)
+                                        {
+                                            <div class="col-6 d-flex align-items-stretch" data-bs-toggle="modal"
+                                                data-bs-target="#more-addresses">
+                                                <div class="bg-white card addresses-item mb-4 shadow-sm w-100">
+                                                    <div
+                                                        class="other-address p-3 d-flex justify-content-center align-items-center h-100">
+                                                        <div class="media">
+                                                            <div class="mr-3"><i class="icofont-briefcase icofont-3x"></i></div>
+                                                            <div class="media-body d-flex flex-column align-items-center">
+                                                                <p class="other-address-quantity m-2 text-dark">
+                                                                    @Model.NonDefaultAddresses.Count() address more
+                                                                </p>
+                                                                <p>
+                                                                    <i class='bx bxs-info-circle' style='color:#0f0e0e'></i>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+
+
+                                        @* {{-- Modal for edit address --}} *@
+                                        <div class="modal fade" id="editAddressModal" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title text-dark">Edit Default address</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="media-body">
+                                                            <div class="row text-dark address-input">
+                                                                <div class="col-6">
+
+                                                                    <div class="form-floating mb-3">
+                                                                        <input type="email" class="form-control"
+                                                                            id="receiver"
+                                                                            value="@Model.DefaultAddress.Receiver">
+                                                                        <label for="receiver">Receiver</label>
+                                                                    </div>
+                                                                    <div class="form-floating mb-3">
+                                                                        <input id="street" class="form-control"
+                                                                            placeholder="inputhere"
+                                                                            value="@Model.DefaultAddress.Street">
+                                                                        <label class="">Đường</label>
+
+                                                                    </div>
+                                                                    <div class="form-floating mb-3">
+
+                                                                        <input type="text" address-type="district"
+                                                                            class="form-control dropdown-toggle"
+                                                                            data-bs-toggle="dropdown"
+                                                                            placeholder="inputhere"
+                                                                            value="@Model.DefaultAddress.City">
+                                                                        <label>District</label>
+                                                                        <ul class="dropdown-menu"></ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6">
+
+                                                                    <div class="form-floating mb-3">
+                                                                        <input type="email" class="form-control" id="phone"
+                                                                            value="@Model.DefaultAddress.Phone">
+                                                                        <label for="phone">Phone number</label>
+                                                                    </div>
+                                                                    <div class="form-floating mb-3">
+                                                                        <input type="text" address-type="province"
+                                                                            class="form-control dropdown-toggle"
+                                                                            data-bs-toggle="dropdown"
+                                                                            placeholder="inputhere"
+                                                                            value="@Model.DefaultAddress.State">
+                                                                        <label>Province</label>
+                                                                        <ul class="dropdown-menu"></ul>
+                                                                    </div>
+                                                                    <div class="form-floating mb-3">
+                                                                        <input type="text" address-type="ward"
+                                                                            class="form-control dropdown-toggle"
+                                                                            data-bs-toggle="dropdown"
+                                                                            placeholder="inputhere"
+                                                                            value="@Model.DefaultAddress.Ward">
+                                                                        <label>Ward</label>
+                                                                        <ul class="dropdown-menu"></ul>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary update-address"
+                                                                target-id=>Save changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        @* {{-- Modal for more addresses --}} *@
+                                        <div class="modal text-dark fade" id="more-addresses" tabindex="-1"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">More</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body position-relative other-address-information">
+                                                        <div class="row">
+                                                            @foreach (var address in Model.NonDefaultAddresses)
+                                                            {
+                                                                <div class="col">
+                                                                    <div class="bg-light card addresses-item mb-4 shadow-sm w-100"
+                                                                        address-item-action="edit"
+                                                                        address-item-id="@address.Id">
+                                                                        <div class="default-address p-3">
+                                                                            <div class="media">
+                                                                                <div class="media-body">
+                                                                                    <div class="d-flex mb-1">
+                                                                                        <span
+                                                                                            class="text-dark fw-bold">@address.Receiver
+                                                                                            @address.Phone</span>
+                                                                                    </div>
+                                                                                    <div class="d-flex mb-1">
+                                                                                        <span class="text-dark">@address.Street,
+                                                                                            @address.Ward</span>
+                                                                                    </div>
+                                                                                    <div class="d-flex mb-1">
+                                                                                        <span class="text-dark">@address.City,
+                                                                                            @address.State</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row gutters mt-4">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="text-right">
+                                                        <button type="button" id="submit" name="submit"
+                                                            class="btn btn-primary update-information">Update</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <h6 class="mb-3 normal-text fs-2 mt-3 me-3">My addresses</h6>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <button class="btn btn-lg btn-dark" data-bs-toggle="modal"
+                                                            data-bs-target="#createAddress">
+                                                            @* <i class="bx bxs-map fs-3 createAddress"></i> *@
+                                                            Add New
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
                             </div>
-                        }
+
+                            <hr class="border-light m-0">
+                            @* @if (@Model.DefaultAddress == null)
+                            {
+                            <form method="post" asp-controller="profile" asp-action="">
+                            @Html.AntiForgeryToken()
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <h6 class="mt-3 mb-2 normal-text fs-2">Create new address</h6>
+                            </div>
+                            <div class="row d-flex">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-floating mb-3">
+                            <input type="text" id="new-receiver" class="form-control"
+                            placeholder="inputhere">
+                            <label>Receiver</label>
+
+                            </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-floating mb-3">
+                            <input type="phone" id="new-phone" class="form-control" placeholder="inputhere">
+                            <label>Phone number</label>
+                            </div>
+                            </div>
+
+
+                            </div>
+                            <div class="row">
+
+                            <div class="col-12">
+
+                            <div class="form-floating mb-3">
+                            <input id="new-street" class="form-control" placeholder="inputhere"
+                            asp-for="CreateAddress!.Street">
+                            <label>Đường</label>
+                            </div>
+
+                            </div>
+                            </div>
+                            <div class="row d-flex">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                            <div class="form-floating mb-3">
+                            <input type="text" id="new-province"
+                            class="form-control province dropdown-toggle" data-bs-toggle="dropdown"
+                            placeholder="inputhere" oninput="proSearch()"
+                            asp-for="CreateAddress!.State">
+                            <label>Tỉnh/Thành</label>
+                            <ul class="dropdown-menu" id="province_list"></ul>
+                            </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                            <div class="form-floating mb-3">
+
+                            <input type="text" id="new-district"
+                            class="form-control district dropdown-toggle" data-bs-toggle="dropdown"
+                            placeholder="inputhere" oninput="disSearch()" asp-for="CreateAddress!.City">
+                            <label>Quận/Huyện</label>
+                            <ul class="dropdown-menu" id="district_list"></ul>
+                            </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+
+                            <div class="form-floating mb-3">
+                            <input type="text" id="new-ward" class="form-control ward dropdown-toggle"
+                            data-bs-toggle="dropdown" placeholder="inputhere" oninput="warSearch()"
+                            asp-for="CreateAddress!.Ward">
+                            <label>Phường/Xã</label>
+                            <ul class="dropdown-menu" id="ward_list"></ul>
+                            </div>
+
+                            </div>
+                            </div>
+
+                            <div class="footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary create-new-address">Let's go</button>
+                            </div>
+                            </form>
+                            } *@
+                            <script>
+                                window.onload = function () {
+                                    var AddressCreationAttempted = '@ViewBag.AddressCreationAttempted';
+                                    if (AddressCreationAttempted === 'True') {
+                                        reOpen();
+                                    }
+                                }
+                            </script>
+
+                        </div>
+                        <div class="tab-pane fade tab" id="account-change-password">
+                            <form method="post" asp-controller="profile" asp-action="resetPwd">
+                                @Html.AntiForgeryToken()
+                                <div class="card-body pb-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Current password</label>
+                                        <input type="password" class="form-control"
+                                            asp-for="ChangePassword!.CurrentPassword">
+                                        <span asp-validation-for="ChangePassword!.CurrentPassword"
+                                            class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mt-4">
+                                        <label class="form-label">New password</label>
+                                        <input type="password" class="form-control"
+                                            asp-for="ChangePassword!.NewPassword">
+                                        <span asp-validation-for="ChangePassword!.NewPassword"
+                                            class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group mt-4">
+                                        <label class="form-label">Confirm new password</label>
+                                        <input type="password" class="form-control"
+                                            asp-for="ChangePassword!.ConfirmPassword">
+                                        <span asp-validation-for="ChangePassword!.ConfirmPassword"
+                                            class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="text-end mt-3">
+                                    <button type="submit" class="btn btn-primary">SAVE</button>&nbsp;
+                                    <button type="button" class="btn btn-secondary">CANCEL</button>
+                                </div>
+                            </form>
+                            <script>
+                                window.onload = function () {
+                                    var passwordChangeAttempted = '@ViewBag.PasswordChangeAttempted';
+                                    if (passwordChangeAttempted === 'True') {
+                                        reOpen();
+                                    }
+                                }
+                            </script>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row gutters mt-4">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <div class="text-right">
-                    <button type="button" id="submit" name="submit"
-                            class="btn btn-primary update-information">
-                        Update
-                    </button>
-                </div>
-            </div>
-        </div>
     </div>
-}
-else
-{
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-        <h6 class="mb-3 normal-text fs-2 mt-3 me-3">My addresses</h6>
-        <div class="d-flex justify-content-center">
-            <div class="card">
-                <div class="card-body">
-                    <button class="btn btn-lg btn-dark" data-bs-toggle="modal" data-bs-target="#createAddress">
-                        @* <i class="bx bxs-map fs-3 createAddress"></i> *@
-                        Add New
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-}
-</div>
-</div>
 
-<hr class="border-light m-0">
-@* @if (@Model.DefaultAddress == null)
-                        {
-                        <form method="post" asp-controller="profile" asp-action="">
-                        @Html.AntiForgeryToken()
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h6 class="mt-3 mb-2 normal-text fs-2">Create new address</h6>
-                        </div>
-                        <div class="row d-flex">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="form-floating mb-3">
-                        <input type="text" id="new-receiver" class="form-control"
-                        placeholder="inputhere">
-                        <label>Receiver</label>
+</section>
 
-                        </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="form-floating mb-3">
-                        <input type="phone" id="new-phone" class="form-control" placeholder="inputhere">
-                        <label>Phone number</label>
-                        </div>
-                        </div>
-
-
-                        </div>
-                        <div class="row">
-
-                        <div class="col-12">
-
-                        <div class="form-floating mb-3">
-                        <input id="new-street" class="form-control" placeholder="inputhere"
-                        asp-for="CreateAddress!.Street">
-                        <label>Đường</label>
-                        </div>
-
-                        </div>
-                        </div>
-                        <div class="row d-flex">
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                        <div class="form-floating mb-3">
-                        <input type="text" id="new-province"
-                        class="form-control province dropdown-toggle" data-bs-toggle="dropdown"
-                        placeholder="inputhere" oninput="proSearch()"
-                        asp-for="CreateAddress!.State">
-                        <label>Tỉnh/Thành</label>
-                        <ul class="dropdown-menu" id="province_list"></ul>
-                        </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                        <div class="form-floating mb-3">
-
-                        <input type="text" id="new-district"
-                        class="form-control district dropdown-toggle" data-bs-toggle="dropdown"
-                        placeholder="inputhere" oninput="disSearch()" asp-for="CreateAddress!.City">
-                        <label>Quận/Huyện</label>
-                        <ul class="dropdown-menu" id="district_list"></ul>
-                        </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-
-                        <div class="form-floating mb-3">
-                        <input type="text" id="new-ward" class="form-control ward dropdown-toggle"
-                        data-bs-toggle="dropdown" placeholder="inputhere" oninput="warSearch()"
-                        asp-for="CreateAddress!.Ward">
-                        <label>Phường/Xã</label>
-                        <ul class="dropdown-menu" id="ward_list"></ul>
-                        </div>
-
-                        </div>
-                        </div>
-
-                        <div class="footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary create-new-address">Let's go</button>
-                        </div>
-                        </form>
-                        } *@
-<script>
-                            window.onload = function () {
-                                var AddressCreationAttempted = '@ViewBag.AddressCreationAttempted';
-                                if (AddressCreationAttempted === 'True') {
-                                    reOpen();
-                                }
-                            }
-                        </script>
-
-</div>
-<div class="tab-pane fade tab" id="account-change-password">
-    <form method="post" asp-controller="profile" asp-action="resetPwd">
-        @Html.AntiForgeryToken()
-        <div class="card-body pb-2">
-            <div class="form-group">
-                <label class="form-label">Current password</label>
-                <input type="password" class="form-control"
-                       asp-for="ChangePassword!.CurrentPassword" required>
-                <span asp-validation-for="ChangePassword!.CurrentPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group mt-4">
-                <label class="form-label">New password</label>
-                <input type="password" class="form-control" asp-for="ChangePassword!.NewPassword" required>
-                <span asp-validation-for="ChangePassword!.NewPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group mt-4">
-                <label class="form-label">Confirm new password</label>
-                <input type="password" class="form-control"
-                       asp-for="ChangePassword!.ConfirmPassword" required>
-                <span asp-validation-for="ChangePassword!.ConfirmPassword"
-                      class="text-danger">
-                </span>
-            </div>
-        </div>
-        <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary">SAVE</button>&nbsp;
-            <button type="button" class="btn btn-secondary">CANCEL</button>
-        </div>
-    </form>
-    <script>
-         window.onload = function () {
-         var passwordChangeAttempted = '@ViewBag.PasswordChangeAttempted';
-         if (passwordChangeAttempted === 'True') {reOpen();}
-        }
-    </script>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+@* {{-- Modal for add new addresses --}} *@
 <script>
     $('.btn-create-address').click(() => {
         $.ajax({
@@ -606,7 +602,7 @@ else
 
     $('[address-item-action="edit"]').click((e) => {
         const id = $(e).attr('address-item-id');
-        
+
         $('.modal').modal('hide');
         $('#editAddressModal').modal('show');
     })

@@ -7,6 +7,7 @@
 <head>
     <link rel="stylesheet" href="~/static/css/userStorage.css">
 </head>
+<section class="my-5">
 
 <div class="container my-4">
     <div class="opt card overflow-hidden">
@@ -60,7 +61,7 @@
                                     var id = order.GetType().GetProperty("id").GetValue(@order);
                                     <tr>
                                         <td class="py-3 text-center">@order.GetType().GetProperty("id").GetValue(@order)</td>
-                                        <td class="py-3 text-center">@order.GetType().GetProperty("date").GetValue(@order)</td>
+                                        <td class="py-3 text-center">@(((DateTime)order.GetType().GetProperty("date").GetValue(order)).ToString("dd/MM/yyyy HH:mm:ss"))</td>
                                         <td class="py-3 text-center">@order.GetType().GetProperty("status").GetValue(@order)</td>
                                         <td class="text-success text-center py-3">@string.Format(new System.Globalization.CultureInfo(name: "vi-vn"),"{0:C}",@order.GetType().GetProperty("total").GetValue(@order))</td>
                                         <td class="py-3 text-center">
@@ -86,5 +87,6 @@
             </div>
         </div>
     </div>
+</section>
 
     <script src="~/static/js/userStorage.js"></script>

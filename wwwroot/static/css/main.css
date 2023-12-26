@@ -83,11 +83,12 @@ html::-webkit-scrollbar {
 
 /*------------------------- HEADER -------------------------*/
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     background: var(--dark-color);
     z-index: 100;
+
 }
 
 /* --- NAV --- */
@@ -96,6 +97,8 @@ html::-webkit-scrollbar {
     align-items: center;
     justify-content: center;
     padding: 0.8rem 0;
+    top: 0;
+   
 }
 
 /* --- LOGO --- */
@@ -141,6 +144,7 @@ html::-webkit-scrollbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .menu .navbarr a {
