@@ -1,7 +1,9 @@
 ﻿@{
     Layout = "_DashboardLayout";
 }
-@model IS220_WebApplication.Areas.Admin.Models.UserViewModel;
+
+@model IS220_WebApplication.Areas.Admin.Models.ProfileAdminViewModel;
+
 
 <div class="contents">
 <div class="profile-setting ">
@@ -30,31 +32,36 @@
     <div class="card mb-25">
         <div class="card-body text-center p-0">
 
-            <div class="account-profile border-bottom pt-25 px-25 pb-0 flex-column d-flex align-items-center ">
-                
-                    <div class="ap-img mb-20 pro_img_wrapper">
-                                       <input id="upload" type="file" class="d-none" accept="jpg, png" asp-for="AvatarPath" onchange="previewImage()">
-                                        <label for="upload">
-                                            <!-- Profile picture image-->
-                                            <img id="imagePreview" class="ap-img__main rounded-circle wh-120" src="@Model.User.AvatarPath" alt="profile">
-                                            <span class="cross" id="remove_pro_pic">
-                                                <img src="~/admin/img/svg/camera.svg" alt="camera" class="svg">
-                                            </span>
-                                        </label>
-                                    </div>
-                
+            <form method="post" enctype="multipart/form-data" asp-area="admin" asp-controller="profileadmin" asp-action="UpdateAvatar">
+                <div class="account-profile border-bottom pt-25 px-25 pb-0 flex-column d-flex align-items-center ">
 
-                <div class="ap-nameAddress pb-3">
-                    <h5 class="ap-nameAddress__title">@Model.User.UserName</h5>
-                    <p class="ap-nameAddress__subTitle fs-14 m-0">UI/UX Designer</p>
+                    <div class="ap-img mb-20 pro_img_wrapper">
+                        <input id="upload" type="file" class="d-none" accept="jpg, png" asp-for="UserViewModel!.AvatarPath" onchange="previewImage()">
+                        <label for="upload">
+                            <!-- Profile picture image-->
+                            <img id="imagePreview" class="ap-img__main rounded-circle wh-120" src="@Model.UserViewModel!.User!.AvatarPath" alt="profile">
+                            <span class="cross" id="remove_pro_pic">
+                                <img src="~/admin/img/svg/camera.svg" alt="camera" class="svg">
+                            </span>
+                        </label>
+                    </div>
+
+
+                    <div class="ap-nameAddress pb-3">
+                        <h5 class="ap-nameAddress__title">@Model.UserViewModel.User.UserName</h5>
+                        <p class="ap-nameAddress__subTitle fs-14 m-0">UI/UX Designer</p>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-default btn-squared me-15 text-capitalize btn-sm">
+                        Save
+                    </button>
                 </div>
-            </div>
+            </form>
             <div class="ps-tab p-20 pb-25">
                 <div class="nav flex-column text-start" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-selected="true">
                         <img src="~/admin/img/svg/user.svg" alt="user" class="svg">Edit profile
                     </a>
-                    
+
                     <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-selected="false">
                         <img src="~/admin/img/svg/key.svg" alt="key" class="svg">change password
                     </a>
@@ -86,36 +93,36 @@
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div class="col-xxl-6">
-                        <form method="post" asp-controller="profileadmin" asp-action="UpdateProfile">
-                            <div class="edit-profile__body mx-xl-20">
-                           
+
+                        <div class="edit-profile__body mx-xl-20">
+                            <form method="post" asp-controller="profileadmin" asp-action="UpdateProfile">
                                 <div class="form-group mb-20">
                                     <label for="name1">username</label>
-                                    <input type="text" class="form-control" id="name1" placeholder="Duran Clayton" asp-for="User.UserName" value="@Model.User.UserName">
+                                    <input type="text" class="form-control" id="name1" placeholder="Duran Clayton" asp-for="UserViewModel!.User!.UserName" value="@Model.UserViewModel!.User!.UserName">
 
                                 </div>
                                 <div class="form-group mb-20">
                                     <label for="email45">email</label>
-                                    <input type="email" class="form-control" id="email45" placeholder="Contact@example.com" asp-for="User.Email" value="@Model.User.Email">
+                                    <input type="email" class="form-control" id="email45" placeholder="Contact@example.com" asp-for="UserViewModel!.User!.Email" value="@Model.UserViewModel.User.Email">
                                 </div>
                                 <div class="form-group mb-20">
                                     <label for="firstname">Firts name</label>
-                                    <input type="text" class="form-control" id="firstname" placeholder="Duran Clayton" asp-for="User.FirstName" value="@Model.User.FirstName">
+                                    <input type="text" class="form-control" id="firstname" placeholder="Duran Clayton" asp-for="UserViewModel!.User!.FirstName" value="@Model.UserViewModel.User.FirstName">
 
                                 </div>
                                 <div class="form-group mb-20">
                                     <label for="lastname">Last name</label>
-                                    <input type="text" class="form-control" id="lastname" placeholder="Duran Clayton" asp-for="User.LastName" value="@Model.User.LastName">
+                                    <input type="text" class="form-control" id="lastname" placeholder="Duran Clayton" asp-for="UserViewModel!.User!.LastName" value="@Model.UserViewModel.User.LastName">
 
                                 </div>
                                 <div class="form-group mb-20">
                                     <label for="phoneNumber1">phone number</label>
-                                    <input type="tel" class="form-control" id="phoneNumber1" placeholder="+440 2546 5236" asp-for="User.Phone" value="@Model.User.Phone">
+                                    <input type="tel" class="form-control" id="phoneNumber1" placeholder="+440 2546 5236" asp-for="UserViewModel!.User!.Phone" value="@Model.UserViewModel.User.Phone">
                                 </div>
                                 <div class="form-group mb-20 form-group-calender">
                                     <label for="datepicker">Birthday</label>
                                     <div class="position-relative">
-                                        <input type="text" class="form-control" id="datepicker" asp-for="User.Birth" value="@Model.User.Birth">
+                                        <input type="text" class="form-control" id="datepicker" asp-for="UserViewModel!.User!.Birth" value="@Model.UserViewModel.User.Birth">
                                         <a href="#">
                                             <img class="svg" src="~/admin/img/svg/calendar.svg" alt="calendar">
                                         </a>
@@ -125,7 +132,7 @@
                                 <div class="button-group d-flex flex-wrap pt-30 mb-15">
 
 
-                                    <button class="btn btn-primary btn-default btn-squared me-15 text-capitalize btn-sm">
+                                    <button type="submit" class="btn btn-primary btn-default btn-squared me-15 text-capitalize btn-sm">
                                         update profile
                                     </button>
 
@@ -135,32 +142,32 @@
                                     </button>
 
                                 </div>
-                            
-                                <div class="card-footer bg-transparent">
-                                    <div class="row justify-content-center align-items-center">
-                                        <div class="col-xxl-6">
-                                            <div class="d-flex justify-content-between mt-1 align-items-center flex-wrap">
-                                                <div class="text-capitalize py-10">
-                                                    <h6>close account</h6>
-                                                    <span class="fs-13 color-light fw-400">
-                                                        Delete your account and
-                                                        account
-                                                        data
-                                                    </span>
-                                                </div>
-                                                <div class="my-sm-0 my-10 py-10">
-                                                    <button class="btn btn-danger btn-default btn-squared fw-400 text-capitalize">
-                                                        close account
-                                                    </button>
-                                                </div>
+                            </form>
+                            <div class="card-footer bg-transparent">
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-xxl-6">
+                                        <div class="d-flex justify-content-between mt-1 align-items-center flex-wrap">
+                                            <div class="text-capitalize py-10">
+                                                <h6>close account</h6>
+                                                <span class="fs-13 color-light fw-400">
+                                                    Delete your account and
+                                                    account
+                                                    data
+                                                </span>
                                             </div>
-
+                                            <div class="my-sm-0 my-10 py-10">
+                                                <button class="btn btn-danger btn-default btn-squared fw-400 text-capitalize">
+                                                    close account
+                                                </button>
+                                            </div>
                                         </div>
+
                                     </div>
                                 </div>
-                            
-                         </div>
-                        </form>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -186,24 +193,28 @@
                 <div class="row justify-content-center">
                     <div class="col-xxl-6">
                         <div class="edit-profile__body mx-xl-20">
-                            <form>
+                            <form method="post" asp-area="Admin" asp-controller="ProfileAdmin" asp-action="ChangePassword">
+                                @Html.AntiForgeryToken()
                                 <div class="form-group mb-20">
-                                    <label for="name">old passowrd</label>
-                                    <input type="text" class="form-control" id="name">
+                                    <label for="name">current passowrd</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Current Password" asp-for="ChangePasswordViewModel!.CurrentPassword" required>
+                                    <span asp-validation-for="@Model.ChangePasswordViewModel!.CurrentPassword" class="text-danger"></span>
                                 </div>
                                 <div class="form-group mb-20">
                                     <label for="password-field">new password</label>
                                     <div class="position-relative">
-                                        <input id="password-field" type="password" class="form-control" name="password" placeholder="Password">
+                                        <input id="password-field" type="password" class="form-control" placeholder="New Password" asp-for="ChangePasswordViewModel!.NewPassword" required>
                                         <span class="uil uil-eye-slash text-lighten fs-15 field-icon toggle-password2"></span>
                                     </div>
+                                    <span asp-validation-for="@Model.ChangePasswordViewModel!.NewPassword" class="text-danger"></span>
                                 </div>
                                 <div class="form-group mb-20">
-                                    <label for="password-field">Confirm password</label>
+                                    <label for="confirm-password-field">Confirm password</label>
                                     <div class="position-relative">
-                                        <input id="confirm-password-field" type="password" class="form-control" name="confirm-password" placeholder="Confirm Password">
-                                        <span class="uil uil-eye-slash text-lighten fs-15 field-icon toggle-password2"></span>
+                                        <input id="confirm-password-field" type="password" class="form-control" placeholder="Confirm Password" asp-for="ChangePasswordViewModel!.ConfirmPassword" required>
+                                        <span class="uil uil-eye-slash text-lighten fs-15 field-icon toggle-password3"></span>
                                     </div>
+                                    <span asp-validation-for="@Model.ChangePasswordViewModel!.ConfirmPassword" class="text-danger"></span>
                                 </div>
                                 <div class="form-group mb-1">
 
@@ -216,8 +227,6 @@
                                         <button class="btn btn-primary btn-default btn-squared me-15 text-capitalize">
                                             Save Changes
                                         </button>
-
-
                                         <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize">
                                             cancel
                                         </button>

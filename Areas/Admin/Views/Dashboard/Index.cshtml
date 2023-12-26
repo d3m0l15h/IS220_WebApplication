@@ -2,6 +2,8 @@
     Layout = "_DashboardLayout";
 }
 
+@model IS220_WebApplication.Areas.Admin.Models.DashboardViewModel;
+
 <div class="contents">
 
 <div class="demo3 mb-25 t-thead-bg">
@@ -10,14 +12,14 @@
 <div class="col-lg-12">
 
     <div class="breadcrumb-main">
-        <h4 class="text-capitalize breadcrumb-title">Demo 8</h4>
+        <h4 class="text-capitalize breadcrumb-title">Dashboard</h4>
         <div class="breadcrumb-action justify-content-center flex-wrap">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="#"><i class="uil uil-estate"></i>Dashboard</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Demo 8</li>
+                   
                 </ol>
             </nav>
         </div>
@@ -32,13 +34,10 @@
         <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
             <div class="ap-po-details__titlebar">
                 <p>Total Products</p>
-                <h1>100+</h1>
+                <h1>@Model.Game.Where(u => u.Status != "deleted").LongCount()</h1>
                 <div class="ap-po-details-time">
-                    <span class="color-success">
-                        <i class="las la-arrow-up"></i>
-                        <strong>25.36%</strong>
-                    </span>
-                    <small>Since last month</small>
+                    
+                    <small>In our stock</small>
                 </div>
             </div>
             <div class="ap-po-details__icon-area color-primary">
@@ -58,17 +57,14 @@
         <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
             <div class="ap-po-details__titlebar">
                 <p>Total Orders</p>
-                <h1>30,825</h1>
+                <h1>@Model.Order.LongCount()</h1>
                 <div class="ap-po-details-time">
-                    <span class="color-success">
-                        <i class="las la-arrow-up"></i>
-                        <strong>25.36%</strong>
-                    </span>
-                    <small>Since last month</small>
+                    <small>In this month</small>
                 </div>
             </div>
             <div class="ap-po-details__icon-area color-secondary">
-                <i class="uil uil-users-alt"></i>
+                 <i class="uil uil-tachometer-fast"></i>
+                
             </div>
         </div>
 
@@ -108,18 +104,15 @@
 
         <div class=" ap-po-details-content d-flex flex-wrap justify-content-between w-100">
             <div class="ap-po-details__titlebar">
-                <p>New Customers</p>
-                <h1>30,825</h1>
-                <div class="ap-po-details-time">
-                    <span class="color-success">
-                        <i class="las la-arrow-up"></i>
-                        <strong>25.36%</strong>
-                    </span>
-                    <small>Since last month</small>
-                </div>
+                <p>Customers</p>
+                <h1>@Model.User.Where(u => u.Status != "deleted").LongCount()</h1>
+               <div class="ap-po-details-time">
+                                   
+                                   <small>Activated</small>
+                               </div>
             </div>
             <div class="ap-po-details__icon-area color-info">
-                <i class="uil uil-tachometer-fast"></i>
+               <i class="uil uil-users-alt"></i>
             </div>
         </div>
 
@@ -625,184 +618,6 @@
 </div>
 </div>
 
-</div>
-<div class="col-xxl-4 mb-25">
-    <div class="device-chart-box">
-
-        <div class="card border-0">
-            <div class="card-header">
-                <h6>Sales Overview</h6>
-                <div class="card-extra">
-                    <ul class="card-tab-links nav-tabs nav" role="tablist">
-                        <li>
-                            <a class="active" href="#se_device-today" data-bs-toggle="tab" id="se_device-today-tab" role="tab" aria-selected="true">Today</a>
-                        </li>
-                        <li>
-                            <a href="#se_device-week" data-bs-toggle="tab" id="se_device-week-tab" role="tab" aria-selected="false">Week</a>
-                        </li>
-                        <li>
-                            <a href="#se_device-month" data-bs-toggle="tab" id="se_device-month-tab" role="tab" aria-selected="false">Month</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- ends: .card-header -->
-            <div class="card-body pt-20 pb-30">
-                <div class="tab-content">
-                    <div class="tab-pane fade active show" id="se_device-today" role="tabpanel" aria-labelledby="se_device-today-tab">
-                        <div class="device-pieChart-wrap position-relative">
-
-                            <div class="">
-                                <div class="salesDonutToday"></div>
-                            </div>
-
-                        </div>
-                        <div class="session-wrap session-wrap--top--4">
-                            <div class="session-single">
-                                <div class="chart-label">
-                                    <span class="label-dot dot-primary"></span>
-                                    30%
-                                </div>
-                            </div>
-                            <div class="session-single">
-                                <div class="chart-label">
-                                    <span class="label-dot dot-info"></span>
-                                    30%
-                                </div>
-                            </div>
-                            <div class="session-single">
-                                <div class="chart-label">
-                                    <span class="label-dot dot-warning"></span>
-                                    40%
-                                </div>
-                            </div>
-                        </div>
-                        <div class="session-wrap session-wrap--2">
-                            <div class="session-single">
-                                <strong>$7.9k</strong>
-                                <div class="chart-label">
-                                    Revenue
-                                </div>
-                            </div>
-                            <div class="session-single">
-                                <strong>50</strong>
-                                <div class="chart-label">
-                                    Sales
-                                </div>
-                            </div>
-                            <div class="session-single">
-                                <strong>15</strong>
-                                <div class="chart-label">
-                                    Products
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="se_device-week" role="tabpanel" aria-labelledby="se_device-week-tab">
-                        <div class="device-pieChart-wrap position-relative">
-
-                            <div class="">
-                                <div class="salesDonutWeek"></div>
-                            </div>
-
-                        </div>
-                        <div class="session-wrap session-wrap--top--4">
-                            <div class="session-single">
-                                <div class="chart-label">
-                                    <span class="label-dot dot-primary"></span>
-                                    30%
-                                </div>
-                            </div>
-                            <div class="session-single">
-                                <div class="chart-label">
-                                    <span class="label-dot dot-secondary"></span>
-                                    30%
-                                </div>
-                            </div>
-                            <div class="session-single">
-                                <div class="chart-label">
-                                    <span class="label-dot dot-warning"></span>
-                                    40%
-                                </div>
-                            </div>
-                        </div>
-                        <div class="session-wrap session-wrap--2">
-                            <div class="session-single">
-                                <strong>$7.9k</strong>
-                                <div class="chart-label">
-                                    Revenue
-                                </div>
-                            </div>
-                            <div class="session-single">
-                                <strong>50</strong>
-                                <div class="chart-label">
-                                    Sales
-                                </div>
-                            </div>
-                            <div class="session-single">
-                                <strong>15</strong>
-                                <div class="chart-label">
-                                    Products
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade " id="se_device-month" role="tabpanel" aria-labelledby="se_device-month-tab">
-                        <div class="device-pieChart-wrap position-relative">
-
-                            <div class="">
-                                <div class="salesDonutMonth"></div>
-                            </div>
-
-                        </div>
-                        <div class="session-wrap session-wrap--top--4">
-                            <div class="session-single">
-                                <div class="chart-label">
-                                    <span class="label-dot dot-primary"></span>
-                                    30%
-                                </div>
-                            </div>
-                            <div class="session-single">
-                                <div class="chart-label">
-                                    <span class="label-dot dot-secondary"></span>
-                                    30%
-                                </div>
-                            </div>
-                            <div class="session-single">
-                                <div class="chart-label">
-                                    <span class="label-dot dot-warning"></span>
-                                    40%
-                                </div>
-                            </div>
-                        </div>
-                        <div class="session-wrap session-wrap--2">
-                            <div class="session-single">
-                                <strong>$7.9k</strong>
-                                <div class="chart-label">
-                                    Revenue
-                                </div>
-                            </div>
-                            <div class="session-single">
-                                <strong>50</strong>
-                                <div class="chart-label">
-                                    Sales
-                                </div>
-                            </div>
-                            <div class="session-single">
-                                <strong>15</strong>
-                                <div class="chart-label">
-                                    Products
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ends: .session-wrap -->
-            </div>
-            <!-- ends: .card-body -->
-        </div>
-
-    </div>
 </div>
 <div class="col-xxl-4 mb-25">
 
