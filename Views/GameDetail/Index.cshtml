@@ -91,10 +91,7 @@
                             @if (Model.StorageViewModel.purchasedGame.Any(x => x.GetType().GetProperty("Title")?.GetValue(x)
                            == Model.Game?.Title))
                             {
-                                <h6>
 
-
-                                </h6>
                                 <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
                                     id="gametype-software" autocomplete="off" disabled>
                                 <label class="btn btn-outline-primary" for="gametype-software">@GameType.Get(GameType.Software)
@@ -108,16 +105,18 @@
                                 <label class="btn btn-outline-primary"
                                     for="gametype-software">@GameType.Get(GameType.Software)</label>
                             }
-                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
-                                autocomplete="off">
-                            <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
+                            @* <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc"
+                        id="gametype-disc"
+                        autocomplete="off">
+                        <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
+                        *@
                         }
                         else if (@Model.Game.Type == GameType.Disc)
                         {
-                            <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
-                                id="gimetype-software" ad="gametype-software" autocomplete="off" disabled>
-                            <label class="btn btn-outline-primary"
-                                for="gametype-software">@GameType.Get(GameType.Software)</label>
+                            @* <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
+                        id="gimetype-software" ad="gametype-software" autocomplete="off" disabled>
+                        <label class="btn btn-outline-primary"
+                        for="gametype-software">@GameType.Get(GameType.Software)</label> *@
                             <input type="radio" class="btn-check" name="game-type" value="@GameType.Disc" id="gametype-disc"
                                 autocomplete="off" checked>
                             <label class="btn btn-outline-primary" for="gametype-disc">@GameType.Get(GameType.Disc)</label>
@@ -127,10 +126,6 @@
                             @if (Model.StorageViewModel.purchasedGame.Any(x => x.GetType().GetProperty("Title")?.GetValue(x)
                            == Model.Game?.Title))
                             {
-                                <h6>
-
-
-                                </h6>
                                 <input type="radio" class="btn-check" name="game-type" value="@GameType.Software"
                                     id="gametype-software" autocomplete="off" disabled>
                                 <label class="btn btn-outline-primary" for="gametype-software">@GameType.Get(GameType.Software)

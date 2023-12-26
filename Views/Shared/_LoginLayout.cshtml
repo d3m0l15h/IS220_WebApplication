@@ -54,7 +54,7 @@
                 </div>
 
                 @* SEARCH BAR *@
-                <form class="input-group search-form" action="/game" method="get">
+                <form class="input-group search-form" action="/game" method="ge">
                     <input type="search" name="search" id="search" class="form-control"
                         placeholder="Search game here..." />
                     <button type="submit">
@@ -144,7 +144,7 @@
             </div>
 
             <div class="footer_box_item">
-                <h3 class="text-capitalize">chăm sóc khách hàng</h3>
+                <h3 class="text-capitalize">Customer service</h3>
                 <div class="d-flex flex-column">
                     <a class="text-capitalize mt-3" href="#!">Home</a>
                     <a class="text-capitalize mt-3" href="#!">Introduction</a>
@@ -182,7 +182,6 @@
     <script src="~/static/js/main.js"></script>
     <script src="~/static/js/loginLayout.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/notyf@3.9.0/notyf.min.js"></script>
-
     <script asp-append-version="true"></script>
     @await Component.InvokeAsync("Notyf")
     @await RenderSectionAsync("Scripts", required: false)

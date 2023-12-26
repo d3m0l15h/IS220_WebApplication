@@ -5,11 +5,11 @@
 
 <!-------------start HOME SECTION (slider) --------------->
 <section class="home" id="home">
-    <img src="~/static/img/home.png" alt=""/>
+    <img src="~/static/img/home.png" alt="" />
 
     <div class="home_text">
         <h1>
-            CITY OF THE <br/>
+            CITY OF THE <br />
             FUTURE
         </h1>
         <a href="#!" class="home-btn">Download now</a>
@@ -31,10 +31,9 @@
             <!-- SLIDE 1 -->
             <div class="swiper-slide">
                 <div class="box">
-                    <img src="~/static/img/trending1.webp" alt=""/>
+                    <img src="~/static/img/trending1.webp" alt="" />
                     <div class="box-text">
-                        <a class="" asp-controller="GameDetail"
-                           asp-action="index">
+                        <a class="" asp-controller="GameDetail" asp-action="index">
                             Cyberpunk 2077
                         </a>
                         <h3>Action, Lorem ipsum dolor sit amet</h3>
@@ -55,7 +54,7 @@
             <!-- SLIDE 2 -->
             <div class="swiper-slide">
                 <div class="box">
-                    <img src="~/static/img/trending2.jpg" alt=""/>
+                    <img src="~/static/img/trending2.jpg" alt="" />
                     <div class="box-text">
                         <a asp-controller="" asp-action="">Battlefield 2042</a>
                         <h3>Action Lorem ipsum dolor sit amet.</h3>
@@ -75,7 +74,7 @@
             <!-- SLIDE 3 -->
             <div class="swiper-slide">
                 <div class="box">
-                    <img src="~/static/img/trending3.jpg" alt=""/>
+                    <img src="~/static/img/trending3.jpg" alt="" />
                     <div class="box-text">
                         <a asp-controller="" asp-action="">Assassin's Creed</a>
                         <h3>Action Lorem ipsum dolor sit amet.</h3>
@@ -95,7 +94,7 @@
             <!-- SLIDE 4 -->
             <div class="swiper-slide">
                 <div class="box">
-                    <img src="~/static/img/trending4.jpg" alt=""/>
+                    <img src="~/static/img/trending4.jpg" alt="" />
                     <div class="box-text">
                         <a asp-controller="" asp-action="">Ghost of Tsushima</a>
                         <h3>Action</h3>
@@ -116,7 +115,7 @@
             <!-- SLIDE 5 -->
             <div class="swiper-slide">
                 <div class="box">
-                    <img src="~/static/img/trending5.png" alt=""/>
+                    <img src="~/static/img/trending5.png" alt="" />
                     <div class="box-text">
                         <a asp-controller="" asp-action="">GTA V</a>
                         <h3>Action</h3>
@@ -136,7 +135,7 @@
             <!-- SLIDE 6 -->
             <div class="swiper-slide">
                 <div class="box">
-                    <img src="~/static/img/trending6.jpg" alt=""/>
+                    <img src="~/static/img/trending6.jpg" alt="" />
                     <div class="box-text">
                         <a asp-controller="" asp-action="">Dying Light 2</a>
                         <h3>Action</h3>
@@ -156,7 +155,7 @@
             <!-- SLIDE 7 -->
             <div class="swiper-slide">
                 <div class="box">
-                    <img src="~/static/img/trending7.png" alt=""/>
+                    <img src="~/static/img/trending7.png" alt="" />
                     <div class="box-text">
                         <a asp-controller="" asp-action="">Halo Infinite</a>
                         <h3>Action, Ldistinctio erum sequi tempora.</h3>
@@ -176,7 +175,7 @@
             <!-- SLIDE 8 -->
             <div class="swiper-slide">
                 <div class="box">
-                    <img src="~/static/img/trending8.png" alt=""/>
+                    <img src="~/static/img/trending8.png" alt="" />
                     <div class="box-text">
                         <a asp-controller="" asp-action="">Resident Evil Village</a>
                         <h3>Action</h3>
@@ -210,11 +209,13 @@
         @foreach (var item in Model.NewGame!)
         {
             <div class="box">
-                <a asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id" >
-                <img src="~/images/game/@item.ImgPath" alt=""/>
+                <a asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()"
+                    asp-route-id="@item.Id">
+                    <img src="~/images/game/@item.ImgPath" alt="" />
                 </a>
                 <div class="box-text">
-                    <a asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">@item.Title</a>
+                    <a asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()"
+                        asp-route-id="@item.Id">@item.Title</a>
                     <h3>@string.Join(", ", item.Categories.Select(c => c.Name))</h3>
                     <div class="rating-download">
                         <div class="rating">
@@ -222,7 +223,8 @@
                             <span>4.7</span>
                         </div>
 
-                        <a class="box-btn"asp-controller="gamedetail" asp-action="index" asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">
+                        <a class="box-btn" asp-controller="gamedetail" asp-action="index"
+                            asp-route-title="@item.Title.ToUrlFriendly()" asp-route-id="@item.Id">
                             <p>@string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", item.Price)</p>
                         </a>
                     </div>
@@ -230,7 +232,7 @@
             </div>
         }
     </div>
-    
+
     <div class="more-btn mt-4 d-flex justify-content-center">
         <a asp-controller="newgame" asp-action="index">View more</a>
     </div>
@@ -248,7 +250,7 @@
     <div class="category-content">
         <!-- Box 1 -->
         <div class="box">
-            <img src="~/static/img/new1.jpg" alt=""/>
+            <img src="~/static/img/new1.jpg" alt="" />
             <div class="box-text">
                 <a asp-controller="" asp-action="">Subway Surfers</a>
                 <h3>Action Lorem ipsum dolor sit amet.</h3>
@@ -267,7 +269,7 @@
 
         <!-- Box 2 -->
         <div class="box">
-            <img src="~/static/img/new2.jpg" alt=""/>
+            <img src="~/static/img/new2.jpg" alt="" />
             <div class="box-text">
                 <a asp-controller="" asp-action="">Call of Duty</a>
                 <h3>Action Lorem ipsum dolor sit amet.</h3>
@@ -286,7 +288,7 @@
 
         <!-- Box 3 -->
         <div class="box">
-            <img src="~/static/img/new3.jpg" alt=""/>
+            <img src="~/static/img/new3.jpg" alt="" />
             <div class="box-text">
                 <a asp-controller="" asp-action="">Free Guy</a>
                 <h3>Action</h3>
@@ -305,7 +307,7 @@
 
         <!-- Box 4 -->
         <div class="box">
-            <img src="~/static/img/new4.jpg" alt=""/>
+            <img src="~/static/img/new4.jpg" alt="" />
             <div class="box-text">
                 <a asp-controller="" asp-action="">Clash Royale</a>
                 <h3>Action</h3>
@@ -324,7 +326,7 @@
 
         <!-- Box 5 -->
         <div class="box">
-            <img src="~/static/img/new5.png" alt=""/>
+            <img src="~/static/img/new5.png" alt="" />
             <div class="box-text">
                 <a asp-controller="" asp-action="">Minecraft</a>
                 <h3>Action</h3>
@@ -343,7 +345,7 @@
 
         <!-- Box 6 -->
         <div class="box">
-            <img src="~/static/img/new6.png" alt=""/>
+            <img src="~/static/img/new6.png" alt="" />
             <div class="box-text">
                 <a asp-controller="" asp-action="">PUBG</a>
                 <h3>Action</h3>
@@ -362,7 +364,7 @@
 
         <!-- Box 7 -->
         <div class="box">
-            <img src="~/static/img/new7.png" alt=""/>
+            <img src="~/static/img/new7.png" alt="" />
             <div class="box-text">
                 <a asp-controller="" asp-action="">Fornite</a>
                 <h3>Action</h3>
@@ -381,7 +383,7 @@
 
         <!-- Box 8 -->
         <div class="box">
-            <img src="~/static/img/new8.jpg" alt=""/>
+            <img src="~/static/img/new8.jpg" alt="" />
             <div class="box-text">
                 <a asp-controller="" asp-action="">Marvel of Champions</a>
                 <h3>Action</h3>
@@ -400,7 +402,7 @@
     </div>
 
     <div class="more-btn mt-4 d-flex justify-content-center">
-            <a asp-controller="consolegame" asp-action="index">View more</a>
-        </div>
+        <a asp-controller="consolegame" asp-action="index">View more</a>
+    </div>
 </section>
 <!-------------end CONSOLE GAMES SECTION --------------->
