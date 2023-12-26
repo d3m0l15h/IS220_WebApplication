@@ -43,6 +43,7 @@
                     </div>
                         <div class="tab-pane fade" id="account-transaction">
                             <table class="table align-middle table-dark table-hover table-striped table-rounded">
+
                                 <thead>
                                     <tr>
                                         <th scope="col" class="py-4">Time</th>
@@ -61,20 +62,15 @@
                                         <td class="text-success py-3">@order.GetType().GetProperty("total").GetValue(@order)</td>
                                     </tr>
                                 }
-                                    <!-- <tr>
-                                        <td class="py-3">21/11/2023 12:00:00</td>
-                                        <td class="py-3">1212121</td>
-                                        <td class="py-3">Nạp NETCoin qua Momo Payment.</td>
-                                        <td class="text-success py-3">+100.000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-3">21/11/2023 12:00:00</td>
-                                        <td class="py-3">121211221</td>
-                                        <td class="py-3">God of war</td>
-                                        <td class="text-danger py-3">-100.000đ</td>
-                                    </tr> -->
                                 </tbody>
                             </table>
+                            <h3>
+                                Total of order: @Model.StorageViewModel.order.Count
+                            </h3>
+                            <h3>
+
+                                Total of spend: @Model.StorageViewModel.order.Sum(x => (int)x.GetType().GetProperty("total").GetValue(x)).ToString("C0", new System.Globalization.CultureInfo("vi-VN"))
+                            </h3>
                         </div>
                     </div>
                 </div>
