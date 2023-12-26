@@ -32,15 +32,6 @@ public partial class Order
     [Column("address", TypeName = "int(10) unsigned")]
     public uint Address { get; set; }
 
-    [Column("confirmed_at", TypeName = "timestamp")]
-    public DateTime? ConfirmedAt { get; set; }
-
-    [Column("completed_at", TypeName = "timestamp")]
-    public DateTime? CompletedAt { get; set; }
-
-    [Column("cancel_at", TypeName = "timestamp")]
-    public DateTime? CancelAt { get; set; }
-
     [ForeignKey("Address")]
     [InverseProperty("Orders")]
     public virtual Address AddressNavigation { get; set; } = null!;

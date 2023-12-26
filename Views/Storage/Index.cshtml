@@ -28,12 +28,12 @@
                     <div class="container tab-pane fade active show" id="account-order">
                             <div class="container">
                                 <div class="row">
-                        @foreach (var game in @Model.StorageViewModel.purchasedGame)
+                        @foreach (var game in Model.StorageViewModel.purchasedGame)
                         {
 
                                     <div class="col-3">
                                         <a class="card" asp-controller="Storage" asp-action="DownloadGame" asp-route-url='@game.GetType().GetProperty("DownloadLink").GetValue(@game)'>
-                                            <img src='~/images/game/@game.GetType().GetProperty("ImgPath").GetValue(@game)'
+                                            <img src='~/images/game/@game.GetType().GetProperty("ImgPath").GetValue(game)'
                                                 alt="" class="card-img">
                                         </a>
                                     </div>
