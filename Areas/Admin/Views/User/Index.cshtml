@@ -1,9 +1,8 @@
-﻿@using System.ComponentModel.DataAnnotations
-@using Microsoft.EntityFrameworkCore.Metadata.Internal
+﻿
 @{
     Layout = "_DashboardLayout";
 }
-@model IEnumerable<Aspnetuser>
+
 
 <div class="contents">
     <div class="container-fluid">
@@ -19,9 +18,9 @@
                             </div>
                         </div>
                         <div class="breadcrumb-main__wrapper">
-                            <form action="/" class="d-flex align-items-center add-contact__form my-sm-0 my-2">
+                            <form asp-area="admin" asp-controller="user" asp-action="index" method="get" class="d-flex align-items-center add-contact__form my-sm-0 my-2">
                                 <img src="~/admin/img/svg/search.svg" alt="search" class="svg">
-                                <input class="form-control me-sm-2 border-0 box-shadow-none" type="search" placeholder="Search by Name" aria-label="Search">
+                                <input name="searchQuery" class="form-control me-sm-2 border-0 box-shadow-none" type="search" placeholder="Search by Name" aria-label="Search">
                             </form>
                         </div>
                     </div>
@@ -43,25 +42,31 @@
 
                                         <label for="check-44">
                                             <span class="checkbox-text userDatatable-title">user</span>
+                                            <img style="width: 10px" src="~/admin/img/sort-arrow-down.png"/>
                                         </label>
                                     </div>
                                 </div>
                             </th>
                             <th>
                                 <span class="userDatatable-title">emaill</span>
+                                <img style="width: 10px" src="~/admin/img/sort-arrow-down.png"/>
                             </th>
 
                             <th>
                                 <span class="userDatatable-title">birthday</span>
+                                <img style="width: 10px" src="~/admin/img/sort-arrow-down.png"/>
                             </th>
                             <th>
                                 <span class="userDatatable-title">join date</span>
+                                <img style="width: 10px" src="~/admin/img/sort-arrow-down.png"/>
                             </th>
                             <th>
                                 <span class="userDatatable-title">status</span>
+                                <img style="width: 10px" src="~/admin/img/sort-arrow-down.png"/>
                             </th>
                             <th>
                                 <span class="userDatatable-title">role</span>
+                                <img style="width: 10px" src="~/admin/img/sort-arrow-down.png"/>
                             </th>
                             <th>
                                 <span class="userDatatable-title ">action</span>
@@ -69,11 +74,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @{
-                            var lenght = Model.LongCount();
-                        }
+                      
                         @foreach (var obj in Model)
                         {
+                            
                             if (obj.Status != "deleted")
                             {
                                 <tr>
@@ -137,18 +141,18 @@
                                         }
                                     </td>
                                     <td>
-                                        @switch (obj.Role)
-                                        {
-                                            case 1:
+                                        @{
+                                            if((obj.Role == 1)){
                                                 <div class="userDatatable-content d-inline-block">
                                                     <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">admin</span>
                                                 </div>
-                                                break;
-                                            case 0:
+                                            }
+                                            else
+                                            {
                                                 <div class="userDatatable-content d-inline-block">
                                                     <span class="bg-opacity-warning  color-warning rounded-pill userDatatable-content-status active">customer</span>
                                                 </div>
-                                                break;
+                                            }
                                         }
                                     </td>
                                     <td>
@@ -161,10 +165,10 @@
                                             </li>
                                             <li>
                                                 <form asp-action="remove" asp-route-id="@obj.Id" method="post" onsubmit="return confirm('Are you sure you want to remove this user?');">
-                                                        <button type="submit" class="remove">
-                                                            <i class="uil uil-trash-alt"></i>
-                                                        </button>
-                                                    </form>
+                                                    <button type="submit" class="remove">
+                                                        <i class="uil uil-trash-alt"></i>
+                                                    </button>
+                                                </form>
                                             </li>
                                         </ul>
                                     </td>
@@ -176,44 +180,30 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="d-flex justify-content-end pt-30">
-
+                <div class="d-flex justify-content-sm-end justify-content-start pt-25">
                     <nav class="dm-page ">
                         <ul class="dm-pagination d-flex">
                             <li class="dm-pagination__item">
-                                <a href="#" class="dm-pagination__link pagination-control">
-                                    <span class="la la-angle-left"></span>
-                                </a>
-                                <a href="#" class="dm-pagination__link">
-                                    <span class="page-number">1</span>
-                                </a>
-                                <a href="#" class="dm-pagination__link active">
-                                    <span class="page-number">2</span>
-                                </a>
-                                <a href="#" class="dm-pagination__link">
-                                    <span class="page-number">3</span>
-                                </a>
-                                <a href="#" class="dm-pagination__link pagination-control">
-                                    <span class="page-number">...</span>
-                                </a>
-                                <a href="#" class="dm-pagination__link">
-                                    <span class="page-number">12</span>
-                                </a>
-                                <a href="#" class="dm-pagination__link pagination-control">
-                                    <span class="la la-angle-right"></span>
-                                </a>
-                                <a href="#" class="dm-pagination__option">
-                                </a>
+                                @if (ViewBag.PageNumber > 1)
+                                {
+                                    <a asp-action="Index" asp-route-pageNumber="@(ViewBag.PageNumber - 1)" class="dm-pagination__link pagination-control">
+                                        <span class="la la-angle-left"></span>
+                                    </a>
+                                }
+                                @for (var i = 1; i <= ViewBag.TotalPages; i++)
+                                {
+                                    <a asp-action="Index" asp-route-pageNumber="@i" class="dm-pagination__link @(i == ViewBag.PageNumber ? "active" : "")">
+                                        <span class="page-number">@i</span>
+                                    </a>
+                                }
+                                @if (ViewBag.PageNumber < ViewBag.TotalPages)
+                                {
+                                    <a asp-action="Index" asp-route-pageNumber="@(ViewBag.PageNumber + 1)" class="dm-pagination__link pagination-control">
+                                        <span class="la la-angle-right"></span>
+                                    </a>
+                                }
                             </li>
-                            <li class="dm-pagination__item">
-                                <div class="paging-option">
-                                    <select name="page-number" class="page-selection">
-                                        <option value="20">20/page</option>
-                                        <option value="40">40/page</option>
-                                        <option value="60">@lenght /page</option>
-                                    </select>
-                                </div>
-                            </li>
+
                         </ul>
                     </nav>
 

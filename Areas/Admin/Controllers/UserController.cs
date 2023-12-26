@@ -1,4 +1,5 @@
-﻿using AspNetCoreHero.ToastNotification.Abstractions;
+﻿using System.Linq.Expressions;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using IS220_WebApplication.Areas.Admin.Models;
 using IS220_WebApplication.Areas.Admin.Models.Authentication;
 using IS220_WebApplication.Context;
@@ -26,10 +27,16 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
         }
         // GET
 
-        public IActionResult Index()
+        public IActionResult Index(string searchQuery, int page = 1, int pageSize = 3)
         {
-            IEnumerable<Aspnetuser> objUsers = _db.Aspnetusers.ToList();
-            return View(objUsers);
+            Console.WriteLine(searchQuery);
+            IQueryable<Aspnetuser> users = _db.Aspnetusers.OrderBy(u => u.Id);
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                users = users.Where(u => u.UserName.Contains(searchQuery));
+            }
+
+            return View(users.ToList());
         }
 
         [HttpGet]
@@ -45,7 +52,8 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             ModelState.Remove("User.PasswordHash");
             if (viewModel.AvatarPath != null)
             {
-                viewModel.User.AvatarPath = "/images/user/" + Utils.Utils.SaveImage(viewModel.AvatarPath, "wwwroot/images/user");
+                viewModel.User.AvatarPath =
+                    "/images/user/" + Utils.Utils.SaveImage(viewModel.AvatarPath, "wwwroot/images/user");
             }
             else
             {
@@ -53,6 +61,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 ModelState.Remove("User.AvatarPath");
                 ModelState.Remove("AvatarPath");
             }
+
             viewModel.User.Role = 1;
             Utils.Utils.CheckModelState(ModelState);
             switch (ModelState.IsValid)
@@ -74,7 +83,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                         _notyf?.Error("Email already exists.");
                         return View(viewModel);
                     }
-                    
+
                     var user = new Aspnetuser
                     {
                         UserName = viewModel.User.UserName,
@@ -87,13 +96,14 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                         AvatarPath = viewModel.User.AvatarPath,
                         LockoutEnabled = false,
                     };
-                    
+
                     var result = await _userManager.CreateAsync(user, "123456");
                     if (!result.Succeeded)
                     {
                         return Json(new
                             { isValid = false, errors = result.Errors.Select(e => e.Description).ToList() });
                     }
+
                     await _db.SaveChangesAsync();
                     _notyf?.Success("Add new user successfully.");
                     return RedirectToAction("Index");
@@ -111,7 +121,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                     // return Json(new { isValid = false, errors });
                     return View();
             }
-            
+
         }
 
 
@@ -126,22 +136,27 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
             {
                 User = user,
             };
-            
+
             return View(viewModel);
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(UserViewModel viewModel)
         {
-            
+
             ModelState.Remove("User.PasswordHash");
             var user = await _db.Aspnetusers
                 .FirstOrDefaultAsync(u => u.Id == viewModel.User.Id);
-            if (user == null){ return NotFound(); }
+            if (user == null)
+            {
+                return NotFound();
+            }
+
             if (viewModel.AvatarPath != null)
             {
-                viewModel.User.AvatarPath = "/images/user/" + Utils.Utils.SaveImage(viewModel.AvatarPath, "wwwroot/images/user");
+                viewModel.User.AvatarPath =
+                    "/images/user/" + Utils.Utils.SaveImage(viewModel.AvatarPath, "wwwroot/images/user");
             }
             else
             {
@@ -149,11 +164,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                 ModelState.Remove("User.AvatarPath");
                 ModelState.Remove("AvatarPath");
             }
-            Console.WriteLine("hehehehehe" + viewModel.User.Id);
-           
-            Console.WriteLine("hehehehehe" + viewModel.UserStatus);
-          
-            
+
             Utils.Utils.CheckModelState(ModelState);
             switch (ModelState.IsValid)
             {
@@ -183,8 +194,7 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                     user.Status = viewModel.User.Status;
                     user.Birth = viewModel.User.Birth;
                     user.AvatarPath = viewModel.User.AvatarPath;
-
-                     _db.Aspnetusers.Update(user);
+                    _db.Aspnetusers.Update(user);
                     await _db.SaveChangesAsync();
                     _notyf?.Success("Updated user successfully.");
                     return RedirectToAction("Index");
@@ -202,10 +212,10 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
                     // return Json(new { isValid = false, errors });
                     return View();
             }
-            
+
         }
-        
-        
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Remove(uint id)
@@ -219,14 +229,43 @@ namespace IS220_WebApplication.Areas.Admin.Controllers
 
             // Soft delete by updating status
             user.Status = "deleted";
+            user.Email = null;
             await _db.SaveChangesAsync();
 
             _notyf?.Success("User removed successfully.");
             return RedirectToAction("Index");
         }
-        
 
-        public void CheckModelState()
+
+    //     public IQueryable<Aspnetuser> FilterData(string column, IQueryable<Aspnetuser> users)
+    //     {
+    //         // Define the property to be used for sorting dynamically
+    //         Expression<Func<Aspnetuser, object>> orderByProperty;
+    //
+    //         switch (column)
+    //         {
+    //             case "emaill":
+    //                 orderByProperty = user => user.Email.OrderBy(Email);
+    //                 break;
+    //             case "birthday":
+    //                 orderByProperty = user => user.birthday;
+    //                 break;
+    //             // Add other cases for additional columns
+    //
+    //             default:
+    //                 // If the column name is not recognized, default to sorting by ID or another property
+    //                 orderByProperty = user => user.Id;
+    //                 break;
+    //         }
+    //
+    //         // Order the users based on the specified column
+    //         var newUsers = users.OrderBy(orderByProperty);
+    //
+    //         return ;
+    //     }
+    // }
+
+    public void CheckModelState()
         {
             foreach (var modelStateKey in ModelState.Keys)
             {
