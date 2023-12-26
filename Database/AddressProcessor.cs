@@ -9,7 +9,7 @@ namespace IS220_WebApplication.Database;
 
 public class AddressProcessor : Processor<Address>
 {
-    private readonly MyDbContext _db;
+    protected readonly MyDbContext _db;
     public AddressProcessor(MyDbContext db) : base(db)
     {
         _db = db;
@@ -20,10 +20,11 @@ public class AddressProcessor : Processor<Address>
 
     //     return _db.Addresses.Skip(start).Take(length).ToList();
     // }
-    public Address? GetDefaultAddress(uint userId)
+    public Address GetDefaultAddress(uint userId)
     {
         var defaultAddress = _db.Addresses
-            .FirstOrDefault(a => a.UserId == userId && a.IsDefault == true);
+            .Where(a => a.UserId == userId && a.IsDefault == true)
+            .FirstOrDefault();
         return defaultAddress;
     }
     public List<Address> GetNonDefaultAddresses(uint userId)
@@ -36,7 +37,8 @@ public class AddressProcessor : Processor<Address>
     public Address GetAddress(uint addressId)
     {
         var address = _db.Addresses
-            .FirstOrDefault(a => a.Id == addressId);
+            .Where(a => a.Id == addressId)
+            .FirstOrDefault();
         return address;
     }
     public Response UpdateAddress(Address address)
@@ -46,7 +48,14 @@ public class AddressProcessor : Processor<Address>
         {
             var existingAddresses = _db.Addresses.Where(a => a.UserId == address.UserId).ToList();
 
-            address.IsDefault = !existingAddresses.Any();
+            if (existingAddresses.Any())
+            {
+                address.IsDefault = false;
+            }
+            else
+            {
+                address.IsDefault = true;
+            }
 
             _db.Entry(address).State = EntityState.Modified;
             _db.SaveChanges();
@@ -67,7 +76,8 @@ public class AddressProcessor : Processor<Address>
         try
         {
             var address = _db.Addresses
-                .FirstOrDefault(a => a.Id == addressId);
+                .Where(a => a.Id == addressId)
+                .FirstOrDefault();
 
             if (address == null)
             {
@@ -140,10 +150,23 @@ public class AddressProcessor : Processor<Address>
         var response = new Response();
         try
         {
-
             var existingAddresses = _db.Addresses.Where(a => a.UserId == address.UserId).ToList();
 
-            address.IsDefault = !existingAddresses.Any();
+            if (existingAddresses.Count >= 3)
+            {
+                response.SetStatusCode(StatusCode.BadRequest);
+                response.SetMessage("Maximum of 3 addresses allowed per user");
+                return response;
+            }
+
+            if (existingAddresses.Any())
+            {
+                address.IsDefault = false;
+            }
+            else
+            {
+                address.IsDefault = true;
+            }
 
             _db.Addresses.Add(address);
             _db.SaveChanges();

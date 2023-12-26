@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Globalization;
 using System.Net;
 using AspNetCoreHero.ToastNotification.Abstractions;
@@ -36,14 +35,14 @@ public class ProfileController : Controller
             return RedirectToAction("index", "home");
         }
         var user = _userManager.GetUserAsync(User).Result;
-        Debug.Assert(user != null, nameof(user) + " != null");
         var defaultAddress = _address.GetDefaultAddress(user.Id);
         var nondefaultAddresses = _address.GetNonDefaultAddresses(user.Id);
         var viewModel = new CombinedViewModel
         {
             User = user,
             DefaultAddress = defaultAddress,
-            NonDefaultAddresses = nondefaultAddresses
+            NonDefaultAddresses = nondefaultAddresses,
+            // AddressUpdateModel = new AddressUpdateModel()
         };
         return View(viewModel);
     }
@@ -194,9 +193,9 @@ public class ProfileController : Controller
         };
         var result = _address.CreateAddress(address);
         // _logger.LogInformation("Status code: {StatusCode}", result.GetStatusCode().Value);
-        return (int)result.GetStatusCode().Value == 200
+        return (int)result.GetStatusCode()!.Value == 200
             ? new JsonResult(new { Ok = true, Message = "Address created successfully" })
-            : new JsonResult(new { Ok = false, Message = "Address creation failed" });
+            : new JsonResult(new { Ok = false, Message = result.GetMessage() });
     }
 
     [HttpPost]
@@ -221,7 +220,7 @@ public class ProfileController : Controller
 
         var result = _address.UpdateAddress(address);
 
-        return (int)result.GetStatusCode().Value == 200
+        return (int)result.GetStatusCode()!.Value == 200
             ? new JsonResult(new { Ok = true, Message = "Address updated successfully" })
             : new JsonResult(new { Ok = false, Message = "Address update failed" });
     }
