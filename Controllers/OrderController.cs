@@ -99,8 +99,18 @@ public class OrderController : Controller
                 Price = (int)items.Price,
             };
             _db.OrderDetails.Add(orderDetail);
+            if (orderDetail.GameType == GameType.Disc)
+            {
+                var game = await _db.Games.FindAsync(orderDetail.GameId);
+                if (game != null)
+                {
+                    game.Stock -= (int)orderDetail.Quantity;
+                    _db.Games.Update(game);
+                }
+            }
             await _db.SaveChangesAsync();
         }
+
         _db.Carts.RemoveRange(cartItems);
         await _db.SaveChangesAsync();
         _notyf?.Success("Order created successfully.");
