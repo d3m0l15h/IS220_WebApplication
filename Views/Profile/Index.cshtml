@@ -318,7 +318,7 @@
                                                                     </div>
                                                                     <div class="form-floating mb-3">
 
-                                                                        <input type="text" id="city" address-type="city"
+                                                                        <input type="text" id="city" address-type="district"
                                                                             class="form-control dropdown-toggle"
                                                                             data-bs-toggle="dropdown"
                                                                             placeholder="inputhere"
@@ -336,7 +336,7 @@
                                                                         <label for="phone">Phone number</label>
                                                                     </div>
                                                                     <div class="form-floating mb-3">
-                                                                        <input type="text" id="state" address-type="state"
+                                                                        <input type="text" address-type="province"
                                                                             class="form-control dropdown-toggle"
                                                                             data-bs-toggle="dropdown"
                                                                             placeholder="inputhere"
@@ -397,7 +397,7 @@
                                                                         </div>
                                                                         <div class="form-floating mb-3">
 
-                                                                            <input type="text" address-type="city"
+                                                                            <input type="text" address-type="district"
                                                                                 class="form-control dropdown-toggle"
                                                                                 data-bs-toggle="dropdown"
                                                                                 placeholder="inputhere" value="@item.City">
@@ -413,7 +413,7 @@
                                                                             <label for="phone">Phone number</label>
                                                                         </div>
                                                                         <div class="form-floating mb-3">
-                                                                            <input type="text" address-type="state"
+                                                                            <input type="text" address-type="province"
                                                                                 class="form-control dropdown-toggle"
                                                                                 data-bs-toggle="dropdown"
                                                                                 placeholder="inputhere" value="@item.State">
@@ -507,7 +507,6 @@
                                                     <div class="card-body">
                                                         <button class="btn btn-lg btn-dark" data-bs-toggle="modal"
                                                             data-bs-target="#createAddress">
-                                                            @* <i class="bx bxs-map fs-3 createAddress"></i> *@
                                                             Add New
                                                         </button>
                                                     </div>
@@ -622,8 +621,8 @@
                 Phone: $('.modal-body[destination-address="' + id + '"]').find('input[address-type="phone"]').val(),
                 Street: $('.modal-body[destination-address="' + id + '"]').find('input[address-type="street"]').val(),
                 Ward: $('.modal-body[destination-address="' + id + '"]').find('input[address-type="ward"]').val(),
-                City: $('.modal-body[destination-address="' + id + '"]').find('input[address-type="city"]').val(),
-                State: $('.modal-body[destination-address="' + id + '"]').find('input[address-type="state"]').val(),
+                City: $('.modal-body[destination-address="' + id + '"]').find('input[address-type="district"]').val(),
+                State: $('.modal-body[destination-address="' + id + '"]').find('input[address-type="province"]').val(),
             }),
             success: function (result) {
 
