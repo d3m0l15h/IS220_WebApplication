@@ -4,7 +4,7 @@
 }
 <link rel="stylesheet" href="~/static/css/main.css">
 <link rel="stylesheet" href="~/static/css/checkout.css">
-<section class="h-100">
+<section class="h-100 my-5">
     <div class="container h-100 py-3">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col">
@@ -12,6 +12,15 @@
                     style="border-radius: 16px; background-color: white">
                     <div class="card-body m-3 p-3">
                         @* @if ($address != null && $nonDefaultAddress != null) *@
+                        @if(Model.DefaultAddress == null){
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center">
+
+
+                                    <h6 class="mb-3 normal-text fs-2 mt-3 me-3">My addresses</h6>
+                                    <i data-bs-toggle="modal" data-bs-target="#createAddress"
+                                        class="bx bxs-map fs-3 createAddress"></i>
+                                </div>
+                        }
                         @if (@Model.DefaultAddress != null)
                         {
                             <div class="row gutters">

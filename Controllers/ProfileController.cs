@@ -120,11 +120,11 @@ public class ProfileController : Controller
     {
         var user = await _userManager.GetUserAsync(User);
         ModelState.Remove("User.Status");
-        if (!ModelState.IsValid)
-        {
-            _notyf.Error("Update failed");
-            return View("Index", model);
-        }
+        // if (!ModelState.IsValid)
+        // {
+        //     _notyf.Error("Update failed");
+        //     return View("Index", model);
+        // }
 
         if (user == null)
         {
@@ -142,8 +142,12 @@ public class ProfileController : Controller
             _notyf.Success("Profile updated successfully");
             return RedirectToAction("index", "profile");
         }
-        _notyf.Error("Update failed");
-        return RedirectToAction("index", "profile");
+        else
+        {
+
+            _notyf.Error("Update failed");
+            return RedirectToAction("index", "profile");
+        }
     }
 
     [HttpPost]
@@ -151,19 +155,23 @@ public class ProfileController : Controller
     public async Task<IActionResult> ResetPwd(CombinedViewModel model)
     {
         var user = await _userManager.GetUserAsync(User);
+        var defaultAddress = _address.GetDefaultAddress(user!.Id);
+        var nondefaultAddresses = _address.GetNonDefaultAddresses(user.Id);
         model.User = user;
+        model.DefaultAddress = defaultAddress;
+        model.NonDefaultAddresses = nondefaultAddresses;
 
         ViewBag.PasswordChangeAttempted = true;
         if (!ModelState.IsValid) { return View("index", model); }
 
-        var isCurrentPasswordValid = await _userManager.CheckPasswordAsync(user!, model.ChangePassword!.CurrentPassword);
+        var isCurrentPasswordValid = await _userManager.CheckPasswordAsync(user, model.ChangePassword!.CurrentPassword);
         if (!isCurrentPasswordValid)
         {
             ModelState.AddModelError("ChangePassword.CurrentPassword", "Current password is incorrect");
             return View("index", model);
         }
 
-        var changePasswordResult = await _userManager.ChangePasswordAsync(user!, model.ChangePassword!.CurrentPassword, model.ChangePassword.NewPassword);
+        var changePasswordResult = await _userManager.ChangePasswordAsync(user, model.ChangePassword!.CurrentPassword, model.ChangePassword.NewPassword);
         if (!changePasswordResult.Succeeded) return RedirectToAction("index", model);
 
         _notyf.Success("Password changed successfully");
