@@ -61,14 +61,19 @@ public class OrderController : Controller
     [HttpPost]
     public async Task<IActionResult> CreateOrder([FromBody] CombinedViewModel model)
     {
+        string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var user = await _userManager.GetUserAsync(User);
+        var cartItems = _db.Carts.Where(c => c.Uid == user.Id).ToList();
+        if (!cartItems.Any())
+        {
+            return Json(new { isValid = false, message = "Cannot create order. Your cart is empty." });
+        }
+
         if (model == null || model.CheckoutViewModel == null)
         {
-            // _notyf.Error('Checkout failed');
             return Json(new { isValid = false, message = "Model or CheckoutViewModel is null." });
         }
 
-        string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        var user = await _userManager.GetUserAsync(User);
         uint userIdValue;
         uint.TryParse(userId, out userIdValue);
         var order = new Order
@@ -81,7 +86,7 @@ public class OrderController : Controller
         };
         _db.Orders.Add(order);
         await _db.SaveChangesAsync();
-        var cartItems = _db.Carts.Where(c => c.Uid == user.Id).ToList();
+        // var cartItems = _db.Carts.Where(c => c.Uid == user.Id).ToList();
         var cartItemsWithPrice = from cartItem in cartItems
                                  join game in _db.Games on cartItem.GameId equals game.Id
                                  select new
