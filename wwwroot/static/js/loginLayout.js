@@ -148,8 +148,8 @@ $('[game-action="buy-now"]').click(() => {
     .done((d) => {
       window.location.href = "/checkout";
     })
-    .error((e) => {
-      notyf.error(e.responseText);
+    .fail((e) => {
+      return notyf.error("Cannot buy more");
     });
 });
 
@@ -170,11 +170,15 @@ $('[game-action="add-cart"]').click(() => {
     url: "/carts/add",
     encode: true,
     data: gameData,
-  }).done((d) => {
-    notyf.success(d);
-    syncCart();
-    new bootstrap.Offcanvas("#cartOffcanvas").show();
-  });
+  })
+    .done((d) => {
+      notyf.success(d);
+      syncCart();
+      new bootstrap.Offcanvas("#cartOffcanvas").show();
+    })
+    .fail((e) => {
+      return notyf.error("Add to cart failed");
+    });
 });
 
 $(document).on("click", '[game-action="remove-cart"]', function () {
