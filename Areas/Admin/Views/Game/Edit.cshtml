@@ -1,0 +1,302 @@
+﻿@model IS220_WebApplication.Areas.Admin.Models.GameViewModel
+
+@{
+    Layout = "_DashboardLayout";
+}
+
+<div class="contents">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="shop-breadcrumb">
+
+                <div class="breadcrumb-main">
+                    <h4 class="text-capitalize breadcrumb-title">Edit Game</h4>
+                    <div class="breadcrumb-action justify-content-center flex-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="#"><i class="uil uil-estate"></i>Game</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">edit game</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12">
+<!-- Start: product page -->
+<div class="product-add global-shadow px-sm-30 py-sm-50 px-0 py-20 bg-white radius-xl w-100 mb-40">
+<div class="row justify-content-center">
+<div class="col-xxl-7 col-lg-10">
+<div class="mx-sm-30 mx-20 ">
+<form method="post" enctype="multipart/form-data" asp-area="admin" asp-controller="game" asp-action="edit">
+@Html.AntiForgeryToken()
+@Html.HiddenFor(model => model.Game.Id)
+<!-- Start: card -->
+<div class="card add-product p-sm-30 p-20 mb-30">
+    <div class="card-body p-0">
+        <div class="card-header">
+            <h6 class="fw-500">About Game</h6>
+        </div>
+        <!-- Start: card body -->
+
+        <div class="add-product__body px-sm-40 px-20">
+            <!-- Start: form -->
+            <!-- form group -->
+            <div class="form-group">
+                <label for="name1">Title</label>
+                <input type="text" class="form-control" id="name1" asp-for="Game.Title" value="@Model.Game.Title">
+            </div>
+
+            <!-- form group 1 -->
+            <div class="form-group">
+                <label for="name2">Release</label>
+                <div class="dm-date-picker">
+                    <div class="form-group mb-0 form-group-calender">
+                        <div class="position-relative">
+                            <input type="text" class="form-control form-control-lg" id="datepicker3" placeholder="MM/DD/YYYY" asp-for="Game.ReleaseDate" value="@Model.Game.ReleaseDate.ToString("MM/dd/yyyy")">
+                            <a href="#">
+                                <img class="svg" src="~/admin/img/svg/calendar.svg" alt="calendar">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- form group 2 -->
+            <div class="form-group">
+                <div class="">
+                    <label for="">
+                        category
+                    </label>
+
+                    <div class="dm-tag-mode">
+
+                        <div class="dm-select">
+                            <select id="select-tag" class="form-control " multiple="multiple" asp-for="SelectedCategoryIds">
+                                @foreach (var category in Model.Categories)
+                                {
+                                    
+                                    <option value="@category.Id" selected="@Model.Game.Categories.Any(c => c.Id == category.Id)" >@category.Name</option>
+                                }
+                            </select>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- form group 3 -->
+            <div class="form-group quantity-appearance">
+                <label>price</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <img class="svg" src="~/admin/img/svg/vietnamese-dong.svg" alt="">
+                        </span>
+                    </div>
+                    <div class="pt_Quantity">
+                        <input type="text" class="form-control" min="0" step="1" value="@FormatNumber(Model.Game.Price)" data-inc="1" asp-for="Game.Price">
+                        @{
+                            string FormatNumber(decimal gamePrice)
+                            {
+                                return $"{gamePrice:n0}";
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- form group 6 -->
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" asp-for="Game.Description"></textarea>
+            </div>
+
+            <!-- form group 7 -->
+            <div class="form-group">
+                <label for="name8">Publisher</label>
+
+                <div class="dm-select-list d-flex align-center">
+                    <div class="dm-select">
+                        <select id="select-search" class="form-control " asp-for="Game.Publisher">
+                            @foreach (var pub in Model.Publishers!)
+                            {
+                                <option value="@pub.Id">@pub.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="ms-1">
+                        <button type="button" class="transparent uil uil-plus border-0" style="font-size: 20px"
+                                onclick="addWindow('publisher');">
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" class="transparent uil uil-pen border-0 ms-1" style="font-size: 15px"
+                                onclick="editWindow('publisher', 'Game.Publisher');">
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- form group 7.5 -->
+            <div class="form-group">
+                <label for="name9">Developer</label>
+
+                <div class="dm-select-list d-flex align-center">
+
+                    <div class="dm-select ">
+
+                        <select asp-for="Game.Developer" id="select-search2" class="form-control ">
+                            @foreach (var dev in Model.Developers!)
+                            {
+                                <option value="@dev.Id">@dev.Name</option>
+                            }
+                        </select>
+
+                    </div>
+                    <div class="ms-1">
+                        <button type="button" class="transparent uil uil-plus border-0" style="font-size: 20px"
+                                onclick="addWindow('developer');">
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" class="transparent uil uil-pen border-0 ms-1" style="font-size: 15px"
+                                onclick="editWindow('developer', 'Game.Developer');">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="name9">Type</label>
+                <div class="dm-select-list d-flex align-center">
+                    <div class="dm-select ">
+                        <select asp-for="Game.Type" class="form-control ">
+                            <option value="0">Software</option>
+                            <option value="1">Console</option>
+                            <option value="2">Both</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="name1">Stock</label>
+                <input type="number" min="0" class="form-control" id="name11" asp-for="Game.Stock" style="width: 20%">
+            </div>
+            
+            <div class="form-group">
+                <label for="name9">Status</label>
+                <div class="dm-select-list d-flex align-center">
+                    <div class="dm-select ">
+                        <select asp-for="Game.Status" class="form-control ">
+                            <option value="active">Active</option>
+                            <option value="deactivate">Deactivate</option>
+                            <option value="block">Block</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- form group 8 -->
+            <div class="form-group mb-0">
+                <label for="name10">Download link</label>
+                <input type="text" class="form-control" id="name10" asp-for="Game.DownloadLink">
+            </div>
+            <!-- End: form -->
+        </div>
+        <!-- End: card body -->
+    </div>
+</div>
+<!-- End: card -->
+
+<!-- Start: card -->
+<div class="card add-product p-sm-30 p-20 ">
+    <div class="card-body p-0">
+        <div class="card-header">
+            <h6 class="fw-500">Game image</h6>
+        </div>
+        <!-- Start: product body -->
+        <div class="add-product__body-img px-sm-40 px-20">
+            <div class="upload-product-media d-flex justify-content-between align-items-center mt-25">
+                <div class="upload-media-area d-flex">
+                    <img id="imagePreview" src="~/images/game/@Model.Game.ImgPath" alt="Image Preview"/>
+
+                    <div class=" upload-media-area__title  d-flex flex-wrap align-items-center ms-10">
+                        <div>
+                            <p id="imgName"></p>
+                            <span id="imgSize"></span>
+                        </div>
+                        <div class="upload-media-area__btn">
+                            <button type="button" class="transparent rounded-circle wh-30 border-0 color-danger">
+                                <img class="svg" src="~/admin/img/svg/image-plus.svg" alt="">
+                                <input id="upload" class="file-upload__input" type="file" asp-for="ImageFile" onchange="previewImage()"/>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- End: product body -->
+    </div>
+</div>
+<!-- End: card -->
+
+<!-- Start: button group -->
+<div class="button-group add-product-btn d-flex justify-content-sm-end justify-content-center mt-40">
+    <button class="btn btn-primary btn-default btn-squared text-capitalize" type="submit">
+        save product
+    </button>
+</div>
+<!-- End: button group -->
+
+</form>
+</div>
+</div>
+<!-- ends: col-lg-8 -->
+</div>
+</div>
+<!-- End: Product page -->
+</div>
+<!-- ends: col-lg-12 -->
+</div>
+</div>
+
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var typeSelect = document.querySelector('select[name="Game.Type"]');
+        var stockInput = document.querySelector('input#name11');
+
+        // Check the value on page load
+        if (typeSelect.value === '0') {
+            stockInput.setAttribute('disabled', 'disabled');
+        } else {
+            stockInput.removeAttribute('disabled');
+        }
+
+        // Listen for changes
+        typeSelect.addEventListener('change', function() {
+            if (this.value === '0') {
+                stockInput.setAttribute('disabled', 'disabled');
+            } else {
+                stockInput.removeAttribute('disabled');
+            }
+        });
+    });
+</script>

@@ -1,0 +1,25 @@
+.container {
+    max-width: 960px;
+}
+.card .payment-method-item,
+.card.addresses-item {
+    cursor: pointer;
+    background-color: white;
+}
+
+.card.addresses-item:hover {
+    background-color: #9fa8b9;
+}
+
+.card.payment-method-item.checked,
+.card.addresses-item.checked {
+    background-color: rgba(159, 168, 185, 1);
+}
+.createAddress{
+    cursor: pointer;
+}
+.dropdown-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}

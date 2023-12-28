@@ -1,0 +1,835 @@
+@{
+    Layout = "_DashboardLayout";
+}
+@model IS220_WebApplication.Areas.Admin.Models.OrderViewModel
+<div class="contents">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="shop-breadcrumb">
+
+                <div class="breadcrumb-main">
+                    <h4 class="text-capitalize breadcrumb-title">order</h4>
+                    <div class="breadcrumb-action justify-content-center flex-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a asp-area="Admin" asp-controller="dashboard" asp-action="index"><i class="uil uil-estate"></i>Home</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">order</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12">
+<div class="userDatatable orderDatatable global-shadow py-30 px-sm-30 px-20 radius-xl w-100 mb-30">
+<div class="project-top-wrapper d-flex justify-content-between flex-wrap mb-25 mt-n10">
+    <div class="d-flex align-items-center flex-wrap justify-content-center">
+        <div class="project-search order-search  global-shadow mt-10">
+            <form action="/" class="order-search__form">
+                <img src="~/admin/img/svg/search.svg" alt="search" class="svg">
+                <input class="form-control me-sm-2 border-0 box-shadow-none" type="search" placeholder="Filter by keyword" aria-label="Search">
+            </form>
+        </div><!-- End: .project-search -->
+        <div class="project-category d-flex align-items-center ms-md-30 mt-xxl-10 mt-15">
+            <p class="fs-14 color-gray text-capitalize mb-10 mb-md-0  me-10">Status :</p>
+            <div class="project-tap order-project-tap global-shadow">
+                <ul class="nav px-1" id="ap-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="ap-overview-tab" data-bs-toggle="pill" href="#ap-overview" role="tab" aria-selected="true">All</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="timeline-tab" data-bs-toggle="pill" href="#timeline" role="tab" aria-selected="false">Pending</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="activity-tab" data-bs-toggle="pill" href="#activity" role="tab" aria-selected="false">
+                            Confirmed
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="draft-tab" data-bs-toggle="pill" href="#draft" role="tab" aria-selected="false">Canceled</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="completed" data-bs-toggle="pill" href="#complete" role="tab" aria-selected="false">Completed</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- End: .project-category -->
+    </div><!-- End: .d-flex -->
+    <div class="content-center mt-10">
+        <div class="button-group m-0 mt-xl-0 mt-sm-10 order-button-group">
+            @* <button type="button" class="order-bg-opacity-secondary text-secondary btn radius-md">Export</button> *@
+            @* <button type="button" class="btn btn-sm btn-primary me-0 radius-md"> *@
+            @*    <i class="la la-plus"></i> Add order</button> *@
+        </div>
+    </div><!-- End: .content-center -->
+</div><!-- End: .project-top-wrapper -->
+<div class="tab-content" id="ap-tabContent">
+
+<div class="tab-pane fade show active" id="ap-overview" role="tabpanel" aria-labelledby="ap-overview-tab">
+    <!-- Start Table Responsive -->
+    <div class="table-responsive" style="overflow: visible;">
+        <table class="table mb-0 table-hover table-borderless border-0" style="overflow: visible;">
+            <thead>
+            <tr class="userDatatable-header">
+                <th>
+                    <div class="d-flex align-items-center">
+
+                        <div class="bd-example-indeterminate">
+                            <div class="checkbox-theme-default custom-checkbox  check-all">
+                                <input class="checkbox" type="checkbox" id="check-23e">
+                                <label for="check-23e">
+                                    <span class="checkbox-text ms-3">
+                                        order id
+
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Customers</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Status</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Amount</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title float-end">Date</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title float-end">Actions</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            @foreach (var order in Model.AllOrders)
+            {
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <div class="me-3 d-flex align-items-center">
+                                <div class="checkbox-group-wrapper">
+                                    <div class="checkbox-group d-flex">
+                                        <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                            <input class="checkbox" type="checkbox" id="check-grp-12">
+                                            <label for="check-grp-12"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="orderDatatable-title">
+                                <p class="d-block mb-0">
+                                    @order.Id
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title">
+                            @order.UidNavigation.Email
+                        </div>
+                    </td>
+                    <td>
+                        @switch (order.Status)
+                        {
+                            case 1U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
+                                </div>
+                                break;
+
+                            case 2U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-success text-success rounded-pill active">Confirmed</span>
+                                </div>
+                                break;
+
+                            case 3U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-success text-success rounded-pill active">Completed</span>
+                                </div>
+                                break;
+
+                            case 4U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-danger  text-danger rounded-pill active">Canceled</span>
+                                </div>
+                                break;
+                        }
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title">
+                            @{
+                                var total = order.OrderDetails.Aggregate(0, (current, orderDetail) => (int)(current + orderDetail.Price * (orderDetail.Quantity ?? 0)));
+                            }
+                            @string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", total)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title float-end">
+                            @order.Date
+                        </div>
+                    </td>
+
+                    <td style="position: relative;  overflow: visible;">
+                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-end">
+                            <div class="dropdown dropdown-click">
+                                <div class="btn-group dropleft">
+                                    <button class="btn btn-outline-lighten btn-sm">Status</button>
+
+
+                                    <button type="button" class="btn btn-outline-lighten btn-sm dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @(order.Status == 1 || order.Status == 2 ? "" : "disabled")>
+                                        <img src="~/admin/img/svg/chevron-down.svg" alt="chevron-down" class="svg">
+                                    </button>
+
+                                    <div class="dropdown-default dropdown-menu" style="position: absolute; z-index: 999;">
+
+
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" asp-route-status="2" asp-route-orderId="@order.Id">Confirmed</a>
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" asp-route-status="4" asp-route-orderId="@order.Id">Canceled</a>
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" asp-route-status="3" asp-route-orderId="@order.Id">Completed</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <li>
+                                <a asp-controller="Order" asp-action="Index" asp-route-id="@order.Id" class="view">
+                                    <i class="uil uil-eye"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- End: tr -->
+            }
+
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Responsive End -->
+</div>
+<div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
+    <!-- Start Table Responsive -->
+    <div class="table-responsive" style="overflow: visible;">
+            <table class="table mb-0 table-hover table-borderless border-0" style="overflow: visible;">
+            <thead>
+            <tr class="userDatatable-header">
+                <th>
+                    <div class="d-flex align-items-center">
+
+                        <div class="bd-example-indeterminate">
+                            <div class="checkbox-theme-default custom-checkbox  check-all">
+                                <input class="checkbox" type="checkbox" id="check-23u">
+                                <label for="check-23u">
+                                    <span class="checkbox-text ms-3">
+                                        order id
+
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Customers</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Status</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Amount</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title float-end">Date</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title float-end">Actions</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var order in Model.PendingOrders)
+            {
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <div class="me-3 d-flex align-items-center">
+                                <div class="checkbox-group-wrapper">
+                                    <div class="checkbox-group d-flex">
+                                        <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                            <input class="checkbox" type="checkbox" id="check-grp-12">
+                                            <label for="check-grp-12"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="orderDatatable-title">
+                                <p class="d-block mb-0">
+                                    @order.Id
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title">
+                            @order.UidNavigation.Email
+                        </div>
+                    </td>
+                    <td>
+                        @switch (order.Status)
+                        {
+                            case 1U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
+                                </div>
+                                break;
+
+                            case 2U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-success text-success rounded-pill active">Confirmed</span>
+                                </div>
+                                break;
+
+                            case 3U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-success text-success rounded-pill active">Completed</span>
+                                </div>
+                                break;
+
+                            case 4U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-danger  text-danger rounded-pill active">Canceled</span>
+                                </div>
+                                break;
+                        }
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title">
+                            @{
+                                var total = order.OrderDetails.Aggregate(0, (current, orderDetail) => (int)(current + orderDetail.Price * (orderDetail.Quantity ?? 0)));
+                            }
+                            @string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", total)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title float-end">
+                            @order.Date
+                        </div>
+                    </td>
+
+                    <td style="position: relative;  overflow: visible;">
+                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-end">
+                            <div class="dropdown dropdown-click">
+                                <div class="btn-group dropleft">
+                                    <button class="btn btn-outline-lighten btn-sm">Status</button>
+
+
+                                    <button type="button" class="btn btn-outline-lighten btn-sm dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @(order.Status == 1 || order.Status == 2 ? "" : "disabled")>
+                                        <img src="~/admin/img/svg/chevron-down.svg" alt="chevron-down" class="svg">
+                                    </button>
+
+                                    <div class="dropdown-default dropdown-menu" style="position: absolute; z-index: 999;">
+
+
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" asp-route-status="2" asp-route-orderId="@order.Id">Confirmed</a>
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" asp-route-status="4" asp-route-orderId="@order.Id">Canceled</a>
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" asp-route-status="3" asp-route-orderId="@order.Id">Completed</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <li>
+                                <a asp-controller="Order" asp-action="Index" asp-route-id="@order.Id" class="view">
+                                    <i class="uil uil-eye"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- End: tr -->
+            }
+
+            <!-- End: tr -->
+
+
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Responsive End -->
+</div>
+<div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">
+    <!-- Start Table Responsive -->
+    <div class="table-responsive" style="overflow: visible;">
+            <table class="table mb-0 table-hover table-borderless border-0" style="overflow: visible;">
+            <thead>
+            <tr class="userDatatable-header">
+                <th>
+                    <div class="d-flex align-items-center">
+
+                        <div class="bd-example-indeterminate">
+                            <div class="checkbox-theme-default custom-checkbox  check-all">
+                                <input class="checkbox" type="checkbox" id="check-23">
+                                <label for="check-23">
+                                    <span class="checkbox-text ms-3">
+                                        order id
+
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Customers</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Status</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Amount</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title float-end">Date</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title float-end">Actions</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            @foreach (var order in Model.ConfirmedOrders)
+            {
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <div class="me-3 d-flex align-items-center">
+                                <div class="checkbox-group-wrapper">
+                                    <div class="checkbox-group d-flex">
+                                        <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                            <input class="checkbox" type="checkbox" id="check-grp-12">
+                                            <label for="check-grp-12"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="orderDatatable-title">
+                                <p class="d-block mb-0">
+                                    @order.Id
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title">
+                            @order.UidNavigation.Email
+                        </div>
+                    </td>
+                    <td>
+                        @switch (order.Status)
+                        {
+                            case 1U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
+                                </div>
+                                break;
+
+                            case 2U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-success text-success rounded-pill active">Confirmed</span>
+                                </div>
+                                break;
+
+                            case 3U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-success text-success rounded-pill active">Completed</span>
+                                </div>
+                                break;
+
+                            case 4U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-danger  text-danger rounded-pill active">Canceled</span>
+                                </div>
+                                break;
+                        }
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title">
+                            @{
+                                var total = order.OrderDetails.Aggregate(0, (current, orderDetail) => (int)(current + orderDetail.Price * (orderDetail.Quantity ?? 0)));
+                            }
+                            @string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", total)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title float-end">
+                            @order.Date
+                        </div>
+                    </td>
+
+                    <td style="position: relative;  overflow: visible;">
+                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-end">
+                            <div class="dropdown dropdown-click">
+                                <div class="btn-group dropleft">
+                                    <button class="btn btn-outline-lighten btn-sm">Status</button>
+
+
+                                    <button type="button" class="btn btn-outline-lighten btn-sm dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @(order.Status == 1 || order.Status == 2 ? "" : "disabled")>
+                                        <img src="~/admin/img/svg/chevron-down.svg" alt="chevron-down" class="svg">
+                                    </button>
+
+                                    <div class="dropdown-default dropdown-menu" style="position: absolute; z-index: 999;">
+
+
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" asp-route-status="2" asp-route-orderId="@order.Id">Confirmed</a>
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" asp-route-status="4" asp-route-orderId="@order.Id">Canceled</a>
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" asp-route-status="3" asp-route-orderId="@order.Id">Completed</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <li>
+                                <a asp-controller="Order" asp-action="Index" asp-route-id="@order.Id" class="view">
+                                    <i class="uil uil-eye"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- End: tr -->
+            }
+            <!-- End: tr -->
+
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Responsive End -->
+</div>
+<div class="tab-pane fade" id="draft" role="tabpanel" aria-labelledby="draft-tab">
+    <!-- Start Table Responsive -->
+    <div class="table-responsive">
+        <table class="table mb-0 table-hover table-borderless border-0">
+            <thead>
+            <tr class="userDatatable-header">
+                <th>
+                    <div class="d-flex align-items-center">
+
+                        <div class="bd-example-indeterminate">
+                            <div class="checkbox-theme-default custom-checkbox  check-all">
+                                <input class="checkbox" type="checkbox" id="check-23c">
+                                <label for="check-23c">
+                                    <span class="checkbox-text ms-3">
+                                        order id
+
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Customers</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Status</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Amount</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title float-end">Date</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title float-end">Actions</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            @foreach (var order in Model.CancelledOrders)
+            {
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <div class="me-3 d-flex align-items-center">
+                                <div class="checkbox-group-wrapper">
+                                    <div class="checkbox-group d-flex">
+                                        <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                            <input class="checkbox" type="checkbox" id="check-grp-12">
+                                            <label for="check-grp-12"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="orderDatatable-title">
+                                <p class="d-block mb-0">
+                                    @order.Id
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title">
+                            @order.UidNavigation.Email
+                        </div>
+                    </td>
+                    <td>
+                        @switch (order.Status)
+                        {
+                            case 1U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
+                                </div>
+                                break;
+
+                            case 2U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-success text-success rounded-pill active">Confirmed</span>
+                                </div>
+                                break;
+
+                            case 3U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-success text-success rounded-pill active">Completed</span>
+                                </div>
+                                break;
+
+                            case 4U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-danger  text-danger rounded-pill active">Canceled</span>
+                                </div>
+                                break;
+                        }
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title">
+                            @{
+                                var total = order.OrderDetails.Aggregate(0, (current, orderDetail) => (int)(current + orderDetail.Price * (orderDetail.Quantity ?? 0)));
+                            }
+                            @string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", total)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title float-end">
+                            @order.Date
+                        </div>
+                    </td>
+
+                    <td style="position: relative;  overflow: visible;">
+                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-end">
+                            <li>
+                                <a asp-controller="Order" asp-action="Index" asp-route-id="@order.Id" class="view">
+                                    <i class="uil uil-eye"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- End: tr -->
+            }
+            <!-- End: tr -->
+
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Responsive End -->
+</div>
+<div class="tab-pane fade" id="complete" role="tabpanel" aria-labelledby="completed">
+    <!-- Start Table Responsive -->
+    <div class="table-responsive">
+        <table class="table mb-0 table-hover table-borderless border-0">
+            <thead>
+            <tr class="userDatatable-header">
+                <th>
+                    <div class="d-flex align-items-center">
+
+                        <div class="bd-example-indeterminate">
+                            <div class="checkbox-theme-default custom-checkbox  check-all">
+                                <input class="checkbox" type="checkbox" id="check-23c">
+                                <label for="check-23c">
+                                    <span class="checkbox-text ms-3">
+                                        order id
+
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Customers</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Status</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title">Amount</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title float-end">Date</span>
+                </th>
+                <th>
+                    <span class="userDatatable-title float-end">Actions</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            @foreach (var order in Model.CompletedOrders)
+            {
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <div class="me-3 d-flex align-items-center">
+                                <div class="checkbox-group-wrapper">
+                                    <div class="checkbox-group d-flex">
+                                        <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                            <input class="checkbox" type="checkbox" id="check-grp-12">
+                                            <label for="check-grp-12"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="orderDatatable-title">
+                                <p class="d-block mb-0">
+                                    @order.Id
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title">
+                            @order.UidNavigation.Email
+                        </div>
+                    </td>
+                    <td>
+                        @switch (order.Status)
+                        {
+                            case 1U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-warning  text-warning rounded-pill active">Pending</span>
+                                </div>
+                                break;
+
+                            case 2U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-success text-success rounded-pill active">Confirmed</span>
+                                </div>
+                                break;
+
+                            case 3U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-success text-success rounded-pill active">Completed</span>
+                                </div>
+                                break;
+
+                            case 4U:
+                                <div class="orderDatatable-status d-inline-block">
+                                    <span class="order-bg-opacity-danger  text-danger rounded-pill active">Canceled</span>
+                                </div>
+                                break;
+                        }
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title">
+                            @{
+                                var total = order.OrderDetails.Aggregate(0, (current, orderDetail) => (int)(current + orderDetail.Price * (orderDetail.Quantity ?? 0)));
+                            }
+                            @string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", total)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="orderDatatable-title float-end">
+                            @order.Date
+                        </div>
+                    </td>
+
+                    <td style="position: relative;  overflow: visible;">
+                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-end">
+
+                            <li>
+                                <a asp-controller="Order" asp-action="Index" asp-route-id="@order.Id" class="view">
+                                    <i class="uil uil-eye"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- End: tr -->
+            }
+            <!-- End: tr -->
+
+            </tbody>
+        </table>
+    </div>
+    <!-- Table Responsive End -->
+</div>
+
+</div>
+<div class="d-flex justify-content-md-end justify-content-center mt-15 pt-25 border-top">
+
+    <nav class="dm-page ">
+        <ul class="dm-pagination d-flex">
+            <li class="dm-pagination__item">
+                <a href="#" class="dm-pagination__link pagination-control">
+                    <span class="la la-angle-left"></span>
+                </a>
+                <a href="#" class="dm-pagination__link">
+                    <span class="page-number">1</span>
+                </a>
+                <a href="#" class="dm-pagination__link active">
+                    <span class="page-number">2</span>
+                </a>
+                <a href="#" class="dm-pagination__link">
+                    <span class="page-number">3</span>
+                </a>
+                <a href="#" class="dm-pagination__link pagination-control">
+                    <span class="page-number">...</span>
+                </a>
+                <a href="#" class="dm-pagination__link">
+                    <span class="page-number">12</span>
+                </a>
+                <a href="#" class="dm-pagination__link pagination-control">
+                    <span class="la la-angle-right"></span>
+                </a>
+                <a href="#" class="dm-pagination__option">
+                </a>
+            </li>
+            <li class="dm-pagination__item">
+                <div class="paging-option">
+                    <select name="page-number" class="page-selection">
+                        <option value="20">20/page</option>
+                        <option value="40">40/page</option>
+                        <option value="60">60/page</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+
+</div>
+</div><!-- End: .userDatatable -->
+</div><!-- End: .col -->
+</div>
+</div>
+
+</div>

@@ -1,0 +1,39 @@
+* {
+    transition: all .2s linear;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    font-size: 16px;
+}
+
+th {
+    color: var(--main-color);
+    font-size: 20px;
+}
+
+th, td {
+    padding: 20px;
+}
+
+.card {
+    background-color: transparent;
+}
+
+.list-group-item {
+    font-size: .9rem;
+}
+
+img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.col-3:hover a{
+    transform: scale(1.1);
+    transition: .3s linear;
+}

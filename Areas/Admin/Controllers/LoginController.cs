@@ -1,53 +1,85 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
-using AspNetCoreHero.ToastNotification.Notyf;
-using IS220_WebApplication.Context;
 using IS220_WebApplication.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace IS220_WebApplication.Areas.Admin.Controllers
 {
     [Area("admin")]
     public class LoginController : Controller
     {
-        private readonly MyDbContext _db;
-
         private readonly INotyfService? _notyf;
+        private readonly UserManager<Aspnetuser> _userManager;
+        private readonly SignInManager<Aspnetuser> _signInManager;
 
-        public LoginController(MyDbContext db, INotyfService notyf)
+
+        public LoginController(INotyfService notyf, UserManager<Aspnetuser> userManager, SignInManager<Aspnetuser> signInManager)
         {
-            _db = db;
             _notyf = notyf;
+            _userManager = userManager;
+            _signInManager = signInManager; 
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("email") == null)
-                return View();
-
-            return RedirectToAction("Index", "Dashboard");
+            if (User.Identity is { IsAuthenticated: true }) return RedirectToAction("index", "dashboard");
+            return View();
         }
 
         [HttpPost]
-        public IActionResult Index(User user)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index(Aspnetuser user)
         {
-            if (HttpContext.Session.GetString("email") == null)
-            {
-                var u = _db.Users.FirstOrDefault(x => x.Username.Equals(user.Username) &&
-                                                      x.Password.Equals(user.Password) &&
-                                                      x.Role == 1);
-                if (u != null)
-                {
-                    HttpContext.Session.SetString("email", u.Email);
-                    _notyf?.Success("Login success");
-                    return RedirectToAction("index", "dashboard");
-                }
-            }
+            ModelState.Remove("Status");
+            if (!ModelState.IsValid) return View();
 
-            _notyf?.Error("Login failed");
+            // Check if the user exists
+            var existingUser = await _userManager.FindByNameAsync(user.UserName!);
+            if (existingUser == null)
+            {
+                _notyf?.Error("Login failed");
+                return View();
+            }
+            
+            var result = await _signInManager.PasswordSignInAsync(user.UserName!, user.PasswordHash!, false, false);
+            if (result.Succeeded)
+            {
+                if (existingUser.Role != 1)
+                {
+                    _notyf?.Error("Permission Invalid");
+                    await _signInManager.SignOutAsync();
+                    return View();
+                }
+                
+                var originalUrl = HttpContext.Request.Cookies["OriginalUrl"];
+                HttpContext.Response.Cookies.Delete("OriginalUrl");
+               
+                
+                if (!string.IsNullOrEmpty(originalUrl))
+                {
+                    return LocalRedirect(originalUrl);
+                }
+                _notyf?.Success("Login successful");
+
+                @ViewData["User"] = "1234567";
+                
+                return RedirectToAction("index", "dashboard");
+            }
+            
+            
+            _notyf?.Error("Wrong username or password");
             return View();
         }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            _notyf?.Success("You have been logged out");
+            return RedirectToAction("index", "login", new { area = "admin" });
+        }
     }
-    
 }
-

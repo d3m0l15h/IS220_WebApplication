@@ -1,0 +1,125 @@
+@{
+    Layout = "_DashboardLayout";
+}
+@model IS220_WebApplication.Areas.Admin.Models.UserViewModel
+
+<div class="contents">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="d-flex align-items-center user-member__title mb-30 mt-30">
+                    <h4 class="text-capitalize">add user</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="user-info-tab w-100 bg-white global-shadow radius-xl mb-50">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade  show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <div class="row justify-content-center">
+                                <div class="col-xxl-4 col-10">
+                                     <form method="post" asp-area="admin" asp-controller="user" asp-action="add" enctype="multipart/form-data">
+                                     <div class="mt-sm-40 mb-sm-50 mt-20 mb-20">
+                                         <div class="user-tab-info-title mb-sm-40 mb-20 text-capitalize">
+                                             <h5 class="fw-500">Personal Information</h5>
+                                         </div>
+                                         <div class="account-profile d-flex align-items-center mb-4 ">
+                                             <div class="ap-img pro_img_wrapper">
+                                                 <input id="upload" type="file" class="d-none" accept="jpg, png" asp-for="AvatarPath" onchange="previewImage()" >
+                                                 <!-- Profile picture image-->
+                                                 <label for="upload">
+                                                     <img id="imagePreview" class="ap-img__main rounded-circle wh-120 bg-lighter d-flex" src="~/admin/img/svg/user.svg" alt="profile">
+                                                     <span class="cross" id="remove_pro_pic">
+                                                         <img src="~/admin/img/svg/camera.svg" alt="camera" class="svg">
+                                                     </span>
+                                                 </label>
+                                             </div>
+
+                                         </div>
+                                         <div class="edit-profile__body">
+                                           
+                                             <div class="form-group mb-25">
+                                                 <label for="username">username</label>
+                                                 <input type="text" class="form-control" id="username" placeholder="NguyenVanA" asp-for="User.UserName" required>
+                                             </div>
+                                             <div class="form-group mb-25">
+                                                 <label for="firstname">first name</label>
+                                                 <input type="text" class="form-control" id="firstname" placeholder="Nguyen" asp-for="User.FirstName" required>
+                                             </div>
+                                             <div class="form-group mb-25">
+                                                 <label for="lastname">last name</label>
+                                                 <input type="text" class="form-control" id="lastname" placeholder="Van A" asp-for="User.LastName" required>
+                                             </div>
+
+                                             <div class="form-group mb-25">
+                                                 <label for="email">Email</label>
+                                                 <input type="email" class="form-control" id="email" placeholder="sample@gmail.com" asp-for="User.Email" required>
+                                             </div>
+                                             <div class="form-group mb-25">
+                                                 <label for="phoneNumber">phone number</label>
+                                                 <input type="tel" class="form-control" id="phoneNumber" placeholder="0123456789" asp-for="User.Phone" required>
+                                             </div>
+                                             <div class="form-group mb-25 form-group-calender">
+                                                 <label for="datepicker">Birthday</label>
+                                                 <div class="position-relative">
+                                                     <input type="text" class="form-control" id="datepicker" placeholder="YYYY-MM-DD" asp-for="User.Birth" required>
+                                                     <a href="#">
+                                                         <img class="svg" src="~/admin/img/svg/calendar.svg" alt="calendar">
+                                                     </a>
+                                                 </div>
+                                             </div>
+
+                                             <div class="form-group mb-25 status-radio">
+                                                 <label class="mb-15">status</label>
+                                                 <div class="d-flex">
+                                                     <div class="radio-horizontal-list d-flex flex-wrap">
+                                                            
+                                                         <div class="radio-theme-default custom-radio ">
+                                                             <input class="radio" type="radio" value="activated" asp-for="UserStatus" id="radio-status-1">
+                                                             <label for="radio-status-1">
+                                                                 <span class="radio-text">Activated</span>
+                                                             </label>
+                                                         </div>
+                                                         <div class="radio-theme-default custom-radio ">
+                                                             <input class="radio" type="radio"  value="deactivated" asp-for="UserStatus" id="radio-status-2">
+                                                             <label for="radio-status-2">
+                                                                 <span class="radio-text">Deactivated</span>
+                                                             </label>
+                                                         </div>
+
+                                                         <div class="radio-theme-default custom-radio ">
+                                                             <input class="radio" type="radio"  value="blocked" asp-for="UserStatus" id="radio-status-3">
+                                                             <label for="radio-status-3">
+                                                                 <span class="radio-text">blocked</span>
+                                                             </label>
+                                                         </div>
+
+
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                             <div class="button-group d-flex pt-sm-25 justify-content-md-end justify-content-start ">
+                                                 <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize radius-md btn-sm">
+                                                     cancel
+                                                 </button>
+                                                 <button type="submit" class="btn btn-primary btn-default btn-squared text-capitalize radius-md shadow2 btn-sm">
+                                                     Save &amp; Next
+                                                 </button>
+                                             </div>
+                                            
+                                         </div>
+                                     </div>
+                                     </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+/*------------------------- DOWNLOAD PAGE -------------------------*/
+.about {
+  /*display: flex;*/
+  margin-top: 2rem;
+}
+
+.about h2 {
+  display: inline-flex;
+  padding-bottom: 4px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-bottom: 4px solid var(--main-color);
+}
+
+.about-info {
+  width: 60%;
+}
+
+.about-table {
+  width: 40%;
+}
+
+.about-table tr td:first-child {
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+.about p {
+  font-size: 0.938rem;
+  margin: 1rem;
+  text-align: justify;
+}
+
+.screenshots-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  gap: 10px;
+  justify-content: center;
+  max-width: 800px;
+  margin: auto;
+  width: 100%;
+}
+
+.screenshots-content img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+}

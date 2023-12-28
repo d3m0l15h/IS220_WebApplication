@@ -1,0 +1,25 @@
+@model Developer
+@{
+    Layout = "_BlankLayout";
+}
+
+<div class="card card-horizontal card-default card-md mb-4">
+    <div class="card-header">
+        <h6>Developer</h6>
+    </div>
+    <div class="card-body py-md-30">
+        <div class="horizontal-form">
+            <form asp-area="admin" asp-controller="developer" asp-action="delete" method="post">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model =>model.Id)
+                <h2>Are you sure to delete @Model.Name</h2>
+                <div class="form-group row mb-25">
+                    <div class="layout-button mt-25">
+                        <button type="submit" class="btn btn-primary btn-default btn-squared px-30">Yes</button>
+                        <button type="button" class="btn btn-default btn-squared btn-light px-20 " onclick="window.close();">cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
