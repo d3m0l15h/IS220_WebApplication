@@ -5,7 +5,7 @@
   </a>
 </p>
 
-## Develope the Game Store website using ASP.NET Core MVC .NET 7.0
+## Develop a Game Store website using ASP.NET Core MVC .NET 7.0
 
 ## 👨‍💻 Developers
 - Dao Tien Dat
