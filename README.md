@@ -5,25 +5,20 @@
   </a>
 </p>
 
-## Develop a Game Store website using ASP.NET Core MVC .NET 7.0
+## ❄️ ABOUT
+This is the project for the course "Building Information Systems On Frameworks _ IS220" at our university. The topic is Developing a game-selling website using ASP.NET Core MVC (DOTNET 7.0).
+Time: about 75 days
 
-## 👨‍💻 Developers
-- Dao Tien Dat
+## 👨‍💻 DEVELOPERS
+- Dao Tien Dat - LEADER
 - Dao Minh Huy
 - Phan Chi Cuong
 - Truong Duc Quoc
 
-## ⚒️ Techs
+## ⚒️ TECHS - STACK
 | Front end | Bootstrap, SwiperJS |
 |---|---|
 | Back end | ASP.NET Core MVC |
 | Database | MySQL |
 
-### Nuget Installed Packages:
-- Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
-- Microsoft.EntityFrameworkCore
-- Microsoft.EntityFrameworkCore.Tools
-- Microsoft.VisualStudio.Web.CodeGeneration.Design
-- MySql.EntityFrameworkCore
-- MySql.Connector
-- AspNetCoreHero.ToastNotification
+THANKS FOR READING OUR PROJECT
