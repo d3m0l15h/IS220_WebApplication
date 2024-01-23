@@ -16,15 +16,17 @@ This is the project for the course "Building Information Systems On Frameworks _
 Time: about 75 days
 
 ## 👨‍💻 DEVELOPERS
-- Dao Tien Dat - LEADER
-- Dao Minh Huy
-- Phan Chi Cuong
-- Truong Duc Quoc
+| Name | Role (FE: Front end, BE: Back end) |
+|--|--|
+| Dao Tien Dat | Leader, BE |
+| Dao Minh Huy | FE, UX/UI |
+| Phan Chi Cuong | FE, BE |
+| Truong Duc Quoc | BE |
 
 ## ⚒️ TECHS - STACK
-| Front - end | Bootstrap, SwiperJS |
+| Front end | Bootstrap, SwiperJS |
 |---|---|
-| Back - end | ASP.NET Core MVC |
+| Back end | ASP.NET Core MVC |
 | Database | MySQL |
 
 ## 📷 GALLERY
