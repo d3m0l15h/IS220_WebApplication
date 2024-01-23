@@ -6,10 +6,10 @@
 </p>
 
 ## 📒 INDEX
-- [ABOUT](#🔰-about)
-- [DEVELOPERS](#👨‍💻-developers)
-- [TECHS - STACK](#⚒️-techs---stack)
-- [GALLERY](#📷-gallery)
+- [ABOUT](#-about)
+- [DEVELOPERS](#-developers)
+- [TECHS - STACK](#%EF%B8%8F-techs---stack)
+- [GALLERY](#-gallery)
 
 ## 🔰 ABOUT
 This is the project for the course "Building Information Systems On Frameworks _ IS220" at our university. The topic is Developing a game-selling website using ASP.NET Core MVC (DOTNET 7.0).
